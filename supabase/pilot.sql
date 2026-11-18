@@ -17,7 +17,7 @@ create table public.posts (
   id uuid primary key default gen_random_uuid(),
   campus text not null,
   author uuid not null,
-  board text not null check (board in ('free', 'qna', 'review', 'info')),
+  board text not null check (board in ('free', 'qna', 'review', 'buddy', 'info')),
   title text not null check (length(trim(title)) between 1 and 120),
   body text not null check (length(trim(body)) between 1 and 3000),
   locale text not null check (length(locale) <= 10),
@@ -98,7 +98,8 @@ language sql stable security definer set search_path = '' as $$
   select m.campus, m.role, m.display_name from public.campus_members m where m.id = auth.uid()
 $$;
 
-create function public.list_posts(p_feed text, p_limit int default 50)
+-- p_query: plain text searched in titles and bodies (case-insensitive).
+create function public.list_posts(p_feed text, p_limit int default 50, p_query text default null)
 returns table (id uuid, board text, title text, excerpt text, created_at timestamptz, likes int, comments int, locale text)
 language sql stable security definer set search_path = '' as $$
   with me as (select m.campus from public.campus_members m where m.id = auth.uid()),
@@ -108,6 +109,8 @@ language sql stable security definer set search_path = '' as $$
       (select count(*)::int from public.comments c where c.post = p.id and not c.hidden) as comment_count
     from public.posts p join me on p.campus = me.campus
     where not p.hidden and (p_feed in ('all', 'hot') or p.board = p_feed)
+      and (nullif(trim(p_query), '') is null
+        or strpos(lower(p.title || ' ' || p.body), lower(trim(p_query))) > 0)
   )
   select f.id, f.board, f.title, left(f.body, 90), f.created_at, f.like_count, f.comment_count, f.locale
   from feed f
@@ -297,7 +300,7 @@ do $$
 declare f text;
 begin
   foreach f in array array[
-    'require_member()', 'my_membership()', 'list_posts(text,int)', 'get_post(uuid)',
+    'require_member()', 'my_membership()', 'list_posts(text,int,text)', 'get_post(uuid)',
     'create_post(text,text,text,text,boolean,text,text[],int)', 'add_comment(uuid,text,boolean)',
     'toggle_like(uuid)', 'report_content(uuid,uuid)', 'delete_post(uuid)', 'delete_comment(uuid)',
     'moderation_queue()', 'request_buddy(timestamptz,text,text[],text)', 'list_buddy_requests()',

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Check, ClipboardList, Globe, GraduationCap, House, MapPin, Phone, Pill, X } from "lucide-react";
 import { useI18n, type MessageKey } from "../i18n";
 import { LOCALES } from "../i18n/locales";
-import { href, useRoute } from "./router";
+import { go, href, useRoute } from "./router";
 import { Home } from "../pages/Home";
 import { Intake } from "../pages/Intake";
 import { CardView } from "../pages/CardView";
@@ -12,6 +12,8 @@ import { Places } from "../pages/Places";
 import { Info } from "../pages/Info";
 import { Community } from "../pages/Community";
 import { Campus } from "../pages/Campus";
+import { Welcome } from "../pages/Welcome";
+import { useSchool } from "../state/prefs";
 
 const NAV: { to: string; key: MessageKey; Icon: typeof House }[] = [
   { to: "home", key: "nav.home", Icon: House },
@@ -86,6 +88,7 @@ export function App() {
   const main = useRef<HTMLElement>(null);
   const tabbar = useRef<HTMLElement>(null);
   const showMode = route[0] === "card" && route[1] === "show";
+  const school = useSchool();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -105,7 +108,15 @@ export function App() {
     const observer = new ResizeObserver(sync);
     observer.observe(bar);
     return () => observer.disconnect();
-  }, [showMode, locale]);
+  }, [showMode, locale, school, route[0] === "welcome"]);
+
+  // First run (no school choice saved yet) or #/welcome: the welcome screen, without the app shell.
+  if (school === null || route[0] === "welcome")
+    return (
+      <main ref={main} tabIndex={-1} className="welcome-main">
+        <Welcome onDone={() => go("home")} />
+      </main>
+    );
 
   if (showMode)
     return (

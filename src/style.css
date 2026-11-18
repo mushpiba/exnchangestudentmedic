@@ -302,7 +302,7 @@ dialog::backdrop { background: rgb(22 27 26 / 0.55); }
 .mini-slip .slip-body { padding: 12px 16px 16px; }
 .ms-title { display: block; font-size: 16px; line-height: 24px; font-weight: 600; }
 .ms-row { display: flex; align-items: flex-end; gap: 12px; height: 32px; color: var(--ink-2); font-size: 16px; line-height: 24px; }
-.ms-row span { flex: none; width: 64px; }
+.ms-row span { flex: none; min-width: 64px; white-space: nowrap; }
 .ms-row i { flex: 1; height: 1px; margin-bottom: 6px; border-bottom: 1.5px dotted var(--perf); }
 .action2 {
   display: flex; align-items: center; gap: 16px; padding: 16px;
@@ -401,6 +401,35 @@ dialog::backdrop { background: rgb(22 27 26 / 0.55); }
 .lang-filter button { flex: none; white-space: nowrap; min-height: 48px; padding: 8px 14px; border-radius: 999px; }
 .lang-filter button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
 
+/* Welcome (first run): language, then school. The slip fills in as the student chooses. */
+.welcome-main { width: 100%; padding: 0; min-height: 100dvh; }
+.welcome { max-width: 520px; margin: 0 auto; padding: 16px var(--gutter) calc(96px + env(safe-area-inset-bottom)); }
+.welcome-top { display: flex; align-items: center; justify-content: space-between; min-height: 48px; }
+.welcome-top .step-count { color: var(--ink-2); }
+.welcome-slip { margin: 16px 0 28px; }
+.welcome-slip .slip-stub { padding: 14px 20px; }
+.welcome-slip .slip-body { padding: 8px 20px 16px; }
+.ws-title { display: block; font: 600 16px/24px var(--f-latin); letter-spacing: 0.04em; color: var(--ink-2); }
+.ws-row { display: flex; align-items: baseline; gap: 12px; min-height: 44px; padding: 8px 0; }
+.ws-row + .ws-row { border-top: 1px solid var(--paper-rule); }
+.ws-row > span { flex: none; width: 72px; color: var(--ink-2); }
+.ws-row strong { flex: 1; min-width: 0; font-size: 24px; line-height: 32px; font-weight: 600; transition: opacity 0.2s var(--ease); }
+.welcome h1 { margin: 0 0 8px; font-size: 24px; line-height: 32px; }
+.welcome h1 + .muted { margin-bottom: 16px; }
+.welcome-langs { margin-top: 0; }
+.welcome-schools { display: grid; gap: 12px; }
+.school-option { align-items: center; min-height: 72px; padding: 14px 16px; }
+.school-option .icon-box { flex: none; }
+.option-text { display: grid; gap: 2px; flex: 1; min-width: 0; }
+.option-text small { color: var(--ink-2); font-weight: 400; }
+.school-option[aria-pressed="true"] .hl { background-size: 100% 62%; }
+.welcome-actions {
+  position: fixed; inset: auto 0 0; z-index: 3; display: flex; gap: 8px;
+  padding: 12px max(var(--gutter), calc((100% - 520px) / 2 + var(--gutter))) max(12px, env(safe-area-inset-bottom));
+  background: var(--bg); border-top: 1px solid var(--hair);
+}
+.welcome-actions > button { flex: 1; min-height: 56px; }
+
 /* ---------- Posts (community) ---------- */
 .post-list li { border-bottom: 1px solid var(--hair); }
 .post-list a { display: grid; gap: 4px; padding: 14px 2px; color: var(--ink); text-decoration: none; }
@@ -472,6 +501,20 @@ dialog::backdrop { background: rgb(22 27 26 / 0.55); }
 }
 .step-actions > button { flex: 1; min-height: 56px; }
 .make-now { width: 100%; margin-top: 12px; }
+.translate-box { display: grid; gap: 10px; margin-top: 24px; padding: 16px; border: 1px solid var(--hair-2); border-radius: 16px; background: var(--surface); }
+.translate-box h2 { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 18px; }
+.translate-box p { margin: 0; }
+.translate-preview { display: grid; gap: 4px; padding: 12px; border-radius: 12px; background: var(--paper); }
+.translate-preview strong { font-size: 18px; line-height: 26px; font-weight: 600; }
+.server-tag { color: var(--ink-3); }
+.detail-q { margin-top: 24px; }
+.detail-q h2 { margin: 0 0 8px; font-size: 18px; line-height: 26px; }
+.danger-notice { margin-top: 12px; }
+.line.is-danger dt { color: var(--sos-ink); }
+.danger-tag {
+  display: inline-flex; align-items: center; gap: 4px; margin-inline-start: 8px; padding: 0 8px; border-radius: 6px;
+  background: var(--sos-soft); color: var(--sos); font-size: 16px; font-weight: 600; vertical-align: 1px;
+}
 
 /* ---------- Card (student preview) and show mode ---------- */
 .card .slip-stub { padding: 20px; }
@@ -491,6 +534,8 @@ dialog::backdrop { background: rgb(22 27 26 / 0.55); }
 .v-mine { color: var(--ink-2); text-align: left; }
 .v-orig { font-size: 22px; line-height: 32px; font-weight: 500; white-space: pre-wrap; overflow-wrap: anywhere; text-align: left; }
 .v-note { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-3); }
+.v-orig-label { margin-top: 8px; color: var(--ink-2); font-weight: 500; }
+.v-orig.small-orig { font-size: 18px; line-height: 28px; color: var(--ink-2); }
 .lines.large .v-ko { font-size: 32px; line-height: 40px; }
 .lines.large .v-orig { font-size: 24px; line-height: 34px; }
 .staff-note { display: flex; align-items: flex-start; gap: 8px; margin: 4px 0 0; padding-top: 16px; border-top: 1px solid var(--paper-rule); color: var(--ink-2); }
@@ -613,6 +658,24 @@ dialog.phrase[open] { animation: fade 0.2s var(--ease); }
 .recognized summary, .hint summary { min-height: 48px; display: flex; align-items: center; cursor: pointer; font-weight: 500; }
 
 /* ---------- Places & info ---------- */
+/* In-app map (temporary: OpenStreetMap) */
+.map-cats { display: flex; gap: 8px; overflow-x: auto; margin: 0 calc(-1 * var(--gutter)) 12px; padding: 0 var(--gutter) 4px; scrollbar-width: none; }
+.map-cats::-webkit-scrollbar { display: none; }
+.map-cats button { flex: none; white-space: nowrap; gap: 8px; padding: 8px 14px; border-radius: 999px; }
+.map-cats button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; border: 1px solid var(--hair-2); flex: none; }
+.dot.big { width: 14px; height: 14px; }
+.place-map { height: 320px; border-radius: 16px; overflow: hidden; border: 1px solid var(--hair-2); background: var(--raised); z-index: 0; }
+.place-map .leaflet-control-attribution { font-size: 11px; }
+.place-card { display: grid; gap: 12px; margin-top: 12px; padding: 16px; border: 1px solid var(--hair-2); border-radius: 16px; background: var(--surface); }
+.place-card-head { display: grid; gap: 2px; }
+.place-card-head strong { font-size: 20px; line-height: 28px; font-weight: 600; }
+.place-card-head span { color: var(--ink-2); }
+.place-card .muted { margin: 0; }
+.place-list { margin-top: 12px; }
+.place-list .item { width: 100%; justify-content: flex-start; border: 0; border-radius: 0; background: transparent; text-align: start; font-weight: 400; min-height: 64px; }
+.place-list .item[aria-pressed="true"] { background: var(--hover); }
+.map-note { margin: 12px 0 0; color: var(--ink-3); }
 .facility { display: grid; gap: 4px; padding: 16px 0; border-bottom: 1px solid var(--hair); }
 .facility .row { margin-top: 6px; }
 .status.unknown { color: var(--warn-ink); font-weight: 500; }

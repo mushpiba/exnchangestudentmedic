@@ -1,7 +1,7 @@
 // One interface for the school community and buddy features.
 // Preview mode (no backend configured) keeps everything in this tab; live mode uses Supabase.
 
-export const BOARDS = ["free", "qna", "review", "info"] as const;
+export const BOARDS = ["free", "qna", "review", "buddy", "info"] as const;
 export type Board = (typeof BOARDS)[number];
 export type Feed = Board | "hot" | "all";
 
@@ -51,7 +51,8 @@ export type NewPost = {
 
 export interface CommunityApi {
   mode: "preview" | "live";
-  list(feed: Feed): Promise<PostSummary[]>;
+  /** `query` searches titles and bodies of this school's posts. */
+  list(feed: Feed, query?: string): Promise<PostSummary[]>;
   get(id: string): Promise<Post | null>;
   create(post: NewPost): Promise<string>;
   comment(postId: string, body: string, anonymous: boolean): Promise<void>;

@@ -3,6 +3,7 @@ import { createContext, useContext, useMemo, useReducer, type ReactNode } from "
 import type { MessageKey } from "../i18n";
 import { ingredientKey } from "../content/medicines";
 import { sideKey, symptomKey, vasKey } from "../content/symptoms";
+import { detailLabelKey, detailsFor, isDanger, optionKey } from "../content/details";
 
 export type TakenMedicine = { id: string; name: string; ingredients: string[] };
 
@@ -23,8 +24,14 @@ export type Card = {
   takeText: string;
   takeItems: TakenMedicine[];
   past: string[];
+  /** Family history (parents, siblings). */
+  family: string[];
   preg: string;
   notes: string;
+  /** Answers to the symptom detail questions: question id → chosen options. */
+  details: Record<string, string[]>;
+  /** Korean translations of the student's own words, keyed by the exact text (made on request). */
+  translations: Record<string, string>;
 };
 
 export const emptyCard = (): Card => ({
@@ -43,13 +50,17 @@ export const emptyCard = (): Card => ({
   takeText: "",
   takeItems: [],
   past: [],
+  family: [],
   preg: "",
   notes: "",
+  details: {},
+  translations: {},
 });
 
-type ListField = "assoc" | "allergyKinds" | "past";
+type ListField = "assoc" | "allergyKinds" | "past" | "family";
 type Action =
   | { type: "set"; patch: Partial<Card> }
+  | { type: "detail"; id: string; option: string; many: boolean }
   | { type: "toggle"; field: ListField; value: string }
   | { type: "addMed"; med: TakenMedicine }
   | { type: "removeMed"; id: string }
@@ -63,11 +74,19 @@ export function reducer(card: Card, action: Action): Card {
       const list = card[action.field];
       let next = list.includes(action.value) ? list.filter((v) => v !== action.value) : [...list, action.value];
       // "none" and "unknown" exclude every other history answer.
-      if (action.field === "past" && next.includes(action.value))
+      if ((action.field === "past" || action.field === "family") && next.includes(action.value))
         next = ["none", "unknown"].includes(action.value)
           ? [action.value]
           : next.filter((v) => v !== "none" && v !== "unknown");
       return { ...card, [action.field]: next };
+    }
+    case "detail": {
+      const now = card.details[action.id] ?? [];
+      const has = now.includes(action.option);
+      const next = action.many ? (has ? now.filter((o) => o !== action.option) : [...now, action.option]) : has ? [] : [action.option];
+      // "none" in a multi-choice question excludes the other answers.
+      const clean = action.many && !has ? (action.option === "none" ? ["none"] : next.filter((o) => o !== "none")) : next;
+      return { ...card, details: { ...card.details, [action.id]: clean } };
     }
     case "addMed":
       if (card.takeItems.some((m) => m.id === action.med.id)) return card;
@@ -81,8 +100,11 @@ export function reducer(card: Card, action: Action): Card {
 
 /** A value on the card: a translated concept, or the student's own words shown as written. */
 export type Value = { key: MessageKey; params?: Record<string, string | number> } | { text: string };
-/** `source`: Korean product names the ingredients came from (photographed medicine boxes). */
-export type Line = { label: MessageKey; values: Value[]; original?: boolean; source?: string };
+/**
+ * `source`: Korean product names the ingredients came from (photographed medicine boxes).
+ * `danger`: the student picked a possible emergency sign here.
+ */
+export type Line = { label: MessageKey; values: Value[]; original?: boolean; source?: string; danger?: boolean };
 
 const k = (key: string, params?: Record<string, string | number>): Value => ({ key: key as MessageKey, params });
 
@@ -95,6 +117,17 @@ export function cardLines(card: Card): Line[] {
       label: "card.area",
       values: [...(card.area ? [k("area." + card.area)] : []), ...(card.side ? [k(sideKey(card.side))] : [])],
     });
+  // Detail answers follow the order of the questions asked for this symptom.
+  const asked = [...detailsFor(card.main), ...Object.keys(card.details)];
+  for (const id of [...new Set(asked)]) {
+    const chosen = card.details[id] ?? [];
+    if (!chosen.length) continue;
+    lines.push({
+      label: detailLabelKey(id),
+      values: chosen.map((o) => k(optionKey(id, o))),
+      danger: chosen.some((o) => isDanger(id, o)),
+    });
+  }
   if (card.onset) lines.push({ label: "card.onset", values: [k("onset." + card.onset)] });
   if (typeof card.pain === "number")
     lines.push({ label: "card.pain", values: [k("card.painValue", { n: card.pain }), k(vasKey(card.pain))] });
@@ -117,6 +150,7 @@ export function cardLines(card: Card): Line[] {
     if (!card.takeItems.length && !card.takeText) lines.push({ label: "card.meds", values: [k("take.yes")] });
   } else if (card.take) lines.push({ label: "card.meds", values: [k("take." + card.take)] });
   if (card.past.length) lines.push({ label: "card.past", values: card.past.map((p) => k("past." + p)) });
+  if (card.family.length) lines.push({ label: detailLabelKey("family"), values: card.family.map((f) => k(optionKey("family", f))) });
   if (card.preg && card.preg !== "skip") lines.push({ label: "card.pregnancy", values: [k("preg." + card.preg)] });
   if (card.notes.trim()) lines.push({ label: "card.notes", values: [{ text: card.notes.trim() }], original: true });
   return lines;
@@ -127,6 +161,7 @@ type CardState = {
   lines: Line[];
   set: (patch: Partial<Card>) => void;
   toggle: (field: ListField, value: string) => void;
+  detail: (id: string, option: string, many: boolean) => void;
   addMed: (med: TakenMedicine) => void;
   removeMed: (id: string) => void;
   reset: () => void;
@@ -142,6 +177,7 @@ export function CardProvider({ children }: { children: ReactNode }) {
       lines: cardLines(card),
       set: (patch) => dispatch({ type: "set", patch }),
       toggle: (field, v) => dispatch({ type: "toggle", field, value: v }),
+      detail: (id, option, many) => dispatch({ type: "detail", id, option, many }),
       addMed: (med) => dispatch({ type: "addMed", med }),
       removeMed: (id) => dispatch({ type: "removeMed", id }),
       reset: () => dispatch({ type: "reset" }),

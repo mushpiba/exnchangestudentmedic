@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, ArrowRight, Camera, Check, Pencil, Search, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Camera, Check, Languages, Pencil, Search, Siren, X } from "lucide-react";
 import { useI18n, type MessageKey } from "../i18n";
 import { go, href } from "../app/router";
 import { useCard } from "../state/card";
@@ -10,11 +10,14 @@ import {
   categoryKey, sideKey, symptom, symptomIds, symptomKey, vasKey, type Category,
 } from "../content/symptoms";
 import { matches } from "../lib/text";
+import { DETAILS, detailKey, detailsFor, isDanger, optionKey } from "../content/details";
+import { TRANSLATION_SERVER, translateOnServer } from "../lib/translate";
 
-type Step = "main" | "area" | "onset" | "pain" | "assoc" | "allergyMeds" | "history" | "notes";
+type Step = "main" | "area" | "detail" | "onset" | "pain" | "assoc" | "allergyMeds" | "history" | "notes";
 const STEP_LABEL: Record<Step, MessageKey> = {
   main: "intake.stepMain",
   area: "intake.stepArea",
+  detail: "intake.stepDetail",
   onset: "intake.stepOnset",
   pain: "intake.stepPain",
   assoc: "intake.stepAssoc",
@@ -23,6 +26,70 @@ const STEP_LABEL: Record<Step, MessageKey> = {
   notes: "intake.stepNotes",
 };
 const COMMON_ASSOC = ["fever", "chills", "fatigue", "headache", "dizziness", "nausea", "vomit", "diarrhea", "cough", "appetiteLoss"];
+
+/**
+ * The student's own words, translated into Korean for staff only when the student asks, after a notice that
+ * the text goes to an outside server. Results are kept on the card so show mode never sends anything.
+ */
+function TranslateBox() {
+  const { t, locale } = useI18n();
+  const { card, set } = useCard();
+  const [state, setState] = useState<"idle" | "busy" | "failed">("idle");
+  const texts = [card.mainText, card.allergyText, card.takeText, card.notes].map((x) => x.trim()).filter(Boolean);
+  if (locale === "ko-KR" || !texts.length) return null;
+  const missing = texts.filter((x) => !card.translations[x]);
+
+  async function run() {
+    setState("busy");
+    try {
+      const next = { ...card.translations };
+      for (const x of missing) next[x] = await translateOnServer(x, locale);
+      set({ translations: next });
+      setState("idle");
+    } catch {
+      setState("failed");
+    }
+  }
+
+  return (
+    <section className="translate-box" aria-labelledby="translate-title">
+      <h2 id="translate-title">
+        <Languages size={20} aria-hidden /> {t("intake.translateTitle")}
+      </h2>
+      <p className="muted">{t("intake.translateNotice")}</p>
+      {missing.length > 0 && (
+        <button type="button" disabled={state === "busy"} onClick={run}>
+          {state === "busy" ? t("intake.translating") : t("intake.translateButton")}
+        </button>
+      )}
+      {state === "failed" && <p role="alert">{t("intake.translateFailed")}</p>}
+      {texts
+        .filter((x) => card.translations[x])
+        .map((x) => (
+          <div className="translate-preview" key={x}>
+            <span className="muted">{t("intake.translatePreview")}</span>
+            <strong lang="ko">{card.translations[x]}</strong>
+            <span dir="auto" className="muted">{x}</span>
+          </div>
+        ))}
+      <p className="server-tag">{t("intake.translateServer", { name: TRANSLATION_SERVER.name })}</p>
+    </section>
+  );
+}
+
+/** A possible emergency sign was chosen: say so right there, with a way to call. */
+function DangerNotice() {
+  const { t } = useI18n();
+  return (
+    <a className="emergency-strip danger-notice" href="tel:119" role="alert">
+      <Siren size={20} aria-hidden />
+      <span className="sos-text">
+        <span className="sos-title">{t("intake.dangerNotice")}</span>
+        <span className="sos-more" dir="ltr">119</span>
+      </span>
+    </a>
+  );
+}
 
 // Remember the step while the student visits another tab (e.g. to photograph a medicine).
 let lastStep: Step = "main";
@@ -112,11 +179,17 @@ function SymptomSearch({
 
 export function Intake({ start }: { start?: string }) {
   const { t } = useI18n();
-  const { card, set, toggle, removeMed } = useCard();
+  const { card, set, toggle, detail, removeMed } = useCard();
   const loc = symptom(card.main)?.loc;
+  const details = useMemo(() => detailsFor(card.main), [card.main]);
   const steps = useMemo<Step[]>(
-    () => ["main", ...(loc ? (["area"] as Step[]) : []), "onset", "pain", "assoc", "allergyMeds", "history", "notes"],
-    [loc],
+    () => [
+      "main",
+      ...(loc ? (["area"] as Step[]) : []),
+      ...(details.length ? (["detail"] as Step[]) : []),
+      "onset", "pain", "assoc", "allergyMeds", "history", "notes",
+    ],
+    [loc, details.length],
   );
   const [step, setStepState] = useState<Step>(() => (steps.includes(lastStep) ? lastStep : "main"));
   const setStep = (s: Step) => {
@@ -128,8 +201,8 @@ export function Intake({ start }: { start?: string }) {
   // Started from a quick symptom on Home or an info page.
   useEffect(() => {
     if (start && symptom(start)) {
-      set({ main: start, mainText: "", area: "", side: "" });
-      const next: Step = symptom(start)?.loc ? "area" : "onset";
+      set({ main: start, mainText: "", area: "", side: "", details: {} });
+      const next: Step = symptom(start)?.loc ? "area" : detailsFor(start).length ? "detail" : "onset";
       lastStep = next;
       setStepState(next);
       history.replaceState(null, "", href("card"));
@@ -189,7 +262,11 @@ export function Intake({ start }: { start?: string }) {
           <SymptomSearch
             picked={card.main ? [card.main] : []}
             onPick={(id, custom) =>
-              set(custom ? { main: "", mainText: custom, area: "", side: "" } : { main: card.main === id ? "" : id, mainText: "", area: "", side: "" })
+              set(
+                custom
+                  ? { main: "", mainText: custom, area: "", side: "", details: {} }
+                  : { main: card.main === id ? "" : id, mainText: "", area: "", side: "", details: {} },
+              )
             }
           />
         </>
@@ -217,6 +294,30 @@ export function Intake({ start }: { start?: string }) {
               </Chip>
             ))}
           </div>
+        </>
+      )}
+
+      {step === "detail" && (
+        <>
+          <h1>{t("intake.detailTitle")}</h1>
+          <p className="step-hint">{t("intake.detailSub")}</p>
+          {details.map((id) => {
+            const q = DETAILS[id];
+            const chosen = card.details[id] ?? [];
+            return (
+              <section className="detail-q" key={id} aria-labelledby={"dq-" + id}>
+                <h2 id={"dq-" + id}>{t(detailKey(id))}</h2>
+                <div className="choices">
+                  {q.options.map((o) => (
+                    <Chip key={o} on={chosen.includes(o)} onClick={() => detail(id, o, q.many)}>
+                      {t(optionKey(id, o))}
+                    </Chip>
+                  ))}
+                </div>
+                {chosen.some((o) => isDanger(id, o)) && <DangerNotice />}
+              </section>
+            );
+          })}
         </>
       )}
 
@@ -357,6 +458,14 @@ export function Intake({ start }: { start?: string }) {
               </Chip>
             ))}
           </div>
+          <h2>{t(detailKey("family"))}</h2>
+          <div className="choices">
+            {DETAILS.family.options.map((f) => (
+              <Chip key={f} on={card.family.includes(f)} onClick={() => toggle("family", f)}>
+                {t(optionKey("family", f))}
+              </Chip>
+            ))}
+          </div>
           <h2>{t("intake.pregTitle")}</h2>
           <div className="choices">
             {PREGNANCY.map((p) => (
@@ -380,6 +489,7 @@ export function Intake({ start }: { start?: string }) {
             onChange={(e) => set({ notes: e.target.value })}
           />
           <Dictate append={(text) => set({ notes: [card.notes, text].filter(Boolean).join(" ") })} />
+          <TranslateBox />
         </>
       )}
 

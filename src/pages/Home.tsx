@@ -12,6 +12,7 @@ import { LINKS } from "../content/facilities";
 import { SCHOOL } from "../content/school";
 import { CONTACT_ICON } from "./Campus";
 import { campusAuth, community, type PostSummary } from "../campus/api";
+import { useSchool } from "../state/prefs";
 
 const QUICK = (Object.keys(SYMPTOMS) as SymptomId[]).filter((id) => (SYMPTOMS[id].cats as string[]).includes("BFR"));
 
@@ -51,6 +52,8 @@ const SHORTCUTS: Shortcut[] = [
 export function Home() {
   const { t } = useI18n();
   const { lines } = useCard();
+  const school = useSchool();
+  const shortcuts = school === "inha" ? SHORTCUTS : SHORTCUTS.filter((s) => s.label !== "school.homepage");
   const [hot, setHot] = useState<PostSummary[] | null>(null);
 
   useEffect(() => {
@@ -117,6 +120,7 @@ export function Home() {
         <ChevronRight className="flip" size={20} aria-hidden />
       </a>
 
+      {school === "inha" && (
       <section className="school-card" aria-labelledby="school-card-title">
         <a className="school-card-head" href={href("school")}>
           <GraduationCap size={20} aria-hidden />
@@ -151,11 +155,12 @@ export function Home() {
           </a>
         </div>
       </section>
+      )}
 
       <section className="section">
         <h2>{t("home.tools")}</h2>
         <div className="grid4">
-          {SHORTCUTS.map(({ label, Icon, to, external }) => (
+          {shortcuts.map(({ label, Icon, to, external }) => (
             <a key={label} href={to} {...(external ? { target: "_blank", rel: "noreferrer" } : {})}>
               <span className="icon-box">
                 <Icon size={22} aria-hidden />

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Suspense, lazy, useState } from "react";
 import { Building2, MapPin, MessagesSquare, Moon, Phone, Siren } from "lucide-react";
 import { useI18n } from "../i18n";
 import { nativeName } from "../i18n/locales";
@@ -6,6 +6,9 @@ import { href } from "../app/router";
 import { deptKey } from "../content/symptoms";
 import { LINKS, OFFICIAL, QUICK_DEPTS, VERIFIED, mapSearch, type Facility } from "../content/facilities";
 import { Chip, Notice, Out, PageHead, Section } from "../components/ui";
+
+// The map library loads only when this tab opens.
+const PlaceMap = lazy(() => import("../components/PlaceMap"));
 
 function FacilityRow({ f }: { f: Facility }) {
   const { t } = useI18n();
@@ -44,6 +47,12 @@ export function Places() {
   return (
     <section className="places">
       <PageHead title={t("places.title")} intro={t("places.intro")} icon={<Building2 />} />
+
+      <Section title={t("places.mapTitle")}>
+        <Suspense fallback={<div className="place-map" aria-busy="true" />}>
+          <PlaceMap />
+        </Suspense>
+      </Section>
 
       <Section title={t("places.deptPick")}>
         <div className="choices">

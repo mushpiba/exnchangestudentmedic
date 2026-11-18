@@ -14,6 +14,8 @@ export type SchoolContact = {
 export const SCHOOL = {
   name: "school.inha" as MessageKey,
   checked: "2026-11-18",
+  /** Campus position (OpenStreetMap). The health center is in the Student Union building on campus. */
+  location: { lat: 37.449443, lng: 126.653445 },
   homepage: "https://www.inha.ac.kr/",
   international: "https://internationalcenter.inha.ac.kr/",
   contacts: [

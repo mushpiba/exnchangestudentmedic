@@ -1,6 +1,43 @@
-import { Camera, Pencil } from "lucide-react";
+import { Camera, Languages, Pencil, Siren } from "lucide-react";
 import { useI18n } from "../i18n";
-import type { Line, Value } from "../state/card";
+import { useKorean } from "../lib/translate";
+import { useCard, type Line, type Value } from "../state/card";
+
+/**
+ * The student's own words: a Korean translation on top when this device can translate on its own,
+ * the original underneath. Without a translation, the original with a note that it is untranslated.
+ */
+function OriginalWords({ text }: { text: string }) {
+  const { tk, locale } = useI18n();
+  const { card } = useCard();
+  const onDevice = useKorean(card.translations[text] ? "" : text, locale);
+  const korean = card.translations[text] ?? onDevice;
+  if (!korean)
+    return (
+      <>
+        <span className="v-orig" dir="auto">
+          {text}
+        </span>
+        <span className="v-note">
+          <Pencil size={16} aria-hidden />
+          {tk("card.originalNote")}
+        </span>
+      </>
+    );
+  return (
+    <>
+      <span className="v-ko">{korean}</span>
+      <span className="v-note">
+        <Languages size={16} aria-hidden />
+        {tk("card.autoTranslated")}
+      </span>
+      <span className="v-orig-label">{tk("card.originalText")}</span>
+      <span className="v-orig small-orig" dir="auto">
+        {text}
+      </span>
+    </>
+  );
+}
 
 /** Korean label and value for staff; the student's language small under each line so they can check it. */
 export function CardLines({ lines, size = "normal" }: { lines: Line[]; size?: "normal" | "large" }) {
@@ -14,19 +51,19 @@ export function CardLines({ lines, size = "normal" }: { lines: Line[]; size?: "n
       {lines.map((line, i) => {
         const translated = line.values.some((v) => !("text" in v));
         return (
-          <div className="line" key={line.label + i}>
-            <dt>{tk(line.label)}</dt>
+          <div className={"line" + (line.danger ? " is-danger" : "")} key={line.label + i}>
+            <dt>
+              {tk(line.label)}
+              {line.danger && (
+                <span className="danger-tag">
+                  <Siren size={14} aria-hidden />
+                  {tk("card.dangerSign")}
+                </span>
+              )}
+            </dt>
             <dd>
               {line.original ? (
-                <>
-                  <span className="v-orig" dir="auto">
-                    {line.values.map((v) => value(v, true)).join(", ")}
-                  </span>
-                  <span className="v-note">
-                    <Pencil size={16} aria-hidden />
-                    {tk("card.originalNote")}
-                  </span>
-                </>
+                <OriginalWords text={line.values.map((v) => value(v, true)).join(", ")} />
               ) : (
                 <>
                   <span className="v-ko">{line.values.map((v) => value(v, true)).join(", ")}</span>

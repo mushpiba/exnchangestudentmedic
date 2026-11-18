@@ -63,8 +63,8 @@ export function createLive() {
 
   const community: CommunityApi = {
     mode: "live",
-    async list(feed) {
-      const rows = await call<Row[]>("list_posts", { p_feed: feed });
+    async list(feed, query) {
+      const rows = await call<Row[]>("list_posts", { p_feed: feed, p_query: query?.trim() || null });
       return rows.map((r) => ({ ...r, createdAt: r.created_at }));
     },
     async get(id) {

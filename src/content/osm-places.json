@@ -1,0 +1,278 @@
+{
+ "source": "OpenStreetMap (Overpass API)",
+ "attribution": "© OpenStreetMap contributors",
+ "license": "ODbL 1.0",
+ "fetchedAt": "2026-11-18",
+ "bbox": [
+  37.43,
+  126.625,
+  37.472,
+  126.682
+ ],
+ "places": [
+  {
+   "id": "n368757002",
+   "name": "김훈수내과의원",
+   "nameEn": "Gimhunsu Internal Medicine Clinic",
+   "kind": "clinic",
+   "lat": 37.465947,
+   "lng": 126.634814
+  },
+  {
+   "id": "n368755948",
+   "name": "늘밝은안과",
+   "nameEn": "Neulbalgeun Eye Clinic",
+   "kind": "clinic",
+   "lat": 37.450204,
+   "lng": 126.633155
+  },
+  {
+   "id": "n368756853",
+   "name": "다사랑메디칼의원",
+   "nameEn": "Dasarang medical Clinic",
+   "kind": "clinic",
+   "lat": 37.450007,
+   "lng": 126.661624
+  },
+  {
+   "id": "n368759148",
+   "name": "다정한내과",
+   "nameEn": "Dajeonghan Internal Medicine Clinic",
+   "kind": "clinic",
+   "lat": 37.450011,
+   "lng": 126.633611
+  },
+  {
+   "id": "n4655134788",
+   "name": "박내과",
+   "kind": "clinic",
+   "lat": 37.447787,
+   "lng": 126.680897
+  },
+  {
+   "id": "n4633834542",
+   "name": "성모가정의학과의원",
+   "nameEn": "Sungmo Hospital",
+   "kind": "clinic",
+   "lat": 37.443009,
+   "lng": 126.678108
+  },
+  {
+   "id": "n368755509",
+   "name": "신흥메디칼의원",
+   "nameEn": "Sinheungmedikal Clinic",
+   "kind": "clinic",
+   "lat": 37.465543,
+   "lng": 126.63568
+  },
+  {
+   "id": "n368757748",
+   "name": "연세소아과",
+   "nameEn": "Yeonsesoagwa",
+   "kind": "clinic",
+   "lat": 37.450761,
+   "lng": 126.638525
+  },
+  {
+   "id": "n368757062",
+   "name": "연세참가정의학과",
+   "nameEn": "Yeonsechamgajeonguihakgwa",
+   "kind": "clinic",
+   "lat": 37.471537,
+   "lng": 126.628042
+  },
+  {
+   "id": "n368755208",
+   "name": "주안미 산부인과",
+   "nameEn": "Juanmi Obstetrics & Gynecology Clinic",
+   "kind": "clinic",
+   "lat": 37.467178,
+   "lng": 126.678927
+  },
+  {
+   "id": "n368758309",
+   "name": "올플란트치과의원",
+   "nameEn": "Olpeullanteu Dental Clinic",
+   "kind": "dentist",
+   "lat": 37.441362,
+   "lng": 126.662185
+  },
+  {
+   "id": "w469324107",
+   "name": "기독병원",
+   "kind": "hospital",
+   "lat": 37.471183,
+   "lng": 126.632027
+  },
+  {
+   "id": "w1267597129",
+   "name": "아인병원",
+   "nameEn": "Ain Hospital",
+   "kind": "hospital",
+   "lat": 37.45813,
+   "lng": 126.68117
+  },
+  {
+   "id": "n368758059",
+   "name": "유비스병원",
+   "nameEn": "THEPHILP HOSPITAL",
+   "kind": "hospital",
+   "lat": 37.461734,
+   "lng": 126.643029
+  },
+  {
+   "id": "w472324192",
+   "name": "인천보훈병원",
+   "nameEn": "Incheon Veterans Hospital",
+   "kind": "hospital",
+   "lat": 37.456001,
+   "lng": 126.653351,
+   "address": "인천광역시 미추홀구 인주대로 138번길"
+  },
+  {
+   "id": "n4432273859",
+   "name": "인천사랑병원",
+   "kind": "hospital",
+   "lat": 37.462156,
+   "lng": 126.680614
+  },
+  {
+   "id": "w410767647",
+   "name": "인하대학교부속병원",
+   "nameEn": "Inha University Hospital",
+   "kind": "hospital",
+   "lat": 37.458823,
+   "lng": 126.63319,
+   "emergency": true
+  },
+  {
+   "id": "n368756965",
+   "name": "고운몸한의원",
+   "nameEn": "Gounmom Oriental Medicine Clinic",
+   "kind": "kmed",
+   "lat": 37.464363,
+   "lng": 126.634164
+  },
+  {
+   "id": "n368759038",
+   "name": "광혜원한방병원",
+   "nameEn": "Gwanghyewon Oriental Medicine Hospital",
+   "kind": "kmed",
+   "lat": 37.465794,
+   "lng": 126.680874
+  },
+  {
+   "id": "n368756710",
+   "name": "보화한의원",
+   "nameEn": "Bohwa Oriental Medicine Clinic",
+   "kind": "kmed",
+   "lat": 37.456917,
+   "lng": 126.648847
+  },
+  {
+   "id": "n368755991",
+   "name": "성인천한방병원",
+   "nameEn": "Seongincheon Oriental Medicine Hospital",
+   "kind": "kmed",
+   "lat": 37.460669,
+   "lng": 126.642099
+  },
+  {
+   "id": "n368757230",
+   "name": "형제한의원",
+   "nameEn": "Hyeongje Oriental Medicine Clinic",
+   "kind": "kmed",
+   "lat": 37.467924,
+   "lng": 126.635852
+  },
+  {
+   "id": "n4741732568",
+   "name": "다나약국",
+   "kind": "pharmacy",
+   "lat": 37.464357,
+   "lng": 126.668391
+  },
+  {
+   "id": "n7304684509",
+   "name": "대은약국",
+   "kind": "pharmacy",
+   "lat": 37.450634,
+   "lng": 126.661544,
+   "address": "인천광역시 미추홀구 인하로119번길 13"
+  },
+  {
+   "id": "n13272266913",
+   "name": "또바기약국",
+   "kind": "pharmacy",
+   "lat": 37.469868,
+   "lng": 126.662004
+  },
+  {
+   "id": "n13986242548",
+   "name": "메디칼정성약국",
+   "kind": "pharmacy",
+   "lat": 37.447793,
+   "lng": 126.649205
+  },
+  {
+   "id": "n4633835782",
+   "name": "명신약국",
+   "nameEn": "MyongShin Pharmacy",
+   "kind": "pharmacy",
+   "lat": 37.442891,
+   "lng": 126.678035
+  },
+  {
+   "id": "w469635165",
+   "name": "백제약국",
+   "kind": "pharmacy",
+   "lat": 37.463369,
+   "lng": 126.656698
+  },
+  {
+   "id": "n13272271932",
+   "name": "오거리약국",
+   "kind": "pharmacy",
+   "lat": 37.467873,
+   "lng": 126.665215
+  },
+  {
+   "id": "n4741732562",
+   "name": "정성약국",
+   "kind": "pharmacy",
+   "lat": 37.44555,
+   "lng": 126.674352
+  },
+  {
+   "id": "n12466313599",
+   "name": "미추홀구보건소",
+   "kind": "public",
+   "lat": 37.4611,
+   "lng": 126.677424,
+   "phone": "+82 32 880 5311",
+   "speciality": "general;community",
+   "address": "인천광역시 미추홀구 주안서로 25"
+  },
+  {
+   "id": "n12466313588",
+   "name": "숭의보건지소",
+   "kind": "public",
+   "lat": 37.464463,
+   "lng": 126.649032,
+   "phone": "+82 32 880 5383",
+   "speciality": "general;community",
+   "address": "인천광역시 미추홀구 경인로 54"
+  },
+  {
+   "id": "n368759228",
+   "name": "옹진군보건소",
+   "nameEn": "Ongjingun Public Health Center",
+   "kind": "public",
+   "lat": 37.446607,
+   "lng": 126.63676,
+   "phone": "+82 32 899 3120",
+   "speciality": "general;community",
+   "address": "인천광역시 미추홀구 매소홀로 120"
+  }
+ ]
+}

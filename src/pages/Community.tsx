@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowLeft, Flag, Heart, MessageCircle, PenSquare, Star, Trash2 } from "lucide-react";
+import { ArrowLeft, Flag, Heart, MessageCircle, PenSquare, Search, Star, Trash2, X } from "lucide-react";
 import { useI18n, type MessageKey } from "../i18n";
 import { LOCALES, nativeName } from "../i18n/locales";
 import { go, href } from "../app/router";
@@ -32,6 +32,7 @@ function Feeds({ feed }: { feed: Feed }) {
   const { t, locale } = useI18n();
   const api = useApi();
   const [posts, setPosts] = useState<PostSummary[] | null>(null);
+  const [query, setQuery] = useState("");
   const [lang, setLangState] = useState(lastLang);
   const setLang = (l: string) => {
     lastLang = l;
@@ -42,9 +43,17 @@ function Feeds({ feed }: { feed: Feed }) {
   const shown = posts && lang !== "all" ? posts.filter((p) => p.locale === lang) : posts;
   useEffect(() => {
     if (!api) return;
-    setPosts(null);
-    api.list(feed).then(setPosts, () => setPosts([]));
-  }, [api, feed]);
+    let live = true;
+    // Wait for a pause in typing before searching.
+    const timer = setTimeout(() => {
+      setPosts(null);
+      api.list(feed, query).then((p) => live && setPosts(p), () => live && setPosts([]));
+    }, query ? 300 : 0);
+    return () => {
+      live = false;
+      clearTimeout(timer);
+    };
+  }, [api, feed, query]);
   return (
     <>
       <nav className="boards" aria-label={t("community.board")}>
@@ -54,6 +63,15 @@ function Feeds({ feed }: { feed: Feed }) {
           </a>
         ))}
       </nav>
+      <label className="search">
+        <Search size={18} aria-hidden />
+        <input type="search" dir="auto" value={query} placeholder={t("community.search")} aria-label={t("community.search")} onChange={(e) => setQuery(e.target.value)} />
+        {query && (
+          <button type="button" className="clear" aria-label={t("common.clear")} onClick={() => setQuery("")}>
+            <X size={20} aria-hidden />
+          </button>
+        )}
+      </label>
       <div className="lang-filter" role="group" aria-label={t("community.langFilter")}>
         {["all", ...langs].map((l) => (
           <button key={l} type="button" aria-pressed={lang === l} onClick={() => setLang(l)} lang={l === "all" ? undefined : l}>
@@ -64,7 +82,15 @@ function Feeds({ feed }: { feed: Feed }) {
       {shown === null ? (
         <p className="muted">{t("common.loading")}</p>
       ) : shown.length === 0 ? (
-        <p className="muted">{lang !== "all" && posts?.length ? t("community.langEmpty") : feed === "hot" ? t("community.hotEmpty") : t("community.empty")}</p>
+        <p className="muted">
+          {query.trim()
+            ? t("community.searchEmpty")
+            : lang !== "all" && posts?.length
+              ? t("community.langEmpty")
+              : feed === "hot"
+                ? t("community.hotEmpty")
+                : t("community.empty")}
+        </p>
       ) : (
         <ul className="post-list">
           {shown.map((p) => (

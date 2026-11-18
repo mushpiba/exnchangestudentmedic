@@ -25,6 +25,17 @@ function seed(): Post[] {
     },
     {
       ...base,
+      id: "s7",
+      board: "buddy",
+      locale: "kk",
+      title: "Серікпен бірге тіс дәрігеріне бардым",
+      body: "Қабылдауда не айту керегін серігім түсіндіріп берді, төлем де оңай болды. Келесі жолы өзім бара аламын деп ойлаймын. (Үлгі жазба)",
+      createdAt: hoursAgo(30),
+      likes: 7,
+      thread: [],
+    },
+    {
+      ...base,
       id: "s2",
       board: "qna",
       locale: "en-US",
@@ -102,9 +113,11 @@ const summary = ({ thread: _t, body: _b, ...rest }: Post) => ({ ...rest, comment
 export function createPreview() {
   const community: CommunityApi = {
     mode: "preview",
-    async list(feed) {
-      const list =
-        feed === "all" ? posts : feed === "hot" ? posts.filter((p) => p.likes >= HOT_LIKES) : posts.filter((p) => p.board === feed);
+    async list(feed, query) {
+      const q = query?.trim().toLowerCase();
+      const list = (
+        feed === "all" ? posts : feed === "hot" ? posts.filter((p) => p.likes >= HOT_LIKES) : posts.filter((p) => p.board === feed)
+      ).filter((p) => !q || (p.title + " " + p.body).toLowerCase().includes(q));
       return [...list]
         .sort((a, b) => (feed === "hot" ? b.likes - a.likes : b.createdAt.localeCompare(a.createdAt)))
         .map(summary);
