@@ -24,6 +24,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          VITE_CAMPUS_URL: ${{ vars.VITE_CAMPUS_URL }}
+          VITE_CAMPUS_PUBLIC_KEY: ${{ vars.VITE_CAMPUS_PUBLIC_KEY }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
