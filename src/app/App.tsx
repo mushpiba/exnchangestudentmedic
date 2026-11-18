@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Check, ClipboardList, Globe, GraduationCap, House, MapPin, Phone, Pill, X } from "lucide-react";
+import { Check, ClipboardList, Globe, GraduationCap, House, MapPin, Phone, Pill, RefreshCw, X } from "lucide-react";
 import { useI18n, type MessageKey } from "../i18n";
 import { LOCALES } from "../i18n/locales";
 import { go, href, useRoute } from "./router";
@@ -14,6 +14,8 @@ import { Community } from "../pages/Community";
 import { Campus } from "../pages/Campus";
 import { Welcome } from "../pages/Welcome";
 import { useSchool } from "../state/prefs";
+import { useCard } from "../state/card";
+import { applyUpdate, useUpdateReady } from "../lib/update";
 
 const NAV: { to: string; key: MessageKey; Icon: typeof House }[] = [
   { to: "home", key: "nav.home", Icon: House },
@@ -89,6 +91,13 @@ export function App() {
   const tabbar = useRef<HTMLElement>(null);
   const showMode = route[0] === "card" && route[1] === "show";
   const school = useSchool();
+  const { lines } = useCard();
+  const updateReady = useUpdateReady();
+  // A new version applies by itself when nothing would be lost; mid-card it waits for the student's tap.
+  const cardInProgress = lines.length > 0;
+  useEffect(() => {
+    if (updateReady && !cardInProgress) applyUpdate();
+  }, [updateReady, cardInProgress]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -150,6 +159,14 @@ export function App() {
         </div>
       </header>
       {languageOpen && <LanguageDialog onClose={() => setLanguageOpen(false)} />}
+      {updateReady && cardInProgress && (
+        <div className="update-bar" role="status">
+          <span>{t("app.updateReady")}</span>
+          <button type="button" onClick={() => applyUpdate()}>
+            <RefreshCw size={18} aria-hidden /> {t("app.updateNow")}
+          </button>
+        </div>
+      )}
       <main ref={main} tabIndex={-1}>
         <Page route={route} />
         <footer className="foot">{t("app.notice")}</footer>

@@ -1,6 +1,8 @@
 {
   "app.tagline": "Prepáralo en tu idioma y muéstralo en coreano: tu salud en Corea, más fácil",
   "app.notice": "Prototipo · Traducción médica sin revisar · No es un diagnóstico",
+  "app.updateReady": "Hay una versión nueva · al actualizar se borra tu tarjeta actual",
+  "app.updateNow": "Actualizar",
   "nav.home": "Inicio",
   "nav.card": "Tarjeta de síntomas",
   "nav.meds": "Medicinas",

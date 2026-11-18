@@ -1,6 +1,8 @@
 {
   "app.tagline": "Prepare in your language, show it in Korean: health care in Korea, made easier",
   "app.notice": "Prototype · Medical translations not yet reviewed · Not a diagnosis",
+  "app.updateReady": "A new version is ready · updating clears your current card",
+  "app.updateNow": "Update",
   "nav.home": "Home",
   "nav.card": "Symptom card",
   "nav.meds": "Medicines",

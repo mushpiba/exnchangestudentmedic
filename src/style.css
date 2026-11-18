@@ -78,6 +78,9 @@ ul, ol { padding: 0; margin: 0; list-style: none; }
 button, input, textarea, select { font: inherit; color: inherit; }
 button, a { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 :focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+/* Each page's <main> takes focus on navigation so screen readers start there. It is not a control, so no ring:
+   on first load browsers treat that programmatic focus as keyboard focus and drew black bars down both sides. */
+main:focus, main:focus-visible { outline: none; }
 ::selection { background: var(--mark); color: var(--ink); }
 [hidden] { display: none !important; }
 main { outline: 0; width: min(100% - 2 * var(--gutter), var(--page)); margin: 0 auto; padding: 0 0 calc(var(--tab-h) + 24px); }
@@ -203,6 +206,11 @@ legend { font-weight: 500; margin-bottom: 6px; }
 .tabbar a[aria-current] { color: var(--brand-ink); font-weight: 600; }
 .tabbar a[aria-current] .tab-ic { background: var(--brand-soft); color: var(--brand-ink); }
 .tabbar a[aria-current] .lucide { stroke-width: 2.25; }
+.update-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 8px max(var(--gutter), calc((100% - var(--page)) / 2)); background: var(--brand-soft); color: var(--brand-ink); font-weight: 500;
+}
+.update-bar button { flex: none; min-height: 48px; }
 .foot { margin: 32px 0 0; color: var(--ink-3); text-align: center; text-wrap: balance; }
 
 dialog { border: 0; border-radius: 20px; padding: 20px; color: var(--ink); max-height: 86dvh; }

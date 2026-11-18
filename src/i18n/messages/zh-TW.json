@@ -1,6 +1,8 @@
 {
   "app.tagline": "用母語準備，以韓語出示的就醫生活",
   "app.notice": "試用版 · 醫療翻譯尚未審核 · 並非診斷",
+  "app.updateReady": "有新版本 · 更新後目前的卡片會被清除",
+  "app.updateNow": "更新",
 
   "nav.home": "首頁",
   "nav.card": "症狀卡",

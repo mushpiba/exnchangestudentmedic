@@ -6,7 +6,8 @@ export default defineConfig({
   plugins: [
     VitePWA({
       registerType: "prompt",
-      injectRegister: "auto",
+      // Registered from src/lib/update.ts (checks for new versions and applies them safely).
+      injectRegister: false,
       manifest: {
         id: "./",
         name: "NARU · 나루",

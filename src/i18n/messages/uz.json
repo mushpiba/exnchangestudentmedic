@@ -1,6 +1,8 @@
 {
   "app.tagline": "Tibbiy hayot: o‘z tilingizda tayyorlang, koreyscha ko‘rsating",
   "app.notice": "Sinov nusxasi · tibbiy tarjima hali tekshirilmagan · Bu tashxis emas",
+  "app.updateReady": "Yangi versiya tayyor · yangilasangiz, joriy karta o‘chadi",
+  "app.updateNow": "Yangilash",
   "nav.home": "Bosh sahifa",
   "nav.card": "Alomatlar kartasi",
   "nav.meds": "Dorilar haqida",

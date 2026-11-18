@@ -1,6 +1,8 @@
 {
   "app.tagline": "Chuẩn bị bằng tiếng của bạn, đưa ra bằng tiếng Hàn: đi khám ở Hàn Quốc dễ dàng hơn",
   "app.notice": "Bản thử nghiệm · Bản dịch y tế chưa được kiểm duyệt · Không phải chẩn đoán",
+  "app.updateReady": "Đã có phiên bản mới · cập nhật sẽ xóa thẻ hiện tại",
+  "app.updateNow": "Cập nhật",
   "nav.home": "Trang chủ",
   "nav.card": "Thẻ triệu chứng",
   "nav.meds": "Tìm hiểu thuốc",

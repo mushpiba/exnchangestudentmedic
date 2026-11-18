@@ -1,6 +1,8 @@
 {
   "app.tagline": "Préparez dans votre langue, montrez en coréen : votre santé en Corée, plus simple",
   "app.notice": "Prototype · Traductions médicales non vérifiées · Ce n’est pas un diagnostic",
+  "app.updateReady": "Une nouvelle version est prête · la mise à jour efface votre fiche actuelle",
+  "app.updateNow": "Mettre à jour",
   "nav.home": "Accueil",
   "nav.card": "Fiche de symptômes",
   "nav.meds": "Médicaments",

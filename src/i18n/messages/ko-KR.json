@@ -1,6 +1,8 @@
 {
   "app.tagline": "내 언어로 준비하고, 한국어로 보여주는 의료생활",
   "app.notice": "시제품 · 의료 번역 검수 전 · 진단이 아닙니다",
+  "app.updateReady": "새 버전이 있어요 · 업데이트하면 지금 카드는 지워져요",
+  "app.updateNow": "업데이트",
 
   "nav.home": "홈",
   "nav.card": "증상 카드",
