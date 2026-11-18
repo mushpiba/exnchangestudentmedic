@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Check, ClipboardList, Globe2, House, MapPin, MessagesSquare, Phone, Pill, X } from "lucide-react";
+import { Check, ClipboardList, Globe, GraduationCap, House, MapPin, Phone, Pill, X } from "lucide-react";
 import { useI18n, type MessageKey } from "../i18n";
 import { LOCALES } from "../i18n/locales";
 import { href, useRoute } from "./router";
@@ -18,7 +18,7 @@ const NAV: { to: string; key: MessageKey; Icon: typeof House }[] = [
   { to: "card", key: "nav.card", Icon: ClipboardList },
   { to: "meds", key: "nav.meds", Icon: Pill },
   { to: "places", key: "nav.places", Icon: MapPin },
-  { to: "community", key: "nav.community", Icon: MessagesSquare },
+  { to: "school", key: "nav.school", Icon: GraduationCap },
 ];
 
 function LanguageDialog({ onClose }: { onClose: () => void }) {
@@ -71,8 +71,9 @@ function Page({ route }: { route: string[] }) {
       return <Info id={rest[0]} />;
     case "community":
       return <Community route={rest} />;
+    case "school":
     case "campus":
-      return <Campus />;
+      return <Campus focus={rest[0]} />;
     default:
       return <Home />;
   }
@@ -113,7 +114,8 @@ export function App() {
       </main>
     );
 
-  const section = route[0] === "card" ? "card" : route[0];
+  // The board lives in the school tab; #/campus is the old address of the school page.
+  const section = ["community", "campus"].includes(route[0]) ? "school" : route[0];
   return (
     <>
       <header className="topbar">
@@ -127,7 +129,7 @@ export function App() {
         </a>
         <div className="top-actions">
           <button type="button" className="lang-button" onClick={() => setLanguageOpen(true)}>
-            <Globe2 size={18} aria-hidden />
+            <Globe size={18} aria-hidden />
             <span lang={locale}>{LOCALES.find((l) => l.code === locale)?.native}</span>
           </button>
           <a className="sos" href="tel:119" aria-label={"119 " + t("place.er")}>

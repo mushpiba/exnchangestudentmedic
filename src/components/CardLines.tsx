@@ -1,4 +1,4 @@
-import { Pencil } from "lucide-react";
+import { Camera, Pencil } from "lucide-react";
 import { useI18n } from "../i18n";
 import type { Line, Value } from "../state/card";
 
@@ -28,7 +28,15 @@ export function CardLines({ lines, size = "normal" }: { lines: Line[]; size?: "n
                   </span>
                 </>
               ) : (
-                <span className="v-ko">{line.values.map((v) => value(v, true)).join(", ")}</span>
+                <>
+                  <span className="v-ko">{line.values.map((v) => value(v, true)).join(", ")}</span>
+                  {line.source && (
+                    <span className="v-note" lang="ko">
+                      <Camera size={16} aria-hidden />
+                      {line.source}
+                    </span>
+                  )}
+                </>
               )}
               {showMine && (
                 <span className="v-mine" {...mineProps}>

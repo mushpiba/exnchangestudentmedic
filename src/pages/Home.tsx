@@ -1,9 +1,16 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, BookOpen, Camera, ChevronRight, GraduationCap, Heart, MapPin, MessageCircle, MessagesSquare, Siren } from "lucide-react";
-import { useI18n } from "../i18n";
+import {
+  Ambulance, ArrowRight, BookOpen, Camera, ChevronRight, Globe, GraduationCap, Heart, MapPin, MessageCircle,
+  MessagesSquare, Moon, Phone, Route, ShieldCheck, Siren, UsersRound,
+} from "lucide-react";
+import { useI18n, type MessageKey } from "../i18n";
+import { nativeName } from "../i18n/locales";
 import { href } from "../app/router";
 import { useCard } from "../state/card";
 import { SYMPTOMS, symptomKey, type SymptomId } from "../content/symptoms";
+import { LINKS } from "../content/facilities";
+import { SCHOOL } from "../content/school";
+import { CONTACT_ICON } from "./Campus";
 import { campusAuth, community, type PostSummary } from "../campus/api";
 
 const QUICK = (Object.keys(SYMPTOMS) as SymptomId[]).filter((id) => (SYMPTOMS[id].cats as string[]).includes("BFR"));
@@ -28,6 +35,19 @@ function MiniSlip() {
   );
 }
 
+type Shortcut = { label: MessageKey; Icon: typeof MapPin; to: string; external?: boolean };
+
+const SHORTCUTS: Shortcut[] = [
+  { label: "nav.places", Icon: MapPin, to: href("places") },
+  { label: "home.gridNight", Icon: Moon, to: LINKS.nightPharmacy, external: true },
+  { label: "home.gridEr", Icon: Ambulance, to: LINKS.emergency, external: true },
+  { label: "nav.info", Icon: BookOpen, to: href("info") },
+  { label: "home.gridFirst", Icon: Route, to: href("school", "first-visit") },
+  { label: "school.board", Icon: MessagesSquare, to: href("community") },
+  { label: "school.homepage", Icon: Globe, to: SCHOOL.homepage, external: true },
+  { label: "home.grid1345", Icon: Phone, to: "tel:1345" },
+];
+
 export function Home() {
   const { t } = useI18n();
   const { lines } = useCard();
@@ -43,13 +63,6 @@ export function Home() {
       live = false;
     };
   }, []);
-
-  const tools = [
-    { to: "places", Icon: MapPin, title: t("nav.places"), sub: t("home.placesSub") },
-    { to: "info", Icon: BookOpen, title: t("nav.info"), sub: t("home.infoSub") },
-    { to: "campus", Icon: GraduationCap, title: t("campus.title"), sub: t("home.campusSub") },
-    { to: "community", Icon: MessagesSquare, title: t("nav.community"), sub: t("home.communitySub") },
-  ];
 
   return (
     <div className="home">
@@ -85,7 +98,7 @@ export function Home() {
 
       <section className="section">
         <h2>{t("home.quick")}</h2>
-        <div className="quick">
+        <div className="quick scroll">
           {QUICK.map((id) => (
             <a key={id} href={href("card", id)} className="quick-chip">
               {t(symptomKey(id))}
@@ -104,24 +117,53 @@ export function Home() {
         <ChevronRight className="flip" size={20} aria-hidden />
       </a>
 
+      <section className="school-card" aria-labelledby="school-card-title">
+        <a className="school-card-head" href={href("school")}>
+          <GraduationCap size={20} aria-hidden />
+          <span id="school-card-title">{t("school.cardTitle", { school: t(SCHOOL.name) })}</span>
+          <ChevronRight className="flip chev" size={20} aria-hidden />
+        </a>
+        <a className="buddy-cta" href={href("school", "buddy")}>
+          <UsersRound size={22} aria-hidden />
+          <span>
+            <strong>{t("school.buddyCta")}</strong>
+            <small>{t("school.buddySub")}</small>
+          </span>
+          <ArrowRight className="flip" size={20} aria-hidden />
+        </a>
+        <div className="grid4">
+          {SCHOOL.contacts.map((c) => {
+            const Icon = CONTACT_ICON[c.id];
+            return (
+              <a key={c.id} href={href("school", "contacts")}>
+                <span className="icon-box">
+                  <Icon size={22} aria-hidden />
+                </span>
+                {t(c.short)}
+              </a>
+            );
+          })}
+          <a href={href("school", "insurance")}>
+            <span className="icon-box">
+              <ShieldCheck size={22} aria-hidden />
+            </span>
+            {t("school.claim")}
+          </a>
+        </div>
+      </section>
+
       <section className="section">
         <h2>{t("home.tools")}</h2>
-        <ul className="rows">
-          {tools.map(({ to, Icon, title, sub }) => (
-            <li key={to}>
-              <a href={href(to)} className="item">
-                <span className="icon-box">
-                  <Icon size={20} aria-hidden />
-                </span>
-                <span className="item-text">
-                  <span className="item-title">{title}</span>
-                  <span className="item-sub">{sub}</span>
-                </span>
-                <ChevronRight className="flip chev" size={20} aria-hidden />
-              </a>
-            </li>
+        <div className="grid4">
+          {SHORTCUTS.map(({ label, Icon, to, external }) => (
+            <a key={label} href={to} {...(external ? { target: "_blank", rel: "noreferrer" } : {})}>
+              <span className="icon-box">
+                <Icon size={22} aria-hidden />
+              </span>
+              {t(label)}
+            </a>
           ))}
-        </ul>
+        </div>
       </section>
 
       <section className="section">
@@ -140,6 +182,7 @@ export function Home() {
                 <a className="post-row" href={href("community", "post", p.id)}>
                   <strong dir="auto">{p.title}</strong>
                   <span className="meta">
+                    <span lang={p.locale}>{nativeName(p.locale)}</span>
                     <span className="counts">
                       <Heart size={16} aria-hidden /> {p.likes}
                     </span>

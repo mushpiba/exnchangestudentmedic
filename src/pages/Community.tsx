@@ -5,7 +5,8 @@ import { LOCALES, nativeName } from "../i18n/locales";
 import { go, href } from "../app/router";
 import { BOARDS, age, community, looksPersonal, type Board, type CommunityApi, type Feed, type Post, type PostSummary } from "../campus/api";
 import { Gate } from "../campus/Gate";
-import { Chip, Notice, PageHead } from "../components/ui";
+import { Chip, Notice } from "../components/ui";
+import { SchoolHead } from "../components/SchoolHead";
 
 const FEEDS: Feed[] = ["hot", "all", ...BOARDS];
 const boardKey = (b: Feed) => ("community.board." + b) as MessageKey;
@@ -24,10 +25,21 @@ function Ago({ iso }: { iso: string }) {
   return <time dateTime={iso}>{t(a.key, { n: a.n })}</time>;
 }
 
+// Language filter survives switching boards while the tab is open.
+let lastLang = "all";
+
 function Feeds({ feed }: { feed: Feed }) {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const api = useApi();
   const [posts, setPosts] = useState<PostSummary[] | null>(null);
+  const [lang, setLangState] = useState(lastLang);
+  const setLang = (l: string) => {
+    lastLang = l;
+    setLangState(l);
+  };
+  // My language first, then every other language that has posts here.
+  const langs = [locale, ...new Set((posts ?? []).map((p) => p.locale).filter((l) => l !== locale))];
+  const shown = posts && lang !== "all" ? posts.filter((p) => p.locale === lang) : posts;
   useEffect(() => {
     if (!api) return;
     setPosts(null);
@@ -42,13 +54,20 @@ function Feeds({ feed }: { feed: Feed }) {
           </a>
         ))}
       </nav>
-      {posts === null ? (
+      <div className="lang-filter" role="group" aria-label={t("community.langFilter")}>
+        {["all", ...langs].map((l) => (
+          <button key={l} type="button" aria-pressed={lang === l} onClick={() => setLang(l)} lang={l === "all" ? undefined : l}>
+            {l === "all" ? t("community.langAll") : nativeName(l)}
+          </button>
+        ))}
+      </div>
+      {shown === null ? (
         <p className="muted">{t("common.loading")}</p>
-      ) : posts.length === 0 ? (
-        <p className="muted">{feed === "hot" ? t("community.hotEmpty") : t("community.empty")}</p>
+      ) : shown.length === 0 ? (
+        <p className="muted">{lang !== "all" && posts?.length ? t("community.langEmpty") : feed === "hot" ? t("community.hotEmpty") : t("community.empty")}</p>
       ) : (
         <ul className="post-list">
-          {posts.map((p) => (
+          {shown.map((p) => (
             <li key={p.id}>
               <a href={href("community", "post", p.id)}>
                 <span className="post-board">{t(boardKey(p.board))}</span>
@@ -58,7 +77,9 @@ function Feeds({ feed }: { feed: Feed }) {
                 </span>
                 <span className="meta">
                   <Ago iso={p.createdAt} />
-                  <span className="lang-tag">{nativeName(p.locale)}</span>
+                  <span className="lang-tag" lang={p.locale}>
+                    {nativeName(p.locale)}
+                  </span>
                   <span className="counts">
                     <Heart size={14} aria-hidden /> {p.likes}
                     <MessageCircle size={14} aria-hidden /> {p.comments}
@@ -336,7 +357,12 @@ export function Community({ route }: { route: string[] }) {
   const feed = (FEEDS.includes(head as Feed) ? head : "all") as Feed;
   return (
     <section className="community">
-      {head !== "post" && head !== "write" && <PageHead title={t("nav.community")} intro={t("community.intro")} />}
+      {head !== "post" && head !== "write" && (
+        <>
+          <SchoolHead current="board" />
+          <p className="muted">{t("community.intro")}</p>
+        </>
+      )}
       <Gate>
         {() =>
           head === "post" && id ? <PostView id={id} /> : head === "write" ? <Write /> : <Feeds feed={feed} />

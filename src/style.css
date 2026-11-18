@@ -40,7 +40,7 @@
   --sos-line: rgba(180, 35, 24, 0.22);
 
   --tab-h: 84px;
-  --gutter: 16px;
+  --gutter: 20px;
   --page: 760px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -82,6 +82,8 @@ button, a { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 [hidden] { display: none !important; }
 main { outline: 0; width: min(100% - 2 * var(--gutter), var(--page)); margin: 0 auto; padding: 0 0 calc(var(--tab-h) + 24px); }
 [dir="rtl"] .flip { transform: scaleX(-1); }
+/* unslop: one thin stroke for every icon */
+.lucide { stroke-width: 1.75; }
 .muted { color: var(--ink-2); }
 .small { font-size: 16px; color: var(--ink-2); }
 small { font-size: 16px; }
@@ -179,14 +181,14 @@ legend { font-weight: 500; margin-bottom: 6px; }
 .tabbar {
   position: fixed; inset: auto 0 0; z-index: 4;
   display: grid; grid-template-columns: repeat(5, 1fr);
-  padding: 6px max(0px, calc((100% - var(--page)) / 2)) max(6px, env(safe-area-inset-bottom));
+  padding: 6px max(6px, calc((100% - var(--page)) / 2)) max(6px, env(safe-area-inset-bottom));
   background: var(--surface); border-top: 1px solid var(--hair);
 }
 /* 1fr keeps an automatic minimum: a tab never gets narrower than the longest word of its label. */
 .tabbar a {
-  display: grid; justify-items: center; align-content: start; gap: 2px; min-height: 64px; padding: 0 1px;
+  display: grid; justify-items: center; align-content: start; gap: 2px; min-height: 64px; padding: 0 3px;
   color: var(--ink-2); text-decoration: none; text-align: center;
-  font-size: 16px; line-height: 18px; font-weight: 500;
+  font-size: 14px; line-height: 17px; font-weight: 500;
 }
 /* Safety net set from App when a language's labels still don't fit: break inside words rather than overflow. */
 .tabbar.tight { grid-template-columns: repeat(5, minmax(0, 1fr)); }
@@ -200,6 +202,7 @@ legend { font-weight: 500; margin-bottom: 6px; }
 .tabbar a:hover .tab-ic { background: var(--hover); }
 .tabbar a[aria-current] { color: var(--brand-ink); font-weight: 600; }
 .tabbar a[aria-current] .tab-ic { background: var(--brand-soft); color: var(--brand-ink); }
+.tabbar a[aria-current] .lucide { stroke-width: 2.25; }
 .foot { margin: 32px 0 0; color: var(--ink-3); text-align: center; text-wrap: balance; }
 
 dialog { border: 0; border-radius: 20px; padding: 20px; color: var(--ink); max-height: 86dvh; }
@@ -346,6 +349,58 @@ dialog::backdrop { background: rgb(22 27 26 / 0.55); }
 .rows .post-row:hover { background: var(--hover); }
 .post-row strong { font-weight: 500; }
 
+/* Home: one scrolling row of common symptoms */
+.quick.scroll {
+  flex-wrap: nowrap; overflow-x: auto; margin: 0 calc(-1 * var(--gutter)); padding: 0 var(--gutter) 4px;
+  scroll-padding-inline: var(--gutter); scrollbar-width: none; overscroll-behavior-x: contain;
+}
+.quick.scroll::-webkit-scrollbar { display: none; }
+.quick.scroll .quick-chip { flex: none; white-space: nowrap; }
+
+/* Icon grid: unslop's raised icon box over a short label */
+.grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 8px; }
+.grid4 a {
+  display: grid; justify-items: center; align-content: start; gap: 8px; min-height: 48px;
+  color: var(--ink); text-decoration: none; text-align: center; font-size: 14px; line-height: 18px; font-weight: 500;
+  overflow-wrap: anywhere; hyphens: auto;
+}
+.grid4 .icon-box { width: 52px; height: 52px; border-radius: 16px; background: var(--surface); border: 1px solid var(--hair-2); transition: background-color 0.15s var(--ease); }
+.grid4 a:hover .icon-box { background: var(--hover); }
+
+/* Home: the student's school */
+.school-card { margin-top: 32px; padding: 16px; border: 1px solid var(--hair-2); border-radius: 20px; background: var(--surface); }
+.school-card-head { display: flex; align-items: center; gap: 10px; min-height: 48px; color: var(--ink); text-decoration: none; font-size: 18px; line-height: 26px; font-weight: 500; }
+.school-card-head > span { flex: 1; min-width: 0; }
+.school-card-head > svg:first-child { flex: none; color: var(--brand); }
+.buddy-cta {
+  display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; padding: 14px 16px; border-radius: 14px;
+  background: var(--brand-soft); color: var(--brand-ink); text-decoration: none;
+}
+.buddy-cta > span { display: grid; gap: 2px; flex: 1; min-width: 0; }
+.buddy-cta strong { font-size: 18px; line-height: 26px; font-weight: 600; }
+.buddy-cta small { color: var(--brand-ink); }
+.buddy-cta > svg { flex: none; }
+.school-card .grid4 .icon-box { background: var(--bg); border-color: transparent; }
+
+/* School tab */
+.school-head { padding-top: 24px; }
+.school-head h1 { margin: 0 0 12px; }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; border-radius: 14px; background: var(--raised); }
+.seg a { display: grid; place-items: center; min-height: 48px; border-radius: 10px; color: var(--ink-2); text-decoration: none; font-weight: 500; }
+.seg a[aria-current] { background: var(--surface); color: var(--ink); font-weight: 600; box-shadow: 0 1px 2px rgba(22, 27, 26, 0.12); }
+.buddy-card { margin-top: 20px; padding: 20px; border-radius: 20px; background: var(--brand-soft); color: var(--brand-ink); }
+.buddy-card h2 { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; font-size: 20px; line-height: 28px; font-weight: 600; }
+.buddy-card p { margin: 0 0 16px; }
+.link-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.source { display: flex; align-items: flex-start; gap: 6px; margin: 12px 0 0; color: var(--ink-3); }
+.source svg { flex: none; margin-top: 3px; }
+
+/* Board: filter posts by the language they were written in */
+.lang-filter { display: flex; gap: 8px; overflow-x: auto; margin: 0 calc(-1 * var(--gutter)) 8px; padding: 0 var(--gutter) 4px; scrollbar-width: none; }
+.lang-filter::-webkit-scrollbar { display: none; }
+.lang-filter button { flex: none; white-space: nowrap; min-height: 48px; padding: 8px 14px; border-radius: 999px; }
+.lang-filter button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+
 /* ---------- Posts (community) ---------- */
 .post-list li { border-bottom: 1px solid var(--hair); }
 .post-list a { display: grid; gap: 4px; padding: 14px 2px; color: var(--ink); text-decoration: none; }
@@ -364,6 +419,7 @@ dialog::backdrop { background: rgb(22 27 26 / 0.55); }
 .progress span.on { background: var(--brand); }
 .intake h1 { margin: 24px 0 16px; font-size: 24px; line-height: 32px; text-wrap: pretty; }
 .intake h1.second { margin-top: 32px; }
+.step-hint { margin: -8px 0 16px; color: var(--ink-2); }
 .intake h2 { margin-top: 24px; }
 .search {
   display: flex; align-items: center; gap: 8px; min-height: 56px; margin: 8px 0; padding-inline: 16px 4px;
@@ -431,11 +487,11 @@ dialog::backdrop { background: rgb(22 27 26 / 0.55); }
 .line + .line { border-top: 1px solid var(--paper-rule); }
 .line dt { color: var(--ink-2); font-weight: 500; }
 .line dd { display: grid; gap: 4px; margin: 4px 0 0; }
-.v-ko { font-size: 24px; line-height: 32px; font-weight: 600; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.v-ko { font-size: 28px; line-height: 36px; font-weight: 600; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 .v-mine { color: var(--ink-2); text-align: left; }
-.v-orig { font-size: 20px; line-height: 30px; font-weight: 500; white-space: pre-wrap; overflow-wrap: anywhere; text-align: left; }
+.v-orig { font-size: 22px; line-height: 32px; font-weight: 500; white-space: pre-wrap; overflow-wrap: anywhere; text-align: left; }
 .v-note { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-3); }
-.lines.large .v-ko { font-size: 30px; line-height: 38px; }
+.lines.large .v-ko { font-size: 32px; line-height: 40px; }
 .lines.large .v-orig { font-size: 24px; line-height: 34px; }
 .staff-note { display: flex; align-items: flex-start; gap: 8px; margin: 4px 0 0; padding-top: 16px; border-top: 1px solid var(--paper-rule); color: var(--ink-2); }
 .staff-note svg { flex: none; margin-top: 2px; color: var(--ink-3); }

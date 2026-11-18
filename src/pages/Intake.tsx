@@ -27,12 +27,32 @@ const COMMON_ASSOC = ["fever", "chills", "fatigue", "headache", "dizziness", "na
 // Remember the step while the student visits another tab (e.g. to photograph a medicine).
 let lastStep: Step = "main";
 
-function SymptomSearch({ onPick, picked }: { onPick: (id: string, custom?: string) => void; picked: string }) {
+/**
+ * Search plus category browse.
+ * Main step: one pick, or the student's own words when nothing matches.
+ * Associated step (`suggested` given): any number of picks across all categories. It starts on the suggested
+ * (related) symptoms until a category is tapped, and keeps picked symptoms at the top of whatever list is showing.
+ */
+function SymptomSearch({
+  picked,
+  onPick,
+  suggested,
+  exclude,
+}: {
+  picked: string[];
+  onPick: (id: string, custom?: string) => void;
+  suggested?: string[];
+  exclude?: string;
+}) {
   const { t, variants, locale } = useI18n();
+  const multi = !!suggested;
   const [query, setQuery] = useState("");
-  const [cat, setCat] = useState<Category>("BFR");
+  const [cat, setCat] = useState<Category | null>(multi ? null : "BFR");
   const found = query ? symptomIds.filter((id) => matches(variants(symptomKey(id)), query, locale)) : [];
-  const list = query ? found : symptomIds.filter((id) => (SYMPTOMS[id].cats as string[]).includes(cat));
+  const shown = (
+    query ? found : cat ? symptomIds.filter((id) => (SYMPTOMS[id].cats as string[]).includes(cat)) : (suggested ?? [])
+  ).filter((id) => id !== exclude);
+  const list = multi && !query ? [...picked.filter((id) => !shown.includes(id)), ...shown] : shown;
   // "Search symptoms (e.g. fever, cough)": the examples go under the field so the placeholder is never cut off.
   const full = t("intake.searchPlaceholder");
   const parts = full.match(/^(.*?)\s*[(（](.*)[)）]\s*$/);
@@ -58,7 +78,13 @@ function SymptomSearch({ onPick, picked }: { onPick: (id: string, custom?: strin
       {!query && (
         <div className="cats" role="group" aria-label={t("intake.browse")}>
           {CATEGORIES.map((c) => (
-            <button key={c} type="button" className="cat" aria-pressed={cat === c} onClick={() => setCat(c)}>
+            <button
+              key={c}
+              type="button"
+              className="cat"
+              aria-pressed={cat === c}
+              onClick={() => setCat(multi && cat === c ? null : c)}
+            >
               {cat === c && <Check size={16} aria-hidden />}
               {t(categoryKey(c))}
             </button>
@@ -67,12 +93,12 @@ function SymptomSearch({ onPick, picked }: { onPick: (id: string, custom?: strin
       )}
       <div className="choices">
         {list.map((id) => (
-          <Chip key={id} on={picked === id} onClick={() => onPick(id)}>
+          <Chip key={id} on={picked.includes(id)} onClick={() => onPick(id)}>
             {t(symptomKey(id))}
           </Chip>
         ))}
       </div>
-      {query && (
+      {query && !multi && (
         <button type="button" className="own" onClick={() => onPick("", query)}>
           <Pencil size={20} aria-hidden />
           <span>
@@ -147,7 +173,8 @@ export function Intake({ start }: { start?: string }) {
 
       {step === "main" && (
         <>
-          <h1>{t("q.main")}</h1>
+          <h1>{t("intake.stepMain")}</h1>
+          <p className="step-hint">{t("intake.mainHint")}</p>
           {card.mainText && (
             <div className="picked">
               <Pencil size={20} aria-hidden />
@@ -160,7 +187,7 @@ export function Intake({ start }: { start?: string }) {
             </div>
           )}
           <SymptomSearch
-            picked={card.main}
+            picked={card.main ? [card.main] : []}
             onPick={(id, custom) =>
               set(custom ? { main: "", mainText: custom, area: "", side: "" } : { main: card.main === id ? "" : id, mainText: "", area: "", side: "" })
             }
@@ -254,13 +281,7 @@ export function Intake({ start }: { start?: string }) {
       {step === "assoc" && (
         <>
           <h1>{t("q.associated")}</h1>
-          <div className="choices">
-            {related.map((id) => (
-              <Chip key={id} on={card.assoc.includes(id)} onClick={() => toggle("assoc", id)}>
-                {t(symptomKey(id))}
-              </Chip>
-            ))}
-          </div>
+          <SymptomSearch picked={card.assoc} suggested={related} exclude={card.main} onPick={(id) => toggle("assoc", id)} />
         </>
       )}
 

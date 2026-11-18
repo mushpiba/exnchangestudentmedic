@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { CalendarClock, GraduationCap, MessageCircleMore, ShieldPlus, UsersRound } from "lucide-react";
+import { CalendarClock, ExternalLink, GraduationCap, HeartHandshake, Building2, MessageCircleMore, Phone, ShieldPlus, Stethoscope, UsersRound } from "lucide-react";
 import { useI18n, type MessageKey } from "../i18n";
 import { LINKS } from "../content/facilities";
+import { SCHOOL, type SchoolContact } from "../content/school";
+import { SchoolHead } from "../components/SchoolHead";
 import { buddy as loadBuddy, HELP, type BuddyAction, type BuddyApi, type BuddyRequest, type Help, type Member } from "../campus/api";
 import { Gate } from "../campus/Gate";
-import { CallButton, Chip, Notice, Out, PageHead, Section } from "../components/ui";
+import { CallButton, Chip, Out, Section } from "../components/ui";
 import { PhraseOverlay } from "../components/PhraseOverlay";
 
 const STEPS = ["book", "bring", "reception", "consult", "pay", "pharmacy"];
@@ -13,7 +15,7 @@ function FirstVisit() {
   const { t } = useI18n();
   const [say, setSay] = useState<MessageKey | null>(null);
   return (
-    <Section title={t("campus.firstVisit")}>
+    <Section title={t("campus.firstVisit")} id="first-visit">
       <ol className="visit-steps">
         {STEPS.map((s, i) => (
           <li key={s}>
@@ -166,21 +168,68 @@ function BuddyRequests({ member }: { member: Member | null }) {
   );
 }
 
-export function Campus() {
+export const CONTACT_ICON: Record<SchoolContact["id"], typeof Phone> = { health: Stethoscope, oia: Building2, counsel: HeartHandshake };
+
+/** The school tab: buddy first, then who to call at school, insurance and the first-visit steps. */
+export function Campus({ focus }: { focus?: string }) {
   const { t } = useI18n();
+
+  // #/school/<section> opens the tab at that section (home icons link here).
+  useEffect(() => {
+    if (!focus) return;
+    const timer = setTimeout(() => document.getElementById(focus === "buddy" ? "buddy-form" : focus)?.scrollIntoView({ block: "start" }), 60);
+    return () => clearTimeout(timer);
+  }, [focus]);
+
   return (
     <section className="campus">
-      <PageHead title={t("campus.title")} intro={t("home.campusSub")} icon={<GraduationCap />} />
-      <FirstVisit />
+      <SchoolHead current="support" />
 
-      <Section title={t("insurance.title")}>
-        <article className="info-card">
-          <h3>
-            <ShieldPlus size={18} aria-hidden /> {t("insurance.nhis")}
-          </h3>
-          <p>{t("insurance.nhisBody")}</p>
-          <Out href={LINKS.nhis}>{t("insurance.nhisLink")}</Out>
-        </article>
+      <div className="buddy-card">
+        <h2>
+          <UsersRound size={22} aria-hidden /> {t("buddy.title")}
+        </h2>
+        <p>{t("buddy.intro")}</p>
+        <a className="button primary wide" href="#buddy-form" onClick={(e) => { e.preventDefault(); document.getElementById("buddy-form")?.scrollIntoView({ behavior: "smooth", block: "start" }); }}>
+          {t("school.buddyStart")}
+        </a>
+      </div>
+
+      <Section title={t("school.contacts")} id="contacts">
+        <ul className="rows">
+          {SCHOOL.contacts.map((c) => {
+            const Icon = CONTACT_ICON[c.id];
+            return (
+              <li key={c.id}>
+                <a className="item" href={"tel:" + c.phone}>
+                  <span className="icon-box">
+                    <Icon size={20} aria-hidden />
+                  </span>
+                  <span className="item-text">
+                    <span className="item-title">{t(c.title)}</span>
+                    <span className="item-sub">{t(c.sub)}</span>
+                    <span className="item-sub" dir="ltr">{c.phone}</span>
+                  </span>
+                  <Phone className="chev" size={20} aria-hidden />
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+        <div className="link-chips">
+          <Out className="button" href={SCHOOL.homepage}>
+            {t("school.homepage")}
+          </Out>
+          <Out className="button" href={SCHOOL.international}>
+            {t("school.international")}
+          </Out>
+        </div>
+        <p className="source">
+          <ExternalLink size={16} aria-hidden /> {t("school.source", { date: SCHOOL.checked })}
+        </p>
+      </Section>
+
+      <Section title={t("insurance.title")} id="insurance">
         <article className="info-card">
           <h3>
             <GraduationCap size={18} aria-hidden /> {t("insurance.school")}
@@ -188,16 +237,21 @@ export function Campus() {
           <p>{t("insurance.schoolBody")}</p>
           <Out href={LINKS.inha}>{t("insurance.inha")}</Out>
         </article>
+        <article className="info-card">
+          <h3>
+            <ShieldPlus size={18} aria-hidden /> {t("insurance.nhis")}
+          </h3>
+          <p>{t("insurance.nhisBody")}</p>
+          <Out href={LINKS.nhis}>{t("insurance.nhisLink")}</Out>
+        </article>
         <CallButton number="1345" label={t("emergency.call1345")} />
       </Section>
 
-      <Section title={t("buddy.title")} id="buddy">
-        <p>
-          <UsersRound size={18} aria-hidden /> {t("buddy.intro")}
-        </p>
+      <FirstVisit />
+
+      <Section title={t("buddy.title")} id="buddy-form">
         <Gate>{(member) => <BuddyRequests member={member} />}</Gate>
       </Section>
-      <Notice>{t("app.notice")}</Notice>
     </section>
   );
 }

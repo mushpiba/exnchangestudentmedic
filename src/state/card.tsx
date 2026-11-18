@@ -81,7 +81,8 @@ export function reducer(card: Card, action: Action): Card {
 
 /** A value on the card: a translated concept, or the student's own words shown as written. */
 export type Value = { key: MessageKey; params?: Record<string, string | number> } | { text: string };
-export type Line = { label: MessageKey; values: Value[]; original?: boolean };
+/** `source`: Korean product names the ingredients came from (photographed medicine boxes). */
+export type Line = { label: MessageKey; values: Value[]; original?: boolean; source?: string };
 
 const k = (key: string, params?: Record<string, string | number>): Value => ({ key: key as MessageKey, params });
 
@@ -110,6 +111,7 @@ export function cardLines(card: Card): Line[] {
       lines.push({
         label: "card.meds",
         values: card.takeItems.flatMap((m) => m.ingredients.map((i) => k(ingredientKey(i)))),
+        source: card.takeItems.map((m) => m.name).join(", "),
       });
     if (card.takeText) lines.push({ label: "card.meds", values: [{ text: card.takeText }], original: true });
     if (!card.takeItems.length && !card.takeText) lines.push({ label: "card.meds", values: [k("take.yes")] });
