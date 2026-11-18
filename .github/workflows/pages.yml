@@ -1,4 +1,4 @@
-name: Deploy Inha Care
+name: Deploy NARU
 on:
   push:
     branches: [main]
@@ -23,6 +23,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - run: npm test
       - run: npm run build
         env:
           VITE_CAMPUS_URL: ${{ vars.VITE_CAMPUS_URL }}
