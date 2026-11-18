@@ -3,7 +3,7 @@ import { createContext, useContext, useMemo, useReducer, type ReactNode } from "
 import type { MessageKey } from "../i18n";
 import { ingredientKey } from "../content/medicines";
 import { sideKey, symptomKey, vasKey } from "../content/symptoms";
-import { detailLabelKey, detailsFor, isDanger, optionKey } from "../content/details";
+import { GENERAL, detailLabelKey, detailsFor, isDanger, optionKey } from "../content/details";
 
 export type TakenMedicine = { id: string; name: string; ingredients: string[] };
 
@@ -118,16 +118,14 @@ export function cardLines(card: Card): Line[] {
       values: [...(card.area ? [k("area." + card.area)] : []), ...(card.side ? [k(sideKey(card.side))] : [])],
     });
   // Detail answers follow the order of the questions asked for this symptom.
-  const asked = [...detailsFor(card.main), ...Object.keys(card.details)];
-  for (const id of [...new Set(asked)]) {
+  const general = GENERAL as string[];
+  const detailLine = (id: string) => {
     const chosen = card.details[id] ?? [];
-    if (!chosen.length) continue;
-    lines.push({
-      label: detailLabelKey(id),
-      values: chosen.map((o) => k(optionKey(id, o))),
-      danger: chosen.some((o) => isDanger(id, o)),
-    });
-  }
+    if (chosen.length)
+      lines.push({ label: detailLabelKey(id), values: chosen.map((o) => k(optionKey(id, o))), danger: chosen.some((o) => isDanger(id, o)) });
+  };
+  const asked = [...detailsFor(card.main), ...Object.keys(card.details)].filter((id) => !general.includes(id));
+  [...new Set(asked)].forEach(detailLine);
   if (card.onset) lines.push({ label: "card.onset", values: [k("onset." + card.onset)] });
   if (typeof card.pain === "number")
     lines.push({ label: "card.pain", values: [k("card.painValue", { n: card.pain }), k(vasKey(card.pain))] });
@@ -151,6 +149,7 @@ export function cardLines(card: Card): Line[] {
   } else if (card.take) lines.push({ label: "card.meds", values: [k("take." + card.take)] });
   if (card.past.length) lines.push({ label: "card.past", values: card.past.map((p) => k("past." + p)) });
   if (card.family.length) lines.push({ label: detailLabelKey("family"), values: card.family.map((f) => k(optionKey("family", f))) });
+  general.forEach(detailLine);
   if (card.preg && card.preg !== "skip") lines.push({ label: "card.pregnancy", values: [k("preg." + card.preg)] });
   if (card.notes.trim()) lines.push({ label: "card.notes", values: [{ text: card.notes.trim() }], original: true });
   return lines;

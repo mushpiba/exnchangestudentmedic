@@ -10,7 +10,7 @@ import {
   categoryKey, sideKey, symptom, symptomIds, symptomKey, vasKey, type Category,
 } from "../content/symptoms";
 import { matches } from "../lib/text";
-import { DETAILS, detailKey, detailsFor, isDanger, optionKey } from "../content/details";
+import { DETAILS, GENERAL, detailKey, detailsFor, isDanger, optionKey, type DetailId } from "../content/details";
 import { TRANSLATION_SERVER, translateOnServer } from "../lib/translate";
 
 type Step = "main" | "area" | "detail" | "onset" | "pain" | "assoc" | "allergyMeds" | "history" | "notes";
@@ -73,6 +73,27 @@ function TranslateBox() {
           </div>
         ))}
       <p className="server-tag">{t("intake.translateServer", { name: TRANSLATION_SERVER.name })}</p>
+    </section>
+  );
+}
+
+/** One detail question: its choices, and a warning right under it if an emergency sign is chosen. */
+function DetailQuestion({ id }: { id: DetailId }) {
+  const { t } = useI18n();
+  const { card, detail } = useCard();
+  const q = DETAILS[id];
+  const chosen = card.details[id] ?? [];
+  return (
+    <section className="detail-q" aria-labelledby={"dq-" + id}>
+      <h2 id={"dq-" + id}>{t(detailKey(id))}</h2>
+      <div className={"choices" + (q.options.length === 3 && !q.many ? " three" : "")}>
+        {q.options.map((o) => (
+          <Chip key={o} on={chosen.includes(o)} onClick={() => detail(id, o, q.many)}>
+            {t(optionKey(id, o))}
+          </Chip>
+        ))}
+      </div>
+      {chosen.some((o) => isDanger(id, o)) && <DangerNotice />}
     </section>
   );
 }
@@ -179,7 +200,7 @@ function SymptomSearch({
 
 export function Intake({ start }: { start?: string }) {
   const { t } = useI18n();
-  const { card, set, toggle, detail, removeMed } = useCard();
+  const { card, set, toggle, removeMed } = useCard();
   const loc = symptom(card.main)?.loc;
   const details = useMemo(() => detailsFor(card.main), [card.main]);
   const steps = useMemo<Step[]>(
@@ -301,23 +322,9 @@ export function Intake({ start }: { start?: string }) {
         <>
           <h1>{t("intake.detailTitle")}</h1>
           <p className="step-hint">{t("intake.detailSub")}</p>
-          {details.map((id) => {
-            const q = DETAILS[id];
-            const chosen = card.details[id] ?? [];
-            return (
-              <section className="detail-q" key={id} aria-labelledby={"dq-" + id}>
-                <h2 id={"dq-" + id}>{t(detailKey(id))}</h2>
-                <div className="choices">
-                  {q.options.map((o) => (
-                    <Chip key={o} on={chosen.includes(o)} onClick={() => detail(id, o, q.many)}>
-                      {t(optionKey(id, o))}
-                    </Chip>
-                  ))}
-                </div>
-                {chosen.some((o) => isDanger(id, o)) && <DangerNotice />}
-              </section>
-            );
-          })}
+          {details.map((id) => (
+            <DetailQuestion key={id} id={id} />
+          ))}
         </>
       )}
 
@@ -474,6 +481,10 @@ export function Intake({ start }: { start?: string }) {
               </Chip>
             ))}
           </div>
+          <h1 className="second">{t("intake.lifeTitle")}</h1>
+          {GENERAL.map((id) => (
+            <DetailQuestion key={id} id={id} />
+          ))}
         </>
       )}
 
