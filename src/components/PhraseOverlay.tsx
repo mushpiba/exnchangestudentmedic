@@ -10,18 +10,20 @@ const STATEMENT_ANSWERS: MessageKey[] = ["ans.ok", "ans.again"];
  * Full-screen phrase for a face-to-face moment.
  * Staff tap a Korean phrase → the student reads it in their language and taps an answer →
  * the answer appears large in Korean, on the paper slip, for staff.
- * "say": the student shows a Korean sentence to staff.
+ * "say": the student shows a Korean sentence to staff (`params` fill its placeholders in each language).
  */
 export function PhraseOverlay({
   phrase,
   kind,
   onClose,
   onAnswer,
+  params,
 }: {
   phrase: MessageKey;
   kind: "question" | "statement" | "say";
   onClose: () => void;
   onAnswer?: (answer: MessageKey) => void;
+  params?: { mine: Record<string, string | number>; ko: Record<string, string | number> };
 }) {
   const { t, tk, locale, rtl } = useI18n();
   const [answer, setAnswer] = useState<MessageKey | null>(null);
@@ -50,11 +52,11 @@ export function PhraseOverlay({
           <div className="slip answer-slip" lang="ko" dir="ltr">
             <div className="slip-stub">
               <p className="a-label" {...mine}>
-                {t(phrase)}
+                {t(phrase, params?.mine)}
               </p>
             </div>
             <div className="slip-body">
-              <p className="say-ko">{tk(phrase)}</p>
+              <p className="say-ko">{tk(phrase, params?.ko)}</p>
             </div>
           </div>
         </div>

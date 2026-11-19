@@ -36,7 +36,7 @@ export const INGREDIENTS: Record<string, Ingredient> = {
     cautions: ["stomach", "asthmaNsaid", "kidney", "pregnancy"],
   },
   aspirin: {
-    names: ["아스피린", "아세틸살리실산", "aspirin", "acetylsalicylic", "аспирин"],
+    names: ["아스피린", "아세틸살리실산", "aspirin", "acetylsalicylic", "аспирин", "ацетилсалициловая", "阿司匹林"],
     cls: "nsaid",
     uses: ["pain", "fever"],
     cautions: ["stomach", "asthmaNsaid", "reye", "pregnancy"],
@@ -54,7 +54,7 @@ export const INGREDIENTS: Record<string, Ingredient> = {
     cautions: ["stomach", "duplicate"],
   },
   caffeine: {
-    names: ["무수카페인", "카페인", "caffeine"],
+    names: ["무수카페인", "카페인", "caffeine", "кофеин", "咖啡因"],
     cls: "stimulant",
     uses: ["headache", "alertness"],
     cautions: ["caffeine"],
@@ -72,7 +72,7 @@ export const INGREDIENTS: Record<string, Ingredient> = {
     cautions: ["drowsy", "duplicate"],
   },
   cetirizine: {
-    names: ["세티리진", "cetirizine", "цетиризин"],
+    names: ["세티리진", "cetirizine", "цетиризин", "西替利嗪"],
     cls: "antihistamine",
     uses: ["allergy", "runnyNose", "itching"],
     cautions: ["drowsy", "pregnancy"],
@@ -84,7 +84,7 @@ export const INGREDIENTS: Record<string, Ingredient> = {
     cautions: ["drowsy", "pregnancy"],
   },
   loratadine: {
-    names: ["로라타딘", "loratadine", "лоратадин"],
+    names: ["로라타딘", "loratadine", "лоратадин", "氯雷他定"],
     cls: "antihistamine",
     uses: ["allergy", "runnyNose", "itching"],
     cautions: ["pregnancy"],
@@ -114,7 +114,7 @@ export const INGREDIENTS: Record<string, Ingredient> = {
     cautions: ["bloodPressure", "duplicate"],
   },
   dextromethorphan: {
-    names: ["덱스트로메토르판", "dextromethorphan"],
+    names: ["덱스트로메토르판", "dextromethorphan", "декстрометорфан", "右美沙芬"],
     cls: "antitussive",
     uses: ["cough"],
     cautions: ["drowsy", "duplicate"],
@@ -126,7 +126,7 @@ export const INGREDIENTS: Record<string, Ingredient> = {
     cautions: ["duplicate", "shortTerm"],
   },
   ambroxol: {
-    names: ["암브록솔", "ambroxol", "амброксол"],
+    names: ["암브록솔", "ambroxol", "амброксол", "氨溴索"],
     cls: "expectorant",
     uses: ["phlegm", "cough"],
     cautions: ["shortTerm"],
@@ -144,7 +144,7 @@ export const INGREDIENTS: Record<string, Ingredient> = {
     cautions: ["shortTerm"],
   },
   famotidine: {
-    names: ["파모티딘", "famotidine"],
+    names: ["파모티딘", "famotidine", "фамотидин", "法莫替丁"],
     cls: "h2blocker",
     uses: ["heartburn", "indigestion"],
     cautions: ["shortTerm", "kidney"],
@@ -210,13 +210,13 @@ export const INGREDIENTS: Record<string, Ingredient> = {
     cautions: ["pregnancy"],
   },
   smectite: {
-    names: ["디옥타헤드랄스멕타이트", "스멕타이트", "diosmectite", "smectite"],
+    names: ["디옥타헤드랄스멕타이트", "스멕타이트", "diosmectite", "smectite", "диосмектит", "смектит", "蒙脱石"],
     cls: "antidiarrheal",
     uses: ["diarrhea"],
     cautions: ["separateDose", "shortTerm"],
   },
   loperamide: {
-    names: ["로페라미드", "loperamide", "лоперамид"],
+    names: ["로페라미드", "loperamide", "лоперамид", "洛哌丁胺"],
     cls: "antidiarrheal",
     uses: ["diarrhea"],
     cautions: ["infectiousDiarrhea", "children"],
@@ -391,6 +391,8 @@ export type Product = {
   /** The ones we can explain; vitamins and herbal ingredients are not in the dictionary. */
   ingredients: { id: string; amount?: string }[];
   itemSeq: string;
+  /** Children's product (dosed by weight): not offered to students as a substitute for an adult medicine. */
+  kids?: boolean;
 };
 
 // Source: MFDS 의약품안전나라 product search, checked 2026-11-18 (주성분, 품목기준코드).
@@ -400,7 +402,7 @@ export type Product = {
 export const PRODUCTS: Record<string, Product> = {
   tylenol500: { ko: "타이레놀정500밀리그람", match: ["타이레놀정500", "타이레놀500", "tylenol500"], family: "타이레놀", mainKo: "아세트아미노펜", ingredients: [{ id: "acetaminophen", amount: "500 mg" }], itemSeq: "202106092" },
   tylenol8h: { ko: "타이레놀8시간이알서방정", match: ["타이레놀8시간", "8시간이알", "tylenol8"], family: "타이레놀", mainKo: "아세트아미노펜", ingredients: [{ id: "acetaminophen" }], itemSeq: "202200407" },
-  tylenolKids: { ko: "어린이타이레놀현탁액", match: ["어린이타이레놀현탁", "childrenstylenol"], family: "타이레놀", mainKo: "아세트아미노펜(미분화)", ingredients: [{ id: "acetaminophen" }], itemSeq: "202200525" },
+  tylenolKids: { ko: "어린이타이레놀현탁액", match: ["어린이타이레놀현탁", "childrenstylenol"], family: "타이레놀", mainKo: "아세트아미노펜(미분화)", ingredients: [{ id: "acetaminophen" }], itemSeq: "202200525", kids: true },
   tylenolWomen: { ko: "우먼스타이레놀정", match: ["우먼스타이레놀", "womenstylenol"], family: "타이레놀", mainKo: "아세트아미노펜/파마브롬", ingredients: [{ id: "acetaminophen" }, { id: "pamabrom" }], itemSeq: "202200658" },
   geworin: { ko: "게보린정", match: ["게보린정", "geworintab"], family: "게보린", mainKo: "아세트아미노펜/카페인무수물/이소프로필안티피린", ingredients: [{ id: "acetaminophen" }, { id: "caffeine" }, { id: "isopropylantipyrine" }], itemSeq: "197900277" },
   penzalQ: { ko: "펜잘큐정", match: ["펜잘큐"], family: "펜잘", mainKo: "아세트아미노펜/카페인무수물/에텐자미드", ingredients: [{ id: "acetaminophen" }, { id: "caffeine" }, { id: "ethenzamide" }], itemSeq: "200810700" },
@@ -416,8 +418,8 @@ export const PRODUCTS: Record<string, Product> = {
   coldaewonCoughS: { ko: "콜대원코프에스시럽", match: ["콜대원코프에스"], family: "콜대원", mainKo: "아세트아미노펜/펜톡시베린시트르산염/dl-메틸에페드린염산염/구아이페네신/카페인무수물/슈도에페드린염산염", ingredients: [{ id: "acetaminophen" }, { id: "pentoxyverine" }, { id: "methylephedrine" }, { id: "guaifenesin" }, { id: "caffeine" }, { id: "pseudoephedrine" }], itemSeq: "201603303" },
   fightubenCPlus: { ko: "화이투벤씨플러스캡슐", match: ["화이투벤씨플러스"], family: "화이투벤", mainKo: "아세트아미노펜/클로르페니라민말레산염/dl-메틸에페드린염산염/클로페라스틴염산염/카페인무수물/티아민질산염/리보플라빈/아스코르브산", ingredients: [{ id: "acetaminophen" }, { id: "chlorpheniramine" }, { id: "methylephedrine" }, { id: "cloperastine" }, { id: "caffeine" }], itemSeq: "201300045" },
   theraFluNight: { ko: "테라플루나이트타임건조시럽", match: ["테라플루나이트"], family: "테라플루", mainKo: "아세트아미노펜/페니라민말레산염/페닐레프린염산염", ingredients: [{ id: "acetaminophen" }, { id: "pheniramine" }, { id: "phenylephrine" }], itemSeq: "200807357" },
-  champSyrup: { ko: "챔프시럽", match: ["챔프시럽"], family: "챔프", mainKo: "아세트아미노펜", ingredients: [{ id: "acetaminophen" }], itemSeq: "201206715" },
-  suspenSupp: { ko: "복합써스펜좌약", match: ["써스펜좌약"], family: "써스펜", mainKo: "아세트아미노펜/DL-메티오닌", ingredients: [{ id: "acetaminophen" }], itemSeq: "199102142" },
+  champSyrup: { ko: "챔프시럽", match: ["챔프시럽"], family: "챔프", mainKo: "아세트아미노펜", ingredients: [{ id: "acetaminophen" }], itemSeq: "201206715", kids: true },
+  suspenSupp: { ko: "복합써스펜좌약", match: ["써스펜좌약"], family: "써스펜", mainKo: "아세트아미노펜/DL-메티오닌", ingredients: [{ id: "acetaminophen" }], itemSeq: "199102142", kids: true },
   zyrtec: { ko: "지르텍정", match: ["지르텍", "zyrtec", "зиртек", "仙特明"], family: "지르텍", mainKo: "세티리진염산염", ingredients: [{ id: "cetirizine" }], itemSeq: "200610765" },
   claritin: { ko: "클라리틴정", match: ["클라리틴", "claritin", "кларитин"], family: "클라리틴", mainKo: "로라타딘", ingredients: [{ id: "loratadine" }], itemSeq: "200905692" },
   allegra120: { ko: "알레그라정120밀리그람", match: ["알레그라정120", "allegra120"], family: "알레그라", mainKo: "펙소페나딘염산염", ingredients: [{ id: "fexofenadine", amount: "120 mg" }], itemSeq: "199801016" },

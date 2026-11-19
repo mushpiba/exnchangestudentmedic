@@ -1,0 +1,2274 @@
+{
+ "checkedAt": "2026-11-19",
+ "products": [
+  {
+   "key": "panadol500",
+   "name": "Panadol 500 mg film-coated tablets",
+   "match": [
+    "panadol 500",
+    "panadol 500 mg",
+    "panadol tablets",
+    "панадол 500",
+    "панадол таблетки",
+    "panadol xanh"
+   ],
+   "family": "Panadol",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG",
+    "MN",
+    "VN"
+   ],
+   "ingredients": [
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "500 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/panadol-1",
+   "note": "Composition checked on the Russian register (Haleon). Panadol Extra, Panadol Cold & Flu and children's Panadol are different products."
+  },
+  {
+   "key": "panadolExtra",
+   "name": "Panadol Extra (Optizorb) tablets",
+   "match": [
+    "panadol extra",
+    "panadol extra optizorb",
+    "panadol extra advance",
+    "панадол экстра",
+    "panadol đỏ",
+    "panadol do"
+   ],
+   "family": "Panadol",
+   "countries": [
+    "GB",
+    "VN"
+   ],
+   "ingredients": [
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "500 mg"
+    },
+    {
+     "id": "caffeine",
+     "inn": "caffeine",
+     "amount": "65 mg"
+    }
+   ],
+   "source": "https://panadol.com/en-gb/adult-products/panadol-extra-tablets-optizorb",
+   "note": "Composition checked on the UK Haleon page; Panadol Extra is not listed on the Russian register (vidal.ru)."
+  },
+  {
+   "key": "panadolCamCumVn",
+   "name": "Panadol Cảm Cúm (Panadol Cold & Flu, Vietnam)",
+   "match": [
+    "panadol cảm cúm",
+    "panadol cam cum",
+    "panadol cold & flu day",
+    "panadol cold and flu day"
+   ],
+   "family": "Panadol",
+   "countries": [
+    "VN"
+   ],
+   "ingredients": [
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "500 mg"
+    },
+    {
+     "id": "caffeine",
+     "inn": "caffeine",
+     "amount": "25 mg"
+    },
+    {
+     "id": "phenylephrine",
+     "inn": "phenylephrine",
+     "amount": "5 mg"
+    }
+   ],
+   "source": "https://www.pharmacity.vn/panadol-cold--flu-hop180-vien--giam-nhanh-cac-trieu-chung-cam-cum.html",
+   "note": "Vietnamese registration VD-16582-12 (made by Sanofi-Synthelabo Vietnam for GSK/Haleon); source is a pharmacy listing quoting the label. Same amounts on Haleon's Middle East 'Panadol Cold & Flu Day' page (panadol.com/en-me). 'Panadol Cold & Flu' in other countries can contain other ingredients (e.g. night versions with an antihistamine) - check the pack."
+  },
+  {
+   "key": "efferalgan500",
+   "name": "Efferalgan 500 mg effervescent tablets",
+   "match": [
+    "efferalgan 500",
+    "efferalgan 500 mg",
+    "efferalgan effervescent",
+    "эффералган 500",
+    "эффералган шипучие"
+   ],
+   "family": "Efferalgan",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "VN"
+   ],
+   "ingredients": [
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "500 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/efferalgan__21634",
+   "note": "Russian register (UPSA). Each tablet contains 412.4 mg sodium - relevant for salt-restricted diets. 'Efferalgan with vitamin C' (330 mg paracetamol + 200 mg ascorbic acid) and codeine versions sold in some countries are different products."
+  },
+  {
+   "key": "hapacolCaplet500",
+   "name": "Hapacol Caplet 500",
+   "match": [
+    "hapacol caplet 500",
+    "hapacol caplet",
+    "hapacol 500"
+   ],
+   "family": "Hapacol",
+   "countries": [
+    "VN"
+   ],
+   "ingredients": [
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "500 mg"
+    }
+   ],
+   "source": "https://dhgpharma.com.vn/en/product/analgesic-antipyretic/hapacol-caplet-500",
+   "note": "DHG Pharma (Vietnam) product page."
+  },
+  {
+   "key": "hapacol650",
+   "name": "Hapacol 650",
+   "match": [
+    "hapacol 650",
+    "hapacol 650mg"
+   ],
+   "family": "Hapacol",
+   "countries": [
+    "VN"
+   ],
+   "ingredients": [
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "650 mg"
+    }
+   ],
+   "source": "https://dhgpharma.com.vn/en/product/analgesic-antipyretic/hapacol-650",
+   "note": "DHG Pharma (Vietnam). 650 mg per tablet is higher than the usual Korean 500 mg tablet - count the daily total."
+  },
+  {
+   "key": "hapacol650Extra",
+   "name": "Hapacol 650 Extra",
+   "match": [
+    "hapacol 650 extra"
+   ],
+   "family": "Hapacol",
+   "countries": [
+    "VN"
+   ],
+   "ingredients": [
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "650 mg"
+    },
+    {
+     "id": "caffeine",
+     "inn": "caffeine",
+     "amount": "65 mg"
+    }
+   ],
+   "source": "https://dhgpharma.com.vn/en/product/analgesic-antipyretic/hapacol-650-extra",
+   "note": "DHG Pharma (Vietnam)."
+  },
+  {
+   "key": "hapacolDauNhuc",
+   "name": "Hapacol Đau Nhức",
+   "match": [
+    "hapacol đau nhức",
+    "hapacol dau nhuc"
+   ],
+   "family": "Hapacol",
+   "countries": [
+    "VN"
+   ],
+   "ingredients": [
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "325 mg"
+    },
+    {
+     "id": "ibuprofen",
+     "inn": "ibuprofen",
+     "amount": "200 mg"
+    }
+   ],
+   "source": "https://dhgpharma.com.vn/en/product/analgesic-antipyretic/hapacol-dau-nhuc",
+   "note": "DHG Pharma (Vietnam). Contains an NSAID (ibuprofen) as well as paracetamol."
+  },
+  {
+   "key": "hapacolCsDay",
+   "name": "Hapacol CS Day",
+   "match": [
+    "hapacol cs day"
+   ],
+   "family": "Hapacol",
+   "countries": [
+    "VN"
+   ],
+   "ingredients": [
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "650 mg"
+    },
+    {
+     "id": "phenylephrine",
+     "inn": "phenylephrine",
+     "amount": "5 mg"
+    }
+   ],
+   "source": "https://dhgpharma.com.vn/en/product/analgesic-antipyretic/hapacol-cs-day",
+   "note": "DHG Pharma (Vietnam), cold product."
+  },
+  {
+   "key": "tylenolExtraStrength",
+   "name": "Tylenol Extra Strength caplets",
+   "match": [
+    "tylenol extra strength",
+    "tylenol es",
+    "tylenol 500 mg",
+    "тайленол экстра"
+   ],
+   "family": "Tylenol",
+   "countries": [
+    "US"
+   ],
+   "ingredients": [
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "500 mg"
+    }
+   ],
+   "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=bb6533e5-e6a9-488c-b8ab-a6a06e87ede9",
+   "note": "US label (Kenvue). In China the brand 泰诺 (Tylenol) is mainly a cold combination - see the 泰诺 酚麻美敏片 entry; plain paracetamol there is sold as 泰诺林."
+  },
+  {
+   "key": "nurofen200",
+   "name": "Nurofen 200 mg tablets",
+   "match": [
+    "nurofen 200",
+    "nurofen 200 mg",
+    "nurofen tablets",
+    "нурофен 200",
+    "нурофен таблетки"
+   ],
+   "family": "Nurofen",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG",
+    "GB"
+   ],
+   "ingredients": [
+    {
+     "id": "ibuprofen",
+     "inn": "ibuprofen",
+     "amount": "200 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/nurofen",
+   "note": "Russian register (Reckitt). Other Nurofen products (Forte, Plus, Multisymptom, Stopkold) differ in strength or ingredients."
+  },
+  {
+   "key": "advil200",
+   "name": "Advil 200 mg tablets",
+   "match": [
+    "advil 200",
+    "advil 200 mg",
+    "advil tablets"
+   ],
+   "family": "Advil",
+   "countries": [
+    "US"
+   ],
+   "ingredients": [
+    {
+     "id": "ibuprofen",
+     "inn": "ibuprofen",
+     "amount": "200 mg"
+    }
+   ],
+   "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1a665e64-9f30-be37-4a83-38789f1f1e89",
+   "note": "US label (Haleon). Advil PM, Advil Cold & Sinus and Advil Dual Action contain other ingredients."
+  },
+  {
+   "key": "aspirin500Bayer",
+   "name": "Aspirin 500 mg tablets (Bayer)",
+   "match": [
+    "aspirin 500",
+    "aspirin 500 mg",
+    "aspirin bayer 500",
+    "аспирин 500",
+    "аспирин байер",
+    "аспирин таблетки 500"
+   ],
+   "family": "Aspirin",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "aspirin",
+     "inn": "acetylsalicylic acid",
+     "amount": "500 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/aspirin__1962",
+   "note": "Russian register (Bayer). Aspirin Cardio (100/300 mg enteric tablets) is for heart prevention; Aspirin-C adds vitamin C."
+  },
+  {
+   "key": "aspirinC",
+   "name": "Аспирин-С (Aspirin C) effervescent tablets",
+   "match": [
+    "аспирин с",
+    "аспирин-с",
+    "аспирин c",
+    "aspirin c effervescent",
+    "aspirin plus c"
+   ],
+   "family": "Aspirin",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "aspirin",
+     "inn": "acetylsalicylic acid",
+     "amount": "400 mg"
+    },
+    {
+     "inn": "ascorbic acid",
+     "amount": "240 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/aspirin-c__1963",
+   "note": "Russian register (Bayer Consumer Care)."
+  },
+  {
+   "key": "citramonP",
+   "name": "Цитрамон П (Citramon P) tablets",
+   "match": [
+    "цитрамон п",
+    "цитрамон-п",
+    "citramon p",
+    "citramon-p",
+    "sitramon p"
+   ],
+   "family": "Citramon",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG",
+    "MN"
+   ],
+   "ingredients": [
+    {
+     "id": "aspirin",
+     "inn": "acetylsalicylic acid",
+     "amount": "240 mg"
+    },
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "180 mg"
+    },
+    {
+     "id": "caffeine",
+     "inn": "caffeine",
+     "amount": "30 mg"
+    }
+   ],
+   "source": "https://www.rlsnet.ru/drugs/citramon-p-1556",
+   "note": "Russian register (Usolye-Sibirsky / Moskhimfarmpreparaty). Other 'Цитрамон' products from other makers or countries may have different amounts - check the pack."
+  },
+  {
+   "key": "analgin500",
+   "name": "Анальгин (Analgin) 500 mg tablets",
+   "match": [
+    "анальгин 500",
+    "анальгин таблетки",
+    "analgin 500",
+    "analgin tablets"
+   ],
+   "family": "Analgin",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG",
+    "MN"
+   ],
+   "ingredients": [
+    {
+     "inn": "metamizole",
+     "amount": "500 mg (metamizole sodium monohydrate)"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/analgin__6506",
+   "note": "Generic name used by many manufacturers; checked for Pharmstandard-Leksredstva. Metamizole is not sold in Korea and can rarely cause agranulocytosis. Analgin combination products are different."
+  },
+  {
+   "key": "noShpa",
+   "name": "Но-шпа (No-Spa) tablets",
+   "match": [
+    "но-шпа 40",
+    "но-шпа таблетки",
+    "но-шпа форте",
+    "no-spa 40",
+    "no-spa forte",
+    "no-shpa 40",
+    "no-shpa forte",
+    "noshpa 40"
+   ],
+   "family": "No-Spa",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG",
+    "MN"
+   ],
+   "ingredients": [
+    {
+     "inn": "drotaverine"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/no-spa__591",
+   "note": "Russian register (Opella/Sanofi): 40 mg drotaverine hydrochloride per tablet; No-Spa forte is 80 mg. No-Spa Duo (40 mg + 500 mg) is a combination with a second analgesic. Antispasmodic; drotaverine is not sold in Korea."
+  },
+  {
+   "key": "pentalgin",
+   "name": "Пенталгин (Pentalgin) film-coated tablets",
+   "match": [
+    "пенталгин таблетки",
+    "pentalgin tablets"
+   ],
+   "family": "Pentalgin",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "325 mg"
+    },
+    {
+     "id": "naproxen",
+     "inn": "naproxen",
+     "amount": "100 mg"
+    },
+    {
+     "id": "caffeine",
+     "inn": "caffeine",
+     "amount": "50 mg"
+    },
+    {
+     "inn": "drotaverine",
+     "amount": "40 mg"
+    },
+    {
+     "id": "pheniramine",
+     "inn": "pheniramine",
+     "amount": "10 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/pentalgin__24354",
+   "note": "Current Russian formula (Otisipharm). Pentalgin NEO, Pentalgin Mono and older 'Pentalgin' products have different compositions - check the pack."
+  },
+  {
+   "key": "ibuklin",
+   "name": "Ибуклин (Ibuklin) film-coated tablets",
+   "match": [
+    "ибуклин",
+    "ibuklin",
+    "ibuclin"
+   ],
+   "family": "Ibuklin",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "ibuprofen",
+     "inn": "ibuprofen",
+     "amount": "400 mg"
+    },
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "325 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/ibuclin__310",
+   "note": "Russian register (Dr. Reddy's). Ibuklin Junior (prescription in Russia) has the same two ingredients at 100 mg + 125 mg."
+  },
+  {
+   "key": "fenbidSr",
+   "name": "芬必得 布洛芬缓释胶囊 (Fenbid ibuprofen sustained-release capsules)",
+   "match": [
+    "芬必得胶囊",
+    "芬必得缓释胶囊",
+    "芬必得膠囊",
+    "芬必得緩釋膠囊",
+    "布洛芬缓释胶囊",
+    "布洛芬緩釋膠囊",
+    "fenbid capsules"
+   ],
+   "family": "芬必得",
+   "countries": [
+    "CN"
+   ],
+   "ingredients": [
+    {
+     "id": "ibuprofen",
+     "inn": "ibuprofen"
+    }
+   ],
+   "source": "https://drugs.dxy.cn/pc/drug/p5PZ3g80XfHdSM7ITfP8njQ",
+   "note": "China leaflet (Sino-American Tianjin SmithKline, OTC): 0.3 g per sustained-release capsule; a 0.4 g capsule also exists. 芬必得 is also used for a 0.2 g chewable tablet and a 5% ibuprofen cream."
+  },
+  {
+   "key": "combiflam",
+   "name": "Combiflam tablets",
+   "match": [
+    "combiflam tablet",
+    "combiflam tablets",
+    "combiflam 400"
+   ],
+   "family": "Combiflam",
+   "countries": [
+    "NP"
+   ],
+   "ingredients": [
+    {
+     "id": "ibuprofen",
+     "inn": "ibuprofen",
+     "amount": "400 mg"
+    },
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "325 mg"
+    }
+   ],
+   "source": "https://www.sanofi.com/assets/countries/india/docs/consumer-healthcare/for-healthcare-professionals/products-information/Combiflam-Tablets-API---Jan-2026.pdf",
+   "note": "Indian product (Sanofi India); composition from its prescribing information, which is marked for registered medical practitioners. Nepali packs were not checked separately. Combiflam suspension has different amounts."
+  },
+  {
+   "key": "loxoninS",
+   "name": "ロキソニンS (Loxonin S)",
+   "match": [
+    "ロキソニンs",
+    "ロキソニンs錠",
+    "loxonin s"
+   ],
+   "family": "ロキソニン",
+   "countries": [
+    "JP"
+   ],
+   "ingredients": [
+    {
+     "inn": "loxoprofen",
+     "amount": "60 mg (68.1 mg loxoprofen sodium hydrate)"
+    }
+   ],
+   "source": "https://www.pmda.go.jp/PmdaSearch/otcDetail/430549_K1101000003_11_01",
+   "note": "Japan PMDA (Daiichi Sankyo Healthcare, class 1 OTC). NSAID. Other Loxonin S products add further ingredients. Korean loxoprofen products are prescription-only."
+  },
+  {
+   "key": "eveA",
+   "name": "イブA錠 (EVE A tablets)",
+   "match": [
+    "イブa錠",
+    "eve a tablets",
+    "eve a"
+   ],
+   "family": "イブ",
+   "countries": [
+    "JP"
+   ],
+   "ingredients": [
+    {
+     "id": "ibuprofen",
+     "inn": "ibuprofen",
+     "amount": "150 mg per 2 tablets"
+    },
+    {
+     "inn": "apronalide",
+     "amount": "60 mg per 2 tablets"
+    },
+    {
+     "id": "caffeine",
+     "inn": "caffeine",
+     "amount": "80 mg per 2 tablets"
+    }
+   ],
+   "source": "https://www.pmda.go.jp/PmdaSearch/otcDetail/170039_J0601001092_09_01",
+   "note": "Japan PMDA (SS Pharmaceutical). Pack lists amounts per 2-tablet dose. Apronalide is printed as allylisopropylacetylurea (アリルイソプロピルアセチル尿素), a sedative - drowsiness. EVE A EX has 200 mg ibuprofen per dose."
+  },
+  {
+   "key": "bufferinA",
+   "name": "バファリンA (Bufferin A)",
+   "match": [
+    "バファリンa",
+    "bufferin a"
+   ],
+   "family": "バファリン",
+   "countries": [
+    "JP"
+   ],
+   "ingredients": [
+    {
+     "id": "aspirin",
+     "inn": "acetylsalicylic acid",
+     "amount": "660 mg per 2 tablets"
+    },
+    {
+     "inn": "hydrotalcite",
+     "amount": "200 mg per 2 tablets"
+    }
+   ],
+   "source": "https://www.pmda.go.jp/PmdaSearch/otcDetail/840001_J0601001404_06_01",
+   "note": "Japan PMDA (Lion). Other Bufferin products (Premium, Luna) contain different analgesics."
+  },
+  {
+   "key": "therafluFluCold",
+   "name": "ТераФлю от гриппа и простуды (Theraflu Flu & Cold) powder",
+   "match": [
+    "терафлю от гриппа и простуды",
+    "терафлю лимон",
+    "theraflu flu and cold",
+    "theraflu flu & cold"
+   ],
+   "family": "Theraflu",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "325 mg/sachet"
+    },
+    {
+     "id": "phenylephrine",
+     "inn": "phenylephrine",
+     "amount": "10 mg/sachet"
+    },
+    {
+     "id": "pheniramine",
+     "inn": "pheniramine",
+     "amount": "20 mg/sachet"
+    },
+    {
+     "inn": "ascorbic acid",
+     "amount": "50 mg/sachet"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/theraflu_flu_and_cold__40272",
+   "note": "Russian register (Haleon). Theraflu in the US and other markets uses different formulas (e.g. with diphenhydramine or dextromethorphan); Theraflu LAR/BRO are throat and rub products."
+  },
+  {
+   "key": "therafluExtra",
+   "name": "ТераФлю Экстра (Theraflu Extra) powder",
+   "match": [
+    "терафлю экстра",
+    "theraflu extra"
+   ],
+   "family": "Theraflu",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "650 mg/sachet"
+    },
+    {
+     "id": "phenylephrine",
+     "inn": "phenylephrine",
+     "amount": "10 mg/sachet"
+    },
+    {
+     "id": "pheniramine",
+     "inn": "pheniramine",
+     "amount": "20 mg/sachet"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/theraflu_extra__39861",
+   "note": "Russian register (Haleon), lemon. 'ТераФлю от гриппа и простуды Экстра' (cinnamon-apple) is a separate registration not checked here."
+  },
+  {
+   "key": "coldrexHotRem",
+   "name": "Колдрекс ХотРем (Coldrex HotRem) powder",
+   "match": [
+    "колдрекс хотрем",
+    "coldrex hotrem",
+    "coldrex hot rem"
+   ],
+   "family": "Coldrex",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "750 mg/sachet"
+    },
+    {
+     "id": "phenylephrine",
+     "inn": "phenylephrine",
+     "amount": "10 mg/sachet"
+    },
+    {
+     "inn": "ascorbic acid",
+     "amount": "60 mg/sachet"
+    }
+   ],
+   "source": "https://vidal.ru/drugs/coldrex_hotrem__10003",
+   "note": "Russian register (STADA), lemon; honey-lemon and blackcurrant versions have the same amounts. Coldrex MaxGripp has 1000 mg paracetamol."
+  },
+  {
+   "key": "coldrexTablets",
+   "name": "Колдрекс (Coldrex) tablets",
+   "match": [
+    "колдрекс таблетки",
+    "coldrex tablets",
+    "колдро-икс"
+   ],
+   "family": "Coldrex",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "500 mg"
+    },
+    {
+     "id": "caffeine",
+     "inn": "caffeine",
+     "amount": "25 mg"
+    },
+    {
+     "id": "phenylephrine",
+     "inn": "phenylephrine",
+     "amount": "5 mg"
+    },
+    {
+     "inn": "terpin hydrate",
+     "amount": "20 mg"
+    },
+    {
+     "inn": "ascorbic acid",
+     "amount": "30 mg (38 mg incl. overage)"
+    }
+   ],
+   "source": "https://vidal.ru/drugs/coldrex__10000",
+   "note": "Russian description (GSK) whose registration has been replaced; the page says the product was renamed Колдро-Икс. Coldrex tablets in other countries may differ."
+  },
+  {
+   "key": "fervexAdult",
+   "name": "Фервекс (Fervex) powder for adults",
+   "match": [
+    "фервекс",
+    "fervex"
+   ],
+   "family": "Fervex",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "500 mg/sachet"
+    },
+    {
+     "id": "pheniramine",
+     "inn": "pheniramine",
+     "amount": "25 mg/sachet"
+    },
+    {
+     "inn": "ascorbic acid",
+     "amount": "200 mg/sachet"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/fervex__21640",
+   "note": "Russian register (UPSA); lemon, raspberry and sugar-free versions have the same amounts. Fervex for children has the same ingredients at 280/10/100 mg."
+  },
+  {
+   "key": "rinza",
+   "name": "Ринза (Rinza) tablets",
+   "match": [
+    "ринза таблетки",
+    "rinza tablets"
+   ],
+   "family": "Rinza",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "500 mg"
+    },
+    {
+     "id": "caffeine",
+     "inn": "caffeine",
+     "amount": "30 mg"
+    },
+    {
+     "id": "phenylephrine",
+     "inn": "phenylephrine",
+     "amount": "10 mg"
+    },
+    {
+     "id": "chlorpheniramine",
+     "inn": "chlorphenamine",
+     "amount": "2 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/rinza__1767",
+   "note": "Russian register (made by Unique Pharmaceutical Laboratories, India). Rinzasip, Rinza Lorsept and RinzaPlus are different products."
+  },
+  {
+   "key": "arbidol",
+   "name": "Арбидол (Arbidol)",
+   "match": [
+    "арбидол",
+    "arbidol"
+   ],
+   "family": "Arbidol",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "inn": "umifenovir"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/arbidol__3331",
+   "note": "Russian register (Otisipharm): 100 mg capsules; also 50 mg tablets, 200 mg 'Arbidol Maximum' and a children's suspension. Antiviral not sold in Korea; no Korean equivalent."
+  },
+  {
+   "key": "newContacSr",
+   "name": "新康泰克 复方盐酸伪麻黄碱缓释胶囊 (New Contac 12-hour capsules)",
+   "match": [
+    "新康泰克胶囊",
+    "新康泰克缓释胶囊",
+    "新康泰克膠囊",
+    "新康泰克緩釋膠囊",
+    "复方盐酸伪麻黄碱缓释胶囊",
+    "複方鹽酸偽麻黃鹼緩釋膠囊"
+   ],
+   "family": "新康泰克",
+   "countries": [
+    "CN"
+   ],
+   "ingredients": [
+    {
+     "id": "pseudoephedrine",
+     "inn": "pseudoephedrine",
+     "amount": "90 mg"
+    },
+    {
+     "id": "chlorpheniramine",
+     "inn": "chlorphenamine",
+     "amount": "4 mg"
+    }
+   ],
+   "source": "https://drugs.dxy.cn/pc/drug/pmo_stu3V-Nxiu1ApyOMnSg",
+   "note": "China leaflet (Sino-American Tianjin SmithKline); the database labels this one Rx. Sustained release, 1 capsule every 12 h. Other 新康泰克 products differ: 麻敏维C缓释胶囊 adds vitamin C 75 mg, 氨麻美敏片(II) is a paracetamol combination."
+  },
+  {
+   "key": "baijiahei",
+   "name": "白加黑 氨酚伪麻美芬片II / 氨麻苯美片 (day/night tablets)",
+   "match": [
+    "白加黑感冒片",
+    "白加黑日夜片",
+    "氨酚伪麻美芬片",
+    "氨酚偽麻美芬片",
+    "氨麻苯美片",
+    "baijiahei"
+   ],
+   "family": "白加黑",
+   "countries": [
+    "CN"
+   ],
+   "ingredients": [
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "325 mg (day and night tablets)"
+    },
+    {
+     "id": "pseudoephedrine",
+     "inn": "pseudoephedrine",
+     "amount": "30 mg (day and night tablets)"
+    },
+    {
+     "id": "dextromethorphan",
+     "inn": "dextromethorphan",
+     "amount": "15 mg (day and night tablets)"
+    },
+    {
+     "id": "diphenhydramine",
+     "inn": "diphenhydramine",
+     "amount": "25 mg (night tablet only)"
+    }
+   ],
+   "source": "https://drugs.dxy.cn/pc/drug/pDvJBGKCROUb8KYqozeflYA",
+   "note": "China leaflet (Bayer Healthcare Qidong, OTC). The white day tablet has no antihistamine; the black night tablet adds diphenhydramine (drowsy). The 白加黑 name is also used for an aspirin + vitamin C effervescent tablet."
+  },
+  {
+   "key": "tylenolColdCn",
+   "name": "泰诺 酚麻美敏片 (Tylenol Cold, China)",
+   "match": [
+    "泰诺酚麻美敏片",
+    "泰諾酚麻美敏片",
+    "酚麻美敏片",
+    "泰诺感冒片",
+    "泰諾感冒片"
+   ],
+   "family": "泰诺",
+   "countries": [
+    "CN"
+   ],
+   "ingredients": [
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "325 mg"
+    },
+    {
+     "id": "pseudoephedrine",
+     "inn": "pseudoephedrine",
+     "amount": "30 mg"
+    },
+    {
+     "id": "dextromethorphan",
+     "inn": "dextromethorphan",
+     "amount": "15 mg"
+    },
+    {
+     "id": "chlorpheniramine",
+     "inn": "chlorphenamine",
+     "amount": "2 mg"
+    }
+   ],
+   "source": "https://drugs.dxy.cn/pc/drug/pD632GVK9ZB6qSJ7w0HmtJA",
+   "note": "China leaflet (Shanghai Johnson & Johnson, OTC). 泰诺 also sells children's suspension/oral solution at different strengths; 泰诺林 is plain paracetamol."
+  },
+  {
+   "key": "ganmaoling999",
+   "name": "999感冒灵颗粒 (999 Ganmaoling granules)",
+   "match": [
+    "999感冒灵",
+    "999感冒靈",
+    "三九感冒灵",
+    "感冒灵颗粒",
+    "感冒靈顆粒",
+    "ganmaoling"
+   ],
+   "family": "999感冒灵",
+   "countries": [
+    "CN"
+   ],
+   "ingredients": [
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "200 mg/sachet"
+    },
+    {
+     "id": "chlorpheniramine",
+     "inn": "chlorphenamine",
+     "amount": "4 mg/sachet"
+    },
+    {
+     "id": "caffeine",
+     "inn": "caffeine",
+     "amount": "4 mg/sachet"
+    }
+   ],
+   "source": "https://drugs.dxy.cn/pc/drug/pz3BeXPlxpgoeBHp6F3KZkg",
+   "note": "China leaflet (China Resources Sanjiu, OTC). Also contains herbal extracts (三叉苦, 金盏银盘, 野菊花, 岗梅, menthol oil). Looks herbal but contains paracetamol and a drowsy antihistamine - do not combine with other cold medicines. 复方感冒灵颗粒 is a different product."
+  },
+  {
+   "key": "kuaike",
+   "name": "快克 复方氨酚烷胺胶囊 (Kuaike capsules)",
+   "match": [
+    "快克胶囊",
+    "快克膠囊",
+    "复方氨酚烷胺胶囊",
+    "複方氨酚烷胺膠囊",
+    "kuaike"
+   ],
+   "family": "快克",
+   "countries": [
+    "CN"
+   ],
+   "ingredients": [
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "250 mg"
+    },
+    {
+     "inn": "amantadine",
+     "amount": "100 mg"
+    },
+    {
+     "id": "chlorpheniramine",
+     "inn": "chlorphenamine",
+     "amount": "2 mg"
+    },
+    {
+     "id": "caffeine",
+     "inn": "caffeine",
+     "amount": "15 mg"
+    }
+   ],
+   "source": "https://drugs.dxy.cn/pc/drug/pObZ79BvVym9jYm5uyOKtMg",
+   "note": "China leaflet (Hainan Asia Pharmaceutical, OTC). Also contains artificial bezoar 10 mg (人工牛黄). Amantadine is not in Korean OTC cold medicines. The 快克 name is also used for domperidone (快克啉) and herbal products."
+  },
+  {
+   "key": "pabronGoldATablets",
+   "name": "パブロンゴールドA<錠> (Pabron Gold A tablets)",
+   "match": [
+    "パブロンゴールドa錠",
+    "パブロンゴールドa<錠>",
+    "pabron gold a tablets"
+   ],
+   "family": "パブロン",
+   "countries": [
+    "JP"
+   ],
+   "ingredients": [
+    {
+     "id": "guaifenesin",
+     "inn": "guaifenesin",
+     "amount": "60 mg per 3 tablets"
+    },
+    {
+     "inn": "dihydrocodeine",
+     "amount": "8 mg per 3 tablets"
+    },
+    {
+     "id": "methylephedrine",
+     "inn": "methylephedrine",
+     "amount": "20 mg per 3 tablets"
+    },
+    {
+     "id": "acetaminophen",
+     "inn": "paracetamol",
+     "amount": "300 mg per 3 tablets"
+    },
+    {
+     "id": "chlorpheniramine",
+     "inn": "chlorphenamine",
+     "amount": "2.5 mg per 3 tablets"
+    },
+    {
+     "id": "caffeine",
+     "inn": "caffeine",
+     "amount": "25 mg per 3 tablets"
+    },
+    {
+     "inn": "riboflavin",
+     "amount": "4 mg per 3 tablets"
+    }
+   ],
+   "source": "https://www.pmda.go.jp/PmdaSearch/otcDetail/400059_K1506000007_07_01",
+   "note": "Japan PMDA (Taisho). Contains dihydrocodeine (opioid cough suppressant). The granule version パブロンゴールドA<微粒> was not checked."
+  },
+  {
+   "key": "lazolvanSyrup30",
+   "name": "Лазолван (Lazolvan) syrup 30 mg/5 ml",
+   "match": [
+    "лазолван сироп",
+    "лазолван раствор",
+    "lazolvan syrup",
+    "lasolvan syrup"
+   ],
+   "family": "Lazolvan",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "ambroxol",
+     "inn": "ambroxol",
+     "amount": "30 mg/5 ml"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/lasolvan__39878",
+   "note": "Russian register (A. Nattermann/Sanofi). A 15 mg/5 ml children's syrup, 7.5 mg/ml solution and 75 mg MAX capsules also exist; Lazolvan 30 mg tablets are no longer supplied in Russia. Lazolvan Rhino is a nasal decongestant (tramazoline), not ambroxol. Sold as Mucosolvan in many other countries (not checked)."
+  },
+  {
+   "key": "ambrobene30",
+   "name": "Амбробене (Ambrobene) 30 mg tablets",
+   "match": [
+    "амбробене таблетки",
+    "амбробене 30",
+    "ambrobene tablets",
+    "ambrobene 30"
+   ],
+   "family": "Ambrobene",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "ambroxol",
+     "inn": "ambroxol",
+     "amount": "30 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/ambrobene__1523",
+   "note": "Russian register (Teva/Merckle). Ambrobene Stoptussin is a different product (butamirate + guaifenesin)."
+  },
+  {
+   "key": "acc200",
+   "name": "АЦЦ 200 (ACC 200) effervescent tablets",
+   "match": [
+    "ацц 200",
+    "acc 200",
+    "ацц 100",
+    "acc 100"
+   ],
+   "family": "ACC",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "acetylcysteine",
+     "inn": "acetylcysteine",
+     "amount": "200 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/acc_200__1065",
+   "note": "Russian register (Sandoz). ACC 100 is 100 mg; granules (100/200/600 mg) and syrup also exist, all acetylcysteine."
+  },
+  {
+   "key": "accLong600",
+   "name": "АЦЦ Лонг (ACC Long) 600 mg effervescent tablets",
+   "match": [
+    "ацц лонг",
+    "acc long",
+    "ацц 600",
+    "acc 600"
+   ],
+   "family": "ACC",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "acetylcysteine",
+     "inn": "acetylcysteine",
+     "amount": "600 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/acc_long__103",
+   "note": "Russian register (Sandoz). Once-daily dose."
+  },
+  {
+   "key": "bromhexine8BerlinChemie",
+   "name": "Бромгексин 8 Берлин-Хеми (Bromhexine 8 Berlin-Chemie)",
+   "match": [
+    "бромгексин 8 берлин-хеми",
+    "бромгексин берлин-хеми",
+    "bromhexin 8 berlin-chemie",
+    "bromhexine 8 berlin-chemie"
+   ],
+   "family": "Bromhexine",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "bromhexine",
+     "inn": "bromhexine",
+     "amount": "8 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/bromhexine_8_berlin-chemie__129",
+   "note": "Russian register (Berlin-Chemie). Generic 'Бромгексин' from other makers comes as 4 mg or 8 mg."
+  },
+  {
+   "key": "sinekod",
+   "name": "Синекод (Sinekod)",
+   "match": [
+    "синекод",
+    "sinekod",
+    "sinecod"
+   ],
+   "family": "Sinekod",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "inn": "butamirate"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/sinecod__39872",
+   "note": "Russian register (Haleon). Syrup 1.5 mg/ml; drops 5 mg/ml (vidal.ru/drugs/sinecod__1576). Dry-cough suppressant not sold in Korea."
+  },
+  {
+   "key": "zyrtec10",
+   "name": "Зиртек (Zyrtec) 10 mg tablets",
+   "match": [
+    "зиртек",
+    "zyrtec 10",
+    "zyrtec 10 mg",
+    "zyrtec tablets"
+   ],
+   "family": "Zyrtec",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "cetirizine",
+     "inn": "cetirizine",
+     "amount": "10 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/zyrtec__297",
+   "note": "Russian register (UCB). Drops are 10 mg/ml. US 'Zyrtec-D' also contains pseudoephedrine."
+  },
+  {
+   "key": "claritin10",
+   "name": "Кларитин (Claritin) 10 mg tablets",
+   "match": [
+    "кларитин",
+    "claritin 10",
+    "claritin 10 mg",
+    "claritin tablets"
+   ],
+   "family": "Claritin",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "loratadine",
+     "inn": "loratadine",
+     "amount": "10 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/claritine__392",
+   "note": "Russian description (Bayer); the page says the Russian registration expired on 31.12.2025. US 'Claritin-D' also contains pseudoephedrine."
+  },
+  {
+   "key": "suprastin25",
+   "name": "Супрастин (Suprastin) 25 mg tablets",
+   "match": [
+    "супрастин таблетки",
+    "супрастин 25",
+    "suprastin tablets",
+    "suprastin 25"
+   ],
+   "family": "Suprastin",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG",
+    "MN"
+   ],
+   "ingredients": [
+    {
+     "inn": "chloropyramine",
+     "amount": "25 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/suprastin-1",
+   "note": "Russian register (EGIS). First-generation antihistamine - drowsy. Suprastinex is a different product (levocetirizine)."
+  },
+  {
+   "key": "tavegil1",
+   "name": "Тавегил (Tavegil) 1 mg tablets",
+   "match": [
+    "тавегил",
+    "tavegil",
+    "tavegyl"
+   ],
+   "family": "Tavegil",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "inn": "clemastine",
+     "amount": "1 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/tavegyl__1492",
+   "note": "Russian register (STADA). First-generation antihistamine - drowsy."
+  },
+  {
+   "key": "zodak10",
+   "name": "Зодак (Zodak) 10 mg tablets",
+   "match": [
+    "зодак 10",
+    "зодак таблетки",
+    "zodak 10",
+    "zodak tablets"
+   ],
+   "family": "Zodak",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "cetirizine",
+     "inn": "cetirizine",
+     "amount": "10 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/zodac__3323",
+   "note": "Russian register (Opella). Zodak Express is levocetirizine 5 mg; Zodacort is a nasal steroid spray."
+  },
+  {
+   "key": "erius5",
+   "name": "Эриус (Erius) 5 mg tablets",
+   "match": [
+    "эриус",
+    "erius",
+    "aerius"
+   ],
+   "family": "Erius",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "inn": "desloratadine",
+     "amount": "5 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/aerius__4466",
+   "note": "Russian register (Bayer). Syrup is 0.5 mg/ml."
+  },
+  {
+   "key": "smecta",
+   "name": "Смекта (Smecta) 3 g sachet",
+   "match": [
+    "смекта",
+    "smecta"
+   ],
+   "family": "Smecta",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG",
+    "MN",
+    "VN"
+   ],
+   "ingredients": [
+    {
+     "id": "smectite",
+     "inn": "diosmectite",
+     "amount": "3 g/sachet"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/smecta",
+   "note": "Russian register (Mayoly). Source page is the 3 g oral paste; Vidal also lists the classic powder sachet at 3 g (vidal.ru/drugs/smecta__21502). Smecta Forte (6 g) is not supplied in Russia."
+  },
+  {
+   "key": "imodium2",
+   "name": "Имодиум (Imodium) 2 mg capsules",
+   "match": [
+    "имодиум капсулы",
+    "имодиум экспресс",
+    "imodium capsules",
+    "imodium 2 mg"
+   ],
+   "family": "Imodium",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "loperamide",
+     "inn": "loperamide",
+     "amount": "2 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/imodium__6732",
+   "note": "Russian description (Janssen); the capsule registration is cancelled in Russia, where Imodium Express (2 mg orally disintegrating tablet) is sold. Imodium Plus also contains simethicone 125 mg."
+  },
+  {
+   "key": "enterofuril",
+   "name": "Энтерофурил (Enterofuril) capsules",
+   "match": [
+    "энтерофурил",
+    "enterofuril",
+    "enterofuryl"
+   ],
+   "family": "Enterofuril",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "inn": "nifuroxazide"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/enterofuryl__5488",
+   "note": "Russian register (Bosnalijek): 100 mg and 200 mg capsules, suspension 200 mg/5 ml. Intestinal antibacterial not sold in Korea."
+  },
+  {
+   "key": "regidron",
+   "name": "Регидрон (Regidron) oral rehydration powder",
+   "match": [
+    "регидрон порошок",
+    "регидрон пакетики",
+    "regidron powder",
+    "rehydron powder"
+   ],
+   "family": "Regidron",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "inn": "sodium chloride",
+     "amount": "3.5 g/sachet"
+    },
+    {
+     "inn": "potassium chloride",
+     "amount": "2.5 g/sachet"
+    },
+    {
+     "inn": "sodium citrate",
+     "amount": "2.9 g/sachet"
+    },
+    {
+     "inn": "glucose",
+     "amount": "10 g/sachet"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/rehydron",
+   "note": "Russian register (Valenta), 18.9 g sachet dissolved in 1 litre of water. 'Регидрон Био' is a dietary supplement with a different composition."
+  },
+  {
+   "key": "enterosgel",
+   "name": "Энтеросгель (Enterosgel) oral paste",
+   "match": [
+    "энтеросгель",
+    "enterosgel"
+   ],
+   "family": "Enterosgel",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "inn": "polymethylsiloxane polyhydrate",
+     "amount": "70 g/100 g"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/enterosgel__18814",
+   "note": "Russian register (Farmasil). Silicon-based adsorbent; no Korean equivalent."
+  },
+  {
+   "key": "gavisconOriginalLiquid",
+   "name": "Гевискон (Gaviscon) original oral suspension",
+   "match": [
+    "гевискон суспензия",
+    "гевискон мятная суспензия",
+    "gaviscon original",
+    "gaviscon peppermint liquid",
+    "gaviscon liquid relief",
+    "gaviscon original aniseed"
+   ],
+   "family": "Gaviscon",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG",
+    "GB"
+   ],
+   "ingredients": [
+    {
+     "id": "sodiumAlginate",
+     "inn": "sodium alginate",
+     "amount": "500 mg/10 ml"
+    },
+    {
+     "id": "sodiumBicarbonate",
+     "inn": "sodium bicarbonate",
+     "amount": "267 mg/10 ml"
+    },
+    {
+     "id": "calciumCarbonate",
+     "inn": "calcium carbonate",
+     "amount": "160 mg/10 ml"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/gaviscon__13230",
+   "note": "Russian register (Reckitt). UK 'Gaviscon Peppermint Liquid Relief' and 'Gaviscon Original Aniseed Relief' state the same per 5 ml (250/133.5/80 mg; medicines.org.uk/emc/product/113 and /623). Gaviscon chewable tablets hold half the 10 ml amounts per tablet. Gaviscon Double Action and Advance/Forte are different."
+  },
+  {
+   "key": "gavisconDoubleAction",
+   "name": "Гевискон Двойное Действие (Gaviscon Double Action) suspension",
+   "match": [
+    "гевискон двойное действие",
+    "gaviscon double action"
+   ],
+   "family": "Gaviscon",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG",
+    "GB"
+   ],
+   "ingredients": [
+    {
+     "id": "sodiumAlginate",
+     "inn": "sodium alginate",
+     "amount": "500 mg/10 ml"
+    },
+    {
+     "id": "sodiumBicarbonate",
+     "inn": "sodium bicarbonate",
+     "amount": "213 mg/10 ml"
+    },
+    {
+     "id": "calciumCarbonate",
+     "inn": "calcium carbonate",
+     "amount": "325 mg/10 ml"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/gaviscon_double_action__45330",
+   "note": "Russian register (Reckitt); 10 ml sachets have the same amounts. Chewable tablets: 250/106.5/187.5 mg. The 'Gaviscon Dual Action' sold in Vietnam and other Asian markets was not checked."
+  },
+  {
+   "key": "gavisconAdvance",
+   "name": "Gaviscon Advance / Гевискон форте oral suspension",
+   "match": [
+    "gaviscon advance",
+    "gaviscon forte",
+    "гевискон форте"
+   ],
+   "family": "Gaviscon",
+   "countries": [
+    "GB",
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "sodiumAlginate",
+     "inn": "sodium alginate",
+     "amount": "1000 mg/10 ml"
+    },
+    {
+     "inn": "potassium bicarbonate",
+     "amount": "200 mg/10 ml"
+    }
+   ],
+   "source": "https://www.medicines.org.uk/emc/product/6715/smpc",
+   "note": "UK SmPC (Reckitt). The Russian 'Гевискон форте' has the same amounts (vidal.ru/drugs/gaviscon_forte__45332). Contains potassium - caution in kidney disease."
+  },
+  {
+   "key": "rennie",
+   "name": "Ренни (Rennie) chewable tablets",
+   "match": [
+    "ренни таблетки",
+    "ренни жевательные",
+    "rennie tablets",
+    "rennie chewable",
+    "rennie 680"
+   ],
+   "family": "Rennie",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG",
+    "GB"
+   ],
+   "ingredients": [
+    {
+     "id": "calciumCarbonate",
+     "inn": "calcium carbonate",
+     "amount": "680 mg"
+    },
+    {
+     "inn": "magnesium carbonate",
+     "amount": "80 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/rennie__19090",
+   "note": "Russian register (Bayer); orange, menthol and sugar-free mint versions have the same amounts. Rennie-Tal and other Rennie products differ."
+  },
+  {
+   "key": "almagel",
+   "name": "Алмагель (Almagel) suspension",
+   "match": [
+    "алмагель суспензия",
+    "almagel suspension"
+   ],
+   "family": "Almagel",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG",
+    "MN"
+   ],
+   "ingredients": [
+    {
+     "id": "aluminumHydroxide",
+     "inn": "algeldrate",
+     "amount": "2.18 g gel (= 218 mg Al2O3)/5 ml"
+    },
+    {
+     "id": "magnesiumHydroxide",
+     "inn": "magnesium hydroxide",
+     "amount": "350 mg paste (= 75 mg MgO)/5 ml"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/almagel__6701",
+   "note": "Russian register (Balkanpharma, Bulgaria). Almagel A also contains benzocaine; Almagel Neo also contains simethicone."
+  },
+  {
+   "key": "maalox",
+   "name": "Маалокс (Maalox) chewable tablets",
+   "match": [
+    "маалокс",
+    "maalox chewable",
+    "maalox tablets"
+   ],
+   "family": "Maalox",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "aluminumHydroxide",
+     "inn": "algeldrate",
+     "amount": "400 mg"
+    },
+    {
+     "id": "magnesiumHydroxide",
+     "inn": "magnesium hydroxide",
+     "amount": "400 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/maalox__42761",
+   "note": "Russian register (Opella). Russian Maalox suspensions contain the same two ingredients (e.g. 525 mg + 600 mg per 15 ml sachet). US 'Maalox' products can contain other ingredients."
+  },
+  {
+   "key": "phosphalugel",
+   "name": "Фосфалюгель (Phosphalugel) oral gel",
+   "match": [
+    "фосфалюгель",
+    "phosphalugel",
+    "fosfalugel"
+   ],
+   "family": "Phosphalugel",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG",
+    "VN"
+   ],
+   "ingredients": [
+    {
+     "id": "aluminumPhosphate",
+     "inn": "aluminium phosphate"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/phosphalugel__3858",
+   "note": "Russian register (Opella). 20% aluminium phosphate gel: 20 g sachet = 2.48 g aluminium phosphate; 16 g sachet = 2.08 g."
+  },
+  {
+   "key": "espumisan40",
+   "name": "Эспумизан (Espumisan) 40 mg capsules",
+   "match": [
+    "эспумизан",
+    "espumisan",
+    "espumizan"
+   ],
+   "family": "Espumisan",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "simethicone",
+     "inn": "simeticone",
+     "amount": "40 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/espumisan__1727",
+   "note": "Russian register (Berlin-Chemie). Espumisan L emulsion 40 mg/ml, Espumisan baby 100 mg/ml, Espumisan extra 125 mg granules - all simethicone."
+  },
+  {
+   "key": "mezimForte",
+   "name": "Мезим форте (Mezim forte) tablets",
+   "match": [
+    "мезим форте",
+    "mezim forte",
+    "mezym forte"
+   ],
+   "family": "Mezim",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "pancreatin",
+     "inn": "pancreatin",
+     "amount": "lipase 3,500 U, amylase 4,200 U, protease 250 U"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/mezym_forte__1724",
+   "note": "Russian register (Berlin-Chemie). Mezim 20000 and Mezim neo 10000/25000 are higher-strength pancreatin."
+  },
+  {
+   "key": "festal",
+   "name": "Фестал (Festal) tablets",
+   "match": [
+    "фестал",
+    "festal"
+   ],
+   "family": "Festal",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "pancreatin",
+     "inn": "pancreatin",
+     "amount": "192 mg (lipase 6,000 U, amylase 4,500 U, protease 300 U)"
+    },
+    {
+     "id": "digestiveEnzymes",
+     "inn": "hemicellulase",
+     "amount": "50 mg"
+    },
+    {
+     "inn": "bile components",
+     "amount": "25 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/festal__1586",
+   "note": "Russian register (Sanofi India). Contains bile components and hemicellulase besides pancreatin."
+  },
+  {
+   "key": "duphalac",
+   "name": "Дюфалак (Duphalac) syrup",
+   "match": [
+    "дюфалак",
+    "duphalac",
+    "dufalak"
+   ],
+   "family": "Duphalac",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "lactulose",
+     "inn": "lactulose",
+     "amount": "667 mg/ml"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/duphalac__44475",
+   "note": "Russian register (Abbott)."
+  },
+  {
+   "key": "dulcolax5",
+   "name": "Дульколакс (Dulcolax) 5 mg tablets",
+   "match": [
+    "дульколакс",
+    "dulcolax 5 mg",
+    "dulcolax tablets"
+   ],
+   "family": "Dulcolax",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "bisacodyl",
+     "inn": "bisacodyl",
+     "amount": "5 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/dulcolax__2463",
+   "note": "Russian register (A. Nattermann/Opella). In other countries 'Dulcolax' is also used for sodium picosulfate drops or docusate softeners."
+  },
+  {
+   "key": "motilium10",
+   "name": "吗丁啉 多潘立酮片 (Motilium) 10 mg",
+   "match": [
+    "吗丁啉",
+    "嗎丁啉",
+    "多潘立酮片",
+    "motilium",
+    "мотилиум"
+   ],
+   "family": "Motilium",
+   "countries": [
+    "CN",
+    "RU"
+   ],
+   "ingredients": [
+    {
+     "inn": "domperidone",
+     "amount": "10 mg"
+    }
+   ],
+   "source": "https://drugs.dxy.cn/pc/drug/pU-LBOeT1clJtlXgv7R_lTA",
+   "note": "China leaflet (Xian Janssen), OTC class A in China. Prescription-only in Russia (vidal.ru) and in Korea. Heart-rhythm risk at high doses."
+  },
+  {
+   "key": "talcidCn",
+   "name": "达喜 铝碳酸镁咀嚼片 (Talcid) 0.5 g",
+   "match": [
+    "达喜咀嚼片",
+    "達喜咀嚼片",
+    "铝碳酸镁咀嚼片",
+    "鋁碳酸鎂咀嚼片",
+    "talcid"
+   ],
+   "family": "达喜",
+   "countries": [
+    "CN"
+   ],
+   "ingredients": [
+    {
+     "inn": "hydrotalcite",
+     "amount": "500 mg"
+    }
+   ],
+   "source": "https://drugs.dxy.cn/pc/drug/p4Q1f4BIFAkX4yLv7dkYNlg",
+   "note": "China leaflet (Bayer Healthcare); this leaflet version is labelled Rx in the database. Antacid."
+  },
+  {
+   "key": "strepsilsHoneyLemon",
+   "name": "Стрепсилс (Strepsils) honey & lemon lozenges",
+   "match": [
+    "стрепсилс медово-лимонные",
+    "стрепсилс классический",
+    "strepsils honey lemon",
+    "strepsils honey & lemon",
+    "strepsils original"
+   ],
+   "family": "Strepsils",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG",
+    "GB"
+   ],
+   "ingredients": [
+    {
+     "inn": "dichlorobenzyl alcohol",
+     "amount": "1.2 mg"
+    },
+    {
+     "inn": "amylmetacresol",
+     "amount": "0.6 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/strepsils__1156",
+   "note": "Russian register (Reckitt); sugar-free lemon and children's strawberry versions have the same amounts. Strepsils Intensive contains flurbiprofen 8.75 mg (NSAID); Strepsils Express adds lidocaine; other flavours add vitamin C or menthol."
+  },
+  {
+   "key": "faringosept",
+   "name": "Фарингосепт (Faringosept) 10 mg lozenges",
+   "match": [
+    "фарингосепт",
+    "faringosept",
+    "pharyngosept"
+   ],
+   "family": "Faringosept",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "inn": "ambazone",
+     "amount": "10 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/faringosept__17003",
+   "note": "Russian register (Sun Pharma / Terapia); all flavours 10 mg. Not sold in Korea."
+  },
+  {
+   "key": "tantumVerdeLozenges",
+   "name": "Тантум Верде (Tantum Verde) 3 mg lozenges",
+   "match": [
+    "тантум верде",
+    "tantum verde"
+   ],
+   "family": "Tantum Verde",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "inn": "benzydamine",
+     "amount": "3 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/tantum-verde-1",
+   "note": "Russian register (Angelini). Spray (0.255 mg/dose, forte 0.51 mg/dose) and 0.15% rinse are also benzydamine."
+  },
+  {
+   "key": "lizobakt",
+   "name": "Лизобакт (Lizobakt) lozenges",
+   "match": [
+    "лизобакт таблетки",
+    "лизобакт для рассасывания",
+    "lizobakt tablets",
+    "lysobact tablets"
+   ],
+   "family": "Lizobakt",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "inn": "lysozyme",
+     "amount": "20 mg"
+    },
+    {
+     "inn": "pyridoxine",
+     "amount": "10 mg"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/lysobact__2729",
+   "note": "Russian register (Bosnalijek). Lizobakt Komplit spray is a different product."
+  },
+  {
+   "key": "hexoralSolution",
+   "name": "Гексорал (Hexoral) 0.1% solution",
+   "match": [
+    "гексорал раствор",
+    "hexoral solution",
+    "hexoral mouthwash"
+   ],
+   "family": "Hexoral",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "inn": "hexetidine",
+     "amount": "0.1% (1 mg/ml)"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/hexoral__2253",
+   "note": "Russian register. Gargle, not swallowed. Hexoral Tabs lozenges contain different ingredients."
+  },
+  {
+   "key": "voltarenEmulgel1",
+   "name": "Вольтарен Эмульгель (Voltaren Emulgel) 1% gel",
+   "match": [
+    "вольтарен эмульгель",
+    "voltaren emulgel"
+   ],
+   "family": "Voltaren",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG",
+    "GB"
+   ],
+   "ingredients": [
+    {
+     "id": "diclofenac",
+     "inn": "diclofenac",
+     "amount": "1.16% diclofenac diethylamine (= 1% diclofenac sodium)"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/voltaren_emulgel__168",
+   "note": "Russian register (Haleon). A 2% Emulgel (12-hour) also exists. Voltaren tablets and injections are prescription products."
+  },
+  {
+   "key": "fastumGel",
+   "name": "Фастум гель (Fastum gel) 2.5%",
+   "match": [
+    "фастум",
+    "fastum",
+    "fastum gel"
+   ],
+   "family": "Fastum",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "id": "ketoprofen",
+     "inn": "ketoprofen",
+     "amount": "2.5% (25 mg/g)"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/fastum__1732",
+   "note": "Russian register (Menarini). Ketoprofen gel can cause sun sensitivity - keep the treated skin out of sunlight."
+  },
+  {
+   "key": "bepanthen",
+   "name": "Бепантен (Bepanthen) 5% ointment / cream",
+   "match": [
+    "бепантен мазь",
+    "бепантен крем",
+    "bepanthen ointment",
+    "bepanthen cream"
+   ],
+   "family": "Bepanthen",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG",
+    "GB"
+   ],
+   "ingredients": [
+    {
+     "inn": "dexpanthenol",
+     "amount": "5% (50 mg/g)"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/bepanthen__6795",
+   "note": "Russian register (Bayer). Bepanthen Plus also contains chlorhexidine."
+  },
+  {
+   "key": "fenistilGel",
+   "name": "Фенистил гель (Fenistil gel) 0.1%",
+   "match": [
+    "фенистил гель",
+    "fenistil gel"
+   ],
+   "family": "Fenistil",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG"
+   ],
+   "ingredients": [
+    {
+     "inn": "dimetindene",
+     "amount": "0.1% (1 mg/g)"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/fenistil__1580",
+   "note": "Russian register (Haleon). Fenistil drops (1 mg/ml) are oral dimetindene; Fenistil Pencivir is penciclovir cream for cold sores."
+  },
+  {
+   "key": "zoviraxCream",
+   "name": "Зовиракс (Zovirax) 5% cream",
+   "match": [
+    "зовиракс крем",
+    "zovirax cream"
+   ],
+   "family": "Zovirax",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG",
+    "GB"
+   ],
+   "ingredients": [
+    {
+     "id": "acyclovir",
+     "inn": "aciclovir",
+     "amount": "5% (50 mg/g)"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/zovirax__14868",
+   "note": "Russian register (Haleon). Zovirax Duo-Active also contains hydrocortisone; Zovirax tablets are prescription-only."
+  },
+  {
+   "key": "levomekol",
+   "name": "Левомеколь (Levomekol) ointment",
+   "match": [
+    "левомеколь",
+    "levomekol",
+    "levomecol"
+   ],
+   "family": "Levomekol",
+   "countries": [
+    "RU",
+    "KZ",
+    "UZ",
+    "KG",
+    "MN"
+   ],
+   "ingredients": [
+    {
+     "inn": "chloramphenicol",
+     "amount": "7.5 mg/g"
+    },
+    {
+     "inn": "methyluracil",
+     "amount": "40 mg/g"
+    }
+   ],
+   "source": "https://www.vidal.ru/drugs/levomecol__1655",
+   "note": "Russian register (Nizhpharm). Antibiotic wound ointment; no Korean OTC equivalent with the same ingredients (Korean topical antibiotics use fusidic acid or mupirocin)."
+  }
+ ]
+}

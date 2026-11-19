@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Check, ClipboardList, Globe, GraduationCap, House, MapPin, Phone, Pill, RefreshCw, X } from "lucide-react";
+import { BookOpen, Check, Globe, GraduationCap, House, MapPin, Phone, Pill, RefreshCw, X } from "lucide-react";
 import { useI18n, type MessageKey } from "../i18n";
 import { LOCALES } from "../i18n/locales";
 import { go, href, useRoute } from "./router";
@@ -7,7 +7,8 @@ import { Home } from "../pages/Home";
 import { Intake } from "../pages/Intake";
 import { CardView } from "../pages/CardView";
 import { ShowMode } from "../pages/ShowMode";
-import { Medicine } from "../pages/Medicine";
+import { Medicine, MedsMenu } from "../pages/Medicine";
+import { FromHome } from "../pages/FromHome";
 import { Places } from "../pages/Places";
 import { Info } from "../pages/Info";
 import { Community } from "../pages/Community";
@@ -19,9 +20,9 @@ import { applyUpdate, useUpdateReady } from "../lib/update";
 
 const NAV: { to: string; key: MessageKey; Icon: typeof House }[] = [
   { to: "home", key: "nav.home", Icon: House },
-  { to: "card", key: "nav.card", Icon: ClipboardList },
+  { to: "places", key: "nav.map", Icon: MapPin },
   { to: "meds", key: "nav.meds", Icon: Pill },
-  { to: "places", key: "nav.places", Icon: MapPin },
+  { to: "info", key: "nav.info", Icon: BookOpen },
   { to: "school", key: "nav.school", Icon: GraduationCap },
 ];
 
@@ -68,7 +69,9 @@ function Page({ route }: { route: string[] }) {
       if (rest[0] === "show") return <ShowMode />;
       return <Intake start={rest[0]} />;
     case "meds":
-      return <Medicine />;
+      if (rest[0] === "home") return <FromHome />;
+      if (rest[0] === "korea") return <Medicine />;
+      return <MedsMenu />;
     case "places":
       return <Places />;
     case "info":

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { AlertTriangle, Camera, Check, ClipboardPlus, ImageUp, Info as InfoIcon, Pill, Search, ShieldCheck } from "lucide-react";
+import { AlertTriangle, ArrowLeft, ArrowRight, Camera, Check, ClipboardPlus, Globe, ImageUp, Info as InfoIcon, Languages, Pill, Search, ShieldCheck } from "lucide-react";
 import { useI18n } from "../i18n";
 import { href } from "../app/router";
 import { useCard } from "../state/card";
@@ -9,7 +9,7 @@ import { readText } from "../lib/ocr";
 import { Notice, Out, PageHead } from "../components/ui";
 import { PhraseOverlay } from "../components/PhraseOverlay";
 
-function IngredientCard({ id, amount }: { id: string; amount?: string }) {
+export function IngredientCard({ id, amount }: { id: string; amount?: string }) {
   const { t, tk, locale } = useI18n();
   const ing = INGREDIENTS[id];
   const mine = t(ingredientKey(id));
@@ -48,6 +48,37 @@ function IngredientCard({ id, amount }: { id: string; amount?: string }) {
         </>
       )}
     </article>
+  );
+}
+
+/** The medicines tab: two ways in, by where the medicine comes from. */
+export function MedsMenu() {
+  const { t } = useI18n();
+  return (
+    <section className="medicine">
+      <PageHead title={t("med.title")} intro={t("meds.menuIntro")} icon={<Pill />} />
+      <div className="meds-menu">
+        <a className="meds-big primary" href={href("meds", "home")}>
+          <span className="mb-flow" aria-hidden>
+            <Globe size={26} />
+            <ArrowRight className="flip" size={20} />
+            <Pill size={26} />
+          </span>
+          <span className="mb-title">{t("meds.fromHome")}</span>
+          <span className="mb-sub">{t("meds.fromHomeSub")}</span>
+        </a>
+        <a className="meds-big" href={href("meds", "korea")}>
+          <span className="mb-flow" aria-hidden>
+            <Camera size={26} />
+            <ArrowRight className="flip" size={20} />
+            <Languages size={26} />
+          </span>
+          <span className="mb-title">{t("meds.fromKorea")}</span>
+          <span className="mb-sub">{t("home.medsSub")}</span>
+        </a>
+      </div>
+      <p className="disclaimer">{t("disclaimer.otc")}</p>
+    </section>
   );
 }
 
@@ -128,7 +159,10 @@ export function Medicine() {
 
   return (
     <section className="medicine">
-      <PageHead title={t("med.title")} intro={t("med.intro")} icon={<Pill />} />
+      <a className="page-back" href={href("meds")}>
+        <ArrowLeft className="flip" size={18} aria-hidden /> {t("meds.back")}
+      </a>
+      <PageHead title={t("meds.fromKorea")} intro={t("med.intro")} icon={<Languages />} />
       <div className="upload-row">
         {input(true)}
         {input(false)}

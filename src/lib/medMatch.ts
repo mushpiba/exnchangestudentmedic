@@ -1,5 +1,6 @@
 // Finds known products and ingredients in OCR text or a typed query.
 import { FAMILIES, INGREDIENTS, PRODUCTS } from "../content/medicines";
+import { FOREIGN, type ForeignProduct } from "../content/foreignMeds";
 
 /** Lowercase, compatibility-fold (㎎ → mg) and drop spaces/punctuation. OCR splits Korean words with spaces. */
 export function squash(text: string) {
@@ -89,3 +90,64 @@ export function analyze(raw: string): Found {
 
 /** Ingredients shared between two lists, for duplicate-dose warnings. */
 export const overlap = (a: string[], b: string[]) => a.filter((x) => b.includes(x));
+
+export type ForeignFound = {
+  /** Home-country products whose name was typed (or starts with what was typed). */
+  products: ForeignProduct[];
+  /** Ingredients NARU can explain, typed by name. */
+  ingredients: string[];
+  /** Ingredient names NARU only knows from foreign products (INN). */
+  inns: string[];
+};
+
+/** What a student typed about a medicine from home: product names first, ingredient names otherwise. */
+export function findForeign(raw: string): ForeignFound {
+  const text = squash(raw);
+  if (text.length < 2) return { products: [], ingredients: [], inns: [] };
+  const names = (p: ForeignProduct) => [p.name, ...p.match].map(squash);
+  // Chinese brand names are often two characters (泰诺, 快克); other scripts need three to mean anything.
+  const long = (n: string) => n.length >= (/\p{Script=Han}/u.test(n) ? 2 : 3);
+  // Whole names found in the text; "panadol extra" also contains "panadol", so keep the longest.
+  const whole = FOREIGN.map((p) => ({ p, hit: names(p).filter((n) => long(n) && locate(text, n) >= 0).sort((a, b) => b.length - a.length)[0] }))
+    .filter((x): x is { p: ForeignProduct; hit: string } => !!x.hit);
+  const longest = whole.filter((x) => !whole.some((y) => y !== x && y.hit.length > x.hit.length && y.hit.includes(x.hit))).map((x) => x.p);
+  // Plus names that start with the text: a bare brand ("panadol") lists every product of that brand to pick from.
+  const started = long(text) ? FOREIGN.filter((p) => names(p).some((n) => n.startsWith(text))) : [];
+  let products = [...new Set([...longest, ...started])];
+  // Last resort: the brand word alone ("цитрамон таблетки"), offered as a list to pick from.
+  if (!products.length) {
+    const brand = (n: string) => squash(n.split(/[\s(-]/)[0]);
+    products = FOREIGN.filter((p) => [p.name, ...p.match].map(brand).some((b) => b.length >= 4 && text.includes(b)));
+  }
+
+  const ingredients = analyze(raw).ingredients.map((i) => i.id);
+  const inns = [...new Set(FOREIGN.flatMap((p) => p.ingredients.filter((i) => !i.id).map((i) => i.inn)))].filter(
+    (inn) => locate(text, squash(inn)) >= 0,
+  );
+  return { products, ingredients, inns };
+}
+
+export type Alternative = { id: string; kind: "single" | "combo" | "none"; products: string[] };
+
+/**
+ * Korean products for a set of ingredients. `same`: exactly that set (only for 2+ ingredients, and only when
+ * `complete`: a medicine with an ingredient NARU can't explain has no "same" product).
+ * `each`: per ingredient, products with only that ingredient. For a one-ingredient medicine, failing that, combinations
+ * that contain it. For a combination, other combinations are left out: taking one beside single-ingredient products
+ * could double an ingredient. "none" only when no Korean product NARU knows contains the ingredient at all.
+ */
+export function koreanAlternatives(ids: string[], complete = true): { same: string[]; each: Alternative[] } {
+  // Adult products only; count ingredients as MFDS lists them (the dictionary leaves some out, e.g. methionine).
+  const all = Object.entries(PRODUCTS).filter(([, p]) => !p.kids);
+  const count = (p: (typeof PRODUCTS)[string]) => p.mainKo.split("/").length;
+  const has = (p: (typeof PRODUCTS)[string], id: string) => p.ingredients.some((i) => i.id === id);
+  const same = complete && ids.length > 1 ? all.filter(([, p]) => count(p) === ids.length && ids.every((id) => has(p, id))).map(([k]) => k) : [];
+  const each = ids.flatMap((id): Alternative[] => {
+    const single = all.filter(([, p]) => count(p) === 1 && has(p, id)).map(([k]) => k);
+    if (single.length) return [{ id, kind: "single", products: single }];
+    const combos = all.filter(([, p]) => count(p) > 1 && has(p, id)).map(([k]) => k);
+    if (!combos.length) return [{ id, kind: "none", products: [] }];
+    return ids.length === 1 ? [{ id, kind: "combo", products: combos }] : [];
+  });
+  return { same, each };
+}

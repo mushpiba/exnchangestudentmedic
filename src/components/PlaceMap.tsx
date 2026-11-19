@@ -36,12 +36,14 @@ function km(a: { lat: number; lng: number }, b: { lat: number; lng: number }) {
   return 6371 * 2 * Math.asin(Math.sqrt(h));
 }
 
-export default function PlaceMap() {
+/** `preview`: the home screen's map. It stays still so a swipe scrolls the page, and shows dots only (no filters or list). */
+export default function PlaceMap({ preview = false }: { preview?: boolean }) {
   const { t } = useI18n();
   const school = useSchool();
   const box = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
   const layer = useRef<L.LayerGroup | null>(null);
+  const framed = useRef(false);
   const [filter, setFilter] = useState<Filter>("all");
   const [selected, setSelected] = useState<Place | null>(null);
 
@@ -62,13 +64,18 @@ export default function PlaceMap() {
   // Create the map once.
   useEffect(() => {
     if (!box.current || map.current) return;
-    const m = L.map(box.current, { zoomControl: true, attributionControl: true }).setView([SCHOOL.location.lat, SCHOOL.location.lng], 15);
+    const still = { dragging: false, touchZoom: false, scrollWheelZoom: false, doubleClickZoom: false, boxZoom: false, keyboard: false };
+    const m = L.map(box.current, { zoomControl: !preview, attributionControl: true, ...(preview ? still : {}) }).setView(
+      [SCHOOL.location.lat, SCHOOL.location.lng],
+      15,
+    );
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     }).addTo(m);
     layer.current = L.layerGroup().addTo(m);
     map.current = m;
+    framed.current = false;
     return () => {
       m.remove();
       map.current = null;
@@ -92,6 +99,11 @@ export default function PlaceMap() {
         .on("click", () => setSelected(p))
         .addTo(group);
     }
+    // First draw: frame the nearest places instead of the campus alone, so the dots are on screen.
+    if (!framed.current && shown.length > 1) {
+      framed.current = true;
+      map.current?.fitBounds(L.latLngBounds(shown.slice(0, 12).map((p) => [p.lat, p.lng])), { padding: [24, 24], maxZoom: 16 });
+    }
   }, [shown]);
 
   const select = (p: Place) => {
@@ -102,15 +114,17 @@ export default function PlaceMap() {
 
   return (
     <div className="place-map-wrap">
-      <div className="map-cats" role="group" aria-label={t("places.mapTitle")}>
-        {FILTERS.filter((f) => f !== "school" || school === "inha").map((f) => (
-          <button key={f} type="button" aria-pressed={filter === f} onClick={() => setFilter(f)}>
-            <span className="dot" style={{ background: f === "all" ? "transparent" : f === "er" ? COLOR.er : COLOR[f] }} aria-hidden />
-            {t(filterKey(f))}
-          </button>
-        ))}
-      </div>
-      <div className="place-map" ref={box} role="application" aria-label={t("places.mapTitle")} />
+      {!preview && (
+        <div className="map-cats" role="group" aria-label={t("places.mapTitle")}>
+          {FILTERS.filter((f) => f !== "school" || school === "inha").map((f) => (
+            <button key={f} type="button" aria-pressed={filter === f} onClick={() => setFilter(f)}>
+              <span className="dot" style={{ background: f === "all" ? "transparent" : f === "er" ? COLOR.er : COLOR[f] }} aria-hidden />
+              {t(filterKey(f))}
+            </button>
+          ))}
+        </div>
+      )}
+      <div className={preview ? "place-map preview" : "place-map"} ref={box} role="application" aria-label={t("places.mapTitle")} />
 
       {selected && (
         <article className="place-card" aria-live="polite">
@@ -136,7 +150,7 @@ export default function PlaceMap() {
         </article>
       )}
 
-      <ul className="rows place-list">
+      {!preview && <ul className="rows place-list">
         {shown.slice(0, 15).map((p) => (
           <li key={p.id}>
             <button type="button" className="item" onClick={() => select(p)} aria-pressed={selected?.id === p.id}>
@@ -153,8 +167,8 @@ export default function PlaceMap() {
             </button>
           </li>
         ))}
-      </ul>
-      <p className="map-note">{t("places.mapNote", { date: data.fetchedAt })}</p>
+      </ul>}
+      {!preview && <p className="map-note">{t("places.mapNote", { date: data.fetchedAt })}</p>}
     </div>
   );
 }
