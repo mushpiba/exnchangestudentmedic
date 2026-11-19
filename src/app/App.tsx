@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { BookOpen, Check, Globe, GraduationCap, House, MapPin, Phone, Pill, RefreshCw, X } from "lucide-react";
+import { BookOpen, Check, ClipboardList, Globe, GraduationCap, House, MapPin, Phone, Pill, RefreshCw, X } from "lucide-react";
 import { useI18n, type MessageKey } from "../i18n";
 import { LOCALES } from "../i18n/locales";
 import { go, href, useRoute } from "./router";
@@ -11,6 +11,7 @@ import { Medicine, MedsMenu } from "../pages/Medicine";
 import { FromHome } from "../pages/FromHome";
 import { Places } from "../pages/Places";
 import { Info } from "../pages/Info";
+import { GuideColumn, GuideCompare } from "../pages/Guide";
 import { Community } from "../pages/Community";
 import { Campus } from "../pages/Campus";
 import { Welcome } from "../pages/Welcome";
@@ -21,9 +22,10 @@ import { applyUpdate, useUpdateReady } from "../lib/update";
 const NAV: { to: string; key: MessageKey; Icon: typeof House }[] = [
   { to: "home", key: "nav.home", Icon: House },
   { to: "places", key: "nav.map", Icon: MapPin },
-  { to: "meds", key: "nav.meds", Icon: Pill },
-  { to: "info", key: "nav.info", Icon: BookOpen },
+  { to: "meds", key: "tab.meds", Icon: Pill },
+  { to: "card", key: "tab.card", Icon: ClipboardList },
   { to: "school", key: "nav.school", Icon: GraduationCap },
+  { to: "info", key: "nav.guide", Icon: BookOpen },
 ];
 
 function LanguageDialog({ onClose }: { onClose: () => void }) {
@@ -75,6 +77,8 @@ function Page({ route }: { route: string[] }) {
     case "places":
       return <Places />;
     case "info":
+      if (rest[0] === "guide" && rest[1]) return <GuideColumn id={rest[1]} />;
+      if (rest[0] === "compare") return <GuideCompare />;
       return <Info id={rest[0]} />;
     case "community":
       return <Community route={rest} />;

@@ -20,7 +20,7 @@ type Shortcut = { label: MessageKey; Icon: typeof MapPin; to: string; external?:
 
 const SHORTCUTS: Shortcut[] = [
   { label: "home.gridFirst", Icon: Route, to: href("school", "first-visit") },
-  { label: "nav.info", Icon: BookOpen, to: href("info") },
+  { label: "nav.guide", Icon: BookOpen, to: href("info") },
   { label: "home.gridNight", Icon: Moon, to: LINKS.nightPharmacy, external: true },
   { label: "home.gridEr", Icon: Ambulance, to: LINKS.emergency, external: true },
   { label: "home.grid1345", Icon: Phone, to: "tel:1345" },

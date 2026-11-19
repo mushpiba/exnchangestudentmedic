@@ -1,0 +1,775 @@
+{
+ "columns": {
+  "visits": {
+   "title": "Why do Koreans see the doctor so often?",
+   "lead": "People in Korea see a doctor 18 times a year on average, about three times the OECD average. Knowing why makes Korean clinics easier to use.",
+   "blocks": [
+    {
+     "p": "According to the OECD report Health at a Glance 2025, people in Korea had 18.0 doctor consultations per person in 2023. That is the highest among the OECD countries compared, and about three times the OECD average of 6.5. In OECD Health Statistics 2026 (July 2026) Korea was again highest, at 17.9."
+    },
+    {
+     "chart": "visits"
+    },
+    {
+     "h": "Each doctor also has the most consultations"
+    },
+    {
+     "p": "A doctor in Korea has about 6,755 consultations a year (2023), against an OECD average of 1,908. The OECD links this partly to short consultations, which let each doctor see more patients."
+    },
+    {
+     "chart": "perDoctor"
+    },
+    {
+     "h": "Why so many visits?"
+    },
+    {
+     "list": [
+      "Same-day visits without an appointment: the OECD report notes that the Korean government sees same-day primary care, mostly without booking, as a way of keeping waiting times low.",
+      "Paid per service: the OECD says countries that pay doctors for each service (fee-for-service) tend to have more consultations. Korea has used this method since health insurance began.",
+      "No gatekeeper: you choose your clinic yourself, and clinics are close by (37,514 clinics and 25,497 pharmacies at the end of 2025).",
+      "Private top-up insurance: a 2026 study (2023 data) found that people with indemnity private insurance who told their clinic about it made about 15.7% more outpatient visits than policyholders who did not, though this does not prove cause."
+     ]
+    },
+    {
+     "p": "To curb very frequent use, patients who make more than 365 outpatient visits in a year pay 90% of the cost for the visits after that. From 1 January 2027 the threshold drops to 300 visits (children, pregnant women, people with disabilities and some others are exempt)."
+    },
+    {
+     "tip": "This works in your favour. When you feel ill, don't wait: go to a neighbourhood clinic. Many will see you the same day without an appointment. Consultations are short, so bring your symptom card or write your questions down first."
+    }
+   ]
+  },
+  "access": {
+   "title": "Where should I go? Choosing a clinic in Korea",
+   "lead": "In Korea it is normal to walk into a neighbourhood clinic without an appointment. Here are the types of medical institutions and how to get to a big hospital.",
+   "blocks": [
+    {
+     "p": "Medical institutions in Korea fall into clinics (의원, neighbourhood clinics), hospitals, general hospitals, and tertiary hospitals (large university hospitals). Many clinics focus on one field, such as internal medicine, ear-nose-throat or dermatology."
+    },
+    {
+     "p": "If the clinic's name includes a specialty, such as 'OO피부과의원' (dermatology clinic), a specialist in that field runs it. A sign like 'OO의원 · 진료과목: 피부과' (clinic, fields: dermatology) may mean the doctor is not a specialist."
+    },
+    {
+     "table": {
+      "caption": "Types and numbers of medical institutions (end of 2025)",
+      "head": [
+       "Type",
+       "Number",
+       "Go here for"
+      ],
+      "rows": [
+       [
+        "Clinic (의원)",
+        "37,514",
+        "Common problems such as a cold, an upset stomach, skin, eye or ear trouble"
+       ],
+       [
+        "Korean medicine clinic (한의원)",
+        "14,807",
+        "Korean medicine treatments such as acupuncture or chuna"
+       ],
+       [
+        "Dental clinic (치과의원)",
+        "19,254",
+        "Teeth"
+       ],
+       [
+        "Hospital · General hospital",
+        "1,428 · 337",
+        "Tests or admission, or when a clinic refers you"
+       ],
+       [
+        "Tertiary hospital (상급종합병원)",
+        "47",
+        "With a referral letter from a clinic or hospital (without one, insurance does not apply: full cost)"
+       ],
+       [
+        "Pharmacy (약국)",
+        "25,497",
+        "Getting medicine with a prescription, buying over-the-counter medicine"
+       ]
+      ]
+     }
+    },
+    {
+     "h": "Big hospitals need a referral letter"
+    },
+    {
+     "p": "At a tertiary hospital, health insurance applies only with a referral letter (진료의뢰서) from a clinic or hospital. Without one you can still be treated, but health insurance does not apply and you pay 100% of the cost. Emergencies, childbirth, dentistry and family medicine, among others, need no referral."
+    },
+    {
+     "h": "Few doctors, many beds"
+    },
+    {
+     "p": "Korea does not have many doctors per 1,000 people, but it has one of the highest numbers of hospital beds in the world. Compare your own country in the charts below."
+    },
+    {
+     "chart": "physicians"
+    },
+    {
+     "chart": "beds"
+    },
+    {
+     "h": "Good to know"
+    },
+    {
+     "list": [
+      "Most clinics take walk-ins, but busy ones such as paediatric clinics may close registration early or take patients only through an app, and psychiatry clinics usually work by appointment. Saturday hours vary by clinic. Check by phone or a map app before you go.",
+      "On weekdays after 18:00, Saturday afternoons (from Saturday morning at clinics and pharmacies) and on public holidays, the basic consultation fee and pharmacy dispensing fee are 30% higher. The whole bill does not go up by 30%.",
+      "To find a clinic or pharmacy open at night or on a holiday, use the E-Gen portal (www.e-gen.or.kr), the 응급똑똑 app, or call 129 (health and welfare call centre) or 120 (local call centre).",
+      "There are also evening and holiday clinics for children, called 달빛어린이병원 (more than 150 in 2026)."
+     ]
+    },
+    {
+     "tip": "Not sure which kind of clinic you need? Find a nearby clinic in NARU's map tab and show your symptom card."
+    }
+   ]
+  },
+  "cost": {
+   "title": "How much does a doctor's visit cost in Korea?",
+   "lead": "With health insurance, a neighbourhood clinic consultation costs you about 5,600 won. The share you pay depends on where you are treated.",
+   "blocks": [
+    {
+     "p": "In Korea you pay only your share (본인 부담금) at the counter after the visit; National Health Insurance pays the rest. Your share depends on the type of institution."
+    },
+    {
+     "table": {
+      "caption": "Your share of costs (2026)",
+      "head": [
+       "Where",
+       "You pay"
+      ],
+      "rows": [
+       [
+        "Clinic · Korean medicine clinic · Dental clinic",
+        "30%"
+       ],
+       [
+        "Hospital",
+        "40% (35% in rural areas)"
+       ],
+       [
+        "General hospital",
+        "50% (45% in rural areas)"
+       ],
+       [
+        "Tertiary hospital (with a referral letter)",
+        "The full consultation fee + 60% of the rest (without a referral, insurance does not apply: full cost)"
+       ],
+       [
+        "Pharmacy (with a prescription)",
+        "30% (50% or 40% for mild-condition prescriptions from a tertiary or general hospital)"
+       ],
+       [
+        "Inpatient care",
+        "20% (50% of meals)"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "At dental clinics only some care, such as scaling once a year, is 30%; much treatment, such as crowns, adult resin fillings, orthodontics and implants under age 65, is not covered (비급여). At Korean medicine clinics, chuna costs you 50–80%, and herbal decoctions and pharmacopuncture are mostly not covered."
+    },
+    {
+     "h": "For example"
+    },
+    {
+     "p": "In 2026 a first visit to a clinic is priced at 18,840 won. You pay 30% of it, about 5,600 won (amounts under 100 won are not charged). A return visit is 13,370 won, so about 4,000 won. Consultation fees are set to rise in 2027."
+    },
+    {
+     "p": "For a cold with a 3-day prescription, NARU's estimate from the official consultation and dispensing fees plus a typical drug cost is about 8,000–9,000 won in total for a weekday daytime visit. Injections or tests cost more, and on weekday evenings, Saturdays and holidays the basic consultation and dispensing fees are 30% higher."
+    },
+    {
+     "h": "Not covered: 비급여"
+    },
+    {
+     "p": "비급여 means care that health insurance does not pay for at all, so you pay the price the provider sets. Examples: cosmetic surgery, LASIK or LASEK, orthodontics, check-ups you ask for yourself, most vaccinations, care only to issue certificates, IV nutrition drips (영양 수액), manual therapy (도수치료), upgraded rooms such as single rooms, and herbal decoctions."
+    },
+    {
+     "tip": "비급여 prices differ between providers. You can compare them in the 'non-covered fees' (비급여 진료비 정보) service on the HIRA website. If a clinic suggests a drip or extra tests, ask about the price and whether insurance covers it first."
+    },
+    {
+     "h": "Compared with other countries"
+    },
+    {
+     "p": "Korean patients pay a relatively large share of total health spending themselves: 31.2% in 2023 by OECD data, against an OECD average of 19.2%. Compare your own country in the chart below."
+    },
+    {
+     "chart": "oop"
+    }
+   ]
+  },
+  "insurance": {
+   "title": "Health insurance for international students: the essentials",
+   "lead": "Since March 2021, international students must join National Health Insurance. In 2026 the student premium is about 79,320 won a month.",
+   "blocks": [
+    {
+     "p": "Students on a D-2 (study) visa become eligible for National Health Insurance from the day they enter Korea. But until your alien registration is done and NHIS has your record, clinics cannot confirm your insurance, so you may pay the full cost. Check your exact date with NHIS (1577-1000)."
+    },
+    {
+     "p": "D-4 (general training) students who are not at primary, middle or high schools, such as language-course students, join only after 6 months in Korea. For those 6 months you have no health insurance and pay the full cost, so check whether you have school group insurance or private insurance."
+    },
+    {
+     "table": {
+      "caption": "Monthly premium in 2026",
+      "head": [
+       "Who",
+       "Amount"
+      ],
+      "rows": [
+       [
+        "Average for foreign regional members (the minimum most pay)",
+        "158,630 won"
+       ],
+       [
+        "International students (50% reduction)",
+        "79,320 won"
+       ],
+       [
+        "For reference: students in 2025",
+        "76,390 won"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "The 50% student reduction applies if your annual income is 3.6 million won or less and your property is 135 million won or less."
+    },
+    {
+     "h": "How to pay"
+    },
+    {
+     "list": [
+      "Pay next month's premium in advance, by the 25th of each month.",
+      "You can pay by automatic transfer, virtual account, at a bank counter or ATM, or at an NHIS branch (credit card)."
+     ]
+    },
+    {
+     "h": "What if I don't pay?"
+    },
+    {
+     "list": [
+      "Premiums are due on the 25th of each month. If you miss that date and still have not paid by the 25th of the next month, your benefits stop from the 1st of the month after that until you pay all arrears, and you pay the full cost of care. For example, December's premium is due on 25 November; if it is still unpaid on 25 December, benefits stop from 1 January (this rule applies since 23 April 2025).",
+      "Once you pay the arrears you can get benefits again, so contact NHIS (1577-1000) right away.",
+      "Unpaid premiums count against you when you apply for a visa extension or other residence permit.",
+      "If arrears go on, your income or property can be seized."
+     ]
+    },
+    {
+     "h": "Where to get help"
+    },
+    {
+     "list": [
+      "NHIS call centre 1577-1000",
+      "Foreign-language lines: 033-811-2000 (English, Vietnamese), 033-811-2001 (Chinese)"
+     ]
+    },
+    {
+     "tip": "School group insurance differs between universities. See the insurance section in NARU's school tab, or ask your international office."
+    }
+   ]
+  },
+  "pharmacy": {
+   "title": "Pharmacies and medicines: how Korea is different",
+   "lead": "In Korea, doctors prescribe and pharmacists dispense. Antibiotics taken by mouth always need a prescription, and some basic medicines are sold in 24-hour convenience stores.",
+   "blocks": [
+    {
+     "p": "Since July 2000 Korea has separated prescribing and dispensing (의약분업): 'see the doctor for treatment, the pharmacist for medicine'. Clinics usually don't hand out medicine; they give you a prescription (injections and the like may be given at the clinic). You can take the prescription to any pharmacy nearby."
+    },
+    {
+     "h": "Antibiotics need a prescription"
+    },
+    {
+     "p": "Medicines where resistance is a concern are classified as prescription-only, so you cannot buy antibiotics without a doctor's prescription. The Korea Disease Control and Prevention Agency reminds people that antibiotics do not work on colds or flu. Some antibiotic ointments for the skin, such as fusidic acid or mupirocin, are sold without a prescription."
+    },
+    {
+     "h": "Medicines at convenience stores"
+    },
+    {
+     "p": "Registered convenience stores that are open 24 hours sell 'safety stock medicines' (안전상비의약품). Of the 13 designated products, 11 are actually on sale, and the government plans to allow up to 20."
+    },
+    {
+     "table": {
+      "caption": "The 13 convenience-store medicines (as of November 2026)",
+      "head": [
+       "Type",
+       "Products"
+      ],
+      "rows": [
+       [
+        "Fever and pain",
+        "타이레놀정 500mg·160mg, 어린이용타이레놀정 80mg, 어린이타이레놀현탁액, 어린이부루펜시럽"
+       ],
+       [
+        "Cold",
+        "판콜에이내복액, 판피린티정"
+       ],
+       [
+        "Digestion",
+        "베아제정, 닥터베아제정, 훼스탈골드정, 훼스탈플러스정"
+       ],
+       [
+        "Pain patch",
+        "신신파스아렉스, 제일쿨파프"
+       ]
+      ]
+     }
+    },
+    {
+     "list": [
+      "판콜에이내복액 and 판피린티정 contain the same ingredient as Tylenol (acetaminophen). Taking them together can exceed the daily maximum, so don't combine them, and ask a pharmacist first if you have been drinking or have liver problems. Both cold medicines can make you drowsy.",
+      "You can buy only one pack of each product at a time.",
+      "They are not sold to children under 12, including primary-school pupils."
+     ]
+    },
+    {
+     "h": "If you need medicine late at night"
+    },
+    {
+     "p": "Public late-night pharmacies (공공심야약국) are designated by local governments and open late (usually 22:00 to 01:00; hours differ by area). You can find open pharmacies on the E-Gen portal."
+    },
+    {
+     "tip": "Used a medicine at home? Use 'Home medicine → Korean medicine' in the Medicines tab to find a Korean medicine with the same ingredients."
+    }
+   ]
+  },
+  "emergency": {
+   "title": "Emergency rooms and 119: how to use them",
+   "lead": "If a life may be in danger, call 119 right away and don't worry about the cost. The 119 ambulance is free. If you're not sure whether it's an emergency, call 119 and ask.",
+   "blocks": [
+    {
+     "p": "If you have any of the signs below, close the app and call 119 right away. The 119 ambulance is free, and foreigners can get help through a three-way call with an interpreter."
+    },
+    {
+     "flags": true
+    },
+    {
+     "h": "Mild symptoms: a clinic by day; at night or on holidays, an open clinic, pharmacy or smaller ER"
+    },
+    {
+     "p": "Emergency rooms sort patients into five levels of urgency (KTAS). Level 4 is mild and level 5 is non-urgent."
+    },
+    {
+     "p": "Since 13 September 2024, if a large emergency room (such as a regional emergency centre) judges your case mild or non-urgent (level 4–5), your share of the ER costs rises to 90% (level 5 only at local emergency centres). The hospital decides whether it's an emergency, not the patient. Mild cases are usually directed to a smaller ER or a clinic, and the 90% applies if you still choose to be treated at that large ER. Small hospital ERs such as local emergency institutions have no such increase. If you feel your symptoms are serious, don't hesitate because of cost."
+    },
+    {
+     "h": "Finding what is open at night or on holidays"
+    },
+    {
+     "list": [
+      "The E-Gen portal (www.e-gen.or.kr) and the 응급의료정보제공 app show emergency rooms, hospitals and pharmacies, with an English page.",
+      "On public holidays you can also use the 응급똑똑 app, or call 129 (health and welfare call centre) or 120 (local call centre).",
+      "If a child is ill, look for a 달빛어린이병원, a children's clinic open in the evenings and on holidays."
+     ]
+    },
+    {
+     "p": "The 119 ambulance is free, but private ambulances, used for example to move between hospitals, charge a fee."
+    },
+    {
+     "p": "You will not be punished for calling because you weren't sure it was an emergency. The fine (up to 5 million won) applies only to deliberately false reports."
+    },
+    {
+     "tip": "If you're not sure whether it's an emergency, call 119 and ask. 129 (health and welfare call centre) can also tell you which hospital to go to."
+    }
+   ]
+  }
+ },
+ "charts": {
+  "visits": {
+   "title": "Doctor consultations per person per year",
+   "note": "Japan and the US: 2021–22; others: 2023."
+  },
+  "perDoctor": {
+   "title": "Consultations per doctor per year",
+   "note": "Japan and the US: 2022; others: 2023."
+  },
+  "physicians": {
+   "title": "Doctors per 1,000 people",
+   "note": "World Bank data; the reference year differs by country."
+  },
+  "beds": {
+   "title": "Hospital beds per 1,000 people",
+   "note": "World Bank data; the reference year differs by country."
+  },
+  "oop": {
+   "title": "Share of health spending paid directly by patients (%)",
+   "note": "World Bank data (2023–24), so it differs slightly from the OECD figure (Korea 31.2%, 2023)."
+  }
+ },
+ "home": {
+  "VN": {
+   "summary": "Viet Nam's public system has four levels: the commune health station is the official entry point, followed by district, provincial and central hospitals. Many patients skip the commune station and go straight to district or provincial hospitals, and insured patients who skip the referral route have paid higher or even full costs there. Social health insurance became compulsory in 2015, but many people still buy their medicines from private pharmacies.",
+   "points": [
+    {
+     "home": "In a study that observed sales at 30 pharmacies in northern Viet Nam (Hanoi area) in 2010 (published 2014), 88% of antibiotics in urban pharmacies and 91% in rural pharmacies were sold without a prescription.",
+     "korea": "In Korea, antibiotics need a doctor's prescription, so a pharmacy will not sell them to you directly. Visit a neighbourhood clinic first; many see walk-ins the same day."
+    },
+    {
+     "home": "Many patients bypass the commune health station and travel to district or provincial hospitals instead, which raises their costs.",
+     "korea": "In Korea, start at a neighbourhood clinic (의원); no referral is needed there. Large tertiary hospitals (상급종합병원) need a referral letter; without one, health insurance does not apply and you pay the full cost."
+    },
+    {
+     "home": "Patients often buy medicines at private pharmacies rather than getting them at the commune health station, where the range of medicines is often limited.",
+     "korea": "In Korea, doctors prescribe and community pharmacies dispense, so take the prescription from your clinic to a pharmacy. Some over-the-counter medicines are also sold in 24-hour convenience stores."
+    },
+    {
+     "home": "115 is Viet Nam's medical emergency number, but a traffic-injury study carried out in 2016 (published 2021) found that fewer than 10% of patients reached hospital by ambulance. Most came by motorbike, car or taxi, and some participants described ambulances as costly.",
+     "korea": "In Korea, call 119 for an ambulance. The 119 ambulance is free."
+    },
+    {
+     "home": "Out-of-pocket payments made up about 39% of Viet Nam's current health expenditure in 2023 (World Bank).",
+     "korea": "In Korea, National Health Insurance is mandatory for international students. After each visit you pay your share at the counter, about 30% at clinics."
+    }
+   ]
+  },
+  "CN": {
+   "summary": "Many people in mainland China go straight to hospital outpatient departments at higher-tier hospitals rather than to community or township health centres. At the time of a 2011–2015 survey there was effectively no formal referral system, and about two in five patients aged 45 and over bypassed primary care for higher-tier hospitals. Most people are enrolled in basic medical insurance, which pays part of the bill, and patients pay the rest themselves.",
+   "points": [
+    {
+     "home": "At the time of a 2011–2015 survey there was effectively no formal referral system, and about two in five patients aged 45 and over bypassed primary health centres to go to higher-tier hospitals.",
+     "korea": "In Korea, you usually go first to a neighbourhood clinic (의원), with no referral needed. Large tertiary hospitals (상급종합병원) need a referral letter; without one, health insurance does not apply and you pay the full cost."
+    },
+    {
+     "home": "Hospitals, not retail pharmacies, dominate prescription medicine sales: IQVIA data for 2022 put hospitals at over 70% of the prescription drug market, against about 15% for retail pharmacies.",
+     "korea": "In Korea, prescribing and dispensing are separated: the doctor gives you a prescription, and you collect the medicine at a community pharmacy."
+    },
+    {
+     "home": "In a 2017 study in which researchers posed as customers at 2,411 community pharmacies in six provinces, pharmacies sold antibiotics without a prescription in 70.1% of visits for adult respiratory symptoms and 48.5% of visits for child diarrhoea.",
+     "korea": "In Korea, antibiotics need a doctor's prescription. See a clinic first; many take walk-ins, and many open on Saturday mornings."
+    },
+    {
+     "home": "120 is China's medical emergency number, and ambulances are not free. In Zhejiang, for example, a 2025 regulation sets ambulance fees by government standard, lets insurance cover eligible costs, and makes the caller pay even if a dispatched ambulance is not used.",
+     "korea": "In Korea, the emergency number is 119, and the 119 ambulance is free."
+    },
+    {
+     "home": "About 1.326 billion people, roughly 95% of those required to enrol, were covered by basic medical insurance at the end of 2024.",
+     "korea": "In Korea, National Health Insurance is mandatory for international students."
+    },
+    {
+     "home": "Out-of-pocket payments made up about 32% of China's current health expenditure in 2023 (World Bank).",
+     "korea": "In Korea, you pay your share at the counter after the visit, about 30% of the cost at clinics."
+    }
+   ]
+  },
+  "TW": {
+   "summary": "Taiwan's single-payer National Health Insurance lets people use their NHI card at any contracted hospital, clinic or pharmacy, and they can freely choose where to be treated, including large medical centres. Patients pay a fixed copayment per visit (NT$50 at a clinic) plus a drug copayment, and the visit copayment is higher at larger hospitals, especially without a referral.",
+   "points": [
+    {
+     "home": "Taiwan's NHI charges a fixed basic copayment for each outpatient visit, NT$50 at a clinic, plus a separate drug copayment that rises with the cost of the medicines.",
+     "korea": "In Korea, you pay a percentage of the bill rather than a fixed fee: about 30% at clinics, paid at the counter after the visit."
+    },
+    {
+     "home": "You can go straight to a medical centre, but without a referral the fixed copayment there is much higher than with one.",
+     "korea": "Korea is stricter. In Taiwan the fixed copayment rises without a referral, but at a Korean tertiary hospital (상급종합병원) without a referral letter, health insurance does not apply and you pay the full cost. Start at a neighbourhood clinic (의원), which needs no referral."
+    },
+    {
+     "home": "Taiwan separated prescribing and dispensing in 1997, but a 2021 nationwide study found that 52.1% of 11,546 primary care clinics employ their own pharmacists, so many patients receive their medicine at the clinic itself.",
+     "korea": "Korean clinics usually don't hand out medicine; they give you a prescription to take to a community pharmacy."
+    },
+    {
+     "home": "Insured people use their NHI card at contracted hospitals, clinics, pharmacies and laboratories, and can freely choose the hospital or clinic they visit.",
+     "korea": "Korea also has no gatekeeper, so you choose your clinic. National Health Insurance is mandatory for international students."
+    }
+   ]
+  },
+  "JP": {
+   "summary": "Everyone in Japan's public health insurance, including foreign residents staying more than three months, can be treated at any medical institution, whether a clinic or a hospital. At the clinic or pharmacy, patients confirm their insurance with a My Number Card or eligibility certificate, and people aged 6 to 69 pay 30% of the cost.",
+   "points": [
+    {
+     "home": "Large hospitals in Japan charge an extra fee if you arrive without a referral letter. At Hamamatsu University Hospital it is 7,700 yen for a first visit and is not covered by insurance.",
+     "korea": "Korea is stricter. In Japan you pay an extra fee at a big hospital without a referral, but at a Korean tertiary hospital (상급종합병원) without a referral letter, health insurance does not apply and you pay the full cost. Start at a neighbourhood clinic (의원), which needs no referral."
+    },
+    {
+     "home": "Tokyo's official guide advises calling a medical institution before you go, because opening hours and capacity vary.",
+     "korea": "In Korea too, opening hours differ, so it's good to check before you go. Many neighbourhood clinics take walk-ins."
+    },
+    {
+     "home": "In Japan, you may receive medicine directly at the clinic or hospital (an in-hospital prescription) or take a prescription to an outside pharmacy.",
+     "korea": "In Korea, prescribing and dispensing are separated: the doctor prescribes and a community pharmacy dispenses. Some over-the-counter medicines are also sold in 24-hour convenience stores."
+    },
+    {
+     "home": "Patients aged 6 to 69 pay 30% of their medical costs once their insurance has been confirmed with a My Number Card or eligibility certificate.",
+     "korea": "Costs will feel familiar: National Health Insurance is mandatory for international students in Korea, and you pay your share at the counter after the visit, about 30% at clinics."
+    }
+   ]
+  },
+  "MN": {
+   "summary": "In Mongolia, primary care comes from family health centres (family practice groups) in each subdistrict of Ulaanbaatar and from soum health centres in rural areas. By law it is free of charge, and citizens can choose their primary care provider. Specialised care is referral-based and mostly located in Ulaanbaatar, and patients pay a copayment at specialised providers funded by the Health Insurance Fund.",
+   "points": [
+    {
+     "home": "By law, primary care at family health centres and soum health centres is free of charge; copayments apply at specialised providers.",
+     "korea": "In Korea, even a neighbourhood clinic visit costs money: you pay your share at the counter after the visit, about 30% at clinics. National Health Insurance, which is mandatory for international students, covers the rest."
+    },
+    {
+     "home": "Mongolia has two tiers: primary care, then referral-based general and specialised care, with most specialised care in Ulaanbaatar.",
+     "korea": "Korea has no gatekeeper, so you can walk straight into a neighbourhood clinic (의원). Large tertiary hospitals (상급종합병원) need a referral letter; without one, health insurance does not apply and you pay the full cost."
+    },
+    {
+     "home": "In a survey at 250 pharmacies in Ulaanbaatar (published 2012), only 19.5% of 297 customers buying prescription antimicrobials had a formal prescription.",
+     "korea": "In Korea, antibiotics need a doctor's prescription, so see a clinic first. Many see walk-ins the same day."
+    },
+    {
+     "home": "Mongolia's ambulance number is 103.",
+     "korea": "In Korea, the ambulance number is 119, and the 119 ambulance is free."
+    }
+   ]
+  },
+  "NP": {
+   "summary": "In Nepal, people use public primary health facilities and hospitals as well as private clinics and pharmacies, and most health spending is paid out of pocket. The national health insurance programme run by the Health Insurance Board had about 9.9 million cumulative enrolments by 2026, but only about 6 million active members. Members pay an annual family premium of Rs 3,500 and are served through designated first-point-of-service facilities.",
+   "points": [
+    {
+     "home": "In a survey of 801 pharmacy employees in Lalitpur, Kathmandu Valley (2017–2019), 92% said patients often ask for antimicrobials without a prescription, and 36% said they dispense them.",
+     "korea": "In Korea, antibiotics need a doctor's prescription, so a pharmacy will not sell them on request. See a clinic first; many see walk-ins the same day."
+    },
+    {
+     "home": "In a 2014 survey of 28 public primary health facilities (published 2016), about 55.6% of outpatients bought some or all of their prescribed medicines at nearby private facilities because the facility did not have them.",
+     "korea": "Korean clinics usually don't hand out medicine: the doctor prescribes, and you take the prescription to a community pharmacy."
+    },
+    {
+     "home": "Out-of-pocket payments made up about 59% of Nepal's current health expenditure in 2023 (World Bank).",
+     "korea": "In Korea, National Health Insurance is mandatory for international students. You pay your share at the counter after the visit, about 30% at clinics."
+    },
+    {
+     "home": "About 9.9 million people had enrolled in the national health insurance programme by 2026, but only about 6 million were active members; members are served through designated first-point-of-service facilities.",
+     "korea": "In Korea, insurance is not optional for you: National Health Insurance is mandatory for international students. There is no gatekeeper, so you choose your clinic."
+    },
+    {
+     "home": "Ambulances can be called on 102. In a small 2021 study at Patan Hospital, ambulance fees were charged per kilometre and usually paid out of pocket, and only 4 of 30 emergency patients arrived by ambulance, while 13 came by taxi.",
+     "korea": "In Korea, call 119 for an ambulance. The 119 ambulance is free."
+    }
+   ]
+  },
+  "PK": {
+   "summary": "In Pakistan, almost 80% of primary care facilities are private, and patients often bypass public primary care because of distance, cost, quality and weak referral systems. Outpatient visits and medicines are largely paid out of pocket, which makes up to 60% of health spending. The national Sehat Sahulat Program covers inpatient care at secondary and tertiary hospitals, but not outpatient primary care.",
+   "points": [
+    {
+     "home": "Pakistani law requires a prescription for antibiotics, but in a 2019–2020 study in which researchers posed as customers in Lahore, drugstores dispensed antibiotics without one in 59% of 773 visits.",
+     "korea": "In Korea, antibiotics need a doctor's prescription, so see a clinic first. Many take walk-ins the same day, and many open on Saturday mornings."
+    },
+    {
+     "home": "In the same Lahore study, a qualified pharmacist was present in only 21.2% of drugstore visits, and most antibiotic sales followed the staff's advice.",
+     "korea": "In Korea, prescribing and dispensing are separated: the doctor prescribes and a community pharmacy dispenses your medicine."
+    },
+    {
+     "home": "Almost 80% of primary care facilities are private, and patients often bypass public primary care facilities because of distance, cost, quality and weak referral.",
+     "korea": "In Korea, you can often walk into a neighbourhood clinic (의원) the same day, without an appointment or referral. Large tertiary hospitals (상급종합병원) need a referral letter; without one, health insurance does not apply and you pay the full cost."
+    },
+    {
+     "home": "The Sehat Sahulat Program covers inpatient hospital care but not outpatient primary care, so clinic visits and medicines are mostly paid out of pocket.",
+     "korea": "In Korea, National Health Insurance, which is mandatory for international students, also covers ordinary clinic visits. You pay your share at the counter after the visit, about 30% at clinics."
+    },
+    {
+     "home": "Rescue 1122 began as Punjab's emergency service, with ambulances in every district of Punjab. Other provinces such as Khyber Pakhtunkhwa also run a 1122 emergency service (run by different agencies in each province).",
+     "korea": "In Korea, one number, 119, works nationwide, and the 119 ambulance is free."
+    }
+   ]
+  },
+  "RU": {
+   "summary": "Outpatient care is mainly delivered at state polyclinics, where district physicians and specialists work together, and primary care acts as the gatekeeper to specialist and hospital care. Care covered by compulsory health insurance (OMS) is free at state and municipal facilities and at contracted private providers. Patients generally pay for outpatient prescription medicines, with exemptions for some groups.",
+   "points": [
+    {
+     "home": "For primary care you attach to one medical organisation (polyclinic), often by place of residence, and choose a district therapist or GP there. You can change either no more than once a year, unless you move.",
+     "korea": "Korea has no attachment: you can go to any neighbourhood clinic (의원) without an appointment or referral, and many open on Saturday mornings."
+    },
+    {
+     "home": "Specialist outpatient care is normally reached through a referral from your district therapist or GP, and planned hospital care is arranged by referral from the attending doctor.",
+     "korea": "In Korea you can go straight to the clinic you choose, without a referral. Large tertiary hospitals (상급종합병원) need a referral letter; without one, health insurance does not apply and you pay the full cost."
+    },
+    {
+     "home": "Polyclinic care covered by compulsory health insurance is free at the point of use, but patients usually pay for outpatient prescription medicines, with exemptions for groups such as some chronically ill patients, people with disabilities and veterans.",
+     "korea": "National Health Insurance is mandatory for international students in Korea. You pay your share at the counter after each visit (about 30% at clinics), then pay for your medicine at the pharmacy."
+    },
+    {
+     "home": "Russian law requires a prescription for antibiotics, but in a national online survey of 2,725 adults (published 2023) only 50.9% had obtained their antibiotics with a prescription or in hospital; buying at a pharmacy without a prescription was the most common other source.",
+     "korea": "Korean pharmacies dispense antibiotics only with a doctor's prescription. Visit a clinic first; many see walk-ins the same day."
+    },
+    {
+     "home": "By law, ambulance care from state and municipal services is free of charge for citizens.",
+     "korea": "In Korea the ambulance number is 119, and the 119 ambulance is also free."
+    }
+   ]
+  },
+  "UZ": {
+   "summary": "Uzbekistan is introducing state health insurance nationwide, run by the State Health Insurance Fund and funded mainly from taxes, so citizens pay no direct insurance contributions. Patients first visit their assigned family clinic, where a family doctor decides whether a specialist is needed; planned hospital care uses an electronic referral, while emergency and urgent care need no referral. Covered primary care services, such as family doctor consultations, tests and some medicines, carry no extra charges.",
+   "points": [
+    {
+     "home": "You start at your assigned family clinic, and the family doctor decides whether you need to see a specialist.",
+     "korea": "In Korea you are not assigned to a clinic. You can often walk into a neighbourhood clinic (의원) the same day without an appointment or referral, and many open on Saturday mornings."
+    },
+    {
+     "home": "For planned hospital care you receive an electronic referral with a QR code and choose a hospital through my.gov.uz or an app.",
+     "korea": "In Korea you choose your clinic yourself. Large tertiary hospitals (상급종합병원) need a referral letter; without one, health insurance does not apply and you pay the full cost."
+    },
+    {
+     "home": "Since 16 December 2025, systemic antibiotics must be prescribed electronically and dispensed by pharmacies against an electronic prescription.",
+     "korea": "Korea also requires a prescription for antibiotics: the clinic doctor prescribes, and a community pharmacy dispenses."
+    },
+    {
+     "home": "Under the State Health Insurance Fund, contracted community pharmacies dispense selected medicines for priority noncommunicable diseases free of charge against an e-prescription. This began as a pilot in Syrdarya region in 2022 and is being extended to other regions.",
+     "korea": "In Korea you can take a clinic prescription to any community pharmacy; National Health Insurance covers part of the price and you pay the rest there."
+    },
+    {
+     "home": "Under the health protection law, emergency medical care is provided free of charge, including to foreign visitors.",
+     "korea": "In Korea, call 119 for an ambulance; the 119 ambulance is free."
+    }
+   ]
+  },
+  "KZ": {
+   "summary": "People attach to a primary health care organisation (polyclinic) and see the district doctor there, who can refer them for tests and diagnostics. All primary health care, emergency and ambulance services stay free within the guaranteed volume of free medical care. Since 2020, consultations and diagnostics for most other conditions are covered by compulsory social health insurance and require insured status.",
+   "points": [
+    {
+     "home": "You attach to one primary health care organisation through the e-Government portal and can change it free of charge twice a year.",
+     "korea": "Korea has no attachment: you can visit any neighbourhood clinic (의원) you choose, and switch clinics whenever you like."
+    },
+    {
+     "home": "Appointments with your primary care doctor are booked in person, by phone or through the e-Government portal.",
+     "korea": "Most Korean neighbourhood clinics take walk-ins, and many open on Saturday mornings."
+    },
+    {
+     "home": "Primary care, emergency and ambulance services are free for everyone, but specialist consultations and tests for most other conditions require insured status in compulsory social health insurance.",
+     "korea": "National Health Insurance is mandatory for international students in Korea. Clinic visits are covered without a referral, and you pay a share at the counter after each visit (about 30% at clinics)."
+    },
+    {
+     "home": "By law, pharmacies may not sell prescription medicines, including antibiotics, without a doctor's prescription, issued on paper or electronically. Regulators recorded 59 administrative cases for selling antimicrobials without a prescription in 2025.",
+     "korea": "In Korea, antibiotics also need a prescription: see a clinic doctor first, then take the prescription to a community pharmacy."
+    },
+    {
+     "home": "Emergency medical care is provided regardless of which polyclinic you are attached to.",
+     "korea": "In Korea, call 119 for an ambulance; the 119 ambulance is free."
+    }
+   ]
+  },
+  "KG": {
+   "summary": "People enrol with a family group practice (FGP), and the family doctor is the first contact and the gatekeeper to specialist and hospital care. Primary care and basic laboratory tests are free for the enrolled population under the State-Guaranteed Benefits Programme, financed through the Mandatory Health Insurance Fund. Other tests, hospital stays and especially medicines often involve co-payments or out-of-pocket costs.",
+   "points": [
+    {
+     "home": "You enrol with the family group practice of your choice, though choice may be limited by location and the number of doctors, and the family doctor refers you to specialists when needed.",
+     "korea": "Korea has no enrolment or gatekeeper: you can walk straight into a neighbourhood clinic (의원), and many open on Saturday mornings."
+    },
+    {
+     "home": "A routine hospital admission needs a referral from a primary care doctor; without one you pay the full cost of treatment. Urgent admissions need no referral.",
+     "korea": "In Korea, only large tertiary hospitals (상급종합병원) need a referral letter; without one, health insurance does not apply and you pay the full cost. Neighbourhood clinics need no referral."
+    },
+    {
+     "home": "Primary care and basic laboratory tests are free if you are enrolled with a primary care provider; other laboratory and diagnostic tests carry official co-payments.",
+     "korea": "National Health Insurance is mandatory for international students in Korea, and you pay your share at the counter after each visit (about 30% at clinics)."
+    },
+    {
+     "home": "Medicines are the largest out-of-pocket cost. Under the Additional Drug Package, insured patients pay the difference between the pharmacy price and a set reimbursement price for listed outpatient medicines.",
+     "korea": "In Korea you take your clinic prescription to any community pharmacy and pay there. For minor symptoms, some over-the-counter medicines are also sold in 24-hour convenience stores."
+    },
+    {
+     "home": "The ambulance number is 103, and emergency or ambulance care for urgent conditions is free and needs no referral.",
+     "korea": "In Korea the number is 119, and the 119 ambulance is also free."
+    }
+   ]
+  },
+  "SA": {
+   "summary": "Ministry of Health primary health care centres are the first point of access, and Saudi citizens have free access to all levels of public health care. Public general and specialised hospitals mainly accept referred patients, while private hospitals accept patients without referral. Appointments at primary health care centres can be booked through the Sehhaty app or the 937 line.",
+   "points": [
+    {
+     "home": "Appointments at Ministry of Health primary health care centres are booked, changed or cancelled in the Sehhaty app (with an Absher account) or through the 937 line.",
+     "korea": "Most Korean neighbourhood clinics (의원) take walk-ins, and many open on Saturday mornings."
+    },
+    {
+     "home": "Public general and specialised hospitals mainly accept referred cases (emergencies excepted), while private hospitals accept patients without a referral (2020 review).",
+     "korea": "In Korea you choose your clinic freely. Large tertiary hospitals (상급종합병원) need a referral letter; without one, health insurance does not apply and you pay the full cost."
+    },
+    {
+     "home": "Saudi citizens have free access to all levels of public health care, funded by the government.",
+     "korea": "National Health Insurance is mandatory for international students in Korea, and you pay your share at the counter after each visit (about 30% at clinics)."
+    },
+    {
+     "home": "Through the Ministry of Health's Wasfaty e-prescription service, patients can collect prescribed medicines free of charge from accredited community pharmacies.",
+     "korea": "In Korea, you take the clinic's prescription to a community pharmacy and pay your share of the medicine price there."
+    },
+    {
+     "home": "Since May 2018, sale of antibiotics without a prescription has been enforced with fines. In a simulated-patient study (published 2019), pharmacies supplying antibiotics without a prescription for a sore throat fell from 96.6% before enforcement to 12.1% after.",
+     "korea": "Korea also requires a prescription for antibiotics; the clinic doctor prescribes and a community pharmacy dispenses."
+    },
+    {
+     "home": "The Saudi Red Crescent Authority runs emergency medical services through the free 997 number and the Asefny app.",
+     "korea": "In Korea, call 119 for an ambulance; the 119 ambulance is free."
+    }
+   ]
+  },
+  "US": {
+   "summary": "Most people have private insurance, mainly through an employer (53.8% in 2024); Medicare and Medicaid cover many others, and about 8% are uninsured. People usually see a primary care provider by appointment or use urgent care centres for problems that are not life-threatening. What the patient pays depends on the plan, often a copay per visit plus an annual deductible.",
+   "points": [
+    {
+     "home": "When you cannot see your own provider soon enough for a problem that is not life-threatening, such as flu, a sprain or a minor cut, you typically go to an urgent care centre.",
+     "korea": "In Korea, neighbourhood clinics (의원) fill this role: many take walk-ins, and many open on Saturday mornings."
+    },
+    {
+     "home": "In many HMO plans you need a written referral from your primary care doctor before seeing a specialist, or the plan may not pay.",
+     "korea": "Korea has no gatekeeper: you go straight to a clinic. Large tertiary hospitals (상급종합병원) need a referral letter; without one, health insurance does not apply and you pay the full cost."
+    },
+    {
+     "home": "In 2025, 88% of workers with single employer coverage had an annual deductible, averaging $1,886, and the average copay for a primary care visit was $27.",
+     "korea": "At a Korean neighbourhood clinic you pay about 30% of the insured cost at the counter, and pay for medicine separately at the pharmacy. Non-covered items (비급여) are paid in full, and so is a tertiary hospital (상급종합병원) without a referral letter."
+    },
+    {
+     "home": "Many students are covered as dependants: you can usually stay on a parent's health plan until age 26.",
+     "korea": "In Korea, enrolment in National Health Insurance is mandatory for international students."
+    },
+    {
+     "home": "Ground ambulance rides are billed, and they are excluded from the federal No Surprises Act protections against surprise medical bills.",
+     "korea": "In Korea, dial 119 instead of 911; the 119 ambulance is free."
+    },
+    {
+     "home": "Primary care visits are relatively long: about 21 minutes on average in 2012 data (international review, 2017).",
+     "korea": "Korean consultations are short and short prescriptions (e.g. 3 days) are common, so write your questions down beforehand and ask how long to take the medicine."
+    }
+   ]
+  },
+  "ES": {
+   "summary": "The national health system (SNS) covers virtually everyone, is mainly funded by taxes and is free of charge at the point of delivery. Primary care is at its centre, with the family doctor acting as gatekeeper to specialist and hospital care. Patients pay part of the cost of prescribed medicines and some prostheses.",
+   "points": [
+    {
+     "home": "Your family doctor acts as the gatekeeper: specialist and hospital care are reached through a referral.",
+     "korea": "Korea has no gatekeeper: you can walk straight into a neighbourhood clinic (의원). Large tertiary hospitals (상급종합병원) need a referral letter; without one, health insurance does not apply and you pay the full cost."
+    },
+    {
+     "home": "Appointments are booked with your chosen family doctor; in Madrid, for example, through an online appointment service, and specialist appointments follow that doctor's referral.",
+     "korea": "Most Korean clinics see patients without an appointment, and many open on Saturday mornings."
+    },
+    {
+     "home": "Public health care is free of charge at the point of delivery.",
+     "korea": "National Health Insurance is mandatory for international students in Korea, and you pay a share at the counter after each visit (about 30% at clinics)."
+    },
+    {
+     "home": "At the pharmacy you pay part of the price of prescribed medicines: working-age people and their dependants pay 40–60% depending on income. A May 2026 reform added monthly caps for incomes under €35,000, applied after the November 2026 income check.",
+     "korea": "In Korea you take the clinic's prescription to a community pharmacy and pay there. Some over-the-counter medicines are also sold in 24-hour convenience stores."
+    },
+    {
+     "home": "112 is the single number for all emergencies, including health; calls are free from landlines and mobiles.",
+     "korea": "In Korea, call 119 for an ambulance; the 119 ambulance is free."
+    }
+   ]
+  },
+  "FR": {
+   "summary": "People declare a médecin traitant (attending doctor, usually a GP) who coordinates their care and refers them to specialists; seeing an undeclared doctor outside this coordinated care pathway lowers reimbursement, with exceptions such as gynaecologists, ophthalmologists and emergencies. Patients usually pay the doctor and Assurance Maladie reimburses part of the fee. With the carte Vitale the refund arrives in about a week, and with tiers payant there is no upfront payment.",
+   "points": [
+    {
+     "home": "Your médecin traitant coordinates your care; if you see an undeclared doctor without a referral you get less money back, although gynaecologists, ophthalmologists, psychiatrists and stomatologists can be seen directly.",
+     "korea": "Korea has no gatekeeper: you can go to any clinic without a referral. Large tertiary hospitals (상급종합병원) need a referral letter; without one, health insurance does not apply and you pay the full cost."
+    },
+    {
+     "home": "A sector-1 GP visit costs €30; Assurance Maladie refunds €19 inside the coordinated care pathway (after a €2 deduction) but only €7 outside it.",
+     "korea": "At a Korean neighbourhood clinic you pay about 30% of the insured cost at the counter, and pay for medicine separately at the pharmacy. Non-covered items (비급여) are paid in full, and so is a tertiary hospital (상급종합병원) without a referral letter."
+    },
+    {
+     "home": "With your carte Vitale the doctor sends an electronic claim and your refund arrives in about a week; with tiers payant you do not pay upfront.",
+     "korea": "In Korea there is no refund to wait for: the clinic charges only your share, and enrolment in National Health Insurance is mandatory for international students."
+    },
+    {
+     "home": "Trained pharmacists can do a rapid test for a sore throat (age 10 and over) or simple cystitis (women aged 16–65) and, if it is positive, prescribe antibiotics without a doctor's prescription.",
+     "korea": "In Korea, antibiotics need a doctor's prescription, and pharmacists dispense rather than prescribe. For a sore throat, go to a clinic first; many take walk-ins the same day."
+    },
+    {
+     "home": "Ambulance transport is reimbursed by health insurance, normally at 55% of the regulated fare; in an emergency the prescription can be issued afterwards, and emergency transport via the SAMU (15) is exempt from the €4 per-trip deduction.",
+     "korea": "In Korea, call 119; the 119 ambulance is free."
+    }
+   ]
+  }
+ }
+}

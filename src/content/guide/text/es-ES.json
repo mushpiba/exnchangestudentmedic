@@ -1,0 +1,425 @@
+{
+ "columns": {
+  "visits": {
+   "title": "¿Por qué en Corea la gente va tanto al médico?",
+   "lead": "En Corea, cada persona va al médico una media de 18 veces al año, unas 3 veces la media de la OCDE. Si sabes por qué, te resultará más fácil usar los hospitales y clínicas de Corea.",
+   "blocks": [
+    {
+     "p": "Según el informe «Health at a Glance 2025», publicado en 2025 por la OCDE (Organización para la Cooperación y el Desarrollo Económicos), en 2023 cada persona en Corea fue al médico una media de 18,0 veces. Es la cifra más alta entre los países de la OCDE comparados y unas tres veces la media de la OCDE (6,5 veces). En las estadísticas de salud de la OCDE publicadas en julio de 2026, Corea también fue el país con la cifra más alta: 17,9 veces."
+    },
+    {
+     "chart": "visits"
+    },
+    {
+     "h": "También es el país con más consultas por médico"
+    },
+    {
+     "p": "En Corea, cada médico hace unas 6.755 consultas al año (2023). La media de la OCDE es de 1.908. La OCDE señala como una de las razones que las consultas son cortas, lo que permite a cada médico atender a más pacientes."
+    },
+    {
+     "chart": "perDoctor"
+    },
+    {
+     "h": "¿Por qué van tanto al médico?"
+    },
+    {
+     "list": [
+      "Consulta el mismo día y sin cita: según el informe de la OCDE, el Gobierno coreano considera que poder recibir atención primaria el mismo día, en la mayoría de los casos sin cita, es una forma de reducir los tiempos de espera.",
+      "Se paga por cada acto médico: según la OCDE, los países que pagan cada consulta o servicio por separado (pago por acto) suelen tener más consultas. Corea usa este sistema desde que empezó su seguro médico.",
+      "No hay que pasar por un médico de cabecera: eliges tú mismo la clínica (의원), y hay muchas cerca (a finales de 2025, 37.514 clínicas y 25.497 farmacias).",
+      "Seguros privados de gastos médicos: un estudio de 2026 (con datos de 2023) encontró que, entre las personas con un seguro privado que reembolsa los gastos médicos (실손보험), las que se lo habían dicho a su clínica iban alrededor de un 15,7 % más a consultas externas que las que no. Aun así, no se puede afirmar que el seguro sea la causa."
+     ]
+    },
+    {
+     "p": "Por otro lado, para frenar el uso excesivo, el Gobierno hace que quien pase de 365 consultas externas en un año pague, a partir de ahí, el 90 % del coste de cada consulta. Desde el 1 de enero de 2027, este límite baja a 300 consultas (hay excepciones, como niños, embarazadas y personas con discapacidad)."
+    },
+    {
+     "tip": "Para ti, como estudiante internacional, esto es una ventaja. Si te encuentras mal, no lo dejes para más tarde: ve a una clínica de tu barrio. En muchas te atienden ese mismo día sin cita. Las consultas son cortas, así que conviene llevar preparada la tarjeta de síntomas o lo que quieras preguntar."
+    }
+   ]
+  },
+  "access": {
+   "title": "¿Adónde voy? Cómo elegir dónde atenderte en Corea",
+   "lead": "En Corea lo normal es ir sin cita a una clínica del barrio. Aquí tienes los tipos de centros médicos y cómo llegar a un hospital grande.",
+   "blocks": [
+    {
+     "p": "Los centros médicos de Corea se dividen, a grandes rasgos, en clínicas (의원, el médico del barrio), hospitales, hospitales generales y hospitales de tercer nivel (상급종합병원, grandes hospitales como los universitarios). Muchas clínicas se dedican a una sola especialidad, como medicina interna, otorrinolaringología o dermatología."
+    },
+    {
+     "p": "Si el nombre del letrero incluye la especialidad, como «OO피부과의원» (clínica de dermatología), la clínica la lleva un especialista en esa área. Si pone algo como «OO의원 · 진료과목: 피부과» (clínica · especialidades atendidas: dermatología), puede que el médico no sea especialista."
+    },
+    {
+     "table": {
+      "caption": "Tipos y número de centros médicos (finales de 2025)",
+      "head": [
+       "Tipo",
+       "Número",
+       "Cuándo ir"
+      ],
+      "rows": [
+       [
+        "Clínica (의원)",
+        "37.514",
+        "Problemas comunes, como un resfriado, el estómago revuelto o problemas de piel, ojos u oídos"
+       ],
+       [
+        "Clínica de medicina tradicional coreana (한의원)",
+        "14.807",
+        "Tratamientos de medicina tradicional coreana, como la acupuntura o el chuna"
+       ],
+       [
+        "Clínica dental (치과의원)",
+        "19.254",
+        "Problemas de dientes"
+       ],
+       [
+        "Hospital (병원) · Hospital general (종합병원)",
+        "1.428 · 337",
+        "Cuando necesitas pruebas o ingreso, o cuando te envía una clínica"
+       ],
+       [
+        "Hospital de tercer nivel (상급종합병원)",
+        "47",
+        "Cuando tienes un volante de derivación de una clínica o de un hospital (sin él, el seguro médico no se aplica y pagas el coste completo)"
+       ],
+       [
+        "Farmacia (약국)",
+        "25.497",
+        "Recoger medicamentos con receta y comprar medicamentos sin receta"
+       ]
+      ]
+     }
+    },
+    {
+     "h": "Para un hospital grande necesitas un volante de derivación"
+    },
+    {
+     "p": "En los hospitales de tercer nivel, el seguro médico solo te cubre si llevas un volante de derivación (진료의뢰서) de una clínica o de un hospital. Sin volante te pueden atender, pero el seguro médico no se aplica y pagas el 100 % del coste. Las urgencias, los partos, la odontología y la medicina de familia, entre otros, no necesitan volante."
+    },
+    {
+     "h": "Pocos médicos, pero muchas camas"
+    },
+    {
+     "p": "Corea no tiene muchos médicos por cada 1.000 habitantes, pero es uno de los países con más camas de hospital del mundo. Compáralo con tu país en los gráficos de abajo."
+    },
+    {
+     "chart": "physicians"
+    },
+    {
+     "chart": "beds"
+    },
+    {
+     "h": "Conviene saber"
+    },
+    {
+     "list": [
+      "En la mayoría de las clínicas puedes ir sin cita, pero las más concurridas, como las de pediatría, a veces dejan de admitir pacientes pronto o solo aceptan el registro por app, y muchas clínicas de psiquiatría funcionan con cita previa. Que abran o no los sábados también depende de cada clínica. Antes de ir, compruébalo por teléfono o en una app de mapas.",
+      "Entre semana después de las 18:00, los sábados por la tarde (en clínicas y farmacias, desde el sábado por la mañana) y en festivos, la tarifa básica de consulta y la tarifa de dispensación de la farmacia cuestan un 30 % más. No es que toda la factura suba un 30 %.",
+      "Para encontrar hospitales y farmacias abiertos de noche o en festivos, usa el Portal de Emergencias Médicas E-Gen (www.e-gen.or.kr) o la app 응급똑똑, o llama al 129 (Centro de Atención de Salud y Bienestar) o al 120 (centro de llamadas local).",
+      "También hay clínicas para niños que abren por la tarde-noche y en festivos, los «hospitales infantiles Luz de Luna» (달빛어린이병원): más de 150 en 2026."
+     ]
+    },
+    {
+     "tip": "¿No sabes a qué especialidad ir? Busca una clínica cercana en la pestaña Mapa de NARU y enseña tu tarjeta de síntomas."
+    }
+   ]
+  },
+  "cost": {
+   "title": "¿Cuánto cuesta ir al médico en Corea?",
+   "lead": "Con seguro médico, la consulta en una clínica de barrio te cuesta unos 5.600 wones. Lo que pagas depende del tipo de centro donde te atiendan.",
+   "blocks": [
+    {
+     "p": "En Corea, al terminar la consulta solo pagas en recepción tu parte, el copago (본인 부담금). El resto lo paga el Seguro Nacional de Salud. El porcentaje que pagas depende del tipo de centro médico."
+    },
+    {
+     "table": {
+      "caption": "Copago de la atención médica (2026)",
+      "head": [
+       "Dónde",
+       "Lo que pagas tú"
+      ],
+      "rows": [
+       [
+        "Clínica · Clínica de medicina tradicional coreana · Clínica dental",
+        "30 %"
+       ],
+       [
+        "Hospital",
+        "40 % (35 % en zonas rurales)"
+       ],
+       [
+        "Hospital general",
+        "50 % (45 % en zonas rurales)"
+       ],
+       [
+        "Hospital de tercer nivel (상급종합병원), si tienes volante de derivación",
+        "Toda la tarifa de consulta + el 60 % del resto (sin volante, el seguro médico no se aplica y pagas el coste completo)"
+       ],
+       [
+        "Farmacia (con receta)",
+        "30 % (recetas para enfermedades leves de un hospital de tercer nivel: 50 %; de un hospital general: 40 %)"
+       ],
+       [
+        "Ingreso hospitalario",
+        "20 % (comidas: 50 %)"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "En las clínicas dentales, solo algunos tratamientos, como la limpieza dental (una vez al año), tienen un copago del 30 %; muchos otros, como las coronas, los empastes de resina en adultos, la ortodoncia o los implantes (en menores de 65 años), no están cubiertos (비급여). En las clínicas de medicina tradicional coreana, el chuna tiene un copago de entre el 50 y el 80 %, y las decocciones de hierbas (한약, 첩약) y la farmacopuntura no están cubiertas en la mayoría de los casos."
+    },
+    {
+     "h": "Un ejemplo"
+    },
+    {
+     "p": "En 2026, la primera consulta en una clínica cuesta 18.840 wones. Pagas el 30 %, unos 5.600 wones (lo que no llega a 100 wones no se cobra). Una consulta de seguimiento cuesta 13.370 wones, así que pagas unos 4.000 wones. Está previsto que las tarifas de consulta suban en 2027."
+    },
+    {
+     "p": "Si vas a una clínica por un resfriado y te recetan medicamentos para 3 días, el total es de unos 8.000-9.000 wones entre semana y en horario de día, según una estimación de NARU basada en las tarifas oficiales de consulta y de dispensación, suponiendo el precio de unos medicamentos habituales. Si te ponen una inyección o te hacen pruebas, cuesta más, y entre semana por la tarde-noche, los sábados y en festivos, la tarifa básica de consulta y la tarifa de dispensación de la farmacia cuestan un 30 % más."
+    },
+    {
+     "h": "Servicios que el seguro no cubre (비급여)"
+    },
+    {
+     "p": "Los servicios no cubiertos (비급여) son los que el seguro médico no paga en absoluto, así que pagas todo el precio que pone el centro. Por ejemplo: cirugía estética, LASIK o LASEK, ortodoncia, revisiones médicas que pides por tu cuenta, la mayoría de las vacunas, la emisión de certificados como el certificado médico, los sueros nutritivos por vía intravenosa (영양 수액, 링거), la terapia manual (도수치료), habitaciones de categoría superior como la individual, y las decocciones de hierbas de la medicina tradicional coreana (한약, 첩약)."
+    },
+    {
+     "tip": "El precio de los servicios no cubiertos cambia según el centro. Puedes compararlo en el apartado «Información sobre precios de servicios no cubiertos» (비급여 진료비 정보) de la web del Servicio de Evaluación y Revisión del Seguro de Salud (HIRA). Si te recomiendan un suero o pruebas adicionales, pregunta primero el precio y si lo cubre el seguro médico."
+    },
+    {
+     "h": "Comparado con otros países"
+    },
+    {
+     "p": "En Corea, la parte del gasto sanitario total que pagan directamente los pacientes es bastante alta. Según datos de la OCDE, fue del 31,2 % en 2023, y la media de la OCDE es del 19,2 %. Compáralo con tu país en el gráfico de abajo."
+    },
+    {
+     "chart": "oop"
+    }
+   ]
+  },
+  "insurance": {
+   "title": "Seguro médico para estudiantes internacionales: lo esencial",
+   "lead": "Desde marzo de 2021, los estudiantes internacionales tienen que inscribirse obligatoriamente en el Seguro Nacional de Salud. En 2026, la cuota para estudiantes es de unos 79.320 wones al mes.",
+   "blocks": [
+    {
+     "p": "Si tienes visado de estudios (D-2), tienes derecho al seguro médico desde el día en que entras en Corea. Pero hasta que completes el registro de extranjero (외국인등록) y el NHIS (Servicio Nacional del Seguro de Salud, 국민건강보험공단) registre tu afiliación, los hospitales y clínicas no pueden comprobar tu seguro, así que puede que tengas que pagar el coste completo. Consulta tu fecha exacta con el NHIS (1577-1000)."
+    },
+    {
+     "p": "Con el visado de formación general (D-4), si no estás en primaria, secundaria o bachillerato (por ejemplo, si haces un curso de idiomas), solo quedas inscrito cuando han pasado 6 meses desde tu llegada a Corea. Durante esos 6 meses no tienes seguro médico y tienes que pagar el coste completo, así que comprueba sin falta si tienes un seguro colectivo de tu centro de estudios o un seguro privado."
+    },
+    {
+     "table": {
+      "caption": "Cuota mensual en 2026",
+      "head": [
+       "Tipo",
+       "Importe"
+      ],
+      "rows": [
+       [
+        "Media de los extranjeros asegurados como «afiliados regionales» (지역가입자): el importe mínimo que paga la mayoría",
+        "158.630 wones"
+       ],
+       [
+        "Estudiantes internacionales (reducción del 50 %)",
+        "79.320 wones"
+       ],
+       [
+        "Como referencia: estudiantes internacionales en 2025",
+        "76.390 wones"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "La reducción para estudiantes (50 %) se aplica si tus ingresos anuales son de 3,6 millones de wones o menos y tu patrimonio es de 135 millones de wones o menos."
+    },
+    {
+     "h": "Cómo pagar la cuota"
+    },
+    {
+     "list": [
+      "La cuota del mes siguiente se paga por adelantado, como muy tarde el día 25 de cada mes.",
+      "Puedes pagar por domiciliación bancaria, con una cuenta virtual, en la ventanilla o el cajero de un banco, o en una oficina del NHIS (con tarjeta de crédito)."
+     ]
+    },
+    {
+     "h": "¿Qué pasa si no pago?"
+    },
+    {
+     "list": [
+      "La cuota se paga como muy tarde el día 25 de cada mes. Si se pasa esa fecha y el día 25 del mes siguiente todavía no la has pagado, desde el día 1 del mes posterior y hasta que pagues toda la deuda pierdes la cobertura del seguro médico y tienes que pagar el coste completo de la atención. Por ejemplo, la cuota de diciembre se paga como muy tarde el 25 de noviembre; si el 25 de diciembre todavía no la has pagado, pierdes la cobertura desde el 1 de enero (esta norma se aplica desde el 23 de abril de 2025).",
+      "Cuando pagas la deuda, vuelves a tener cobertura, así que ponte en contacto enseguida con el NHIS (1577-1000).",
+      "Si tienes cuotas sin pagar, puedes tener problemas al pedir permisos de residencia, como la prórroga del visado.",
+      "Si la deuda dura mucho, te pueden embargar ingresos o bienes."
+     ]
+    },
+    {
+     "h": "Dónde pedir ayuda"
+    },
+    {
+     "list": [
+      "Centro de atención al cliente del NHIS: 1577-1000",
+      "Atención en otros idiomas: 033-811-2000 (inglés y vietnamita), 033-811-2001 (chino)"
+     ]
+    },
+    {
+     "tip": "El seguro colectivo cambia según la universidad. Mira la información sobre seguros en la pestaña Universidad de NARU o pregunta en la Oficina de Relaciones Internacionales."
+    }
+   ]
+  },
+  "pharmacy": {
+   "title": "Farmacias y medicamentos: así es en Corea",
+   "lead": "En Corea, el médico receta y el farmacéutico prepara y entrega los medicamentos. Los antibióticos orales siempre necesitan receta, y algunos medicamentos básicos también se venden en tiendas de conveniencia abiertas 24 horas.",
+   "blocks": [
+    {
+     "p": "Desde julio de 2000, Corea separa la receta y la dispensación de medicamentos (의약분업): «la consulta, con el médico; los medicamentos, con el farmacéutico». Las clínicas normalmente no te dan los medicamentos, sino una receta (aunque algunas cosas, como las inyecciones, a veces te las ponen en la misma clínica). Puedes llevar la receta a cualquier farmacia cercana."
+    },
+    {
+     "h": "Los antibióticos necesitan receta"
+    },
+    {
+     "p": "Los medicamentos con riesgo de crear resistencias se clasifican como medicamentos con receta, así que no puedes comprar antibióticos sin receta médica. La Agencia Coreana para el Control y la Prevención de Enfermedades recuerda que los antibióticos no sirven para el resfriado ni para la gripe. Eso sí, algunas pomadas antibióticas para la piel, como las de ácido fusídico o mupirocina, se pueden comprar en la farmacia sin receta."
+    },
+    {
+     "h": "Medicamentos en tiendas de conveniencia"
+    },
+    {
+     "p": "Las tiendas de conveniencia registradas que abren 24 horas venden «medicamentos básicos de venta segura» (안전상비의약품). De los 13 productos autorizados, en la práctica se venden 11, y el Gobierno tiene previsto ampliarlos hasta un máximo de 20."
+    },
+    {
+     "table": {
+      "caption": "Los 13 medicamentos básicos de las tiendas de conveniencia (a noviembre de 2026)",
+      "head": [
+       "Tipo",
+       "Productos"
+      ],
+      "rows": [
+       [
+        "Para la fiebre y el dolor",
+        "타이레놀정 500mg·160mg, 어린이용타이레놀정 80mg, 어린이타이레놀현탁액, 어린이부루펜시럽"
+       ],
+       [
+        "Para el resfriado",
+        "판콜에이내복액, 판피린티정"
+       ],
+       [
+        "Para la digestión",
+        "베아제정, 닥터베아제정, 훼스탈골드정, 훼스탈플러스정"
+       ],
+       [
+        "Parches para el dolor",
+        "신신파스아렉스, 제일쿨파프"
+       ]
+      ]
+     }
+    },
+    {
+     "list": [
+      "판콜에이내복액 y 판피린티정 contienen el mismo principio activo que el 타이레놀 (Tylenol): paracetamol (acetaminofén). Tomarlos juntos puede hacer que superes la dosis máxima diaria, así que no los combines. Si has bebido alcohol o tienes problemas de hígado, pregunta antes al farmacéutico. Estos dos medicamentos para el resfriado pueden dar sueño.",
+      "Solo puedes comprar una caja de cada producto cada vez.",
+      "No se venden a menores de 12 años (incluidos los niños de primaria)."
+     ]
+    },
+    {
+     "h": "Si necesitas un medicamento por la noche"
+    },
+    {
+     "p": "Las farmacias públicas de noche (공공심야약국) son farmacias designadas por los gobiernos locales que abren hasta tarde (normalmente de 22:00 a 01:00; el horario cambia según la zona). Puedes buscar farmacias abiertas en el Portal de Emergencias Médicas E-Gen."
+    },
+    {
+     "tip": "¿Tomabas algún medicamento en tu país? En la pestaña Medicinas, usa «Medicina de mi país → coreana» para buscar un medicamento coreano con los mismos principios activos."
+    }
+   ]
+  },
+  "emergency": {
+   "title": "Urgencias y el 119: cómo usarlos",
+   "lead": "Si una vida está en peligro, o crees que podría estarlo, llama enseguida al 119 y no te preocupes por el coste. La ambulancia del 119 es gratuita. Si no tienes claro si es una urgencia, también puedes llamar al 119 y preguntar.",
+   "blocks": [
+    {
+     "p": "Si tienes alguna de las señales de abajo, cierra la app y llama enseguida al 119. La ambulancia del 119 es gratuita, y si eres extranjero puedes recibir ayuda con una llamada a tres con un intérprete."
+    },
+    {
+     "flags": true
+    },
+    {
+     "h": "Con síntomas leves: de día, una clínica; de noche y en festivos, una clínica o farmacia abierta o un servicio de urgencias pequeño"
+    },
+    {
+     "p": "En urgencias clasifican la gravedad en niveles del 1 al 5 (KTAS). El nivel 4 es leve y el nivel 5, no urgente."
+    },
+    {
+     "p": "Desde el 13 de septiembre de 2024, si en un servicio de urgencias grande, como un centro regional de urgencias (권역응급의료센터), el hospital considera que tu caso es leve o no urgente (niveles 4 y 5), la parte del coste de urgencias que pagas tú sube al 90 %. En los centros locales de urgencias (지역응급의료센터), esto solo se aplica al nivel 5. Quien decide si es una urgencia es el hospital, no el paciente. Si consideran que tu caso es leve, normalmente te indican un servicio de urgencias más pequeño o una clínica, y el 90 % se aplica si, aun así, decides que te atiendan en ese servicio de urgencias grande. Los servicios de urgencias de hospitales pequeños, como las instituciones locales de urgencias (지역응급의료기관), no tienen esta subida. Si sientes que tus síntomas son graves, que el coste no te haga dudar."
+    },
+    {
+     "h": "Cómo encontrar sitios abiertos de noche y en festivos"
+    },
+    {
+     "list": [
+      "En el Portal de Emergencias Médicas E-Gen (www.e-gen.or.kr) o en la app 응급의료정보제공 puedes buscar servicios de urgencias, hospitales y farmacias. También tienen versión en inglés.",
+      "En festivos también puedes buscarlos con la app 응급똑똑 o llamando al 129 (Centro de Atención de Salud y Bienestar) o al 120 (centro de llamadas local).",
+      "Si un niño se pone enfermo, busca un «hospital infantil Luz de Luna» (달빛어린이병원), que abre por la tarde-noche y en festivos."
+     ]
+    },
+    {
+     "p": "La ambulancia del 119 es gratuita, pero las ambulancias privadas, que se usan por ejemplo para trasladar a un paciente de un hospital a otro, cobran una tarifa."
+    },
+    {
+     "p": "No te van a sancionar por llamar si no estabas seguro de que fuera una urgencia. La multa (de hasta 5 millones de wones) solo se aplica a quien hace un aviso falso a propósito."
+    },
+    {
+     "tip": "Si no tienes claro si es una urgencia, llama al 119 y pregunta. El 129 (Centro de Atención de Salud y Bienestar) también te puede indicar a qué hospital ir."
+    }
+   ]
+  }
+ },
+ "charts": {
+  "visits": {
+   "title": "Consultas médicas por persona al año",
+   "note": "Japón y Estados Unidos: datos de 2021-2022; el resto, de 2023."
+  },
+  "perDoctor": {
+   "title": "Consultas por médico al año",
+   "note": "Japón y Estados Unidos: datos de 2022; el resto, de 2023."
+  },
+  "physicians": {
+   "title": "Médicos por cada 1.000 habitantes",
+   "note": "Datos del Banco Mundial. El año de referencia cambia según el país."
+  },
+  "beds": {
+   "title": "Camas de hospital por cada 1.000 habitantes",
+   "note": "Datos del Banco Mundial. El año de referencia cambia según el país."
+  },
+  "oop": {
+   "title": "Parte del gasto sanitario que pagan directamente los pacientes (%)",
+   "note": "Son datos del Banco Mundial (2023-2024), por eso cambian un poco respecto a los de la OCDE (Corea: 31,2 %, 2023)."
+  }
+ },
+ "home": {
+  "ES": {
+   "summary": "El Sistema Nacional de Salud (SNS) de España cubre a casi toda la población, se financia sobre todo con impuestos y es gratuito en el momento de la atención. La atención primaria es el centro del sistema, y el médico de familia hace de filtro para llegar al especialista y al hospital. Los pacientes pagan una parte del coste de los medicamentos con receta y de algunos productos ortoprotésicos.",
+   "points": [
+    {
+     "home": "El médico de familia hace de filtro: para ir al especialista o al hospital necesitas que te derive.",
+     "korea": "En Corea no hay un médico que haga de filtro, así que puedes ir directamente a una clínica de barrio (의원). Los grandes hospitales de tercer nivel (상급종합병원) piden volante de derivación (진료의뢰서); sin él, el seguro médico no se aplica y pagas el coste completo."
+    },
+    {
+     "home": "Pides cita con tu médico de familia asignado (en Madrid, por ejemplo, por internet), y la cita con el especialista depende de que ese médico te derive.",
+     "korea": "En Corea, la mayoría de las clínicas atienden sin cita, y muchas abren el sábado por la mañana."
+    },
+    {
+     "home": "La sanidad pública es gratuita en el momento de la atención.",
+     "korea": "En Corea, los estudiantes internacionales también tienen que inscribirse obligatoriamente en el Seguro Nacional de Salud. Después de la consulta pagas en recepción el copago (본인 부담금): en las clínicas, alrededor del 30 %."
+    },
+    {
+     "home": "En la farmacia pagas una parte del precio de los medicamentos con receta. Las personas en edad de trabajar y sus familiares pagan entre el 40 y el 60 % según sus ingresos, y una reforma de mayo de 2026 introdujo topes mensuales para rentas anuales inferiores a 35.000 euros (los nuevos criterios se aplican después de la comprobación de ingresos de noviembre de 2026).",
+     "korea": "En Corea llevas la receta de la clínica a una farmacia del barrio y pagas allí los medicamentos. Algunos medicamentos sin receta también se venden en tiendas de conveniencia abiertas 24 horas."
+    },
+    {
+     "home": "El 112 es el número único para todas las emergencias, también las sanitarias, y la llamada es gratuita desde fijos y móviles.",
+     "korea": "En Corea, para pedir una ambulancia se llama al 119. La ambulancia del 119 es gratuita."
+    }
+   ]
+  }
+ }
+}

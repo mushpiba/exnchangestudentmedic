@@ -1,0 +1,425 @@
+{
+ "columns": {
+  "visits": {
+   "title": "Vì sao người Hàn Quốc hay đi khám bệnh đến vậy?",
+   "lead": "Trung bình mỗi người Hàn Quốc gặp bác sĩ 18 lần một năm, gấp khoảng 3 lần mức trung bình của OECD. Hiểu được lý do, bạn sẽ dùng bệnh viện ở Hàn Quốc thoải mái hơn.",
+   "blocks": [
+    {
+     "p": "Theo báo cáo “Health at a Glance 2025” mà OECD (Tổ chức Hợp tác và Phát triển Kinh tế) công bố năm 2025, vào năm 2023 mỗi người Hàn Quốc được bác sĩ khám trung bình 18,0 lần. Đây là con số cao nhất trong các nước OECD được so sánh, và gấp khoảng ba lần mức trung bình của OECD (6,5 lần). Trong Thống kê Y tế OECD (OECD Health Statistics) công bố tháng 7/2026, Hàn Quốc cũng đứng đầu với 17,9 lần."
+    },
+    {
+     "chart": "visits"
+    },
+    {
+     "h": "Số lượt khám của mỗi bác sĩ cũng nhiều nhất"
+    },
+    {
+     "p": "Mỗi bác sĩ ở Hàn Quốc khám khoảng 6.755 lượt một năm (năm 2023), trong khi mức trung bình của OECD là 1.908 lượt. OECD nêu một trong những lý do là thời gian khám ngắn, nên mỗi bác sĩ có thể khám cho nhiều bệnh nhân hơn."
+    },
+    {
+     "chart": "perDoctor"
+    },
+    {
+     "h": "Vì sao lại đi khám nhiều như vậy?"
+    },
+    {
+     "list": [
+      "Khám ngay trong ngày, không cần hẹn: báo cáo của OECD cho biết chính phủ Hàn Quốc coi việc phần lớn mọi người được chăm sóc ban đầu ngay trong ngày mà không cần đặt hẹn là một cách để giảm thời gian chờ đợi.",
+      "Trả tiền theo từng lần khám: OECD nói rằng những nước trả phí cho từng dịch vụ khám chữa bệnh (phí theo dịch vụ) thường có số lượt khám nhiều hơn. Hàn Quốc dùng cách này ngay từ khi bắt đầu có bảo hiểm y tế.",
+      "Không cần đi qua bác sĩ gia đình: bạn có thể tự chọn phòng khám (의원) mình muốn, và gần nhà cũng có nhiều phòng khám (cuối năm 2025 có 37.514 phòng khám và 25.497 nhà thuốc).",
+      "Bảo hiểm tư nhân chi trả theo chi phí thực tế (실손보험): một nghiên cứu năm 2026 (dựa trên số liệu năm 2023) cho thấy trong số người có loại bảo hiểm này, những người đã báo cho bệnh viện biết mình có bảo hiểm đi khám ngoại trú nhiều hơn khoảng 15,7% so với những người không báo. Tuy vậy, không thể khẳng định đó là nguyên nhân."
+     ]
+    },
+    {
+     "p": "Mặt khác, để giảm việc đi khám quá thường xuyên, chính phủ quy định người nào khám ngoại trú hơn 365 lần trong 1 năm thì từ lần tiếp theo phải tự trả 90% chi phí khám. Từ ngày 1/1/2027, mức này sẽ giảm xuống còn 300 lần (trẻ em, phụ nữ mang thai, người khuyết tật v.v. là ngoại lệ)."
+    },
+    {
+     "tip": "Đây là điểm có lợi cho du học sinh. Khi bị ốm, đừng chần chừ, hãy đến phòng khám gần nhà. Có nhiều nơi bạn được khám ngay trong ngày mà không cần hẹn. Vì thời gian khám ngắn, bạn nên chuẩn bị sẵn thẻ triệu chứng hoặc những điều muốn hỏi."
+    }
+   ]
+  },
+  "access": {
+   "title": "Nên đi đâu? Cách chọn nơi khám bệnh ở Hàn Quốc",
+   "lead": "Ở Hàn Quốc, đến phòng khám gần nhà mà không cần hẹn là chuyện bình thường. Dưới đây là các loại cơ sở y tế và cách để được khám ở bệnh viện lớn.",
+   "blocks": [
+    {
+     "p": "Cơ sở y tế ở Hàn Quốc được chia thành các nhóm chính: phòng khám (의원, phòng khám gần nhà), bệnh viện (병원), bệnh viện đa khoa (종합병원) và bệnh viện đa khoa cấp cao (상급종합병원, bệnh viện lớn như bệnh viện đại học). Nhiều phòng khám mở theo từng chuyên khoa như nội khoa, tai mũi họng, da liễu."
+    },
+    {
+     "p": "Nếu tên trên biển hiệu có ghi chuyên khoa, như “OO피부과의원” (phòng khám da liễu), thì đó là nơi do bác sĩ chuyên khoa của khoa đó điều hành. Nếu biển ghi kiểu “OO의원 · 진료과목: 피부과” (phòng khám · khoa khám: da liễu), thì bác sĩ có thể không phải là bác sĩ chuyên khoa."
+    },
+    {
+     "table": {
+      "caption": "Các loại cơ sở y tế và số lượng (cuối năm 2025)",
+      "head": [
+       "Loại",
+       "Số lượng",
+       "Khi nào nên đến"
+      ],
+      "rows": [
+       [
+        "Phòng khám (의원)",
+        "37.514",
+        "Các triệu chứng thường gặp như cảm, đau bụng khó tiêu, vấn đề về da, mắt, tai"
+       ],
+       [
+        "Phòng khám Đông y Hàn Quốc (한의원)",
+        "14.807",
+        "Điều trị Đông y như châm cứu, chuna (nắn chỉnh)"
+       ],
+       [
+        "Phòng khám nha khoa (치과의원)",
+        "19.254",
+        "Các vấn đề về răng"
+       ],
+       [
+        "Bệnh viện (병원) · Bệnh viện đa khoa (종합병원)",
+        "1.428 · 337",
+        "Khi cần xét nghiệm hoặc nằm viện, khi phòng khám chuyển bạn đến"
+       ],
+       [
+        "Bệnh viện đa khoa cấp cao (상급종합병원)",
+        "47",
+        "Khi có giấy chuyển viện (진료의뢰서) của phòng khám hoặc bệnh viện (nếu không có, bảo hiểm y tế không áp dụng và bạn trả toàn bộ chi phí)"
+       ],
+       [
+        "Nhà thuốc (약국)",
+        "25.497",
+        "Lấy thuốc theo đơn thuốc, mua thuốc không kê đơn"
+       ]
+      ]
+     }
+    },
+    {
+     "h": "Bệnh viện lớn cần có giấy chuyển viện"
+    },
+    {
+     "p": "Ở bệnh viện đa khoa cấp cao, bạn chỉ được bảo hiểm y tế chi trả khi có giấy chuyển viện (진료의뢰서) nhận từ phòng khám hoặc bệnh viện. Nếu đến mà không có giấy, bạn vẫn được khám nhưng bảo hiểm y tế không được áp dụng, nên bạn phải trả 100% chi phí khám. Cấp cứu, sinh con, nha khoa, y học gia đình v.v. thì không cần giấy chuyển viện."
+    },
+    {
+     "h": "Ít bác sĩ nhưng nhiều giường bệnh"
+    },
+    {
+     "p": "Số bác sĩ trên 1.000 dân của Hàn Quốc không nhiều, nhưng số giường bệnh thuộc nhóm nhiều nhất thế giới. Hãy so sánh với nước bạn ở các biểu đồ bên dưới."
+    },
+    {
+     "chart": "physicians"
+    },
+    {
+     "chart": "beds"
+    },
+    {
+     "h": "Những điều nên biết"
+    },
+    {
+     "list": [
+      "Phần lớn phòng khám có thể đến mà không cần hẹn, nhưng những nơi đông người như phòng khám nhi có thể ngừng nhận bệnh sớm hoặc chỉ nhận đăng ký qua ứng dụng, còn nhiều phòng khám tâm thần làm việc theo lịch hẹn. Việc có khám vào thứ Bảy hay không cũng khác nhau tùy phòng khám. Hãy kiểm tra bằng điện thoại hoặc ứng dụng bản đồ trước khi đi.",
+      "Ngày thường sau 18 giờ, chiều thứ Bảy (ở phòng khám và nhà thuốc thì từ sáng thứ Bảy) và ngày lễ, tiền khám cơ bản và phí cấp phát thuốc ở nhà thuốc sẽ cộng thêm 30%. Điều này không có nghĩa là toàn bộ chi phí khám tăng 30%.",
+      "Để tìm bệnh viện, nhà thuốc mở cửa ban đêm hoặc ngày lễ, bạn có thể dùng Cổng thông tin cấp cứu E-Gen (www.e-gen.or.kr), ứng dụng “응급똑똑”, hoặc gọi 129 (Trung tâm tư vấn Y tế - Phúc lợi) hay 120 (tổng đài địa phương).",
+      "Còn có Bệnh viện Nhi Ánh Trăng (달빛어린이병원), nơi khám cho trẻ em vào buổi tối và ngày nghỉ (hơn 150 nơi vào năm 2026)."
+     ]
+    },
+    {
+     "tip": "Nếu không biết nên khám khoa nào, hãy tìm phòng khám gần bạn ở tab “Bản đồ” của NARU và đưa thẻ triệu chứng cho nhân viên xem."
+    }
+   ]
+  },
+  "cost": {
+   "title": "Đi khám ở Hàn Quốc tốn bao nhiêu tiền?",
+   "lead": "Nếu có bảo hiểm y tế, tiền khám ở phòng khám gần nhà khoảng 5.600 won. Tỷ lệ bạn phải trả khác nhau tùy nơi bạn khám.",
+   "blocks": [
+    {
+     "p": "Ở Hàn Quốc, khám xong bạn chỉ trả “phần tự chi trả” (본인 부담금) tại quầy tiếp nhận. Phần còn lại do Bảo hiểm Y tế Quốc dân chi trả. Tỷ lệ bạn trả khác nhau tùy loại cơ sở y tế."
+    },
+    {
+     "table": {
+      "caption": "Tỷ lệ tự chi trả chi phí khám chữa bệnh (năm 2026)",
+      "head": [
+       "Nơi khám",
+       "Tỷ lệ bạn trả"
+      ],
+      "rows": [
+       [
+        "Phòng khám · Phòng khám Đông y · Phòng khám nha khoa",
+        "30%"
+       ],
+       [
+        "Bệnh viện",
+        "40% (vùng nông thôn 읍·면: 35%)"
+       ],
+       [
+        "Bệnh viện đa khoa",
+        "50% (vùng nông thôn 읍·면: 45%)"
+       ],
+       [
+        "Bệnh viện đa khoa cấp cao (khi có giấy chuyển viện)",
+        "Toàn bộ tiền khám + 60% phần còn lại (nếu không có giấy chuyển viện, bảo hiểm y tế không áp dụng và bạn trả toàn bộ chi phí)"
+       ],
+       [
+        "Nhà thuốc (theo đơn thuốc)",
+        "30% (đơn thuốc cho bệnh nhẹ: 50% nếu nhận từ bệnh viện đa khoa cấp cao, 40% nếu nhận từ bệnh viện đa khoa)"
+       ],
+       [
+        "Nằm viện",
+        "20% (tiền ăn 50%)"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "Ở nha khoa, chỉ một số dịch vụ như lấy cao răng (1 lần/năm) là 30%, còn nhiều điều trị như bọc răng sứ, trám răng bằng nhựa composite cho người lớn, niềng răng, cấy ghép implant (người dưới 65 tuổi) v.v. là dịch vụ ngoài bảo hiểm (비급여). Ở phòng khám Đông y, với liệu pháp nắn chỉnh chuna (추나요법) bạn tự trả 50–80%, còn thuốc Đông y sắc (첩약) và thủy châm (약침) phần lớn là ngoài bảo hiểm."
+    },
+    {
+     "h": "Ví dụ cụ thể"
+    },
+    {
+     "p": "Năm 2026, tiền khám lần đầu ở phòng khám là 18.840 won. Bạn trả 30% trong số đó, khoảng 5.600 won (phần lẻ dưới 100 won không phải trả). Khám lại là 13.370 won, nên bạn trả khoảng 4.000 won. Tiền khám dự kiến sẽ tăng vào năm 2027."
+    },
+    {
+     "p": "Nếu bị cảm, đến phòng khám và lấy thuốc 3 ngày, thì theo ước tính của NARU, tính từ tiền khám và phí cấp phát thuốc chính thức cộng với giá thuốc thông thường (giả định), tổng cộng khoảng 8.000–9.000 won nếu khám ban ngày vào ngày thường. Nếu tiêm hoặc làm xét nghiệm thì tốn hơn, còn buổi tối ngày thường, thứ Bảy và ngày lễ, tiền khám cơ bản và phí cấp phát thuốc ở nhà thuốc sẽ cộng thêm 30%."
+    },
+    {
+     "h": "Dịch vụ bảo hiểm y tế không chi trả (비급여)"
+    },
+    {
+     "p": "Dịch vụ ngoài bảo hiểm (비급여) là phần bảo hiểm y tế hoàn toàn không chi trả, nên bạn phải trả toàn bộ theo giá bệnh viện đặt ra. Ví dụ: phẫu thuật thẩm mỹ, LASIK/LASEK, niềng răng, khám sức khỏe theo ý muốn, phần lớn các loại tiêm chủng, cấp giấy tờ như giấy chẩn đoán, truyền dịch dinh dưỡng (영양 수액), trị liệu bằng tay (도수치료), phòng bệnh cao cấp như phòng 1 người, thuốc Đông y sắc (첩약)."
+    },
+    {
+     "tip": "Giá dịch vụ ngoài bảo hiểm mỗi bệnh viện một khác. Bạn có thể so sánh ở mục “Thông tin chi phí ngoài bảo hiểm” (비급여 진료비 정보) trên trang web của Cơ quan Thẩm định Bảo hiểm Y tế (HIRA). Nếu được đề nghị truyền dịch hoặc làm thêm xét nghiệm, hãy hỏi trước về giá và việc có được bảo hiểm y tế chi trả hay không."
+    },
+    {
+     "h": "So với các nước khác"
+    },
+    {
+     "p": "Ở Hàn Quốc, tỷ lệ người bệnh tự trả trong tổng chi phí y tế khá cao. Theo số liệu OECD, năm 2023 tỷ lệ này là 31,2%, còn mức trung bình của OECD là 19,2%. Hãy so sánh với nước bạn ở biểu đồ bên dưới."
+    },
+    {
+     "chart": "oop"
+    }
+   ]
+  },
+  "insurance": {
+   "title": "Bảo hiểm y tế cho du học sinh: chỉ cần biết những điều này",
+   "lead": "Từ tháng 3/2021, du học sinh bắt buộc phải tham gia Bảo hiểm Y tế Quốc dân. Năm 2026, phí bảo hiểm cho sinh viên khoảng 79.320 won một tháng.",
+   "blocks": [
+    {
+     "p": "Sinh viên du học (D-2) có tư cách tham gia bảo hiểm y tế từ ngày nhập cảnh. Tuy nhiên, trước khi bạn hoàn tất đăng ký người nước ngoài (외국인등록) và tư cách của bạn được ghi nhận tại NHIS, bệnh viện không thể xác nhận bảo hiểm y tế của bạn, nên bạn có thể phải trả toàn bộ chi phí khám. Hãy hỏi NHIS (1577-1000) để biết ngày chính xác."
+    },
+    {
+     "p": "Học viên đào tạo tổng quát (D-4), nếu không phải là học sinh tiểu học, trung học cơ sở hay trung học phổ thông (ví dụ học viên khóa tiếng), thì chỉ được tham gia sau 6 tháng kể từ khi nhập cảnh. Trong 6 tháng đó bạn không có bảo hiểm y tế và phải trả toàn bộ chi phí khám, vì vậy hãy kiểm tra kỹ xem bạn có bảo hiểm tập thể của trường hoặc bảo hiểm tư nhân hay không."
+    },
+    {
+     "table": {
+      "caption": "Phí bảo hiểm mỗi tháng năm 2026",
+      "head": [
+       "Đối tượng",
+       "Số tiền"
+      ],
+      "rows": [
+       [
+        "Mức trung bình của người nước ngoài tham gia theo khu vực (mức tối thiểu mà phần lớn mọi người phải trả)",
+        "158.630 won"
+       ],
+       [
+        "Du học sinh (giảm 50%)",
+        "79.320 won"
+       ],
+       [
+        "Tham khảo: du học sinh năm 2025",
+        "76.390 won"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "Bạn được giảm 50% dành cho sinh viên khi thu nhập mỗi năm từ 3.600.000 won trở xuống và tài sản từ 135.000.000 won trở xuống."
+    },
+    {
+     "h": "Cách đóng phí bảo hiểm"
+    },
+    {
+     "list": [
+      "Bạn đóng trước phí của tháng sau, chậm nhất là ngày 25 hằng tháng.",
+      "Có thể đóng bằng chuyển khoản tự động, tài khoản ảo, tại quầy ngân hàng hoặc ATM, hay tại chi nhánh NHIS (bằng thẻ tín dụng)."
+     ]
+    },
+    {
+     "h": "Nếu không đóng thì sao?"
+    },
+    {
+     "list": [
+      "Phí bảo hiểm phải đóng chậm nhất là ngày 25 hằng tháng. Nếu quá ngày này và đến ngày 25 của tháng tiếp theo vẫn chưa đóng, thì từ ngày 1 của tháng sau đó cho đến khi bạn đóng hết số phí còn nợ, quyền lợi bảo hiểm y tế sẽ bị chặn và bạn phải trả toàn bộ chi phí khám. Ví dụ, phí tháng 12 phải đóng chậm nhất ngày 25/11; nếu đến ngày 25/12 vẫn chưa đóng thì quyền lợi bị chặn từ ngày 1/1 (quy định này áp dụng từ ngày 23/4/2025).",
+      "Khi đóng hết số phí còn nợ, bạn có thể được hưởng quyền lợi trở lại, vì vậy hãy liên hệ ngay với NHIS (1577-1000).",
+      "Nếu còn nợ phí bảo hiểm, bạn có thể gặp bất lợi khi xin giấy phép lưu trú, ví dụ như gia hạn visa.",
+      "Nếu nợ lâu, thu nhập hoặc tài sản của bạn có thể bị kê biên."
+     ]
+    },
+    {
+     "h": "Nơi hỗ trợ"
+    },
+    {
+     "list": [
+      "Tổng đài Cơ quan Bảo hiểm Y tế Quốc dân (NHIS) 1577-1000",
+      "Tư vấn bằng tiếng nước ngoài: 033-811-2000 (tiếng Anh, tiếng Việt), 033-811-2001 (tiếng Trung)"
+     ]
+    },
+    {
+     "tip": "Bảo hiểm tập thể của trường khác nhau tùy từng trường. Hãy xem phần hướng dẫn bảo hiểm ở tab “Trường” của NARU hoặc hỏi Phòng Quốc tế."
+    }
+   ]
+  },
+  "pharmacy": {
+   "title": "Nhà thuốc và thuốc: ở Hàn Quốc khác thế này",
+   "lead": "Ở Hàn Quốc, bác sĩ kê đơn còn dược sĩ cấp thuốc. Kháng sinh dạng uống nhất định phải có đơn thuốc, và một số thuốc thông dụng còn mua được ở cửa hàng tiện lợi mở 24 giờ.",
+   "blocks": [
+    {
+     "p": "Từ tháng 7/2000, Hàn Quốc áp dụng chế độ tách khám bệnh và cấp thuốc (의약분업): “khám bệnh ở bác sĩ, lấy thuốc ở dược sĩ”. Phòng khám thường không trực tiếp phát thuốc mà đưa bạn đơn thuốc (một số thứ như thuốc tiêm có thể được tiêm ngay tại phòng khám). Bạn có thể mang đơn thuốc đến bất kỳ nhà thuốc nào gần đó."
+    },
+    {
+     "h": "Kháng sinh phải có đơn thuốc"
+    },
+    {
+     "p": "Các thuốc mà tình trạng kháng thuốc là vấn đề đáng lo được xếp vào nhóm thuốc kê đơn, nên bạn không thể mua kháng sinh nếu không có đơn của bác sĩ. Cơ quan Kiểm soát và Phòng ngừa Dịch bệnh Hàn Quốc cho biết kháng sinh không có tác dụng với cảm lạnh hay cúm. Tuy nhiên, một số thuốc mỡ kháng sinh bôi ngoài da như axit fusidic, mupirocin có thể mua ở nhà thuốc mà không cần đơn."
+    },
+    {
+     "h": "Thuốc ở cửa hàng tiện lợi"
+    },
+    {
+     "p": "Các cửa hàng tiện lợi mở cửa 24 giờ đã đăng ký được bán “thuốc thông dụng an toàn” (안전상비의약품). Trong 13 loại được chỉ định, thực tế đang bán 11 loại, và chính phủ có kế hoạch tăng lên tối đa 20 loại."
+    },
+    {
+     "table": {
+      "caption": "13 loại thuốc thông dụng an toàn ở cửa hàng tiện lợi (tính đến tháng 11/2026)",
+      "head": [
+       "Loại",
+       "Sản phẩm"
+      ],
+      "rows": [
+       [
+        "Hạ sốt, giảm đau",
+        "타이레놀정 500mg·160mg, 어린이용타이레놀정 80mg, 어린이타이레놀현탁액, 어린이부루펜시럽"
+       ],
+       [
+        "Thuốc cảm",
+        "판콜에이내복액, 판피린티정"
+       ],
+       [
+        "Thuốc tiêu hóa",
+        "베아제정, 닥터베아제정, 훼스탈골드정, 훼스탈플러스정"
+       ],
+       [
+        "Miếng dán giảm đau",
+        "신신파스아렉스, 제일쿨파프"
+       ]
+      ]
+     }
+    },
+    {
+     "list": [
+      "판콜에이내복액 và 판피린티정 có chứa cùng hoạt chất với 타이레놀 (Tylenol) là acetaminophen (paracetamol). Uống chung có thể vượt quá liều tối đa trong một ngày, nên đừng uống cùng nhau. Nếu bạn đã uống rượu hoặc có vấn đề về gan, hãy hỏi dược sĩ trước. Hai loại thuốc cảm này có thể gây buồn ngủ.",
+      "Mỗi lần chỉ được mua 1 hộp cho mỗi sản phẩm.",
+      "Không bán cho trẻ dưới 12 tuổi (kể cả học sinh tiểu học)."
+     ]
+    },
+    {
+     "h": "Nếu cần thuốc vào đêm khuya"
+    },
+    {
+     "p": "Nhà thuốc đêm công cộng (공공심야약국) là nhà thuốc do chính quyền địa phương chỉ định, mở cửa đến khuya (thường từ 10 giờ tối đến 1 giờ sáng, khác nhau tùy khu vực). Bạn có thể tìm nhà thuốc đang mở cửa trên Cổng thông tin cấp cứu E-Gen."
+    },
+    {
+     "tip": "Nếu có thuốc bạn từng dùng ở quê nhà, hãy vào mục “Thuốc quê nhà → thuốc Hàn Quốc” trong tab “Tìm hiểu thuốc” để tìm thuốc Hàn Quốc có cùng thành phần."
+    }
+   ]
+  },
+  "emergency": {
+   "title": "Phòng cấp cứu và 119: dùng thế nào cho đúng",
+   "lead": "Nếu tính mạng đang nguy hiểm, hoặc bạn cảm thấy có thể như vậy, đừng lo về chi phí mà hãy gọi ngay 119. Xe cứu thương 119 miễn phí. Nếu không chắc có phải cấp cứu hay không, bạn cứ gọi 119 để hỏi.",
+   "blocks": [
+    {
+     "p": "Nếu có dù chỉ một trong các dấu hiệu dưới đây, hãy đóng ứng dụng và gọi ngay 119. Xe cứu thương 119 miễn phí, và người nước ngoài có thể được hỗ trợ qua cuộc gọi 3 bên có phiên dịch viên."
+    },
+    {
+     "flags": true
+    },
+    {
+     "h": "Nếu triệu chứng nhẹ: ban ngày đến phòng khám; ban đêm và ngày nghỉ đến phòng khám, nhà thuốc đang mở cửa hoặc phòng cấp cứu nhỏ"
+    },
+    {
+     "p": "Ở phòng cấp cứu, mức độ nguy cấp được chia thành cấp 1–5 (KTAS). Cấp 4 là nhẹ, cấp 5 là không cấp cứu."
+    },
+    {
+     "p": "Từ ngày 13/9/2024, tại các phòng cấp cứu lớn như trung tâm cấp cứu vùng (권역응급의료센터), nếu bệnh viện đánh giá bạn là ca nhẹ hoặc không cấp cứu (cấp 4–5), phần chi phí phòng cấp cứu bạn tự trả tăng lên 90%. Ở trung tâm cấp cứu khu vực (지역응급의료센터), mức này chỉ áp dụng cho cấp 5. Việc có phải cấp cứu hay không là do bệnh viện đánh giá, không phải bệnh nhân. Nếu được đánh giá là ca nhẹ, thường bạn sẽ được hướng dẫn đến phòng cấp cứu nhỏ hơn hoặc phòng khám; mức 90% áp dụng khi bạn vẫn muốn được khám tại phòng cấp cứu lớn đó. Phòng cấp cứu của các bệnh viện nhỏ như cơ sở cấp cứu khu vực (지역응급의료기관) thì không có mức tăng này. Nếu bạn cảm thấy triệu chứng nặng, đừng ngần ngại vì chi phí."
+    },
+    {
+     "h": "Tìm nơi mở cửa vào ban đêm, ngày nghỉ"
+    },
+    {
+     "list": [
+      "Bạn có thể tìm phòng cấp cứu, bệnh viện, nhà thuốc trên Cổng thông tin cấp cứu E-Gen (www.e-gen.or.kr) hoặc ứng dụng “응급의료정보제공”. Có cả giao diện tiếng Anh.",
+      "Vào ngày lễ, bạn cũng có thể tìm qua ứng dụng “응급똑똑”, số 129 (Trung tâm tư vấn Y tế - Phúc lợi) hoặc 120 (tổng đài địa phương).",
+      "Nếu trẻ em bị ốm, hãy tìm Bệnh viện Nhi Ánh Trăng (달빛어린이병원) mở cửa buổi tối và ngày nghỉ."
+     ]
+    },
+    {
+     "p": "Xe cứu thương 119 miễn phí, nhưng xe cứu thương tư nhân, được dùng chẳng hạn khi chuyển giữa các bệnh viện, thì có thu phí."
+    },
+    {
+     "p": "Bạn sẽ không bị phạt vì đã gọi do không chắc có phải cấp cứu hay không. Tiền phạt hành chính (tối đa 5.000.000 won) chỉ áp dụng khi cố ý báo tin giả."
+    },
+    {
+     "tip": "Nếu không chắc có phải cấp cứu hay không, hãy gọi 119 để hỏi. Số 129 (Trung tâm tư vấn Y tế - Phúc lợi) cũng có thể hướng dẫn bạn nên đến bệnh viện nào."
+    }
+   ]
+  }
+ },
+ "charts": {
+  "visits": {
+   "title": "Số lần khám bác sĩ mỗi người mỗi năm (lần)",
+   "note": "Nhật Bản và Mỹ là số liệu năm 2021–2022, các nước khác là năm 2023."
+  },
+  "perDoctor": {
+   "title": "Số lượt khám của mỗi bác sĩ mỗi năm (lượt)",
+   "note": "Nhật Bản và Mỹ là số liệu năm 2022, các nước khác là năm 2023."
+  },
+  "physicians": {
+   "title": "Số bác sĩ trên 1.000 dân (người)",
+   "note": "Số liệu của Ngân hàng Thế giới. Năm tham chiếu khác nhau tùy từng nước."
+  },
+  "beds": {
+   "title": "Số giường bệnh trên 1.000 dân (giường)",
+   "note": "Số liệu của Ngân hàng Thế giới. Năm tham chiếu khác nhau tùy từng nước."
+  },
+  "oop": {
+   "title": "Tỷ lệ người bệnh tự trả trong tổng chi phí y tế (%)",
+   "note": "Đây là số liệu của Ngân hàng Thế giới (2023–2024), nên hơi khác với số liệu của OECD (Hàn Quốc 31,2%, năm 2023)."
+  }
+ },
+ "home": {
+  "VN": {
+   "summary": "Y tế công ở Việt Nam có 4 tuyến. Về chính thức, trạm y tế xã là nơi khám đầu tiên, sau đó là bệnh viện huyện, tỉnh và trung ương. Nhiều người bệnh bỏ qua trạm y tế xã và đến thẳng bệnh viện huyện hoặc tỉnh; người có bảo hiểm mà đi vượt tuyến đã có lúc phải trả nhiều hơn, thậm chí toàn bộ chi phí ở đó. Bảo hiểm y tế xã hội bắt buộc từ năm 2015, nhưng nhiều người vẫn mua thuốc ở nhà thuốc tư nhân.",
+   "points": [
+    {
+     "home": "Một nghiên cứu (công bố năm 2014) quan sát việc bán thuốc ở 30 nhà thuốc tại miền Bắc Việt Nam (khu vực Hà Nội) vào năm 2010 cho thấy 88% (thành thị) và 91% (nông thôn) lượng kháng sinh được bán mà không có đơn thuốc.",
+     "korea": "Ở Hàn Quốc, kháng sinh cần có đơn thuốc của bác sĩ nên bạn không thể mua ngay ở nhà thuốc. Hãy đến phòng khám gần nhà trước. Có nhiều nơi bạn được khám ngay trong ngày mà không cần hẹn."
+    },
+    {
+     "home": "Nhiều người bệnh bỏ qua trạm y tế xã để lên bệnh viện huyện hoặc tỉnh, nên tốn kém hơn.",
+     "korea": "Ở Hàn Quốc, hãy bắt đầu từ phòng khám gần nhà (의원), nơi không cần giấy chuyển viện. Bệnh viện lớn hạng đa khoa cấp cao (상급종합병원) cần giấy chuyển viện (진료의뢰서); nếu không có, bảo hiểm y tế không được áp dụng và bạn phải trả toàn bộ chi phí khám."
+    },
+    {
+     "home": "Trạm y tế xã thường có ít loại thuốc, nên việc mua thuốc ở nhà thuốc tư nhân là chuyện phổ biến.",
+     "korea": "Ở Hàn Quốc, bác sĩ kê đơn và nhà thuốc gần nhà cấp thuốc. Hãy mang đơn thuốc nhận ở phòng khám đến nhà thuốc. Một số thuốc không kê đơn cũng được bán ở cửa hàng tiện lợi mở 24 giờ."
+    },
+    {
+     "home": "Số cấp cứu y tế là 115, nhưng trong một nghiên cứu về tai nạn giao thông được khảo sát năm 2016 (công bố năm 2021), chưa đến 10% bệnh nhân đến bệnh viện bằng xe cứu thương. Phần lớn đến bằng xe máy, ô tô, taxi, và có người tham gia nghiên cứu nói rằng xe cứu thương đắt.",
+     "korea": "Ở Hàn Quốc, hãy gọi 119 để có xe cứu thương. Xe cứu thương 119 miễn phí."
+    },
+    {
+     "home": "Năm 2023, khoảng 39% chi phí y tế của Việt Nam do người bệnh tự trả (Ngân hàng Thế giới).",
+     "korea": "Ở Hàn Quốc, du học sinh cũng bắt buộc tham gia Bảo hiểm Y tế Quốc dân. Khám xong, bạn trả phần tự chi trả (본인 부담금; ở phòng khám khoảng 30%) tại quầy tiếp nhận."
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,425 @@
+{
+ "columns": {
+  "visits": {
+   "title": "Pourquoi les Coréens vont-ils si souvent chez le médecin ?",
+   "lead": "En Corée, chaque personne consulte un médecin 18 fois par an en moyenne, environ 3 fois la moyenne de l’OCDE. Comprendre pourquoi vous aidera à utiliser plus facilement les hôpitaux et cabinets coréens.",
+   "blocks": [
+    {
+     "p": "Selon le rapport « Health at a Glance 2025 », publié en 2025 par l’OCDE (Organisation de coopération et de développement économiques), chaque personne en Corée a consulté un médecin 18,0 fois en moyenne en 2023. C’est le chiffre le plus élevé parmi les pays de l’OCDE comparés, et environ trois fois la moyenne de l’OCDE (6,5 fois). Dans les statistiques de santé de l’OCDE publiées en juillet 2026, la Corée était encore en tête, avec 17,9 consultations."
+    },
+    {
+     "chart": "visits"
+    },
+    {
+     "h": "Le nombre de consultations par médecin est aussi le plus élevé"
+    },
+    {
+     "p": "En Corée, un médecin assure environ 6 755 consultations par an (2023), contre 1 908 en moyenne dans l’OCDE. L’OCDE cite parmi les raisons la brièveté des consultations, qui permet à chaque médecin de voir plus de patients."
+    },
+    {
+     "chart": "perDoctor"
+    },
+    {
+     "h": "Pourquoi y vont-ils si souvent ?"
+    },
+    {
+     "list": [
+      "Consultation le jour même, sans rendez-vous : selon le rapport de l’OCDE, le gouvernement coréen voit dans les soins de premier recours le jour même, le plus souvent sans rendez-vous, un moyen de réduire les délais d’attente.",
+      "Paiement à l’acte : d’après l’OCDE, les pays qui paient chaque consultation ou acte séparément (paiement à l’acte) ont tendance à avoir plus de consultations. La Corée fonctionne ainsi depuis la création de son assurance maladie.",
+      "Pas de passage par un médecin traitant : vous choisissez vous-même votre cabinet (의원), et il y en a beaucoup près de chez vous (fin 2025 : 37 514 cabinets médicaux et 25 497 pharmacies).",
+      "Assurance privée : selon une étude de 2026 (données de 2023), parmi les personnes ayant une assurance privée remboursant les frais médicaux (실손보험), celles qui l’avaient signalé à leur établissement de soins avaient environ 15,7 % de consultations externes en plus que celles qui ne l’avaient pas fait. On ne peut toutefois pas affirmer que l’assurance en soit la cause."
+     ]
+    },
+    {
+     "p": "Par ailleurs, pour limiter les recours trop fréquents, l’État fait payer 90 % des frais, pour les consultations suivantes, aux personnes qui dépassent 365 consultations externes dans l’année. À partir du 1er janvier 2027, ce seuil descend à 300 consultations (sauf exceptions, notamment les enfants, les femmes enceintes et les personnes handicapées)."
+    },
+    {
+     "tip": "Pour vous, étudiant international, c’est un avantage. Si vous êtes malade, n’attendez pas : allez dans un cabinet de quartier. Beaucoup vous reçoivent le jour même, sans rendez-vous. Les consultations sont courtes : préparez votre fiche de symptômes ou vos questions à l’avance."
+    }
+   ]
+  },
+  "access": {
+   "title": "Où aller ? Bien choisir où se soigner en Corée",
+   "lead": "En Corée, on va d’habitude dans un cabinet de quartier sans rendez-vous. Voici les types d’établissements et comment accéder à un grand hôpital.",
+   "blocks": [
+    {
+     "p": "En Corée, les établissements de santé se divisent en gros en cabinets médicaux (의원, le médecin du quartier), hôpitaux, hôpitaux généraux et hôpitaux tertiaires (상급종합병원, de grands hôpitaux comme les hôpitaux universitaires). Beaucoup de cabinets sont spécialisés dans un domaine : médecine interne, ORL ou dermatologie, par exemple."
+    },
+    {
+     "p": "Si le nom sur l’enseigne contient une spécialité, comme « OO피부과의원 » (cabinet de dermatologie), le cabinet est tenu par un spécialiste de ce domaine. Si l’enseigne indique par exemple « OO의원 · 진료과목: 피부과 » (cabinet · domaines de consultation : dermatologie), le médecin n’est peut-être pas spécialiste."
+    },
+    {
+     "table": {
+      "caption": "Types et nombre d’établissements (fin 2025)",
+      "head": [
+       "Type",
+       "Nombre",
+       "Pour quoi y aller"
+      ],
+      "rows": [
+       [
+        "Cabinet médical (의원)",
+        "37 514",
+        "Problèmes courants : rhume, ventre dérangé, problèmes de peau, d’yeux ou d’oreilles"
+       ],
+       [
+        "Cabinet de médecine traditionnelle coréenne (한의원)",
+        "14 807",
+        "Soins de médecine traditionnelle coréenne, comme l’acupuncture ou le chuna"
+       ],
+       [
+        "Cabinet dentaire (치과의원)",
+        "19 254",
+        "Problèmes de dents"
+       ],
+       [
+        "Hôpital (병원) · Hôpital général (종합병원)",
+        "1 428 · 337",
+        "Quand il faut des examens ou une hospitalisation, ou quand un cabinet vous y envoie"
+       ],
+       [
+        "Hôpital tertiaire (상급종합병원)",
+        "47",
+        "Quand vous avez une lettre d’orientation d’un cabinet ou d’un hôpital (sans elle, l’assurance maladie ne s’applique pas : vous payez la totalité des frais)"
+       ],
+       [
+        "Pharmacie (약국)",
+        "25 497",
+        "Retirer des médicaments sur ordonnance, acheter des médicaments sans ordonnance"
+       ]
+      ]
+     }
+    },
+    {
+     "h": "Les grands hôpitaux demandent une lettre d’orientation"
+    },
+    {
+     "p": "Dans un hôpital tertiaire, l’assurance maladie ne s’applique que si vous avez une lettre d’orientation (진료의뢰서) d’un cabinet ou d’un hôpital. Sans elle, vous pouvez être soigné, mais l’assurance maladie ne s’applique pas et vous payez 100 % des frais. Les urgences, les accouchements, les soins dentaires et la médecine familiale, entre autres, n’en ont pas besoin."
+    },
+    {
+     "h": "Peu de médecins, mais beaucoup de lits"
+    },
+    {
+     "p": "La Corée n’a pas beaucoup de médecins pour 1 000 habitants, mais c’est l’un des pays qui ont le plus de lits d’hôpital au monde. Comparez avec votre pays dans les graphiques ci-dessous."
+    },
+    {
+     "chart": "physicians"
+    },
+    {
+     "chart": "beds"
+    },
+    {
+     "h": "Bon à savoir"
+    },
+    {
+     "list": [
+      "La plupart des cabinets reçoivent sans rendez-vous, mais ceux qui sont très fréquentés, comme les cabinets de pédiatrie, peuvent arrêter tôt d’enregistrer les patients ou ne les enregistrer que via une appli, et beaucoup de cabinets de psychiatrie fonctionnent sur rendez-vous. L’ouverture le samedi varie aussi d’un cabinet à l’autre. Vérifiez par téléphone ou dans une appli de cartes avant d’y aller.",
+      "En semaine après 18:00, le samedi après-midi (dès le samedi matin dans les cabinets et les pharmacies) et les jours fériés, le tarif de base de la consultation et les honoraires de délivrance en pharmacie sont majorés de 30 %. Ce n’est pas toute la facture qui augmente de 30 %.",
+      "Pour trouver un hôpital ou une pharmacie ouverts la nuit ou un jour férié, utilisez le portail des urgences médicales E-Gen (www.e-gen.or.kr) ou l’appli 응급똑똑, ou appelez le 129 (centre d’appel santé et protection sociale) ou le 120 (centre d’appel local).",
+      "Il existe aussi des centres pour enfants ouverts le soir et les jours fériés : les « hôpitaux pour enfants Clair de lune » (달빛어린이병원), plus de 150 en 2026."
+     ]
+    },
+    {
+     "tip": "Vous ne savez pas quelle spécialité consulter ? Trouvez un cabinet proche dans l’onglet Carte de NARU et montrez votre fiche de symptômes."
+    }
+   ]
+  },
+  "cost": {
+   "title": "Combien coûte une consultation en Corée ?",
+   "lead": "Avec l’assurance maladie, une consultation dans un cabinet de quartier vous coûte environ 5 600 wons. La part que vous payez dépend du lieu où vous êtes soigné.",
+   "blocks": [
+    {
+     "p": "En Corée, après la consultation, vous ne payez à l’accueil que votre reste à charge (본인 부담금). L’assurance maladie nationale paie le reste. Votre part dépend du type d’établissement."
+    },
+    {
+     "table": {
+      "caption": "Reste à charge sur les frais médicaux (2026)",
+      "head": [
+       "Où",
+       "Ce que vous payez"
+      ],
+      "rows": [
+       [
+        "Cabinet médical · Cabinet de médecine traditionnelle coréenne · Cabinet dentaire",
+        "30 %"
+       ],
+       [
+        "Hôpital",
+        "40 % (35 % en zone rurale)"
+       ],
+       [
+        "Hôpital général",
+        "50 % (45 % en zone rurale)"
+       ],
+       [
+        "Hôpital tertiaire (상급종합병원), avec lettre d’orientation",
+        "La totalité du tarif de consultation + 60 % du reste (sans lettre d’orientation, l’assurance maladie ne s’applique pas : vous payez la totalité des frais)"
+       ],
+       [
+        "Pharmacie (sur ordonnance)",
+        "30 % (ordonnances pour une affection bénigne délivrées par un hôpital tertiaire : 50 % ; par un hôpital général : 40 %)"
+       ],
+       [
+        "Hospitalisation",
+        "20 % (repas : 50 %)"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "Chez le dentiste, seuls certains soins, comme le détartrage (une fois par an), ont un reste à charge de 30 % ; beaucoup de traitements, comme les couronnes, les obturations en résine chez l’adulte, l’orthodontie ou les implants (pour les moins de 65 ans), ne sont pas couverts (비급여). Dans les cabinets de médecine traditionnelle coréenne, le reste à charge du chuna est de 50 à 80 %, et les décoctions de plantes (한약, 첩약) et la pharmacopuncture ne sont pour la plupart pas couvertes."
+    },
+    {
+     "h": "Un exemple"
+    },
+    {
+     "p": "En 2026, une première consultation en cabinet coûte 18 840 wons. Vous en payez 30 %, soit environ 5 600 wons (les montants de moins de 100 wons ne sont pas facturés). Une consultation de suivi coûte 13 370 wons, soit environ 4 000 wons à payer. Une hausse des tarifs de consultation est prévue en 2027."
+    },
+    {
+     "p": "Pour un rhume avec 3 jours de médicaments, l’estimation de NARU, calculée à partir des tarifs officiels de consultation et de délivrance en supposant un prix de médicaments courant, est d’environ 8 000 à 9 000 wons au total, pour une visite en semaine et en journée. Une injection ou des examens coûtent plus cher, et en semaine le soir, le samedi et les jours fériés, le tarif de base de la consultation et les honoraires de délivrance en pharmacie sont majorés de 30 %."
+    },
+    {
+     "h": "Les soins non couverts (비급여)"
+    },
+    {
+     "p": "Les soins non couverts (비급여) ne sont pas du tout pris en charge par l’assurance maladie : vous payez tout le prix fixé par l’établissement. Par exemple : chirurgie esthétique, LASIK ou LASEK, orthodontie, bilans de santé faits à votre demande, la plupart des vaccins, délivrance de certificats comme un certificat médical, perfusions nutritives (영양 수액, 링거), thérapie manuelle (도수치료), chambres de catégorie supérieure comme la chambre individuelle, et décoctions de plantes de la médecine traditionnelle coréenne (한약, 첩약)."
+    },
+    {
+     "tip": "Le prix des soins non couverts varie selon l’établissement. Vous pouvez les comparer dans la rubrique « Informations sur les frais non couverts » (비급여 진료비 정보) du site du Service d’évaluation et d’examen de l’assurance maladie (HIRA). Si on vous propose une perfusion ou des examens supplémentaires, demandez d’abord le prix et s’ils sont pris en charge par l’assurance maladie."
+    },
+    {
+     "h": "Comparaison avec d’autres pays"
+    },
+    {
+     "p": "En Corée, la part des dépenses de santé payée directement par les patients est plutôt élevée : 31,2 % en 2023 selon les données de l’OCDE, contre 19,2 % en moyenne dans l’OCDE. Comparez avec votre pays dans le graphique ci-dessous."
+    },
+    {
+     "chart": "oop"
+    }
+   ]
+  },
+  "insurance": {
+   "title": "Assurance maladie des étudiants internationaux : l’essentiel",
+   "lead": "Depuis mars 2021, les étudiants internationaux doivent obligatoirement s’affilier à l’assurance maladie nationale. En 2026, la cotisation étudiante est d’environ 79 320 wons par mois.",
+   "blocks": [
+    {
+     "p": "Avec un visa d’études (D-2), vous avez droit à l’assurance maladie dès le jour de votre arrivée en Corée. Mais tant que votre enregistrement d’étranger (외국인등록) n’est pas terminé et que le NHIS (service national de l’assurance maladie, 국민건강보험공단) n’a pas enregistré vos droits, les hôpitaux et cabinets ne peuvent pas vérifier votre assurance : vous risquez de payer la totalité des frais. Vérifiez la date exacte auprès du NHIS (1577-1000)."
+    },
+    {
+     "p": "Avec un visa de formation générale (D-4), si vous n’êtes pas élève en primaire, au collège ou au lycée (par exemple en cours de langue), vous n’êtes affilié que 6 mois après votre arrivée en Corée. Pendant ces 6 mois, vous n’avez pas d’assurance maladie et vous devez payer la totalité des frais : vérifiez donc bien si vous avez une assurance collective de votre établissement ou une assurance privée."
+    },
+    {
+     "table": {
+      "caption": "Cotisation mensuelle en 2026",
+      "head": [
+       "Catégorie",
+       "Montant"
+      ],
+      "rows": [
+       [
+        "Moyenne des étrangers affiliés en tant qu’« assurés régionaux » (지역가입자) : le montant minimum que la plupart paient",
+        "158 630 wons"
+       ],
+       [
+        "Étudiants internationaux (réduction de 50 %)",
+        "79 320 wons"
+       ],
+       [
+        "Pour comparaison : étudiants internationaux en 2025",
+        "76 390 wons"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "La réduction étudiante (50 %) s’applique si vos revenus annuels sont de 3,6 millions de wons ou moins et votre patrimoine de 135 millions de wons ou moins."
+    },
+    {
+     "h": "Comment payer la cotisation"
+    },
+    {
+     "list": [
+      "La cotisation du mois suivant se paie à l’avance, au plus tard le 25 de chaque mois.",
+      "Vous pouvez payer par prélèvement automatique, par compte virtuel, au guichet ou au distributeur d’une banque, ou dans une agence du NHIS (par carte de crédit)."
+     ]
+    },
+    {
+     "h": "Et si je ne paie pas ?"
+    },
+    {
+     "list": [
+      "La cotisation doit être payée au plus tard le 25 de chaque mois. Si vous dépassez cette date et n’avez toujours pas payé le 25 du mois suivant, vous perdez la prise en charge de l’assurance maladie à partir du 1er du mois d’après, jusqu’à ce que vous ayez tout réglé, et vous payez la totalité des frais médicaux. Par exemple, la cotisation de décembre doit être payée au plus tard le 25 novembre ; si elle n’est toujours pas payée le 25 décembre, la prise en charge s’arrête à partir du 1er janvier (cette règle s’applique depuis le 23 avril 2025).",
+      "Une fois les impayés réglés, vous retrouvez la prise en charge : contactez tout de suite le NHIS (1577-1000).",
+      "Des cotisations impayées peuvent vous pénaliser lors d’une demande de titre de séjour, par exemple une prolongation de visa.",
+      "Si les impayés durent, vos revenus ou vos biens peuvent être saisis."
+     ]
+    },
+    {
+     "h": "Où trouver de l’aide"
+    },
+    {
+     "list": [
+      "Service client du NHIS : 1577-1000",
+      "Assistance en langues étrangères : 033-811-2000 (anglais, vietnamien), 033-811-2001 (chinois)"
+     ]
+    },
+    {
+     "tip": "L’assurance collective varie selon l’université. Consultez la rubrique assurance de l’onglet Campus de NARU ou renseignez-vous auprès du bureau des relations internationales."
+    }
+   ]
+  },
+  "pharmacy": {
+   "title": "Pharmacies et médicaments : ce qui change en Corée",
+   "lead": "En Corée, le médecin prescrit et le pharmacien délivre les médicaments. Les antibiotiques par voie orale exigent toujours une ordonnance, et certains médicaments de base sont aussi vendus dans des supérettes ouvertes 24 h/24.",
+   "blocks": [
+    {
+     "p": "Depuis juillet 2000, la Corée sépare la prescription et la délivrance des médicaments (의약분업) : « la consultation chez le médecin, les médicaments chez le pharmacien ». En général, les cabinets ne donnent pas directement les médicaments, mais une ordonnance (les injections, par exemple, peuvent toutefois être faites sur place). Vous pouvez apporter l’ordonnance dans n’importe quelle pharmacie proche."
+    },
+    {
+     "h": "Les antibiotiques demandent une ordonnance"
+    },
+    {
+     "p": "Les médicaments qui posent un problème de résistance sont classés comme médicaments sur ordonnance : vous ne pouvez donc pas acheter d’antibiotiques sans prescription médicale. L’Agence coréenne de contrôle et de prévention des maladies rappelle que les antibiotiques ne sont pas efficaces contre le rhume ni la grippe. Toutefois, certaines pommades antibiotiques pour la peau, comme l’acide fusidique ou la mupirocine, sont vendues en pharmacie sans ordonnance."
+    },
+    {
+     "h": "Médicaments en supérette"
+    },
+    {
+     "p": "Les supérettes enregistrées et ouvertes 24 h/24 vendent des « médicaments de premier recours » (안전상비의약품). Sur les 13 produits autorisés, 11 sont réellement en vente, et le gouvernement prévoit d’aller jusqu’à 20 au maximum."
+    },
+    {
+     "table": {
+      "caption": "Les 13 médicaments de premier recours vendus en supérette (en novembre 2026)",
+      "head": [
+       "Type",
+       "Produits"
+      ],
+      "rows": [
+       [
+        "Fièvre et douleur",
+        "타이레놀정 500mg·160mg, 어린이용타이레놀정 80mg, 어린이타이레놀현탁액, 어린이부루펜시럽"
+       ],
+       [
+        "Rhume",
+        "판콜에이내복액, 판피린티정"
+       ],
+       [
+        "Digestion",
+        "베아제정, 닥터베아제정, 훼스탈골드정, 훼스탈플러스정"
+       ],
+       [
+        "Patchs antidouleur",
+        "신신파스아렉스, 제일쿨파프"
+       ]
+      ]
+     }
+    },
+    {
+     "list": [
+      "판콜에이내복액 et 판피린티정 contiennent la même substance active que le 타이레놀 (Tylenol) : le paracétamol (acétaminophène). Les prendre ensemble peut faire dépasser la dose maximale par jour : ne les associez pas. Si vous avez bu de l’alcool ou avez des problèmes de foie, demandez d’abord conseil au pharmacien. Ces deux médicaments contre le rhume peuvent provoquer de la somnolence.",
+      "Vous ne pouvez acheter qu’une boîte de chaque produit à la fois.",
+      "Ils ne sont pas vendus aux enfants de moins de 12 ans (y compris les élèves du primaire)."
+     ]
+    },
+    {
+     "h": "Besoin d’un médicament tard le soir ?"
+    },
+    {
+     "p": "Les pharmacies publiques de nuit (공공심야약국) sont désignées par les collectivités locales et ouvrent tard le soir (en général de 22:00 à 01:00 ; les horaires varient selon la région). Vous pouvez trouver les pharmacies ouvertes sur le portail des urgences médicales E-Gen."
+    },
+    {
+     "tip": "Vous preniez un médicament dans votre pays ? Dans l’onglet Médicaments, utilisez « Médicament de mon pays → coréen » pour trouver un médicament coréen avec les mêmes substances actives."
+    }
+   ]
+  },
+  "emergency": {
+   "title": "Les urgences et le 119 : mode d’emploi",
+   "lead": "Si une vie est en danger, ou si vous pensez qu’elle pourrait l’être, appelez tout de suite le 119 sans vous soucier du coût. L’ambulance du 119 est gratuite. Si vous ne savez pas bien s’il s’agit d’une urgence, vous pouvez appeler le 119 pour demander.",
+   "blocks": [
+    {
+     "p": "Si vous avez l’un des signes ci-dessous, fermez l’appli et appelez tout de suite le 119. L’ambulance du 119 est gratuite, et les étrangers peuvent être aidés grâce à un appel à trois avec un interprète."
+    },
+    {
+     "flags": true
+    },
+    {
+     "h": "Symptômes légers : le jour, un cabinet ; la nuit et les jours fériés, un cabinet ou une pharmacie ouverts, ou un petit service d’urgences"
+    },
+    {
+     "p": "Aux urgences, la gravité est classée en niveaux de 1 à 5 (KTAS). Le niveau 4 correspond à un cas léger et le niveau 5 à un cas non urgent."
+    },
+    {
+     "p": "Depuis le 13 septembre 2024, si, dans un grand service d’urgences comme un centre régional d’urgences (권역응급의료센터), l’hôpital estime que votre cas est léger ou non urgent (niveaux 4 et 5), votre part des frais d’urgence passe à 90 %. Dans les centres d’urgences locaux (지역응급의료센터), cela ne concerne que le niveau 5. C’est l’hôpital qui décide s’il s’agit d’une urgence, pas le patient. Si votre cas est jugé léger, on vous oriente en général vers un service d’urgences plus petit ou vers un cabinet, et les 90 % s’appliquent si vous choisissez malgré tout d’être soigné dans ce grand service d’urgences. Les services d’urgences des petits hôpitaux, comme les établissements d’urgences locaux (지역응급의료기관), ne sont pas concernés par cette hausse. Si vous sentez que vos symptômes sont graves, n’hésitez pas à cause du coût."
+    },
+    {
+     "h": "Trouver ce qui est ouvert la nuit et les jours fériés"
+    },
+    {
+     "list": [
+      "Le portail des urgences médicales E-Gen (www.e-gen.or.kr) et l’appli 응급의료정보제공 indiquent les urgences, hôpitaux et pharmacies. Une version en anglais existe aussi.",
+      "Les jours fériés, vous pouvez aussi utiliser l’appli 응급똑똑, ou appeler le 129 (centre d’appel santé et protection sociale) ou le 120 (centre d’appel local).",
+      "Si un enfant est malade, cherchez un « hôpital pour enfants Clair de lune » (달빛어린이병원), ouvert le soir et les jours fériés."
+     ]
+    },
+    {
+     "p": "L’ambulance du 119 est gratuite, mais les ambulances privées, utilisées par exemple pour un transfert entre deux hôpitaux, sont payantes."
+    },
+    {
+     "p": "Vous ne serez pas sanctionné si vous appelez parce que vous ne saviez pas s’il s’agissait d’une urgence. L’amende (jusqu’à 5 millions de wons) ne concerne que les faux appels volontaires."
+    },
+    {
+     "tip": "Si vous ne savez pas bien s’il s’agit d’une urgence, appelez le 119 et demandez. Le 129 (centre d’appel santé et protection sociale) peut aussi vous dire dans quel hôpital aller."
+    }
+   ]
+  }
+ },
+ "charts": {
+  "visits": {
+   "title": "Consultations médicales par personne et par an",
+   "note": "Japon et États-Unis : 2021–2022 ; autres pays : 2023."
+  },
+  "perDoctor": {
+   "title": "Consultations par médecin et par an",
+   "note": "Japon et États-Unis : 2022 ; autres pays : 2023."
+  },
+  "physicians": {
+   "title": "Médecins pour 1 000 habitants",
+   "note": "Données de la Banque mondiale. L’année de référence varie selon les pays."
+  },
+  "beds": {
+   "title": "Lits d’hôpital pour 1 000 habitants",
+   "note": "Données de la Banque mondiale. L’année de référence varie selon les pays."
+  },
+  "oop": {
+   "title": "Part des dépenses de santé payée directement par les patients (%)",
+   "note": "Données de la Banque mondiale (2023–2024), d’où un léger écart avec le chiffre de l’OCDE (Corée : 31,2 %, 2023)."
+  }
+ },
+ "home": {
+  "FR": {
+   "summary": "En France, on déclare un médecin traitant (en général un généraliste), qui coordonne les soins et oriente vers les spécialistes. Consulter un médecin non déclaré en dehors de ce parcours réduit le remboursement (sauf exceptions comme la gynécologie, l’ophtalmologie ou les urgences). En général, on paie d’abord la consultation et l’Assurance Maladie en rembourse une partie : avec la carte Vitale, le remboursement arrive au bout d’une semaine environ, et avec le tiers payant, on n’a rien à avancer.",
+   "points": [
+    {
+     "home": "Le médecin traitant coordonne vos soins. Si vous consultez un médecin non déclaré sans avoir été orienté, vous êtes moins remboursé, mais vous pouvez consulter directement un gynécologue, un ophtalmologue, un psychiatre ou un stomatologue.",
+     "korea": "En Corée, aucun médecin ne sert de filtre : vous allez dans n’importe quel cabinet (의원) sans lettre d’orientation. Les grands hôpitaux tertiaires (상급종합병원) demandent une lettre d’orientation (진료의뢰서) ; sans elle, l’assurance maladie ne s’applique pas et vous payez la totalité des frais."
+    },
+    {
+     "home": "Une consultation chez un généraliste de secteur 1 coûte 30 € ; dans le parcours de soins, vous êtes remboursé de 19 € (après déduction de 2 €), mais seulement de 7 € en dehors.",
+     "korea": "En Corée, dans un cabinet de quartier, vous payez à l’accueil environ 30 % des frais couverts par l’assurance maladie, et vous payez les médicaments à part, à la pharmacie. En revanche, vous payez la totalité des soins non couverts (비급여), et la totalité des frais si vous allez dans un hôpital tertiaire (상급종합병원) sans lettre d’orientation."
+    },
+    {
+     "home": "Avec la carte Vitale, le médecin transmet la demande de remboursement par voie électronique et vous êtes remboursé au bout d’une semaine environ ; avec le tiers payant, vous n’avancez rien.",
+     "korea": "En Corée, pas de remboursement à attendre : le cabinet ne vous fait payer que votre part. L’affiliation à l’assurance maladie nationale est obligatoire pour les étudiants internationaux."
+    },
+    {
+     "home": "Un pharmacien formé peut faire un test rapide en cas de mal de gorge (à partir de 10 ans) ou de cystite simple (femmes de 16 à 65 ans) et, s’il est positif, délivrer des antibiotiques sans ordonnance d’un médecin.",
+     "korea": "En Corée, les antibiotiques demandent une ordonnance d’un médecin, et le pharmacien ne prescrit pas : il délivre seulement. Si vous avez mal à la gorge, allez d’abord dans un cabinet ; on peut souvent y aller le jour même, sans rendez-vous."
+    },
+    {
+     "home": "Le transport en ambulance est en général remboursé par l’Assurance Maladie à 55 % du tarif fixé. En cas d’urgence, la prescription peut être faite après coup, et le transport d’urgence via le SAMU (15) n’est pas soumis à la déduction de 4 € par trajet.",
+     "korea": "En Corée, appelez le 119. L’ambulance du 119 est gratuite."
+    }
+   ]
+  }
+ }
+}

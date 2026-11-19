@@ -1,0 +1,425 @@
+{
+ "columns": {
+  "visits": {
+   "title": "Nega koreyslar shifokorga tez-tez boradi?",
+   "lead": "Koreyada odamlar yiliga o‘rtacha 18 marta shifokor qabulida bo‘ladi. Bu OECD o‘rtachasidan taxminan 3 baravar ko‘p. Sababini bilsangiz, Koreya shifoxona va klinikalaridan foydalanish osonroq bo‘ladi.",
+   "blocks": [
+    {
+     "p": "OECD (Iqtisodiy hamkorlik va taraqqiyot tashkiloti) 2025-yilda chiqargan «Health at a Glance 2025» hisobotiga ko‘ra, 2023-yilda Koreyada bir kishi o‘rtacha 18,0 marta shifokor qabulida bo‘lgan. Bu taqqoslangan OECD davlatlari orasida eng ko‘p ko‘rsatkich va OECD o‘rtachasidan (6,5 marta) taxminan uch baravar ko‘p. 2026-yil iyulida e’lon qilingan OECD sog‘liqni saqlash statistikasida ham Koreya 17,9 marta bilan birinchi o‘rinda."
+    },
+    {
+     "chart": "visits"
+    },
+    {
+     "h": "Bir shifokorga to‘g‘ri keladigan qabullar soni ham eng ko‘p"
+    },
+    {
+     "p": "Koreyada bitta shifokor yiliga taxminan 6 755 marta qabul o‘tkazadi (2023-yil). OECD o‘rtachasi esa 1 908 marta. OECD buning sabablaridan biri sifatida qabul vaqti qisqaligini, shu tufayli bitta shifokor ko‘proq bemorni qabul qila olishini ko‘rsatadi."
+    },
+    {
+     "chart": "perDoctor"
+    },
+    {
+     "h": "Nega bunchalik tez-tez borishadi?"
+    },
+    {
+     "list": [
+      "Oldindan yozilmasdan, shu kuni qabul: OECD hisobotida aytilishicha, Koreya hukumati aksariyat hollarda oldindan yozilmasdan o‘sha kuniyoq birlamchi tibbiy yordam olish mumkinligini kutish vaqtini qisqartirish usuli deb biladi.",
+      "Har bir xizmat uchun to‘lov: OECD fikricha, shifokorlarga har bir xizmat uchun pul to‘lanadigan davlatlarda (xizmat uchun to‘lov tizimi) qabullar odatda ko‘proq bo‘ladi. Koreyada tibbiy sug‘urta boshlangan paytdan beri shu tizim amal qiladi.",
+      "Oilaviy shifokor orqali o‘tish shart emas: klinikani (의원) o‘zingiz tanlaysiz, yaqin atrofda klinikalar ham ko‘p (2025-yil oxirida 37 514 ta klinika, 25 497 ta dorixona).",
+      "Xususiy qo‘shimcha sug‘urta: 2026-yildagi bir tadqiqotga (2023-yil ma’lumotlari) ko‘ra, xarajatni qoplaydigan xususiy sug‘urtasi (실손보험) borlar orasida buni klinikaga aytganlar aytmaganlarga qaraganda ambulator qabulga taxminan 15,7% ko‘proq borgan. Biroq buni sabab deb qat’iy aytib bo‘lmaydi."
+     ]
+    },
+    {
+     "p": "Shu bilan birga, haddan tashqari tez-tez murojaatni kamaytirish uchun davlat qoida joriy qilgan: bir yilda ambulator qabulga 365 martadan ko‘p borsangiz, keyingi qabullar uchun xarajatning 90 foizini o‘zingiz to‘laysiz. 2027-yil 1-yanvardan boshlab bu chegara 300 martaga tushiriladi (bolalar, homilador ayollar, nogironligi bor insonlar va boshqalar bundan mustasno)."
+    },
+    {
+     "tip": "Bu xorijiy talabalar uchun qulay. Kasal bo‘lsangiz, kechiktirmay uy yaqinidagi klinikaga boring. Ko‘p klinikalarda oldindan yozilmasdan shu kuni qabul qilishadi. Qabul qisqa bo‘lgani uchun alomatlar kartasini yoki so‘ramoqchi bo‘lgan savollaringizni oldindan tayyorlab borsangiz yaxshi."
+    }
+   ]
+  },
+  "access": {
+   "title": "Qayerga borish kerak? Koreyada shifoxona tanlash",
+   "lead": "Koreyada uy yaqinidagi klinikaga oldindan yozilmasdan borish odatiy hol. Tibbiyot muassasalari turlari va katta shifoxonaga qanday borishni jamladik.",
+   "blocks": [
+    {
+     "p": "Koreyada tibbiyot muassasalari asosan klinika (의원, uy yaqinidagi kichik klinika), shifoxona, ko‘p tarmoqli shifoxona (종합병원) va oliy darajali shifoxonaga (상급종합병원, universitet shifoxonasi kabi katta shifoxona) bo‘linadi. Klinikalarning ko‘pi terapiya, LOR (quloq-burun-tomoq), teri kasalliklari kabi bitta yo‘nalish bo‘yicha ishlaydi."
+    },
+    {
+     "p": "Peshlavhadagi nomda «OO피부과의원» (teri kasalliklari klinikasi) kabi yo‘nalish ko‘rsatilgan bo‘lsa, uni shu yo‘nalish bo‘yicha mutaxassis shifokor yuritadi. «OO의원 · 진료과목: 피부과» (klinika, yo‘nalishlar: teri kasalliklari) deb yozilgan bo‘lsa, shifokor mutaxassis bo‘lmasligi mumkin."
+    },
+    {
+     "table": {
+      "caption": "Tibbiyot muassasalari turlari va soni (2025-yil oxiri)",
+      "head": [
+       "Turi",
+       "Soni",
+       "Qachon boriladi"
+      ],
+      "rows": [
+       [
+        "Klinika (의원)",
+        "37 514",
+        "Shamollash, oshqozon buzilishi, teri, ko‘z, quloq muammolari kabi ko‘p uchraydigan alomatlar"
+       ],
+       [
+        "Koreys an’anaviy tabobati klinikasi (한의원)",
+        "14 807",
+        "Igna bilan davolash, chuna kabi an’anaviy davolash"
+       ],
+       [
+        "Stomatologiya klinikasi (치과의원)",
+        "19 254",
+        "Tish muammolari"
+       ],
+       [
+        "Shifoxona · ko‘p tarmoqli shifoxona (병원 · 종합병원)",
+        "1 428 · 337",
+        "Tekshiruv yoki yotib davolanish kerak bo‘lsa, klinika yo‘llasa"
+       ],
+       [
+        "Oliy darajali shifoxona (상급종합병원)",
+        "47",
+        "Klinika yoki shifoxonadan yo‘llanma (진료의뢰서) bo‘lsa (yo‘llanmasiz tibbiy sug‘urta qo‘llanmaydi — to‘liq narxini to‘laysiz)"
+       ],
+       [
+        "Dorixona (약국)",
+        "25 497",
+        "Retsept bo‘yicha dori olish, retseptsiz dori sotib olish"
+       ]
+      ]
+     }
+    },
+    {
+     "h": "Katta shifoxonaga yo‘llanma kerak"
+    },
+    {
+     "p": "Oliy darajali shifoxonada tibbiy sug‘urta faqat klinika yoki shifoxonadan olingan yo‘llanma (진료의뢰서) bo‘lsagina qo‘llanadi. Yo‘llanmasiz ham qabul qilishadi, lekin tibbiy sug‘urta qo‘llanmaydi va xarajatning 100 foizini o‘zingiz to‘laysiz. Shoshilinch bemorlar, tug‘ruq, stomatologiya, oilaviy tibbiyot va boshqa ayrim hollarda yo‘llanma shart emas."
+    },
+    {
+     "h": "Shifokorlar kam, lekin kasalxona o‘rinlari ko‘p"
+    },
+    {
+     "p": "Koreyada 1 000 kishiga to‘g‘ri keladigan shifokorlar soni unchalik ko‘p emas, lekin kasalxona o‘rinlari soni bo‘yicha Koreya dunyoda eng oldingi davlatlardan biri. Quyidagi grafiklarda o‘z davlatingiz bilan solishtiring."
+    },
+    {
+     "chart": "physicians"
+    },
+    {
+     "chart": "beds"
+    },
+    {
+     "h": "Bilib qo‘ysangiz foydali"
+    },
+    {
+     "list": [
+      "Aksariyat klinikalarga oldindan yozilmasdan borsa bo‘ladi, lekin bolalar klinikasi kabi gavjum joylarda navbat erta yopilishi yoki faqat ilova orqali ro‘yxatga olinishi mumkin, ruhiy salomatlik (psixiatriya) klinikalarining ko‘pi esa oldindan yozilish bo‘yicha ishlaydi. Shanba kuni ishlash-ishlamasligi ham klinikaga qarab har xil. Borishdan oldin telefon yoki xarita ilovasi orqali tekshiring.",
+      "Ish kunlari soat 18:00 dan keyin, shanba kuni tushdan keyin (klinika va dorixonalarda shanba kuni ertalabdan) va bayram kunlari asosiy ko‘rik haqi va dorixonada dori tayyorlash haqiga 30% qo‘shiladi. Davolanishning umumiy narxi 30% oshmaydi.",
+      "Tunda yoki bayram kunlari ochiq shifoxona va dorixonalarni E-Gen shoshilinch tibbiy yordam portali (www.e-gen.or.kr), shoshilinch yordam ilovasi (응급똑똑), 129 (sog‘liqni saqlash va ijtimoiy ta’minot maslahat markazi) va 120 (mahalliy qo‘ng‘iroq markazi) orqali topish mumkin.",
+      "Bolalar uchun kechqurun va dam olish kunlari ishlaydigan klinikalar (달빛어린이병원) ham bor (2026-yilda 150 tadan ko‘p)."
+     ]
+    },
+    {
+     "tip": "Qaysi shifokorga borishni bilmasangiz, NARU ilovasidagi «Xarita» bo‘limida yaqin klinikani toping va alomatlar kartasini ko‘rsating."
+    }
+   ]
+  },
+  "cost": {
+   "title": "Koreyada davolanish qancha turadi?",
+   "lead": "Tibbiy sug‘urtangiz bo‘lsa, uy yaqinidagi klinikada ko‘rik taxminan 5 600 von turadi. Qancha ulush to‘lashingiz qayerda davolanishingizga bog‘liq.",
+   "blocks": [
+    {
+     "p": "Koreyada qabuldan keyin ro‘yxatga olish peshtaxtasida faqat o‘zingiz to‘laydigan ulushni (본인 부담금) to‘laysiz. Qolganini Milliy tibbiy sug‘urta to‘laydi. Ulush miqdori tibbiyot muassasasi turiga qarab farq qiladi."
+    },
+    {
+     "table": {
+      "caption": "Davolanishda o‘zingiz to‘laydigan ulush (2026-yil)",
+      "head": [
+       "Qayerda",
+       "Siz to‘laydigan ulush"
+      ],
+      "rows": [
+       [
+        "Klinika (의원) · an’anaviy tabobat klinikasi · stomatologiya klinikasi",
+        "30%"
+       ],
+       [
+        "Shifoxona",
+        "40% (qishloq hududlarida 35%)"
+       ],
+       [
+        "Ko‘p tarmoqli shifoxona",
+        "50% (qishloq hududlarida 45%)"
+       ],
+       [
+        "Oliy darajali shifoxona (상급종합병원), yo‘llanma (진료의뢰서) bo‘lsa",
+        "Ko‘rik haqi to‘liq + qolganining 60% (yo‘llanmasiz tibbiy sug‘urta qo‘llanmaydi — to‘liq narxini to‘laysiz)"
+       ],
+       [
+        "Dorixona (retsept bo‘yicha)",
+        "30% (oliy darajali shifoxonadan olingan yengil kasallik retsepti bo‘yicha 50%, ko‘p tarmoqli shifoxonadan olingani bo‘yicha 40%)"
+       ],
+       [
+        "Yotib davolanish",
+        "20% (ovqat uchun 50%)"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "Stomatologiyada faqat tish toshini tozalash (스케일링, yiliga 1 marta) kabi ayrim xizmatlar 30% bo‘ladi, toj (koronka), kattalar uchun kompozit plomba (레진), tish qatorini to‘g‘rilash, implant (65 yoshgacha) kabi ko‘p davolash turlarini esa sug‘urta qoplamaydi (비급여). An’anaviy tabobat klinikasida chuna terapiyasi (추나요법) uchun 50–80% to‘laysiz, an’anaviy damlamalar (첩약) va farmakopunkturani (약침) esa sug‘urta ko‘pincha qoplamaydi."
+    },
+    {
+     "h": "Misol uchun"
+    },
+    {
+     "p": "2026-yilda klinikada birinchi ko‘rik haqi 18 840 von. Shundan 30 foizini, ya’ni taxminan 5 600 von to‘laysiz (100 vondan kam qismi olinmaydi). Takroriy ko‘rik 13 370 von, demak, taxminan 4 000 von to‘laysiz. Ko‘rik haqi 2027-yilda oshirilishi rejalashtirilgan."
+    },
+    {
+     "p": "Shamollab klinikaga borib, 3 kunlik dori olsangiz, NARU rasmiy ko‘rik va dori tayyorlash tariflariga odatiy dori narxini qo‘shib hisoblagan taxminga ko‘ra, ish kuni kunduzi hammasi bo‘lib taxminan 8 000–9 000 von bo‘ladi. Ukol yoki tekshiruv qilinsa, qimmatroq bo‘ladi, ish kunlari kechqurun, shanba va bayram kunlari esa asosiy ko‘rik haqi va dorixonada dori tayyorlash haqiga 30% qo‘shiladi."
+    },
+    {
+     "h": "Sug‘urta qoplamaydigan xizmatlar (비급여)"
+    },
+    {
+     "p": "Sug‘urta qoplamaydigan xizmatlar (비급여) — tibbiy sug‘urta umuman to‘lamaydigan, shuning uchun shifoxona belgilagan narxni to‘liq o‘zingiz to‘laydigan davolash. Masalan: estetik plastik jarrohlik, LASIK va LASEK, tish qatorini to‘g‘rilash, o‘z xohishingiz bilan o‘tadigan tibbiy ko‘rik, emlashlarning aksariyati, tibbiy xulosa kabi hujjatlarni rasmiylashtirish, ozuqaviy kapelnitsa (영양 수액), manual terapiya (도수치료), bir kishilik kabi yuqori toifali palatalar va an’anaviy tabobat damlamalari (첩약)."
+    },
+    {
+     "tip": "Bunday xizmatlar narxi har bir shifoxonada har xil. Ularni Tibbiy sug‘urtani baholash va nazorat qilish xizmati (HIRA) saytidagi «Sug‘urta qoplamaydigan xizmatlar narxi haqida ma’lumot» (비급여 진료비 정보) bo‘limida solishtirish mumkin. Kapelnitsa yoki qo‘shimcha tekshiruv taklif qilishsa, avval narxini va tibbiy sug‘urta uni qoplash-qoplamasligini so‘rang."
+    },
+    {
+     "h": "Boshqa davlatlar bilan solishtirganda"
+    },
+    {
+     "p": "Koreyada umumiy tibbiyot xarajatlarining bemor o‘zi to‘laydigan qismi ancha yuqori. OECD ma’lumotiga ko‘ra, 2023-yilda bu 31,2% bo‘lgan, OECD o‘rtachasi esa 19,2%. Quyidagi grafikda o‘z davlatingiz bilan solishtiring."
+    },
+    {
+     "chart": "oop"
+    }
+   ]
+  },
+  "insurance": {
+   "title": "Xorijiy talabalar uchun tibbiy sug‘urta: eng muhimi",
+   "lead": "2021-yil martidan boshlab xorijiy talabalar Milliy tibbiy sug‘urtaga majburiy a’zo bo‘ladi. 2026-yilda talabalar uchun sug‘urta badali oyiga taxminan 79 320 von.",
+   "blocks": [
+    {
+     "p": "D-2 (o‘qish) vizasidagi talabalar Koreyaga kirgan kundan boshlab Milliy tibbiy sug‘urtaga a’zo bo‘lish huquqiga ega bo‘ladi. Lekin chet ellik sifatida ro‘yxatdan o‘tish (외국인등록) tugamaguncha va Milliy tibbiy sug‘urta xizmati (NHIS) ma’lumotlaringizni kiritmaguncha, shifoxonada sug‘urtangizni tekshira olishmaydi, shuning uchun xarajatni to‘liq to‘lashingizga to‘g‘ri kelishi mumkin. Aniq sanani NHIS (1577-1000) orqali bilib oling."
+    },
+    {
+     "p": "D-4 (umumiy o‘qish) vizasidagilar, agar boshlang‘ich, o‘rta yoki yuqori sinf maktab o‘quvchisi bo‘lmasa (masalan, til kursi talabalari), Koreyaga kelganidan 6 oy o‘tgandan keyingina a’zo bo‘ladi. Shu 6 oy davomida tibbiy sug‘urtangiz bo‘lmaydi va davolanish xarajatini to‘liq o‘zingiz to‘laysiz, shuning uchun universitet guruhli sug‘urtasi yoki xususiy sug‘urtangiz bor-yo‘qligini albatta tekshiring."
+    },
+    {
+     "table": {
+      "caption": "2026-yilda oylik sug‘urta badali",
+      "head": [
+       "Toifa",
+       "Miqdori"
+      ],
+      "rows": [
+       [
+        "Yashash joyi bo‘yicha sug‘urtalangan chet elliklar o‘rtachasi (ko‘pchilik to‘laydigan eng kam miqdor)",
+        "158 630 von"
+       ],
+       [
+        "Xorijiy talabalar (50% chegirma)",
+        "79 320 von"
+       ],
+       [
+        "Ma’lumot uchun: 2025-yilda talabalar",
+        "76 390 von"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "Talabalar uchun 50% chegirma yillik daromadingiz 3 600 000 vondan (3,6 mln) oshmasa va mol-mulkingiz 135 000 000 vondan (135 mln) oshmasa beriladi."
+    },
+    {
+     "h": "Sug‘urta badalini qanday to‘lash mumkin"
+    },
+    {
+     "list": [
+      "Keyingi oy uchun badalni har oyning 25-sanasigacha oldindan to‘laysiz.",
+      "Avtomatik o‘tkazma, virtual hisob raqami, bank kassasi yoki bankomat, shuningdek NHIS filiali (kredit karta bilan) orqali to‘lash mumkin."
+     ]
+    },
+    {
+     "h": "To‘lamasam nima bo‘ladi?"
+    },
+    {
+     "list": [
+      "Sug‘urta badalini har oyning 25-sanasigacha to‘lash kerak. Shu muddat o‘tib, keyingi oyning 25-sanasigacha ham to‘lamasangiz, undan keyingi oyning 1-sanasidan boshlab qarzni to‘liq to‘lamaguningizcha sug‘urta imtiyozlari to‘xtatiladi va davolanish xarajatini to‘liq o‘zingiz to‘laysiz. Masalan, dekabr oyi badalini 25-noyabrgacha to‘lash kerak; 25-dekabrgacha ham to‘lanmasa, 1-yanvardan boshlab imtiyozlar to‘xtatiladi (bu qoida 2025-yil 23-apreldan beri amal qiladi).",
+      "Qarzni to‘lasangiz, imtiyozlar qayta tiklanadi, shuning uchun darhol NHIS (1577-1000) bilan bog‘laning.",
+      "Sug‘urta badali bo‘yicha qarzingiz bo‘lsa, viza muddatini uzaytirish kabi yashash ruxsatini olishda bu sizga salbiy ta’sir qiladi.",
+      "Qarz uzoq vaqt to‘lanmasa, daromadingiz yoki mol-mulkingiz xatlanishi mumkin."
+     ]
+    },
+    {
+     "h": "Qayerdan yordam olish mumkin"
+    },
+    {
+     "list": [
+      "Milliy tibbiy sug‘urta xizmati (NHIS) mijozlar markazi: 1577-1000",
+      "Chet tillarida maslahat: 033-811-2000 (ingliz, vyetnam tillari), 033-811-2001 (xitoy tili)"
+     ]
+    },
+    {
+     "tip": "Universitet guruhli sug‘urtasi har bir universitetda har xil. NARU ilovasidagi «Universitet» bo‘limida sug‘urta haqidagi ma’lumotni ko‘ring yoki xalqaro bo‘limdan so‘rang."
+    }
+   ]
+  },
+  "pharmacy": {
+   "title": "Dorixona va dorilar: Koreyada nimasi boshqacha",
+   "lead": "Koreyada shifokor retsept yozadi, farmatsevt esa dorini tayyorlab beradi. Ichiladigan antibiotik uchun albatta retsept kerak, ba’zi zarur dorilarni esa 24 soat ishlaydigan do‘konlarda ham sotib olish mumkin.",
+   "blocks": [
+    {
+     "p": "Koreyada 2000-yil iyulidan beri «davolash — shifokorda, dori — farmatsevtda» degan tamoyil bo‘yicha shifokor va dorixona vazifalari ajratilgan (의약분업). Klinika (의원) odatda dorini o‘zi bermaydi, retsept beradi (ukol kabi muolajalar klinikaning o‘zida qilinishi mumkin). Retseptni yaqindagi istalgan dorixonaga olib borsangiz bo‘ladi."
+    },
+    {
+     "h": "Antibiotik uchun retsept kerak"
+    },
+    {
+     "p": "Rezistentlik (dorilarga chidamlilik) muammosi bo‘lgan dorilar retsept bo‘yicha beriladigan dorilar (전문의약품) qatoriga kiradi, shuning uchun antibiotikni shifokor retseptisiz sotib olib bo‘lmaydi. Koreya Kasalliklarni nazorat qilish va oldini olish agentligi antibiotiklar shamollash yoki grippga yordam bermasligini eslatadi. Biroq fuzid kislotasi, mupirotsin kabi teriga suriladigan ba’zi antibiotikli malhamlarni dorixonadan retseptsiz sotib olish mumkin."
+    },
+    {
+     "h": "Do‘kondagi zarur dorilar"
+    },
+    {
+     "p": "24 soat ishlaydigan, ro‘yxatdan o‘tgan do‘konlarda «zarur dorilar» (안전상비의약품) sotiladi. Belgilangan 13 ta mahsulotdan amalda 11 tasi sotiladi, davlat esa ro‘yxatni ko‘pi bilan 20 taga yetkazishni rejalashtirgan."
+    },
+    {
+     "table": {
+      "caption": "Do‘konlarda sotiladigan 13 ta zarur dori (2026-yil noyabr holatiga ko‘ra)",
+      "head": [
+       "Turi",
+       "Mahsulotlar"
+      ],
+      "rows": [
+       [
+        "Isitma tushiruvchi va og‘riq qoldiruvchi",
+        "타이레놀정 500mg·160mg, 어린이용타이레놀정 80mg, 어린이타이레놀현탁액, 어린이부루펜시럽"
+       ],
+       [
+        "Shamollashga qarshi",
+        "판콜에이내복액, 판피린티정"
+       ],
+       [
+        "Hazm qilishga yordam beruvchi",
+        "베아제정, 닥터베아제정, 훼스탈골드정, 훼스탈플러스정"
+       ],
+       [
+        "Og‘riqqa qarshi plastir",
+        "신신파스아렉스, 제일쿨파프"
+       ]
+      ]
+     }
+    },
+    {
+     "list": [
+      "판콜에이내복액 va 판피린티정 tarkibida Tylenol (타이레놀) bilan bir xil modda — atsetaminofen (paratsetamol) bor. Ularni birga ichsangiz, bir kunlik eng yuqori miqdordan oshib ketishi mumkin, shuning uchun birga ichmang. Spirtli ichimlik ichgan bo‘lsangiz yoki jigaringiz bilan muammo bo‘lsa, avval farmatsevtdan so‘rang. Bu ikki shamollash dorisi uyqu keltirishi mumkin.",
+      "Bir martada har bir mahsulotdan faqat bitta quti sotib olish mumkin.",
+      "12 yoshga to‘lmaganlarga (boshlang‘ich sinf o‘quvchilari ham) sotilmaydi."
+     ]
+    },
+    {
+     "h": "Kechasi dori kerak bo‘lsa"
+    },
+    {
+     "p": "Tungi davlat dorixonalari (공공심야약국) — mahalliy hokimiyat belgilagan dorixonalar bo‘lib, kechasi kech soatgacha ochiq bo‘ladi (odatda soat 22:00 dan tungi 01:00 gacha, hududga qarab farq qiladi). Ochiq dorixonalarni E-Gen shoshilinch tibbiy yordam portalidan topish mumkin."
+    },
+    {
+     "tip": "Vataningizda ichgan doringiz bo‘lsa, «Dorilar haqida» bo‘limidagi «Vatandagi dori → Koreya dorisi» orqali tarkibi bir xil bo‘lgan Koreya dorisini toping."
+    }
+   ]
+  },
+  "emergency": {
+   "title": "Shoshilinch yordam bo‘limi va 119: qanday foydalanish kerak",
+   "lead": "Hayot xavf ostida bo‘lsa yoki shunday bo‘lishi mumkin deb his qilsangiz, xarajat haqida qayg‘urmay, darhol 119 ga qo‘ng‘iroq qiling. 119 tez yordam mashinasi bepul. Shoshilinch holatmi yoki yo‘qmi, bilmasangiz ham 119 ga qo‘ng‘iroq qilib so‘rasangiz bo‘ladi.",
+   "blocks": [
+    {
+     "p": "Quyidagi belgilardan birortasi bo‘lsa ham, ilovani yopib, darhol 119 ga qo‘ng‘iroq qiling. 119 tez yordam mashinasi bepul, chet elliklar esa tarjimon qatnashadigan uch tomonlama qo‘ng‘iroq orqali yordam olishi mumkin."
+    },
+    {
+     "flags": true
+    },
+    {
+     "h": "Yengil alomatlarda: kunduzi — klinikaga, tunda va dam olish kunlari — ochiq klinika, dorixona yoki kichikroq shoshilinch yordam bo‘limiga"
+    },
+    {
+     "p": "Shoshilinch yordam bo‘limida bemorlar holatining og‘irligiga qarab 1–5 darajaga (KTAS) bo‘linadi. 4-daraja — yengil, 5-daraja — shoshilinch bo‘lmagan holat."
+    },
+    {
+     "p": "2024-yil 13-sentabrdan boshlab mintaqaviy shoshilinch tibbiy yordam markazi (권역응급의료센터) kabi katta shoshilinch yordam bo‘limida shifoxona holatingizni yengil yoki shoshilinch bo‘lmagan (4–5-daraja) deb baholasa, shoshilinch yordam bo‘limi xarajatidan siz to‘laydigan ulush 90 foizga ko‘tariladi (mahalliy shoshilinch tibbiy yordam markazlarida (지역응급의료센터) faqat 5-daraja uchun). Shoshilinch holatmi yoki yo‘qmi, buni bemor emas, shifoxona hal qiladi. Holat yengil deb baholansa, odatda sizni kichikroq shoshilinch yordam bo‘limiga yoki klinikaga yo‘naltirishadi; shunga qaramay o‘sha katta bo‘limda davolanishni tanlasangiz, 90% qo‘llanadi. Mahalliy shoshilinch tibbiy yordam muassasalari (지역응급의료기관) kabi kichik shifoxonalarning shoshilinch yordam bo‘limlarida bunday oshirish yo‘q. Alomatlaringiz jiddiy deb his qilsangiz, xarajat tufayli ikkilanmang."
+    },
+    {
+     "h": "Tunda va dam olish kunlari ochiq joyni topish"
+    },
+    {
+     "list": [
+      "E-Gen shoshilinch tibbiy yordam portali (www.e-gen.or.kr) yoki 응급의료정보제공 ilovasi orqali shoshilinch yordam bo‘limi, shifoxona va dorixonalarni topish mumkin. Ingliz tilidagi sahifasi ham bor.",
+      "Bayram kunlari 응급똑똑 ilovasi, 129 (sog‘liqni saqlash va ijtimoiy ta’minot maslahat markazi) va 120 (mahalliy qo‘ng‘iroq markazi) orqali ham topish mumkin.",
+      "Bolangiz kasal bo‘lsa, kechqurun va dam olish kunlari ishlaydigan bolalar klinikasini (달빛어린이병원) qidiring."
+     ]
+    },
+    {
+     "p": "119 tez yordam mashinasi bepul, lekin bir shifoxonadan boshqasiga o‘tkazish kabi hollarda ishlatiladigan xususiy tez yordam mashinalari pullik."
+    },
+    {
+     "p": "Shoshilinch holat ekaniga ishonchingiz komil bo‘lmagani uchun qilgan qo‘ng‘irog‘ingiz uchun jazolanmaysiz. Jarima (5 000 000 vongacha) faqat ataylab yolg‘on chaqiruv qilinganda solinadi."
+    },
+    {
+     "tip": "Shoshilinch holatmi yoki yo‘qmi, bilmasangiz, 119 ga qo‘ng‘iroq qilib so‘rang. Qaysi shifoxonaga borish kerakligini 129 (sog‘liqni saqlash va ijtimoiy ta’minot maslahat markazi) ham aytib beradi."
+    }
+   ]
+  }
+ },
+ "charts": {
+  "visits": {
+   "title": "Bir kishiga yiliga shifokor qabullari soni (marta)",
+   "note": "Yaponiya va AQSh — 2021–2022-yillar, qolganlari — 2023-yil ma’lumotlari."
+  },
+  "perDoctor": {
+   "title": "Bir shifokorning yillik qabullari soni (marta)",
+   "note": "Yaponiya va AQSh — 2022-yil, qolganlari — 2023-yil ma’lumotlari."
+  },
+  "physicians": {
+   "title": "1 000 kishiga shifokorlar soni (nafar)",
+   "note": "Jahon banki ma’lumotlari. Har bir davlatda ma’lumot yili har xil."
+  },
+  "beds": {
+   "title": "1 000 kishiga kasalxona o‘rinlari soni (ta)",
+   "note": "Jahon banki ma’lumotlari. Har bir davlatda ma’lumot yili har xil."
+  },
+  "oop": {
+   "title": "Umumiy tibbiyot xarajatlarida bemor o‘zi to‘laydigan ulush (%)",
+   "note": "Bu Jahon banki ma’lumotlari (2023–2024-yillar), shuning uchun OECD ko‘rsatkichidan (Koreya 31,2%, 2023-yil) biroz farq qiladi."
+  }
+ },
+ "home": {
+  "UZ": {
+   "summary": "O‘zbekistonda davlat tibbiy sug‘urtasi butun mamlakat bo‘ylab joriy qilinmoqda. Uni Davlat tibbiy sug‘urta jamg‘armasi boshqaradi va u asosan soliqlar hisobidan moliyalashtiriladi, shuning uchun fuqarolar alohida sug‘urta badali to‘lamaydi. Avval biriktirilgan oilaviy poliklinikaga borasiz, u yerda oilaviy shifokor mutaxassis ko‘rigi kerak yoki kerak emasligini hal qiladi. Rejali yotib davolanish uchun elektron yo‘llanma ishlatiladi, shoshilinch va kechiktirib bo‘lmaydigan yordam uchun esa yo‘llanma kerak emas. Kafolatlangan birlamchi tibbiy yordam (oilaviy shifokor ko‘rigi, tahlillar, ba’zi dorilar) uchun qo‘shimcha to‘lov olinmaydi.",
+   "points": [
+    {
+     "home": "Avval biriktirilgan oilaviy poliklinikaga borasiz, mutaxassis ko‘rigi kerakligini esa oilaviy shifokor hal qiladi.",
+     "korea": "Koreyada klinika biriktirilmaydi. Uy yaqinidagi klinikalarga (의원) ko‘pincha oldindan yozilmasdan va yo‘llanmasiz shu kuni borish mumkin, ko‘plari shanba kuni ertalab ham ishlaydi."
+    },
+    {
+     "home": "Rejali yotib davolanish uchun QR kodli elektron yo‘llanma olasiz va shifoxonani my.gov.uz yoki ilova orqali tanlaysiz.",
+     "korea": "Koreyada klinikani o‘zingiz tanlaysiz. Katta oliy darajali shifoxonalarga (상급종합병원) yo‘llanma (진료의뢰서) kerak, yo‘llanmasiz tibbiy sug‘urta qo‘llanmaydi va davolanish xarajatini to‘liq o‘zingiz to‘laysiz."
+    },
+    {
+     "home": "2025-yil 16-dekabrdan boshlab butun organizmga ta’sir qiluvchi (tizimli) antibiotiklar faqat elektron retsept orqali yoziladi, dorixonalar ham ularni faqat elektron retsept bo‘yicha beradi.",
+     "korea": "Koreyada ham antibiotik uchun retsept kerak. Klinika shifokori retsept yozadi, dorini esa uy yaqinidagi dorixonadan olasiz."
+    },
+    {
+     "home": "Davlat tibbiy sug‘urta jamg‘armasi bilan shartnoma tuzgan dorixonalarda asosiy surunkali kasalliklar uchun ba’zi dorilarni elektron retsept bo‘yicha bepul olish mumkin. Bu 2022-yilda Sirdaryo viloyatida tajriba loyihasi sifatida boshlangan va boshqa hududlarga kengaytirilmoqda.",
+     "korea": "Koreyada klinika retsepti bilan istalgan dorixonaga borishingiz mumkin. Dori narxining bir qismini Milliy tibbiy sug‘urta to‘laydi, qolganini dorixonada o‘zingiz to‘laysiz."
+    },
+    {
+     "home": "Sog‘liqni saqlash to‘g‘risidagi qonunga ko‘ra, shoshilinch tibbiy yordam bepul ko‘rsatiladi, jumladan chet ellik mehmonlarga ham.",
+     "korea": "Koreyada tez yordamni 119 orqali chaqirasiz. 119 tez yordam mashinasi bepul."
+    }
+   ]
+  }
+ }
+}

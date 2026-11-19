@@ -5,8 +5,9 @@ import { href } from "../app/router";
 import { CONDITIONS, FLAGS, careKey, flagKey, otcKey, summaryKey } from "../content/conditions";
 import { deptKey, symptomKey } from "../content/symptoms";
 import { Bilingual, CallButton, Notice, PageHead, Section } from "../components/ui";
+import { GuideHome } from "./Guide";
 
-function FlagList({ flags }: { flags: string[] }) {
+export function FlagList({ flags }: { flags: string[] }) {
   const { t } = useI18n();
   const emergency = flags.filter((f) => FLAGS[f] === "emergency");
   const urgent = flags.filter((f) => FLAGS[f] === "urgent");
@@ -113,7 +114,10 @@ export function Info({ id }: { id?: string }) {
   if (id && CONDITIONS[id]) return <Condition id={id} />;
   return (
     <section className="info">
-      <PageHead title={t("info.title")} intro={t("info.intro")} icon={<BookOpen />} />
+      <PageHead title={t("guide.title")} intro={t("guide.intro")} icon={<BookOpen />} />
+      <GuideHome />
+      <h2 className="list-head">{t("guide.conditions")}</h2>
+      <p className="muted">{t("info.intro")}</p>
       <ul className="condition-list">
         {Object.entries(CONDITIONS).map(([cid, c]) => (
           <li key={cid}>
