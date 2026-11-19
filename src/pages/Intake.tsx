@@ -20,6 +20,12 @@ import {
 import "../intake/intake.css";
 
 type T = (k: MessageKey, p?: Record<string, string | number>) => string;
+/** "Search symptoms (e.g. fever, cough)": the examples go under the field so the placeholder is never cut off. */
+function searchLabel(full: string) {
+  const parts = full.match(/^(.*?)s*[(（](.*)[)）]s*$/);
+  return parts ? { placeholder: parts[1], hint: parts[2] } : { placeholder: full, hint: "" };
+}
+
 type Ctx = { x: IntakeText; flow: E.Flow; update: (f: E.Flow) => void; t: T };
 
 /** Banners dismissed in this tab ("level:step:option"), kept across tab switches. */
@@ -142,7 +148,7 @@ function Picker({ ctx, prefill, onPick, onOwn }: { ctx: Ctx; prefill: string; on
 
       <label className="search">
         <Search size={18} aria-hidden />
-        <input type="search" dir="auto" value={query} placeholder={x.it("ui.search")} aria-label={x.it("ui.searchLabel")} onChange={(e) => setQuery(e.target.value)} />
+        <input type="search" dir="auto" value={query} placeholder={searchLabel(x.it("ui.search")).placeholder} aria-label={x.it("ui.search")} onChange={(e) => setQuery(e.target.value)} />
         {query && (
           <button type="button" className="clear" aria-label={t("common.clear")} onClick={() => setQuery("")}>
             <X size={20} aria-hidden />
@@ -150,6 +156,7 @@ function Picker({ ctx, prefill, onPick, onOwn }: { ctx: Ctx; prefill: string; on
         )}
       </label>
 
+      {!query.trim() && searchLabel(x.it("ui.search")).hint && <p className="search-hint">{searchLabel(x.it("ui.search")).hint}</p>}
       {!query.trim() && (
         <div className="cats" role="group" aria-label={x.it("ui.browse")}>
           {cats.map((c) => (
@@ -238,7 +245,7 @@ function AddSheet({ ctx, onClose }: { ctx: Ctx; onClose: () => void }) {
         <p className="ix-hint">{x.it("ui.addHint")}</p>
         <label className="search">
           <Search size={18} aria-hidden />
-          <input type="search" dir="auto" value={query} placeholder={x.it("ui.search")} aria-label={x.it("ui.searchLabel")} onChange={(e) => setQuery(e.target.value)} />
+          <input type="search" dir="auto" value={query} placeholder={searchLabel(x.it("ui.search")).placeholder} aria-label={x.it("ui.search")} onChange={(e) => setQuery(e.target.value)} />
           {query && (
             <button type="button" className="clear" aria-label={t("common.clear")} onClick={() => setQuery("")}>
               <X size={20} aria-hidden />

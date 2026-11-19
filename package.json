@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "test": "vitest run",
     "fetch:places": "node scripts/fetch-osm-places.mjs",
-    "import:simtomi": "node scripts/import-simtomi.mjs"
+    "import:simtomi": "node scripts/import-simtomi.mjs",
+    "build:intake": "node scripts/build-intake.mjs",
+    "check:intake-i18n": "node scripts/check-intake-i18n.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.119.0",
