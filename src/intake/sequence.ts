@@ -114,6 +114,8 @@ export function historyRows(bank: Bank, flow: Flow): Row[] {
 /** Card lines for the staff card: chief complaint, associated symptoms, onset, answers, history. */
 export function flowLines(bank: Bank, flow: Flow, card: Card): Line[] {
   const lines: Line[] = [];
+  // Age first: it is the one thing a clinician reads before the complaint itself.
+  if (flow.age) lines.push({ label: "card.age", values: [k("card.ageValue", { n: flow.age })] });
   if (flow.main) lines.push({ label: "card.chief", values: [{ sym: flow.main }] });
   else if (flow.mainText) lines.push({ label: "card.chief", values: [{ text: flow.mainText }], original: true });
   const assoc = plan(bank, flow).associated;

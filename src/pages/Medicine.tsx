@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { AlertTriangle, ArrowLeft, Camera, Check, ClipboardPlus, ImageUp, Info as InfoIcon, Languages, Pill, Search, ShieldCheck } from "lucide-react";
+import { AlertTriangle, ArrowLeft, Check, ClipboardPlus, Info as InfoIcon, Languages, Pill, Search, ShieldCheck } from "lucide-react";
 import { useI18n } from "../i18n";
 import { href } from "../app/router";
 import { useCard } from "../state/card";
 import { INGREDIENTS, PRODUCTS, cautionKey, classKey, ingredientKey, officialItem, officialSearch, useKey } from "../content/medicines";
 import { analyze, overlap, type Found } from "../lib/medMatch";
 import { readText } from "../lib/ocr";
-import { Notice, Out, PageHead } from "../components/ui";
+import { Notice, Out, PageHead, PhotoRow } from "../components/ui";
 import { PhraseOverlay } from "../components/PhraseOverlay";
 import { MedsHomeArt, MedsKoreaArt } from "../components/art";
 
@@ -132,34 +132,13 @@ export function Medicine() {
   const productNames = result?.products.map((p) => PRODUCTS[p].ko) ?? [];
   const lookupName = productNames[0] ?? (ingredientIds[0] ? tk(ingredientKey(ingredientIds[0])) : query || text.split("\n")[0]);
 
-  const input = (capture: boolean) => (
-    <label className={"upload" + (capture ? " primary" : "")}>
-      {capture ? <Camera size={22} aria-hidden /> : <ImageUp size={22} aria-hidden />}
-      <span>{t(capture ? "med.camera" : "med.album")}</span>
-      <input
-        type="file"
-        accept="image/*"
-        {...(capture ? { capture: "environment" as const } : {})}
-        disabled={progress !== null}
-        onChange={(e) => {
-          const picked = e.target.files?.[0];
-          e.target.value = "";
-          if (picked) read(picked);
-        }}
-      />
-    </label>
-  );
-
   return (
     <section className="medicine">
       <a className="page-back" href={href("meds")}>
         <ArrowLeft className="flip" size={18} aria-hidden /> {t("meds.back")}
       </a>
       <PageHead title={t("meds.fromKorea")} intro={t("med.intro")} icon={<Languages />} />
-      <div className="upload-row">
-        {input(true)}
-        {input(false)}
-      </div>
+      <PhotoRow onPick={read} busy={progress !== null} />
       <p className="muted small">
         <ShieldCheck size={14} aria-hidden /> {t("med.firstLoad")}
       </p>

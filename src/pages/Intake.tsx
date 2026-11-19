@@ -60,6 +60,8 @@ function Flow({ x, start }: { x: IntakeText; start?: string }) {
   const update = (f: E.Flow) => set({ flow: f });
   const [prefill, setPrefill] = useState("");
   const [sheet, setSheet] = useState(false);
+  // Going back to the symptom list without throwing the answers away: they survive if the same one is picked.
+  const [picking, setPicking] = useState(false);
   const [, rerender] = useState(0);
 
   // Keep the card's derived fields in step with the answers.
@@ -79,19 +81,28 @@ function Flow({ x, start }: { x: IntakeText; start?: string }) {
   useEffect(() => {
     if (!start) return;
     const sid = bank.symptoms[start] ? start : bank.naru[start];
-    if (sid) set({ ...resetIntake(), flow: E.setMain(bank, sid, flow.sex) });
+    if (sid) set({ ...resetIntake(), flow: E.setMain(bank, sid, flow.sex, flow.age) });
     else if (symptom(start)) setPrefill(t(symptomKey(start)));
     history.replaceState(null, "", href("card"));
   }, [start]);
 
   const ctx: Ctx = { x, flow, update, t };
-  if (!flow.main && !flow.mainText)
+  const chosen = !!flow.main || !!flow.mainText;
+  if (!chosen || picking)
     return (
-      <Picker
+      <Start
         ctx={ctx}
         prefill={prefill}
-        onPick={(sid) => set({ ...resetIntake(), flow: E.setMain(bank, sid, flow.sex) })}
-        onOwn={(text) => set({ ...resetIntake(), flow: E.setOwnWords(text, flow.sex) })}
+        resume={chosen}
+        onPick={(sid) => {
+          setPicking(false);
+          if (sid !== flow.main) set({ ...resetIntake(), flow: E.setMain(bank, sid, flow.sex, flow.age) });
+        }}
+        onOwn={(text) => {
+          setPicking(false);
+          if (text !== flow.mainText) set({ ...resetIntake(), flow: E.setOwnWords(text, flow.sex, flow.age) });
+        }}
+        onCancel={chosen ? () => setPicking(false) : undefined}
       />
     );
 
@@ -99,11 +110,128 @@ function Flow({ x, start }: { x: IntakeText; start?: string }) {
   return (
     <section className="ix">
       <Alerts ctx={ctx} onChange={() => rerender((n) => n + 1)} />
-      <Chips ctx={ctx} onAdd={() => setSheet(true)} />
-      {step ? <StepScreen ctx={ctx} step={step} /> : <Summary ctx={ctx} onAdd={() => setSheet(true)} />}
+      <Chips ctx={ctx} onAdd={() => setSheet(true)} onChangeMain={() => setPicking(true)} />
+      {step ? (
+        <StepScreen ctx={ctx} step={step} onBack={() => setPicking(true)} />
+      ) : (
+        <Summary ctx={ctx} onAdd={() => setSheet(true)} />
+      )}
       {sheet && <AddSheet ctx={ctx} onClose={() => setSheet(false)} />}
     </section>
   );
+}
+
+// ---------------------------------------------------------------- the opening screens
+
+type Stage = "intro" | "sex" | "age" | "pick";
+
+/** Before any question: what the card is, then the two facts every intake starts from, then the symptom.
+ *  One thing per screen with a way back, so the start of the intake has the same shape as the rest of it. */
+function Start({
+  ctx, prefill, resume, onPick, onOwn, onCancel,
+}: {
+  ctx: Ctx;
+  prefill: string;
+  /** Returning to change a symptom already chosen: the opening screens are behind us. */
+  resume: boolean;
+  onPick: (sid: string) => void;
+  onOwn: (text: string) => void;
+  onCancel?: () => void;
+}) {
+  const { t } = useI18n();
+  const { x, flow, update } = ctx;
+  const [stage, setStage] = useState<Stage>(resume || prefill ? "pick" : "intro");
+  // "" is both "prefer not to say" and "not asked yet", so nothing is drawn as chosen until it is chosen.
+  const [sexAsked, setSexAsked] = useState(!!flow.sex);
+  useEffect(() => {
+    if (prefill) setStage("pick");
+  }, [prefill]);
+
+  /** `to` is the screen behind this one; with none, the back button leaves the picker as it was. */
+  const bar = (to: Stage | null) => (
+    <div className="ix-bar">
+      <button type="button" className="ix-back" disabled={!to && !onCancel} onClick={() => (to ? setStage(to) : onCancel?.())}>
+        <ArrowLeft className="flip" size={18} aria-hidden /> {t("intake.back")}
+      </button>
+    </div>
+  );
+
+  if (stage === "intro")
+    return (
+      <section className="ix ix-ask">
+        <h1>{t("intake.introTitle")}</h1>
+        <p className="ix-hint">{t("intake.introBody")}</p>
+        <ol className="ix-steps">
+          <li>{t("intake.introStep1")}</li>
+          <li>{t("intake.introStep2")}</li>
+          <li>{t("intake.introStep3")}</li>
+        </ol>
+        <button type="button" className="primary wide" onClick={() => setStage("sex")}>
+          {t("intake.start")}
+        </button>
+      </section>
+    );
+
+  if (stage === "sex")
+    return (
+      <section className="ix ix-ask">
+        {bar(resume ? null : "intro")}
+        <h1>{x.it("ui.sexTitle")}</h1>
+        <p className="ix-hint">{x.it("ui.sexWhy")}</p>
+        <div className="ix-seg">
+          {(["F", "M", ""] as const).map((sx) => (
+            <button
+              key={sx || "x"}
+              type="button"
+              aria-pressed={sexAsked && flow.sex === sx}
+              onClick={() => {
+                setSexAsked(true);
+                update({ ...flow, sex: sx });
+                setStage("age");
+              }}
+            >
+              {x.it(sx === "F" ? "ui.sexF" : sx === "M" ? "ui.sexM" : "ui.sexX")}
+            </button>
+          ))}
+        </div>
+      </section>
+    );
+
+  if (stage === "age")
+    return (
+      <section className="ix ix-ask">
+        {bar("sex")}
+        <h1>{t("intake.ageTitle")}</h1>
+        <p className="ix-hint">{t("intake.ageWhy")}</p>
+        <label className="ix-age">
+          <input
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]*"
+            autoComplete="off"
+            value={flow.age}
+            aria-label={t("intake.ageLabel")}
+            onChange={(e) => update({ ...flow, age: e.target.value.replace(/[^0-9]/g, "").slice(0, 3) })}
+          />
+          <span aria-hidden>{t("intake.ageUnit")}</span>
+        </label>
+        <button type="button" className="primary wide" onClick={() => setStage("pick")}>
+          {x.it("ui.next")}
+        </button>
+        <button
+          type="button"
+          className="ix-plain"
+          onClick={() => {
+            update({ ...flow, age: "" });
+            setStage("pick");
+          }}
+        >
+          {x.it("ui.skip")}
+        </button>
+      </section>
+    );
+
+  return <Picker ctx={ctx} prefill={prefill} onPick={onPick} onOwn={onOwn} bar={bar(resume ? null : "age")} />;
 }
 
 /** Card fields the intake owns; cleared when a new main symptom starts a new intake. */
@@ -111,7 +239,7 @@ const resetIntake = (): Partial<Card> => ({ onset: "", preg: "", notes: "", deta
 
 // ---------------------------------------------------------------- picker
 
-function Picker({ ctx, prefill, onPick, onOwn }: { ctx: Ctx; prefill: string; onPick: (sid: string) => void; onOwn: (text: string) => void }) {
+function Picker({ ctx, prefill, onPick, onOwn, bar }: { ctx: Ctx; prefill: string; onPick: (sid: string) => void; onOwn: (text: string) => void; bar?: ReactNode }) {
   const { t } = useI18n();
   const { x, flow, update } = ctx;
   const { bank } = x;
@@ -130,21 +258,9 @@ function Picker({ ctx, prefill, onPick, onOwn }: { ctx: Ctx; prefill: string; on
 
   return (
     <section className="ix ix-pick">
+      {bar}
       <h1>{x.it("ui.pickTitle")}</h1>
       <p className="ix-hint">{x.it("ui.pickHint")}</p>
-
-      <fieldset className="ix-sex">
-        <legend>
-          {x.it("ui.sexTitle")} <span className="muted">· {x.it("ui.sexWhy")}</span>
-        </legend>
-        <div className="ix-seg">
-          {(["F", "M", ""] as const).map((s) => (
-            <button key={s || "x"} type="button" aria-pressed={flow.sex === s} onClick={() => update({ ...flow, sex: s })}>
-              {x.it(s === "F" ? "ui.sexF" : s === "M" ? "ui.sexM" : "ui.sexX")}
-            </button>
-          ))}
-        </div>
-      </fieldset>
 
       <label className="search">
         <Search size={18} aria-hidden />
@@ -191,14 +307,17 @@ function Picker({ ctx, prefill, onPick, onOwn }: { ctx: Ctx; prefill: string; on
 
 // ---------------------------------------------------------------- chips and the add sheet
 
-function Chips({ ctx, onAdd }: { ctx: Ctx; onAdd: () => void }) {
-  const { x, flow, update } = ctx;
+function Chips({ ctx, onAdd, onChangeMain }: { ctx: Ctx; onAdd: () => void; onChangeMain: () => void }) {
+  const { x, flow, update, t } = ctx;
   const assoc = flow.main ? E.plan(x.bank, flow).associated : [];
   return (
     <div className="ix-chips" role="group" aria-label={x.it("ui.chips")}>
       <span className="ix-chip is-main">
         <span className="ix-chip-tag">{x.it("ui.main")}</span>
         <bdi>{flow.main ? x.sn(flow.main) : flow.mainText}</bdi>
+        <button type="button" aria-label={t("intake.changeMain")} onClick={onChangeMain}>
+          <Pencil size={16} aria-hidden />
+        </button>
       </span>
       {assoc.map((sid) => (
         <span className="ix-chip" key={sid}>
@@ -318,8 +437,8 @@ function Alerts({ ctx, onChange }: { ctx: Ctx; onChange: () => void }) {
 
 // ---------------------------------------------------------------- one question
 
-function StepScreen({ ctx, step }: { ctx: Ctx; step: E.Step }) {
-  const { x, flow, update } = ctx;
+function StepScreen({ ctx, step, onBack }: { ctx: Ctx; step: E.Step; onBack: () => void }) {
+  const { x, flow, update, t } = ctx;
   const { bank } = x;
   const head = useRef<HTMLHeadingElement>(null);
   const prev = previousStep(bank, flow, step.key);
@@ -338,8 +457,8 @@ function StepScreen({ ctx, step }: { ctx: Ctx; step: E.Step }) {
   return (
     <>
       <div className="ix-bar">
-        <button type="button" className="ix-back" disabled={!prev} onClick={() => prev && update(E.edit(flow, prev.key))}>
-          <ArrowLeft className="flip" size={18} aria-hidden /> {x.it("ui.back")}
+        <button type="button" className="ix-back" onClick={() => (prev ? update(E.edit(flow, prev.key)) : onBack())}>
+          <ArrowLeft className="flip" size={18} aria-hidden /> {prev ? x.it("ui.back") : t("intake.back")}
         </button>
         <span className="ix-progress" aria-live="polite">
           {x.it("ui.answered", { n: count })}

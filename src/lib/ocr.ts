@@ -2,18 +2,28 @@
 // tesseract.js downloads its engine and Korean/English models once on first use.
 import type { Worker } from "tesseract.js";
 
-let worker: Promise<Worker> | null = null;
+// A Korean pack and a pack from home are not read with the same alphabets, and each alphabet is its own
+// download, so each set of languages gets its own worker and is fetched only when a photo asks for it.
+const workers = new Map<string, Promise<Worker>>();
 let report: (progress: number) => void = () => {};
 
-function getWorker() {
-  worker ??= import("tesseract.js").then(({ createWorker }) =>
-    createWorker(["kor", "eng"], 1, {
-      logger: (m) => {
-        if (m.status === "recognizing text") report(Math.round(m.progress * 100));
-      },
-    }),
-  );
-  worker.catch(() => (worker = null));
+export const KOREAN_PACK = ["kor", "eng"];
+export const HOME_PACK = ["eng", "rus"];
+
+function getWorker(langs: string[]) {
+  const key = langs.join("+");
+  let worker = workers.get(key);
+  if (!worker) {
+    worker = import("tesseract.js").then(({ createWorker }) =>
+      createWorker(langs, 1, {
+        logger: (m) => {
+          if (m.status === "recognizing text") report(Math.round(m.progress * 100));
+        },
+      }),
+    );
+    worker.catch(() => workers.delete(key));
+    workers.set(key, worker);
+  }
   return worker;
 }
 
@@ -33,10 +43,10 @@ async function prepare(file: Blob): Promise<Blob> {
   );
 }
 
-export async function readText(file: Blob, onProgress: (p: number) => void): Promise<string> {
+export async function readText(file: Blob, onProgress: (p: number) => void, langs = KOREAN_PACK): Promise<string> {
   report = onProgress;
   onProgress(0);
-  const [w, image] = await Promise.all([getWorker(), prepare(file).catch(() => file)]);
+  const [w, image] = await Promise.all([getWorker(langs), prepare(file).catch(() => file)]);
   const result = await w.recognize(image);
   return result.data.text.trim();
 }

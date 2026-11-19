@@ -39,6 +39,8 @@ export type Flow = {
   main: string;
   mainText: string;
   sex: Sex;
+  /** Age in years as the student typed it; "" when they did not say. */
+  age: string;
   /** Associated symptoms added by hand, in the order added. */
   manual: string[];
   /** Order in which associated symptoms joined (by hand or through an answer). */
@@ -48,7 +50,7 @@ export type Flow = {
   cursor: string | null;
 };
 
-export const emptyFlow = (): Flow => ({ main: "", mainText: "", sex: "", manual: [], order: [], answers: {}, cursor: null });
+export const emptyFlow = (): Flow => ({ main: "", mainText: "", sex: "", age: "", manual: [], order: [], answers: {}, cursor: null });
 
 /** A question in the sequence. `owner` is the symptom it was asked for. */
 export type Step = { key: string; qid: string; owner: string };
@@ -162,12 +164,12 @@ export function settle(bank: Bank, flow: Flow): Flow {
 
 // ---- Transitions (all return a settled flow).
 
-export function setMain(bank: Bank, sid: string, sex: Sex): Flow {
-  return settle(bank, { ...emptyFlow(), main: sid, sex });
+export function setMain(bank: Bank, sid: string, sex: Sex, age = ""): Flow {
+  return settle(bank, { ...emptyFlow(), main: sid, sex, age });
 }
 
-export function setOwnWords(text: string, sex: Sex): Flow {
-  return { ...emptyFlow(), mainText: text, sex };
+export function setOwnWords(text: string, sex: Sex, age = ""): Flow {
+  return { ...emptyFlow(), mainText: text, sex, age };
 }
 
 export function setSex(bank: Bank, flow: Flow, sex: Sex): Flow {

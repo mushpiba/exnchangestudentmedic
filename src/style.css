@@ -401,11 +401,17 @@ dialog::backdrop { background: rgb(22 27 26 / 0.55); }
 .buddy-walk { margin: 4px 0 12px; }
 /* Beats `.buddy-card p`, which would otherwise take the centring margins away. */
 .buddy-card .bw-say {
-  width: max-content; max-width: 100%; margin: 0 auto 2px; padding: 8px 12px;
-  border-radius: 14px 14px 14px 4px; background: var(--surface); color: var(--ink);
+  position: relative;
+  width: max-content; max-width: 100%; margin: 0 auto 10px; padding: 8px 14px;
+  border-radius: 16px; background: var(--surface); color: var(--ink);
   font-weight: 600; text-align: center;
 }
-[dir="rtl"] .buddy-card .bw-say { border-radius: 14px 14px 4px 14px; }
+/* The tail points straight down at the pair, who stand in the middle of the drawing below -- so the
+   bubble belongs to them at any width, and in either reading direction. */
+.buddy-card .bw-say::after {
+  content: ""; position: absolute; top: 100%; left: 50%; margin-left: -7px;
+  border: 7px solid transparent; border-bottom: 0; border-top-color: var(--surface);
+}
 /* The walk runs from campus to clinic, so it turns around with the language. */
 [dir="rtl"] .bw-art { transform: scaleX(-1); }
 .bw-art { display: block; width: 100%; height: 84px; }
@@ -414,6 +420,7 @@ dialog::backdrop { background: rgb(22 27 26 / 0.55); }
 .bw-me { fill: currentColor; stroke: none; }
 .bw-buddy { fill: var(--surface); stroke: currentColor; }
 .bw-flag { fill: currentColor; stroke: none; }
+.bw-cross { fill: none; stroke: currentColor; }
 .bw-door { fill: currentColor; stroke: none; opacity: 0.28; }
 .link-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .source { display: flex; align-items: flex-start; gap: 6px; margin: 12px 0 0; color: var(--ink-3); }
@@ -717,6 +724,20 @@ dialog.phrase[open] { animation: fade 0.2s var(--ease); }
 .place-list .item { width: 100%; justify-content: flex-start; border: 0; border-radius: 0; background: transparent; text-align: start; font-weight: 400; min-height: 64px; }
 .place-list .item[aria-pressed="true"] { background: var(--hover); }
 .map-note { margin: 12px 0 0; color: var(--ink-3); }
+
+/* Which languages a place can serve you in. A quiet badge, not a claim: it has to sit next to the name
+   without outshouting it, and the list below says in words that these are still only examples. */
+.map-langs { align-items: center; }
+.cats-label { display: inline-flex; flex: none; align-items: center; gap: 6px; color: var(--ink-2); font-size: 15px; }
+/* A column, not a row: stacked, the badges are only as wide as the longest language, so the name and
+   the distance beside them keep their line at 375px. */
+.place-langs { display: flex; flex: none; flex-direction: column; align-items: flex-end; gap: 4px; max-width: 42%; }
+.lang-badge {
+  padding: 2px 8px; border: 1px solid var(--hair-2); border-radius: 999px;
+  background: var(--raised); color: var(--ink-2); font-size: 13px; line-height: 20px; white-space: nowrap;
+}
+.lang-badge.more { border-style: dashed; }
+.place-card .place-langs { flex-flow: row wrap; align-items: flex-start; max-width: none; margin-top: 4px; }
 .facility { display: grid; gap: 4px; padding: 16px 0; border-bottom: 1px solid var(--hair); }
 .facility .row { margin-top: 6px; }
 .status.unknown { color: var(--warn-ink); font-weight: 500; }

@@ -4,9 +4,11 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { Navigation, Phone } from "lucide-react";
+import { Languages, Navigation, Phone } from "lucide-react";
 import { useI18n, type MessageKey } from "../i18n";
+import { nativeName, type Locale } from "../i18n/locales";
 import data from "../content/osm-places.json";
+import { PLACE_LANGUAGE_CODES, SURVEYED, languagesAt } from "../content/place-languages";
 import { SCHOOL } from "../content/school";
 import { useSchool } from "../state/prefs";
 import { openInNaverMap } from "../lib/naver";
@@ -30,6 +32,23 @@ const COLOR: Record<Kind | "er", string> = {
   er: "#b42318",
 };
 
+/** The languages a place can serve a patient in, as small badges. Nothing is drawn when none are known. */
+function Langs({ id, all = false }: { id: string; all?: boolean }) {
+  const langs = languagesAt(id);
+  if (!langs.length) return null;
+  const shown = all ? langs : langs.slice(0, 2);
+  return (
+    <span className="place-langs">
+      {shown.map((l) => (
+        <span className="lang-badge" key={l} lang={l} dir="auto">
+          {nativeName(l)}
+        </span>
+      ))}
+      {langs.length > shown.length && <span className="lang-badge more">+{langs.length - shown.length}</span>}
+    </span>
+  );
+}
+
 function km(a: { lat: number; lng: number }, b: { lat: number; lng: number }) {
   const r = (d: number) => (d * Math.PI) / 180;
   const h = Math.sin(r(b.lat - a.lat) / 2) ** 2 + Math.cos(r(a.lat)) * Math.cos(r(b.lat)) * Math.sin(r(b.lng - a.lng) / 2) ** 2;
@@ -45,6 +64,7 @@ export default function PlaceMap({ preview = false }: { preview?: boolean }) {
   const layer = useRef<L.LayerGroup | null>(null);
   const framed = useRef(false);
   const [filter, setFilter] = useState<Filter>("all");
+  const [lang, setLang] = useState<Locale | "">("");
   const [selected, setSelected] = useState<Place | null>(null);
 
   const places = useMemo<Place[]>(() => {
@@ -57,9 +77,11 @@ export default function PlaceMap({ preview = false }: { preview?: boolean }) {
   }, [school, t]);
 
   const shown = useMemo(() => {
-    const list = places.filter((p) => (filter === "all" ? true : filter === "er" ? p.emergency : p.kind === filter));
+    const list = places
+      .filter((p) => (filter === "all" ? true : filter === "er" ? p.emergency : p.kind === filter))
+      .filter((p) => !lang || languagesAt(p.id).includes(lang));
     return list.map((p) => ({ ...p, distance: km(SCHOOL.location, p) })).sort((a, b) => a.distance - b.distance);
-  }, [places, filter]);
+  }, [places, filter, lang]);
 
   // Create the map once.
   useEffect(() => {
@@ -115,14 +137,30 @@ export default function PlaceMap({ preview = false }: { preview?: boolean }) {
   return (
     <div className="place-map-wrap">
       {!preview && (
-        <div className="map-cats" role="group" aria-label={t("places.mapTitle")}>
-          {FILTERS.filter((f) => f !== "school" || school === "inha").map((f) => (
-            <button key={f} type="button" aria-pressed={filter === f} onClick={() => setFilter(f)}>
-              <span className="dot" style={{ background: f === "all" ? "transparent" : f === "er" ? COLOR.er : COLOR[f] }} aria-hidden />
-              {t(filterKey(f))}
+        <>
+          <div className="map-cats" role="group" aria-label={t("places.mapTitle")}>
+            {FILTERS.filter((f) => f !== "school" || school === "inha").map((f) => (
+              <button key={f} type="button" aria-pressed={filter === f} onClick={() => setFilter(f)}>
+                <span className="dot" style={{ background: f === "all" ? "transparent" : f === "er" ? COLOR.er : COLOR[f] }} aria-hidden />
+                {t(filterKey(f))}
+              </button>
+            ))}
+          </div>
+          {/* The second way to narrow the list: not what a place is, but whether it can talk to you. */}
+          <div className="map-cats map-langs" role="group" aria-label={t("places.speaks")}>
+            <span className="cats-label">
+              <Languages size={16} aria-hidden /> {t("places.speaks")}
+            </span>
+            <button type="button" aria-pressed={lang === ""} onClick={() => setLang("")}>
+              {t("places.kind.all")}
             </button>
-          ))}
-        </div>
+            {PLACE_LANGUAGE_CODES.map((l) => (
+              <button key={l} type="button" lang={l} dir="auto" aria-pressed={lang === l} onClick={() => setLang(lang === l ? "" : l)}>
+                {nativeName(l)}
+              </button>
+            ))}
+          </div>
+        </>
       )}
       <div className={preview ? "place-map preview" : "place-map"} ref={box} role="application" aria-label={t("places.mapTitle")} />
 
@@ -135,6 +173,7 @@ export default function PlaceMap({ preview = false }: { preview?: boolean }) {
               {selected.emergency ? t("places.kind.er") + " · " : ""}
               {t(filterKey(selected.kind))} · {t("places.fromSchool", { km: km(SCHOOL.location, selected).toFixed(1) })}
             </span>
+            <Langs id={selected.id} all />
           </div>
           <div className="row">
             <button type="button" className="primary" onClick={() => openInNaverMap(selected)}>
@@ -164,10 +203,13 @@ export default function PlaceMap({ preview = false }: { preview?: boolean }) {
                   {t(filterKey(p.kind))} · {t("places.fromSchool", { km: p.distance.toFixed(1) })}
                 </span>
               </span>
+              <Langs id={p.id} />
             </button>
           </li>
         ))}
       </ul>}
+      {!preview && shown.length === 0 && <p className="muted">{t("places.langEmpty")}</p>}
+      {!preview && !SURVEYED && <p className="map-note">{t("places.langSample")}</p>}
       {!preview && <p className="map-note">{t("places.mapNote", { date: data.fetchedAt })}</p>}
     </div>
   );

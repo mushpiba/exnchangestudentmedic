@@ -4,8 +4,10 @@ import { useI18n } from "../i18n";
 import { nativeName } from "../i18n/locales";
 import { href } from "../app/router";
 import { deptKey } from "../content/symptoms";
-import { LINKS, OFFICIAL, QUICK_DEPTS, VERIFIED, mapSearch, type Facility } from "../content/facilities";
-import { Chip, Notice, Out, PageHead, Section } from "../components/ui";
+import { LINKS, OFFICIAL, QUICK_DEPTS, mapSearch, type Facility } from "../content/facilities";
+import { SCHOOL } from "../content/school";
+import { openNaverSearch } from "../lib/naver";
+import { Chip, Out, PageHead, Section } from "../components/ui";
 
 // The map library loads only when this tab opens.
 const PlaceMap = lazy(() => import("../components/PlaceMap"));
@@ -46,7 +48,7 @@ export function Places() {
   const [dept, setDept] = useState("JIM");
   return (
     <section className="places">
-      <PageHead title={t("places.title")} intro={t("places.intro")} icon={<Building2 />} />
+      <PageHead title={t("places.title")} icon={<Building2 />} />
 
       <Section title={t("places.mapTitle")}>
         <Suspense fallback={<div className="place-map" aria-busy="true" />}>
@@ -62,9 +64,16 @@ export function Places() {
             </Chip>
           ))}
         </div>
-        <Out className="button primary wide" href={mapSearch("인하대 " + tk(deptKey(dept)))}>
+        {/* Naver's own search is what finds the rest; all this screen can do is aim it. The app scheme
+            takes no coordinates, so the school's name goes in the words; the web map is framed on campus. */}
+        <button
+          type="button"
+          className="button primary wide"
+          onClick={() => openNaverSearch(tk(SCHOOL.name) + " " + tk(deptKey(dept)), SCHOOL.location)}
+        >
           <MapPin size={18} aria-hidden /> {t("places.mapSearch", { dept: t(deptKey(dept)) })}
-        </Out>
+        </button>
+        <p className="muted small">{t("places.naverNote")}</p>
         <details className="hint">
           <summary>{t("places.which")}</summary>
           <p>{t("places.whichBody")}</p>
@@ -83,12 +92,9 @@ export function Places() {
         </Out>
       </div>
 
-      <Section title={t("places.verifiedTitle")}>
-        {VERIFIED.length ? VERIFIED.map((f) => <FacilityRow key={f.phone} f={f} />) : <Notice>{t("places.verifiedEmpty")}</Notice>}
-        <a className="button" href={href("community", "review")}>
-          <MessagesSquare size={18} aria-hidden /> {t("places.reviews")}
-        </a>
-      </Section>
+      <a className="button wide" href={href("community", "review")}>
+        <MessagesSquare size={18} aria-hidden /> {t("places.reviews")}
+      </a>
 
       <Section title={t("places.official")}>
         <p className="muted">{t("places.callToConfirm")}</p>

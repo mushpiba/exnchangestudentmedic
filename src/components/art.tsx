@@ -12,28 +12,31 @@ export function BuddyWalk({ say }: { say: string }) {
       <svg className="bw-art" viewBox="0 0 320 84" aria-hidden focusable="false">
         <path
           className="bw-path"
-          d="M48 60c34-16 62 12 96 2s58-20 92-14"
+          d="M46 64c34-10 60 6 90 3s72-12 138-5"
           fill="none"
           strokeWidth="2"
           strokeLinecap="round"
           strokeDasharray="2 7"
         />
         <g className="bw-place">
-          <path d="M26 22v13" strokeWidth="2" strokeLinecap="round" />
-          <path className="bw-flag" d="M26 22l13 4-13 4z" />
-          <rect x="11" y="37" width="30" height="27" rx="4" fill="none" strokeWidth="2" />
-          <path d="M11 45h30" strokeWidth="2" />
-          <rect className="bw-door" x="22" y="52" width="8" height="12" rx="1.5" />
+          <path d="M28 20v14" strokeWidth="2" strokeLinecap="round" />
+          <path className="bw-flag" d="M28 20l12 4-12 4z" />
+          <rect x="13" y="34" width="30" height="30" rx="4" fill="none" strokeWidth="2" />
+          <path d="M13 42h30" strokeWidth="2" />
+          <rect className="bw-door" x="24" y="52" width="8" height="12" rx="1.5" />
         </g>
-        <g transform="translate(146 0)">
-          <circle className="bw-me" cx="0" cy="33" r="7.5" />
+        {/* The pair stands in the middle of the drawing, where the speech bubble's tail points. */}
+        <g transform="translate(150 0)">
+          <circle className="bw-me" cx="0" cy="34" r="7.5" />
           <path className="bw-me" d="M-9.5 64c0-10.5 4.3-17 9.5-17s9.5 6.5 9.5 17z" />
-          <circle className="bw-buddy" cx="21" cy="37" r="7.5" strokeWidth="2" />
-          <path className="bw-buddy" d="M11.5 64c0-10 4.3-16 9.5-16s9.5 6 9.5 16z" strokeWidth="2" />
+          <circle className="bw-buddy" cx="20" cy="38" r="7.5" strokeWidth="2" />
+          <path className="bw-buddy" d="M10.5 64c0-10 4.3-16 9.5-16s9.5 6 9.5 16z" strokeWidth="2" />
         </g>
+        {/* A building with a cross on it, not a lone cross: on its own the cross read as a plus sign. */}
         <g className="bw-place">
-          <circle cx="288" cy="45" r="17" fill="none" strokeWidth="2" />
-          <path d="M288 37v16M280 45h16" strokeWidth="2.5" strokeLinecap="round" />
+          <rect x="274" y="30" width="34" height="34" rx="4" fill="none" strokeWidth="2" />
+          <path d="M274 39h34" strokeWidth="2" />
+          <path className="bw-cross" d="M291 45v13M284.5 51.5h13" strokeWidth="3.5" strokeLinecap="round" />
         </g>
       </svg>
     </figure>

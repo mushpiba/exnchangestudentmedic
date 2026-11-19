@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { ExternalLink, Phone } from "lucide-react";
+import { Camera, ExternalLink, ImageUp, Phone } from "lucide-react";
 import { useI18n, type MessageKey } from "../i18n";
 
 /** Printed tick box. Fills with marker yellow when its button is pressed (or `on`). */
@@ -94,4 +94,27 @@ export function Notice({ children }: { children: ReactNode }) {
       {children}
     </p>
   );
+}
+
+/** Take a photo or pick one. Both medicine screens start here; what is done with the photo differs. */
+export function PhotoRow({ onPick, busy }: { onPick: (file: File) => void; busy?: boolean }) {
+  const { t } = useI18n();
+  const one = (capture: boolean) => (
+    <label className={"upload" + (capture ? " primary" : "")} key={String(capture)}>
+      {capture ? <Camera size={22} aria-hidden /> : <ImageUp size={22} aria-hidden />}
+      <span>{t(capture ? "med.camera" : "med.album")}</span>
+      <input
+        type="file"
+        accept="image/*"
+        {...(capture ? { capture: "environment" as const } : {})}
+        disabled={busy}
+        onChange={(e) => {
+          const picked = e.target.files?.[0];
+          e.target.value = "";
+          if (picked) onPick(picked);
+        }}
+      />
+    </label>
+  );
+  return <div className="upload-row">{[one(true), one(false)]}</div>;
 }

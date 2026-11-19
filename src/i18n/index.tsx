@@ -1,7 +1,8 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import koOwn from "./messages/ko-KR.json";
 import koSimtomi from "./simtomi/ko-KR.json";
-import { isRtl, rememberLocale, type Locale } from "./locales";
+import { isRtl, koreanName, nativeName, rememberLocale, type Locale } from "./locales";
+import { SCHOOL } from "../content/school";
 
 export type MessageKey = keyof typeof koOwn | keyof typeof koSimtomi;
 export type Dict = Record<string, string>;
@@ -77,11 +78,17 @@ export function I18nProvider({
 
   const value = useMemo<I18n>(() => {
     const en = cache.get("en-US") ?? {};
+    // Two things every screen talks about are the same on every screen, so the catalogs write them as
+    // placeholders and never spell them out: {lang} is the language the student chose ("English", not
+    // "my language"), {school} the school they chose. On the staff card {lang} is that same language
+    // named in Korean, because there it is the Korean reader who needs to know which one it is.
+    const mine = { lang: nativeName(state.locale), school: state.dict[SCHOOL.name] ?? KO[SCHOOL.name] };
+    const korean = { lang: koreanName(state.locale), school: KO[SCHOOL.name] };
     return {
       locale: state.locale,
       rtl,
-      t: (key, params) => format(state.dict[key] ?? KO[key] ?? key, params),
-      tk: (key, params) => format(KO[key] ?? key, params),
+      t: (key, params) => format(state.dict[key] ?? KO[key] ?? key, { ...mine, ...params }),
+      tk: (key, params) => format(KO[key] ?? key, { ...korean, ...params }),
       variants: (key) => [state.dict[key], KO[key], en[key]].filter(Boolean),
       setLocale,
     };

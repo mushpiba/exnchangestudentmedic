@@ -18,9 +18,6 @@ export const OFFICIAL: Facility[] = [
   { ko: "현대유비스병원", en: "Hyundai UVIS Hospital", address: "인천 미추홀구 독배로 503", phone: "032-888-7575", languages: { reception: [], consult: [] } },
 ];
 
-/** Clinics and pharmacies whose language support an operator confirmed. Empty until field checks. */
-export const VERIFIED: Facility[] = [];
-
 export const QUICK_DEPTS = ["JIM", "JFM", "JEN", "JOS", "JDM", "JOP", "JDT", "JOG", "JUR", "JPY", "JNL", "JRM"];
 
 export const LINKS = {

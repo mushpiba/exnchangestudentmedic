@@ -106,7 +106,6 @@ export function Home() {
         <Siren size={20} aria-hidden />
         <span className="sos-text">
           <span className="sos-title">{t("home.emergencyTitle")}</span>
-          <span>{t("home.emergencyBody")}</span>
           <span className="sos-more">{t("home.emergencyMore")}</span>
         </span>
         <ChevronRight className="flip" size={20} aria-hidden />
@@ -116,7 +115,7 @@ export function Home() {
       <section className="school-card" aria-labelledby="school-card-title">
         <a className="school-card-head" href={href("school")}>
           <GraduationCap size={20} aria-hidden />
-          <span id="school-card-title">{t("school.cardTitle", { school: t(SCHOOL.name) })}</span>
+          <span id="school-card-title">{t("school.cardTitle")}</span>
           <ChevronRight className="flip chev" size={20} aria-hidden />
         </a>
         <a className="buddy-cta" href={href("school", "buddy")}>

@@ -1,14 +1,16 @@
-// Home medicine → Korean medicine: the student types what they took at home, sees its ingredients in their language,
-// Korean OTC products with the same ingredients, and a Korean sentence to show the pharmacist.
-import { useMemo, useState } from "react";
-import { ArrowLeft, Check, ClipboardPlus, Globe, Info as InfoIcon, Search } from "lucide-react";
+// Home medicine → Korean medicine: the student photographs or types what they took at home, sees its
+// ingredients in their language, Korean OTC products with the same ingredients, and a Korean sentence to
+// show the pharmacist. The pack from home is rarely in Korean, so its photo is read with Latin and Cyrillic.
+import { useEffect, useMemo, useRef, useState } from "react";
+import { ArrowLeft, Check, ClipboardPlus, Globe, Info as InfoIcon, Search, ShieldCheck } from "lucide-react";
 import { useI18n } from "../i18n";
 import { href } from "../app/router";
 import { useCard } from "../state/card";
 import { INGREDIENTS, PRODUCTS, ingredientKey, officialItem } from "../content/medicines";
 import { FOREIGN, FOREIGN_CHECKED, type ForeignIngredient, type ForeignProduct } from "../content/foreignMeds";
 import { findForeign, koreanAlternatives } from "../lib/medMatch";
-import { Chip, Notice, Out, PageHead, Section } from "../components/ui";
+import { readText, HOME_PACK } from "../lib/ocr";
+import { Chip, Notice, Out, PageHead, PhotoRow, Section } from "../components/ui";
 import { PhraseOverlay } from "../components/PhraseOverlay";
 import { IngredientCard } from "./Medicine";
 
@@ -42,6 +44,19 @@ export function FromHome() {
   const [chip, setChip] = useState<string | null>(null);
   const [asking, setAsking] = useState(false);
   const [added, setAdded] = useState(false);
+  const [photo, setPhoto] = useState<File | null>(null);
+  const [preview, setPreview] = useState("");
+  const [progress, setProgress] = useState<number | null>(null);
+  const [read, setRead] = useState("");
+  const [failed, setFailed] = useState(false);
+  const run = useRef(0);
+
+  useEffect(() => {
+    if (!photo) return setPreview("");
+    const url = URL.createObjectURL(photo);
+    setPreview(url);
+    return () => URL.revokeObjectURL(url);
+  }, [photo]);
 
   const found = useMemo(() => findForeign(query), [query]);
   // One product found, or one picked from the list, or ingredient names typed directly.
@@ -62,6 +77,25 @@ export function FromHome() {
     setChip(null);
     setAdded(false);
   };
+
+  /** A photo of the pack, read on this device, becomes the search text — which stays editable. */
+  async function readPhoto(file: File) {
+    const id = ++run.current;
+    setPhoto(file);
+    setFailed(false);
+    reset();
+    try {
+      const text = await readText(file, (p) => id === run.current && setProgress(p), HOME_PACK);
+      if (id !== run.current) return;
+      setRead(text);
+      setFailed(!text);
+      if (text) reset(text);
+    } catch {
+      if (id === run.current) setFailed(true);
+    } finally {
+      if (id === run.current) setProgress(null);
+    }
+  }
   const names = (inKorean: boolean) =>
     ingredients.map((i) => (i.id && INGREDIENTS[i.id] ? (inKorean ? tk(ingredientKey(i.id)) : t(ingredientKey(i.id))) + ` (${i.inn})` : i.inn)).join(", ");
 
@@ -71,6 +105,11 @@ export function FromHome() {
         <ArrowLeft className="flip" size={18} aria-hidden /> {t("meds.back")}
       </a>
       <PageHead title={t("meds.fromHome")} intro={t("hm.intro")} icon={<Globe />} />
+
+      <PhotoRow onPick={readPhoto} busy={progress !== null} />
+      <p className="muted small">
+        <ShieldCheck size={14} aria-hidden /> {t("med.firstLoad")}
+      </p>
 
       <label className="search">
         <Search size={18} aria-hidden />
@@ -83,6 +122,25 @@ export function FromHome() {
           onChange={(e) => reset(e.target.value)}
         />
       </label>
+
+      {preview && <img className="package" src={preview} alt="" />}
+      {progress !== null && (
+        <div className="progress-box" role="status">
+          <progress max={100} value={progress} />
+          <span>{t("med.analyzing", { p: progress })}</span>
+        </div>
+      )}
+      {failed && <Notice>{t("med.noText")}</Notice>}
+      {read && (
+        <details className="recognized">
+          <summary>{t("med.recognized")}</summary>
+          <p className="muted">{t("med.recognizedHint")}</p>
+          <textarea dir="auto" value={read} onChange={(e) => setRead(e.target.value)} />
+          <button type="button" onClick={() => reset(read)}>
+            {t("med.reanalyze")}
+          </button>
+        </details>
+      )}
 
       {!query.trim() && (
         <Section title={t("hm.common")}>
