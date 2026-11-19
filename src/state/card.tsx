@@ -4,6 +4,7 @@ import type { MessageKey } from "../i18n";
 import { ingredientKey } from "../content/medicines";
 import { sideKey, symptomKey, vasKey } from "../content/symptoms";
 import { GENERAL, detailLabelKey, detailsFor, isDanger, optionKey } from "../content/details";
+import { emptyFlow, type Flow } from "../intake/engine";
 
 export type TakenMedicine = { id: string; name: string; ingredients: string[] };
 
@@ -32,6 +33,12 @@ export type Card = {
   details: Record<string, string[]>;
   /** Korean translations of the student's own words, keyed by the exact text (made on request). */
   translations: Record<string, string>;
+  /** The conversational intake (src/intake). */
+  flow: Flow;
+  /** Card lines built from the intake answers: main symptom, associated symptoms, answers, history. */
+  flowLines: Line[];
+  /** Suggested departments for the main symptom. */
+  depts: string[];
 };
 
 export const emptyCard = (): Card => ({
@@ -55,6 +62,9 @@ export const emptyCard = (): Card => ({
   notes: "",
   details: {},
   translations: {},
+  flow: emptyFlow(),
+  flowLines: [],
+  depts: [],
 });
 
 type ListField = "assoc" | "allergyKinds" | "past" | "family";
@@ -98,20 +108,40 @@ export function reducer(card: Card, action: Action): Card {
   }
 }
 
-/** A value on the card: a translated concept, or the student's own words shown as written. */
-export type Value = { key: MessageKey; params?: Record<string, string | number> } | { text: string };
+/**
+ * A value on the card: a translated concept, the student's own words shown as written, an intake text id (`it`)
+ * or a symptom id (`sym`). Intake texts and symptom names come from src/intake/text.
+ */
+export type Value =
+  | { key: MessageKey; params?: Record<string, string | number> }
+  | { text: string }
+  | { it: string; params?: Record<string, string | number> }
+  | { sym: string };
 /**
  * `source`: Korean product names the ingredients came from (photographed medicine boxes).
- * `danger`: the student picked a possible emergency sign here.
+ * `danger`: the student picked a possible emergency sign here. `note`: an answer NARU marks for staff attention.
+ * `labelIt`: the label is an intake text (a question) instead of `label`; `about`: the symptom it was asked for.
  */
-export type Line = { label: MessageKey; values: Value[]; original?: boolean; source?: string; danger?: boolean };
+export type Line = {
+  label: MessageKey;
+  values: Value[];
+  original?: boolean;
+  source?: string;
+  danger?: boolean;
+  note?: boolean;
+  labelIt?: string;
+  about?: string;
+};
 
 const k = (key: string, params?: Record<string, string | number>): Value => ({ key: key as MessageKey, params });
 
 export function cardLines(card: Card): Line[] {
   const lines: Line[] = [];
-  if (card.main) lines.push({ label: "card.chief", values: [k(symptomKey(card.main))] });
-  if (card.mainText) lines.push({ label: "card.chief", values: [{ text: card.mainText }], original: true });
+  // The conversational intake builds its own lines (main symptom, associated, onset, answers, history).
+  const fromFlow = card.flowLines.length > 0;
+  if (fromFlow) lines.push(...card.flowLines);
+  if (card.main && !fromFlow) lines.push({ label: "card.chief", values: [k(symptomKey(card.main))] });
+  if (card.mainText && !fromFlow) lines.push({ label: "card.chief", values: [{ text: card.mainText }], original: true });
   if (card.area || card.side)
     lines.push({
       label: "card.area",
@@ -124,9 +154,9 @@ export function cardLines(card: Card): Line[] {
     if (chosen.length)
       lines.push({ label: detailLabelKey(id), values: chosen.map((o) => k(optionKey(id, o))), danger: chosen.some((o) => isDanger(id, o)) });
   };
-  const asked = [...detailsFor(card.main), ...Object.keys(card.details)].filter((id) => !general.includes(id));
+  const asked = [...(fromFlow ? [] : detailsFor(card.main)), ...Object.keys(card.details)].filter((id) => !general.includes(id));
   [...new Set(asked)].forEach(detailLine);
-  if (card.onset) lines.push({ label: "card.onset", values: [k("onset." + card.onset)] });
+  if (card.onset && !fromFlow) lines.push({ label: "card.onset", values: [k("onset." + card.onset)] });
   if (typeof card.pain === "number")
     lines.push({ label: "card.pain", values: [k("card.painValue", { n: card.pain }), k(vasKey(card.pain))] });
   if (card.temp) lines.push({ label: "card.temperature", values: [{ text: card.temp + " ℃" }] });

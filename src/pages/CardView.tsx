@@ -36,7 +36,7 @@ export function CardView() {
       </section>
     );
 
-  const depts = card.main ? departmentsFor(card.main) : ["JIM", "JFM"];
+  const depts = card.depts.length ? card.depts : card.main ? departmentsFor(card.main) : ["JIM", "JFM"];
   const related = card.main ? conditionsFor(card.main) : [];
 
   return (

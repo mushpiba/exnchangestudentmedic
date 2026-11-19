@@ -1,0 +1,2139 @@
+{
+ "SAT002": [
+  "Tiết dịch hậu môn",
+  "Bệnh trĩ",
+  "dịch mủ hậu môn",
+  "hậu môn chảy dịch",
+  "hậu môn chảy mủ",
+  "mưng mủ ở gần hậu môn"
+ ],
+ "SAT003": [
+  "Khối u hậu môn",
+  "Bệnh trĩ",
+  "cục cứng gần vành hậu môn",
+  "cục u cứng gần hậu môn",
+  "nổi khối quanh lỗ hậu môn",
+  "u gần hậu môn"
+ ],
+ "SAT004": [
+  "Khó chịu vùng hậu môn",
+  "Ngứa hậu môn",
+  "khó chịu vùng hậu môn",
+  "khó chịu ở hậu môn trực tràng",
+  "rát vùng hậu môn",
+  "đau hậu môn"
+ ],
+ "SAT005": [
+  "Đau vùng hậu môn",
+  "Bệnh trĩ",
+  "nứt kẽ hậu môn",
+  "đau hậu môn trực tràng",
+  "đau rát hậu môn",
+  "đau vùng trực tràng"
+ ],
+ "SBR001": [
+  "Khối u vú",
+  "Cục u vú",
+  "cục u cứng xung quanh mô vú",
+  "cục u cứng ở vú",
+  "nổi cục ở nhũ hoa",
+  "sự phát triển vú bất thường"
+ ],
+ "SBR002": [
+  "Đau vú",
+  "Sưng vú",
+  "sưng đỏ ở ngực",
+  "đau ngực",
+  "đau tức vú",
+  "đau vú"
+ ],
+ "SBR003": [
+  "Tiết dịch núm vú",
+  "Dịch sữa",
+  "dịch tiết núm vú",
+  "núm vú tiết dịch lẫn máu",
+  "núm vú tiết dịch nước trong"
+ ],
+ "SCN008": [
+  "Giảm/mất khứu giác",
+  "Mất cảm giác về mùi",
+  "giảm cảm nhận mùi",
+  "không ngửi được mùi"
+ ],
+ "SCN009": [
+  "Giảm/mất vị giác",
+  "Không nếm được vị",
+  "giảm cảm giác vị giác",
+  "không cảm nhận được mùi vị",
+  "rối loạn vị giác",
+  "vị giác bất thường"
+ ],
+ "SCN001": [
+  "Suy giảm nhận thức",
+  "Chứng lẫn",
+  "giảm khả năng phán đoán",
+  "không biết ngày tháng",
+  "không nhận biết người quen",
+  "không nhớ tên",
+  "mất trí nhớ",
+  "suy giảm nhận thức"
+ ],
+ "SCN002": [
+  "Suy giảm trí nhớ",
+  "Chứng lẫn",
+  "hay quên",
+  "lúc nhớ lúc quên",
+  "lơ đãng",
+  "mất trí nhớ",
+  "trí nhớ kém"
+ ],
+ "SCN003": [
+  "Mất thăng bằng",
+  "Giảm cảm giác thăng bằng",
+  "hay vấp ngã",
+  "thường xuyên té ngã",
+  "đi xiêu vẹo"
+ ],
+ "SCN004": [
+  "Đầu run rẩy",
+  "cử động đầu không chủ ý",
+  "lắc đầu liên tục",
+  "run mí mắt",
+  "run mặt",
+  "Đầu rung lắc"
+ ],
+ "SCN010": [
+  "Run tay/cánh tay",
+  "Run bàn tay",
+  "cử động tay không chủ ý",
+  "run cánh tay"
+ ],
+ "SCN011": [
+  "Run mí mắt",
+  "Run mắt",
+  "mí mắt cử động không chủ ý",
+  "run mí mắt",
+  "run xung quanh mắt"
+ ],
+ "SCN005": [
+  "Nói ngọng (Khó phát âm)",
+  "Nói ngọng",
+  "có vấn đề về phát âm",
+  "khó phát âm",
+  "lời nói không rõ ràng",
+  "nói lắp bắp",
+  "phát âm kém"
+ ],
+ "SCN006": [
+  "Khó nuốt",
+  "Thức ăn không trôi qua cổ",
+  "bị nghẹn(mãn tính)",
+  "chứng khó nuốt",
+  "khó nuốt thức ăn",
+  "không thể nuốt",
+  "nghẹn cổ khó nuốt",
+  "nuốt vướng",
+  "thức ăn mắc lại ở cổ họng"
+ ],
+ "SCV002": [
+  "Mạch đập không đều",
+  "loạn nhịp tim",
+  "mạch đập",
+  "nhịp tim chậm",
+  "nhịp tim không đều",
+  "nhịp tim nhanh",
+  "rối loạn nhịp tim"
+ ],
+ "SCV003": [
+  "Đánh trống ngực",
+  "Mạch đập",
+  "loạn nhịp tim",
+  "nghe thấy tiếng nhịp tim",
+  "nhịp tim nhanh",
+  "tim đập thình thịch",
+  "trống ngực"
+ ],
+ "SCV004": [
+  "Đau ngực",
+  "đau giữa ngực",
+  "đau thắt ngực",
+  "đau tim",
+  "đau vùng ngực",
+  "đau vùng xương ức"
+ ],
+ "SCV005": [
+  "Cảm giác khó chịu ở ngực",
+  "Khó chịu ở ngực",
+  "triệu chứng đau thắt ngực",
+  "đau tức ngực",
+  "đau tức tim"
+ ],
+ "SCV006": [
+  "Ngất xỉu tạm thời",
+  "Chóng mặt khi đang ngồi rồi đứng dậy",
+  "mất ý thức trong thời gian ngắn",
+  "mất ý thức tạm thời",
+  "mờ mắt",
+  "ngất xỉu",
+  "ngất xỉu tạm thời",
+  "ngất xỉu tạm thời rồi hồi phục"
+ ],
+ "SDM002": [
+  "Rụng tóc",
+  "Tóc rụng",
+  "hói đầu",
+  "hói đầu kiểu nữ",
+  "hói đỉnh đầu",
+  "rụng tóc từng vùng",
+  "tóc thưa dần",
+  "đầu hói"
+ ],
+ "SDM005": [
+  "Nổi mề đay",
+  "Sẩn phù",
+  "da ngứa",
+  "da nổi nốt",
+  "dị ứng",
+  "dị ứng da",
+  "mẩn ngứa",
+  "nổi mề đay",
+  "phát ban"
+ ],
+ "SDT001": [
+  "Đau răng",
+  "răng nhạy cảm với đồ lạnh",
+  "răng nhạy cảm với đồ nóng",
+  "sâu răng",
+  "tê buốt răng",
+  "đau nhức răng",
+  "đau nướu",
+  "đau răng cửa",
+  "đau răng hàm",
+  "đau răng khôn"
+ ],
+ "SDT002": [
+  "Đau khớp thái dương hàm",
+  "có tiếng kêu khi cử động khớp hàm",
+  "viêm khớp thái dương hàm",
+  "Đau khớp hàm",
+  "đau khi nhai",
+  "đau vùng cơ nhai"
+ ],
+ "SDT003": [
+  "Răng khôn mọc ngầm",
+  "Răng khôn bị lợi trùm",
+  "răng khôn mọc vào trong",
+  "đau ở vị trí răng khôn"
+ ],
+ "SDT005": [
+  "Đau nướu răng",
+  "bệnh nha chu",
+  "sưng nướu răng",
+  "viêm nướu răng"
+ ],
+ "SEA001": [
+  "Mất thính lực ( suy giảm thính lực)",
+  "Không nghe thấy",
+  "nghe kém",
+  "phải bật tiếng to mới nghe thấy",
+  "suy giảm thính lực"
+ ],
+ "SEA002": [
+  "Ù tai",
+  "Trong tai có tiếng ù",
+  "tiếng vù vù trong tai",
+  "ù tai"
+ ],
+ "SEA003": [
+  "Chảy máu tai",
+  "Máu chảy từ tai",
+  "chảy máu tai"
+ ],
+ "SEA004": [
+  "Tai chảy mủ",
+  "Chảy dịch tai",
+  "chảy mủ tai",
+  "tai chảy mủ",
+  "tai ướt",
+  "thối tai"
+ ],
+ "SEA005": [
+  "Ngứa tai",
+  "Ngứa lỗ tai",
+  "ngứa tai",
+  "nhột tai"
+ ],
+ "SEA006": [
+  "Cảm giác đầy tai",
+  "Cảm giác tai bị bít",
+  "cảm giác đầy trong tai",
+  "tai bị nghẹt",
+  "tắc nghẽn tai",
+  "áp lực trong tai"
+ ],
+ "SEA007": [
+  "Đau tai",
+  "khó chịu ở tai",
+  "đau nhói trong tai",
+  "đau nhức trong tai",
+  "đau sau tai",
+  "đau vành tai"
+ ],
+ "SED001": [
+  "Bệnh to đầu chi(bệnh to cực)",
+  "Tay chân to",
+  "bàn chân to",
+  "bàn tay to",
+  "mặt to lên bất thường",
+  "ngón chân to",
+  "ngón tay to",
+  "xương mặt to"
+ ],
+ "SED002": [
+  "Lồi mắt",
+  "lồi hai mắt",
+  "mắt lồi",
+  "mắt nhô ra ngoài hốc mắt",
+  "nhãn cầu lồi ra"
+ ],
+ "SED003": [
+  "U vùng cổ",
+  "Khối u sờ thấy được trên cổ",
+  "khối sưng ở cổ",
+  "khối u ở giữa cổ",
+  "u tuyến giáp"
+ ],
+ "SED004": [
+  "Chịu lạnh kém",
+  "Kém chịu lạnh",
+  "chịu lạnh kém",
+  "dễ bị lạnh",
+  "không chịu được lạnh"
+ ],
+ "SED005": [
+  "Chịu nóng kém",
+  "Kém chịu nóng",
+  "chịu nóng kém",
+  "khó chịu vì nóng",
+  "nhạy cảm với nhiệt"
+ ],
+ "SED006": [
+  "Đổ mồ hôi lạnh",
+  "toát mồ hôi",
+  "Đổ nhiều mồ hôi",
+  "đổ mồ hôi lạnh"
+ ],
+ "SED007": [
+  "Uống nhiều nước (Tăng khát)",
+  "Cảm giác khát liên tục",
+  "cần uống nhiều nước",
+  "khát quá mức",
+  "khô cổ"
+ ],
+ "SED008": [
+  "Tiểu tiện nhiều (lượng tiểu tăng)",
+  "lượng tiểu nhiều",
+  "Đi tiểu nhiều lần"
+ ],
+ "SED009": [
+  "Đường huyết cao",
+  "Tiểu đường",
+  "lượng đường trong máu tăng",
+  "tăng đường huyết",
+  "đái tháo đường",
+  "đường huyết cao"
+ ],
+ "SGI001": [
+  "Phân có lẫn máu",
+  "chảy máu hậu môn",
+  "phân có máu",
+  "phân lẫn máu",
+  "phân màu đỏ",
+  "Đi ngoài ra máu"
+ ],
+ "SGI002": [
+  "Phân mỡ",
+  "Phân có váng mỡ",
+  "đại tiện phân mỡ"
+ ],
+ "SGI003": [
+  "Phân màu trắng xám",
+  "Phân màu trắng nhạt",
+  "phân màu xám"
+ ],
+ "SGI004": [
+  "Tiêu chảy",
+  "Phân lỏng",
+  "phân nước"
+ ],
+ "SGI005": [
+  "Táo bón",
+  "Phân khô cứng",
+  "phân không ra",
+  "đại tiện khó"
+ ],
+ "SGI006": [
+  "Đầy hơi chướng bụng",
+  "bụng to",
+  "chướng bụng đầy hơi",
+  "cảm giác căng tức bụng",
+  "cảm giác khó chịu",
+  "gas tích tụ",
+  "sôi bụng",
+  "xì hơi",
+  "Đầy bụng",
+  "đau bụng"
+ ],
+ "SGI007": [
+  "Khó tiêu",
+  "cảm giác khó chịu",
+  "khó chịu ở dạ dày",
+  "sôi bụng",
+  "Đầy hơi",
+  "đau bụng",
+  "đầy bụng"
+ ],
+ "SGI008": [
+  "Đau bụng",
+  "co thắt dạ dày",
+  "cảm giác khó chịu ở bụng",
+  "xoắn ruột",
+  "Đau tức bụng",
+  "đau bụng",
+  "đau bụng dưới",
+  "đau quặn bụng",
+  "đau vùng bụng"
+ ],
+ "SGI009": [
+  "Nôn ra máu",
+  "thổ huyết",
+  "ói ra máu"
+ ],
+ "SGI010": [
+  "Nôn mửa",
+  "nôn",
+  "nôn ói"
+ ],
+ "SGI011": [
+  "Buồn nôn",
+  "cảm giác như sắp nôn",
+  "cảm thấy buồn nôn",
+  "nôn nao"
+ ],
+ "SGI012": [
+  "Trào ngược dạ dày",
+  "Chứng trào axit dạ dày",
+  "nóng rát thực quản",
+  "thức ăn đưa lên",
+  "trào ngược dạ dày thực quản",
+  "ợ chua",
+  "ợ nóng"
+ ],
+ "SGI013": [
+  "Ợ nóng",
+  "cảm giác đau rát trong ruột",
+  "nóng rát ở họng và ngực",
+  "ợ nóng",
+  "ợ đắng"
+ ],
+ "SGY001": [
+  "Đau cơ quan sinh dục",
+  "viêm âm hộ",
+  "âm hộ",
+  "Đau rát âm hộ",
+  "đau bụng kinh",
+  "đau môi bé",
+  "đau môi lớn",
+  "đau quanh âm đạo",
+  "đau vùng đáy xương chậu"
+ ],
+ "SGY002": [
+  "Ngứa cơ quan sinh dục",
+  "Ngứa âm hộ",
+  "ngứa quanh môi bé",
+  "ngứa quanh môi lớn",
+  "ngứa râm ran vùng kín",
+  "ngứa vùng kín",
+  "ngứa âm đạo"
+ ],
+ "SGY003": [
+  "Chảy máu âm đạo",
+  "Máu báo rụng trứng",
+  "chảy máu ngoài chu kỳ kinh",
+  "chảy máu âm đạo bất thường",
+  "kinh nguyệt"
+ ],
+ "SGY004": [
+  "Dịch tiết âm đạo bất thường",
+  "Dịch tiết âm đạo có mùi hôi",
+  "dịch tiết âm đạo",
+  "dịch âm đạo tiết nhiều",
+  "khí hư có mùi",
+  "khí hư màu nâu",
+  "khí hư màu trắng",
+  "khí hư màu vàng",
+  "khí hư mùi hôi tanh",
+  "vùng kín có mùi lạ",
+  "âm đạo có mùi bất thường"
+ ],
+ "SGY005": [
+  "Đau khi giao hợp",
+  "quan hệ đau rát",
+  "Đau khi quan hệ tình dục",
+  "đau khi giao hợp",
+  "đau khi quan hệ",
+  "đau khi thâm nhập",
+  "đau âm đạo",
+  "đau âm đạo khi thâm nhập",
+  "đau âm đạo sau khi quan hệ"
+ ],
+ "SGY006": [
+  "Đau bụng kinh",
+  "thống kinh",
+  "Đau bụng khi kinh nguyệt"
+ ],
+ "SGY007": [
+  "Kinh nguyệt ra ít",
+  "Máu kinh ít",
+  "rối loạn kinh nguyệt",
+  "thiểu kinh",
+  "vô kinh"
+ ],
+ "SGY008": [
+  "Kinh nguyệt ra nhiều",
+  "Máu kinh ra nhiều",
+  "băng huyết",
+  "cường kinh",
+  "kinh nguyệt kéo dài",
+  "rong kinh"
+ ],
+ "SGY009": [
+  "Rối loạn kinh nguyệt",
+  "Chu kỳ kinh không đều",
+  "chậm kinh",
+  "không có kinh nguyệt",
+  "trễ kinh",
+  "vô kinh"
+ ],
+ "SGY010": [
+  "Khối u ở bộ phận sinh dục",
+  "Khối u ở âm hộ",
+  "khối u môi bé",
+  "khối u môi lớn",
+  "khối u ở bộ phận sinh dục",
+  "nổi cục xung quanh âm hộ",
+  "nổi hạch vùng kín",
+  "u nang âm hộ",
+  "u nang âm đạo"
+ ],
+ "SGI014": [
+  "Báng bụng/Cổ trướng",
+  "Bụng ứ nước",
+  "tràn dịch màng bụng",
+  "ứ đọng dịch trong ổ bụng"
+ ],
+ "SGI015": [
+  "Vàng da",
+  "Da vàng",
+  "da chuyển vàng",
+  "lòng trắng mắt vàng",
+  "vàng da"
+ ],
+ "SHO001": [
+  "Dễ bị bầm tím",
+  "Vết bầm tím",
+  "bầm tím không rõ nguyên nhân",
+  "hay bị bầm tím"
+ ],
+ "SHO002": [
+  "Khó cầm máu",
+  "chảy máu khó cầm",
+  "máu khó đông",
+  "rối loạn đông máu"
+ ],
+ "SLR001": [
+  "Thở khò khè",
+  "Khó thở",
+  "có tiếng huýt sáo khi thở ra và hít vào",
+  "thở khò khè",
+  "thở nặng nhọc",
+  "triệu chứng hen suyễn"
+ ],
+ "SLR002": [
+  "Khó thở",
+  "hụt hơi",
+  "khó khăn khi thở",
+  "thở khó"
+ ],
+ "SLR003": [
+  "Ho ra máu",
+  "Thổ huyết",
+  "khạc ra máu",
+  "đờm dính máu"
+ ],
+ "SLU001": [
+  "Tiết dịch niệu đạo",
+  "Bộ phận sinh dục tiết mủ",
+  "dịch mủ từ lỗ niệu",
+  "niệu đạo có mủ",
+  "đường tiết niệu có mủ"
+ ],
+ "SLU002": [
+  "Triệu chứng ở lỗ niệu đạo",
+  "khó chịu khi đi tiểu",
+  "ngứa niệu đạo",
+  "nóng rát ở ống tiểu",
+  "Đau khi đi tiểu",
+  "đau cơ quan sinh dục",
+  "đau lỗ quy đầu",
+  "đau nhói ở niệu đạo",
+  "đau rát lỗ niệu đạo"
+ ],
+ "SLU003": [
+  "Đau phía trên xương mu(phần giữa bụng dưới)",
+  "Đau hạ vị",
+  "đau bụng dưới",
+  "đau phía trên xương mu",
+  "đau phía tử cung",
+  "đau phần giữa bụng dưới",
+  "đau tức bàng quang",
+  "đau vùng xương chậu"
+ ],
+ "SLU004": [
+  "Đau khi đi tiểu",
+  "khó chịu khi đi tiểu",
+  "nóng rát khi đi tiểu",
+  "tiểu đau rát",
+  "Đi tiểu buốt",
+  "đau khi đi tiểu",
+  "đái buốt"
+ ],
+ "SLU005": [
+  "Tiểu chậm",
+  "bí tiểu",
+  "rặn mạnh mới ra tiểu",
+  "tiểu chậm",
+  "Đi tiểu khó"
+ ],
+ "SLU006": [
+  "Tiểu không tự chủ",
+  "Rò nước tiểu không kiểm soát",
+  "không nhịn tiểu được",
+  "tiểu són"
+ ],
+ "SLU007": [
+  "Tiểu dắt/tiểu rắt",
+  "Tiểu dắt",
+  "cảm giác còn sót nước tiểu",
+  "tiểu không hết",
+  "tiểu nhiều lần",
+  "tiểu rắt",
+  "đái rắt"
+ ],
+ "SLU008": [
+  "Tiểu đêm",
+  "tiểu nhiều lần vào ban đêm",
+  "tỉnh giấc nửa đêm đi tiểu"
+ ],
+ "SLU009": [
+  "Đi tiểu thường xuyên",
+  "Tiểu nhiều lần trong ngày",
+  "thường xuyên đi tiểu",
+  "tiểu nhiều",
+  "tỉnh giấc vì đi tiểu ban đêm",
+  "đi nhà vệ sinh thường xuyên",
+  "đi tiểu nhiều vào sáng sớm"
+ ],
+ "SLU010": [
+  "Tiểu gấp",
+  "Cơn buồn tiểu đột ngột",
+  "buồn tiểu không chịu được",
+  "không nhịn tiểu được",
+  "đi tiểu ngay lập tức"
+ ],
+ "SLY001": [
+  "Sờ thấy khối cứng ở bên cổ",
+  "Nổi hạch ở cổ",
+  "hạch lympho vùng cổ",
+  "khối u tại cổ",
+  "sưng và nổi u một bên cổ"
+ ],
+ "SMS002": [
+  "Đau ngón chân",
+  "sưng đau ngón chân",
+  "đau khớp ngón chân",
+  "đau ngón chân cái",
+  "đau ngón chân thứ ba",
+  "đau ngón chân thứ hai",
+  "đau ngón chân thứ tư",
+  "đau ngón chân út"
+ ],
+ "SMS003": [
+  "Đau bàn chân",
+  "đau gót chân",
+  "đau lòng bàn chân"
+ ],
+ "SMS004": [
+  "Đau mắt cá chân",
+  "bong gân mắt cá chân",
+  "sưng mắt cá chân",
+  "sưng đau mắt cá chân",
+  "Đau nhức vùng khớp cổ chân"
+ ],
+ "SMS005": [
+  "Đau bắp chân",
+  "bắp chân nhức mỏi",
+  "bắp chân nóng rát",
+  "nặng chân"
+ ],
+ "SMS006": [
+  "Đau đầu gối",
+  "nhức mỏi đầu gối",
+  "sưng đầu gối",
+  "Đau khớp gối",
+  "đau xương bánh chè",
+  "đầu gối nổi đỏ"
+ ],
+ "SMS007": [
+  "Đau đùi trên",
+  "Căng cơ đùi",
+  "đau cơ đùi"
+ ],
+ "SMS008": [
+  "Đau xương chậu (phía trước, hoặc bên cạnh)",
+  "Đau xương chậu",
+  "đau khớp háng",
+  "đau khớp hông",
+  "đau trước xương chậu",
+  "đau vùng chậu"
+ ],
+ "SMS009": [
+  "Đau mông",
+  "Đau xương cụt",
+  "đau mông",
+  "đau sau xương chậu",
+  "đau vùng chậu"
+ ],
+ "SMS010": [
+  "Đau thắt lưng",
+  "Đau lưng",
+  "đau nhức cột sống thắt lưng",
+  "đau thắt lưng",
+  "đau tê chạy gần cột sống",
+  "đau đĩa đệm thắt lưng"
+ ],
+ "SMS011": [
+  "Đau lưng",
+  "đau lưng giữa",
+  "đau lưng trên"
+ ],
+ "SMS012": [
+  "Đau ngón tay",
+  "viêm khớp ngón tay",
+  "đau khớp ngón tay",
+  "đau ngón cái",
+  "đau ngón giữa",
+  "đau ngón trỏ",
+  "đau ngón út",
+  "đau ngón đeo nhẫn"
+ ],
+ "SMS013": [
+  "Đau bàn tay",
+  "Tay",
+  "đau bàn tay",
+  "đau nhức tay"
+ ],
+ "SMS014": [
+  "Đau cổ tay",
+  "Cổ tay",
+  "trật khớp cổ tay",
+  "đau cổ tay",
+  "đau khớp cổ tay"
+ ],
+ "SMS015": [
+  "Đau khuỷu tay",
+  "Khuỷu tay tennis",
+  "đau khuỷu tay",
+  "đau khớp khuỷu tay",
+  "đau nhức khuỷu tay"
+ ],
+ "SMS016": [
+  "Đau cánh tay",
+  "Cánh tay trên",
+  "cánh tay dưới",
+  "căng cơ cánh tay",
+  "mỏi cánh tay",
+  "đau nhức cánh tay"
+ ],
+ "SMS017": [
+  "Đau vai",
+  "Đau cơ vai",
+  "đau bả vai",
+  "đau cứng vai",
+  "đau xương đòn"
+ ],
+ "SMS018": [
+  "Đau cổ gáy",
+  "cơ cổ cứng",
+  "cảm giác nặng cổ",
+  "thoát vị đĩa đệm cổ",
+  "Đau cơ cổ",
+  "đau cổ vai gáy",
+  "đau cứng cơ thang",
+  "đau cứng cổ",
+  "đau nhức mỏi cổ",
+  "đau vai"
+ ],
+ "SMS019": [
+  "Khối u ở cổ tay",
+  "sờ thấy cục cứng ở cổ tay"
+ ],
+ "SOP001": [
+  "Quặm mi",
+  "Lông mi chọc mắt",
+  "lông mi chọc vào mắt",
+  "lông mi mọc ngược",
+  "quặm mi"
+ ],
+ "SOP002": [
+  "Sưng mí mắt",
+  "Sưng mắt",
+  "khuôn mặt",
+  "lẹo mắt",
+  "phù mí mắt",
+  "phù nề mắt",
+  "sưng mí mắt",
+  "sưng quanh mắt",
+  "sưng tấy mí mắt",
+  "sưng đỏ xung quanh mí mắt"
+ ],
+ "SOP004": [
+  "Sụp mí mắt",
+  "mi mắt sa xuống",
+  "sụp mi",
+  "xệ mí mắt"
+ ],
+ "SOP007": [
+  "Nhìn thấy chấm đen lơ lửng trước mắt",
+  "Ruồi bay trước mắt",
+  "chấm đen di động trong mắt",
+  "vệt xám trôi lơ lửng qua lại"
+ ],
+ "SOP008": [
+  "Chứng nhìn đôi",
+  "Nhìn một thành hai",
+  "nhìn đôi",
+  "song thị"
+ ],
+ "SOP009": [
+  "Lác mắt",
+  "Mắt lé",
+  "hai mắt không cân",
+  "lác dưới",
+  "lác mắt",
+  "lác ngoài",
+  "lác trong",
+  "lác trên",
+  "lé mắt"
+ ],
+ "SOP010": [
+  "Rối loạn tầm nhìn",
+  "Tầm nhìn hẹp",
+  "chỉ nhìn thấy một nửa",
+  "có chấm đen ở trung tâm",
+  "không nhìn rõ phần bên ngoài",
+  "nhìn thấy vật thể bị méo mó",
+  "tầm nhìn đường hầm"
+ ],
+ "SOP011": [
+  "Chứng quáng gà(không nhìn rõ vào ban đêm)",
+  "Quáng gà",
+  "không nhìn rõ vào ban đêm",
+  "mù đêm"
+ ],
+ "SOP012": [
+  "Suy giảm thị lực",
+  "Cận thị",
+  "các vật thể bị chồng chéo lên nhau",
+  "không nhìn rõ",
+  "không thể nhìn gần",
+  "không thể nhìn xa",
+  "khả năng nhìn kém",
+  "loạn thị",
+  "lão thị",
+  "mờ mắt",
+  "nhược thị",
+  "rối loạn tầm nhìn",
+  "viễn thị"
+ ],
+ "SOP013": [
+  "Mắt nhạy cảm với ánh sáng",
+  "Sợ nhìn sáng",
+  "chói mắt vì ánh sáng",
+  "khó chịu khi nhìn ánh sáng",
+  "mắt nhức mỏi sợ ánh sáng",
+  "mắt sợ ánh sáng"
+ ],
+ "SOP014": [
+  "Nhòe sáng",
+  "Nhòe sáng vào ban đêm"
+ ],
+ "SOP015": [
+  "Nhìn mờ",
+  "Mắt mờ",
+  "không nhìn rõ",
+  "nhìn mờ",
+  "nhìn thấy các vật thể bị mất nét và mờ ảo",
+  "thị lực kém",
+  "tầm nhìn mờ như có màn sương chắn trước mắt"
+ ],
+ "SOP016": [
+  "Khô mắt",
+  "không có nước mắt",
+  "mắt khô rát",
+  "mắt đau rát"
+ ],
+ "SOP017": [
+  "Chảy nhiều nước mắt",
+  "Nước mắt chảy nhiều",
+  "chảy nước mắt liên tục"
+ ],
+ "SOP018": [
+  "Gỉ/ghèn mắt nhiều",
+  "Gỉ mắt nhiều",
+  "mắt đổ ghèn nhiều"
+ ],
+ "SOP019": [
+  "Cảm giác có dị vật trong mắt",
+  "Cảm giác mắt có dị vật",
+  "cảm giác trong mắt có cái gì đó",
+  "cộm mắt",
+  "dị vật",
+  "khói chịu khi chớp mắt",
+  "đau nhói trong mắt"
+ ],
+ "SOP020": [
+  "Đau mắt",
+  "nhức mắt",
+  "tăng áp lực nội nhãn",
+  "đau bên trong mắt",
+  "đau giác mạc",
+  "đau hốc mắt",
+  "đau nhức mắt",
+  "đau rát giác mạc",
+  "đau vùng quanh mắt"
+ ],
+ "SOP021": [
+  "Ngứa mắt",
+  "Hay dụi mắt",
+  "cần gãi mắt",
+  "dị ứng",
+  "ngứa mí mắt",
+  "ngứa mắt"
+ ],
+ "SOP022": [
+  "Xung huyết mắt",
+  "lòng trắng mắt đỏ",
+  "mắt đỏ",
+  "xung huyết mắt",
+  "Đỏ mắt"
+ ],
+ "SOP024": [
+  "Xuất huyết mắt",
+  "chảy máu ở lòng trắng mắt",
+  "vỡ mạch máu trong mắt",
+  "xuất huyết dưới kết mạc",
+  "Đỏ mắt"
+ ],
+ "SOR002": [
+  "Đau gò má, khuôn mặt, đau gò má(phía trước tai), sưng đau phía trước tai",
+  "khuôn mặt",
+  "Đau má",
+  "đau gò má(phía trước tai)",
+  "đau nhức gò má"
+ ],
+ "SOR003": [
+  "Khô miệng",
+  "giảm nước bọt",
+  "miệng khô"
+ ],
+ "SOR004": [
+  "Sưng má(phía trước tai)",
+  "Sưng đau má",
+  "sưng hàm",
+  "sưng đau trước tai"
+ ],
+ "SOR005": [
+  "Tưa miệng",
+  "Tưa lưỡi",
+  "dải màu trắng ở lưỡi",
+  "nấm lưỡi"
+ ],
+ "SOR007": [
+  "Sưng môi",
+  "môi bị sưng",
+  "môi sưng tấy",
+  "sưng cả hai môi",
+  "sưng môi dưới",
+  "sưng môi trên"
+ ],
+ "SOR008": [
+  "Loét miệng",
+  "nhiệt miệng"
+ ],
+ "SPN001": [
+  "Liệt mặt",
+  "Liệt khuôn mặt",
+  "cơ mặt chảy xệ",
+  "không thể cử động một bên mặt",
+  "liệt một bên mặt",
+  "mất cân đối khuôn mặt"
+ ],
+ "SPN002": [
+  "Đau vùng mặt",
+  "Đau một nửa mặt",
+  "đau dọc bên mũi",
+  "đau hàm.",
+  "đau nhói ở mặt",
+  "đau nhức vùng sọ mặt",
+  "đau nửa mặt như điện giật",
+  "đau quanh má",
+  "đau toàn bộ khuôn mặt",
+  "đau xương gò má"
+ ],
+ "SPN004": [
+  "Đau cách hồi ở chân(đau chân khi đi bộ)",
+  "chuột rút ở chân",
+  "chân đi khập khiễng",
+  "Đau từng cơn ở chân",
+  "đau chân",
+  "đau chân khi đi bộ",
+  "đau mỏi chân"
+ ],
+ "SPY005": [
+  "Ảo tưởng",
+  "hoang tưởng",
+  "niềm tin vô căn cứ"
+ ],
+ "SPY006": [
+  "Buồn ngủ quá mức",
+  "Ngủ nhiều",
+  "buồn ngủ nhiều",
+  "buồn ngủ vào ban ngày",
+  "chứng ngủ nhiều",
+  "không thể tỉnh táo",
+  "luôn buồn ngủ",
+  "ngủ vào ban ngày"
+ ],
+ "SPY007": [
+  "Mất ngủ",
+  "khó ngủ",
+  "không ngủ được",
+  "mệt mỏi vào buổi sáng",
+  "thiếu ngủ",
+  "thức dậy thường xuyên vào ban đêm",
+  "trằn trọc"
+ ],
+ "SPY009": [
+  "Cảm giác lo lắng bất an",
+  "Lo lắng",
+  "bất an",
+  "bồn chồn",
+  "cảm giác hoảng loạn",
+  "không thể bình tĩnh",
+  "lo sợ"
+ ],
+ "SPY010": [
+  "Từ chối ăn",
+  "Chán ăn",
+  "bỏ ăn",
+  "chối ăn",
+  "không muốn ăn uống",
+  "nhịn đói",
+  "thiếu cân trầm trọng"
+ ],
+ "SPY011": [
+  "Ăn quá nhiều",
+  "nôn sau khi ăn quá nhiều",
+  "Ăn nhiều",
+  "ăn không ngừng",
+  "ăn không thể kiểm soát được",
+  "ăn liên tục",
+  "ăn nhiều bất thường"
+ ],
+ "SPY014": [
+  "Trầm cảm",
+  "Tâm trạng chán nản",
+  "buồn bã thường xuyên",
+  "buồn sâu sắc",
+  "có ý nghĩ tự tử",
+  "mất hứng thú",
+  "tuyệt vọng kéo dài",
+  "tâm trạng tồi tệ"
+ ],
+ "SPY015": [
+  "Tăng không khí",
+  "Tăng hô hấp",
+  "bất an",
+  "khó thở ở nơi đông người",
+  "thở nhanh",
+  "thở quá mức"
+ ],
+ "SRM004": [
+  "Tay chân trắng bệch",
+  "Tay trở nên trắng khi lạnh",
+  "bàn tay xanh xao",
+  "màu sắc ngón tay thay đổi",
+  "ngón tay chuyển màu trắng"
+ ],
+ "SSX001": [
+  "Đau khi xuất tinh,",
+  "Xuất tinh bị đau",
+  "đau khi đạt cực khoái",
+  "đau nhức khi xuất tinh",
+  "đau vùng tầng sinh môn",
+  "đau vùng đáy chậu"
+ ],
+ "SSX002": [
+  "Tinh dịch có lẫn máu",
+  "Xuất tinh ra máu",
+  "tinh dịch có màu hơi nâu",
+  "tinh dịch có màu hồng",
+  "tinh dịch có màu đỏ",
+  "tinh dịch lẫn máu"
+ ],
+ "SSX003": [
+  "Đau bìu(tinh hoàn)",
+  "bìu sưng to",
+  "Đau tinh hoàn",
+  "đau bộ phận sinh dục",
+  "đau một bên tinh hoàn"
+ ],
+ "SSX004": [
+  "Sưng bìu(tinh hoàn)",
+  "Tinh hoàn bị phù",
+  "sưng bìu",
+  "sưng tinh hoàn",
+  "tinh hoàn đột ngột phình to"
+ ],
+ "SSX005": [
+  "Rối loạn cương dương",
+  "Dương vật không đủ cương cứng",
+  "bất lực vì không thể cương cứng",
+  "cảm giác cương cứng yếu",
+  "rối loạn cương dương"
+ ],
+ "SSX007": [
+  "Đau bộ phận sinh dục",
+  "dương vật",
+  "đau bao quy đầu",
+  "đau dương vật",
+  "đau quy đầu"
+ ],
+ "SSX009": [
+  "Ngứa bộ phận sinh dục",
+  "ngứa vùng kín",
+  "ngứa vùng đáy chậu",
+  "ngứa âm hộ",
+  "ngứa âm đạo"
+ ],
+ "SDM027": [
+  "Viêm loét bộ phận sinh dục",
+  "Viêm loét ở dương vật",
+  "loét bộ phận sinh dục nam",
+  "loét bộ phận sinh dục nữ",
+  "loét vùng kín",
+  "quy đầu",
+  "viêm loét tinh hoàn"
+ ],
+ "SUR001": [
+  "Rối loạn giọng nói",
+  "Giọng nói thay đổi",
+  "khó tạo ra âm thanh",
+  "mất giọng",
+  "vấn đề về giọng nói"
+ ],
+ "SUR002": [
+  "Khàn giọng",
+  "Khản tiếng",
+  "giọng khàn khàn",
+  "khàn tiếng",
+  "âm thanh rè"
+ ],
+ "SUR004": [
+  "Triệu chứng ở họng",
+  "Sưng họng",
+  "cảm giác có dị vật trong họng",
+  "họng đau",
+  "ngứa họng",
+  "nóng rát ở cổ họng",
+  "rát họng",
+  "sưng amidan",
+  "triệu chứng cảm cúm",
+  "viêm họng",
+  "đau họng",
+  "đau khi nuốt",
+  "đau thanh quản"
+ ],
+ "SUR005": [
+  "Hắt hơi",
+  "Hắt xì hơi",
+  "dị ứng",
+  "ho",
+  "hắt hơi liên tục",
+  "triệu chứng cảm cúm"
+ ],
+ "SUR006": [
+  "Ngẹt mũi",
+  "Viêm mũi",
+  "khó thở bằng mũi",
+  "mũi ngạt",
+  "tắc mũi"
+ ],
+ "SUR007": [
+  "Nước mũi",
+  "Viêm mũi",
+  "chảy nước mũi liên tục",
+  "dị ứng",
+  "nước mũi",
+  "sổ mũi",
+  "viêm mũi dị ứng"
+ ],
+ "SUR008": [
+  "Dị vật trong họng",
+  "Hóc dị vật ở cổ họng",
+  "có vật gì vướng ở cổ họng",
+  "cảm giác có dị vật ở cổ",
+  "nghẹn họng",
+  "tắc họng"
+ ],
+ "SUR009": [
+  "Đờm",
+  "chất nhầy từ cổ họng",
+  "Đờm vàng",
+  "đờm có máu",
+  "đờm trắng"
+ ],
+ "SUR010": [
+  "Ho",
+  "triệu chứng cảm cúm"
+ ],
+ "SUR011": [
+  "Chảy máu cam(không chấn thương)",
+  "Máu mũi",
+  "chảy máu cam thường xuyên",
+  "chảy máu mũi",
+  "chảy máu mũi không ngừng"
+ ],
+ "SUR012": [
+  "Ngáy",
+  "Ngáy to khi ngủ",
+  "mất ngủ",
+  "mệt mỏi"
+ ],
+ "SUU001": [
+  "Nước tiểu đỏ",
+  "nước tiểu có màu đỏ",
+  "nước tiểu có máu",
+  "tiểu máu",
+  "Đái máu",
+  "đi tiểu ra máu"
+ ],
+ "SUU002": [
+  "Đau sườn",
+  "Đau sườn phải",
+  "đau mạn sườn",
+  "đau vùng gần thắt lưng"
+ ],
+ "SUU003": [
+  "Đi tiểu ít (lượng tiểu giảm)",
+  "Thiểu niệu",
+  "lượng tiểu ít",
+  "tiểu ít",
+  "ít nước tiểu"
+ ],
+ "SUU004": [
+  "Nước tiểu màu nâu",
+  "Nước tiểu có màu nâu",
+  "nước tiểu sẫm màu"
+ ],
+ "SVN001": [
+  "Giãn tĩnh mạch chân",
+  "Giãn tĩnh mạch",
+  "suy giãn tĩnh mạch chi dưới",
+  "suy giãn tĩnh mạch chi trên",
+  "tĩnh mạch nổi rõ ở chân",
+  "tĩnh mạch phồng lên",
+  "tĩnh mạch sưng lên"
+ ],
+ "SWH001": [
+  "Đau đầu",
+  "nặng đầu",
+  "đau một bên đầu",
+  "đau nửa đầu",
+  "đau vùng thái dương"
+ ],
+ "SWH002": [
+  "Suy nhược",
+  "chân tay không còn sức lực",
+  "cơ thể không còn sức lực",
+  "không còn năng lượng",
+  "mất sức lực",
+  "suy nhược",
+  "thể trạng kém",
+  "Ốm yếu"
+ ],
+ "SWH003": [
+  "Cảm hàn",
+  "cảm lạnh",
+  "rét run",
+  "sốt lúc nóng lúc lạnh",
+  "Ớn lạnh"
+ ],
+ "SWH004": [
+  "Mệt mỏi mãn tính",
+  "Dễ mệt",
+  "cảm thấy kiệt sức",
+  "không muốn làm gì",
+  "mất sức lực"
+ ],
+ "SWH005": [
+  "Sốt (cảm giác nóng toàn thân)",
+  "Sốt",
+  "cơ thể nóng",
+  "nóng toàn thân",
+  "đau nhức toàn thân"
+ ],
+ "SWH006": [
+  "Mất sức lực",
+  "Không muốn làm gì",
+  "không có sức lực",
+  "luôn mệt mỏi",
+  "uể oải"
+ ],
+ "SWH007": [
+  "Đau cơ toàn thân",
+  "Đau nhức toàn thân",
+  "đau cơ toàn thân",
+  "đau người ê ẩm"
+ ],
+ "SWH008": [
+  "Chóng mặt",
+  "Hoa mắt",
+  "cảm giác choáng váng",
+  "khó đứng vững",
+  "mất thăng bằng",
+  "mắt tối sầm",
+  "đầu quay cuồng"
+ ],
+ "SWH011": [
+  "Giảm cân",
+  "Cân nặng giảm",
+  "giảm cân",
+  "gầy đi"
+ ],
+ "SWH012": [
+  "Giảm cảm giác thèm ăn",
+  "Chán ăn",
+  "không muốn ăn",
+  "không đói",
+  "ăn không ngon"
+ ],
+ "SWH013": [
+  "Rối loạn ý thức",
+  "Mất nhận thức",
+  "bất tỉnh",
+  "không phản ứng khi được gọi",
+  "mất ý thức"
+ ],
+ "SWH014": [
+  "Phù chân (chi dưới)",
+  "Phù chân",
+  "phù chi dưới",
+  "sưng phù cả hai chân",
+  "sưng phù một bên chân"
+ ],
+ "SGI016": [
+  "Khối u ở bụng",
+  "U ở bụng",
+  "cục cứng ở bụng sờ được",
+  "khối u cứng ở bụng"
+ ],
+ "SPN006": [
+  "Tê cánh tay(chi trên)",
+  "tê tay",
+  "đau cánh tay",
+  "đau tay"
+ ],
+ "SPN007": [
+  "Tê chân (chi dưới)",
+  "đau chân"
+ ],
+ "SPN008": [
+  "Nhược cơ chi trên",
+  "cơ cánh tay yếu",
+  "lực bàn tay yếu",
+  "mất sức ở cánh tay",
+  "tay không cử động được",
+  "yếu cơ ở cánh tay"
+ ],
+ "SPN009": [
+  "Nhược cơ chân (chi dưới)",
+  "Nhược cơ chi dưới",
+  "chân không cử động được",
+  "cơ mắt cá chân yếu",
+  "khó nâng đùi lên",
+  "lực ở chân yếu",
+  "yếu cơ bàn chân",
+  "yếu cơ chân"
+ ],
+ "SLU011": [
+  "Dòng tiểu yếu",
+  "Tia tiểu yếu",
+  "dòng tiểu yếu"
+ ],
+ "SMS021": [
+  "Tê bàn tay",
+  "Tê bì tay",
+  "cảm giác kim châm ở tay",
+  "giảm cảm giác ở bàn tay",
+  "ngứa ran lòng bàn tay",
+  "ngứa ran đến các ngón tay",
+  "tê các ngón tay",
+  "tê đau các đầu ngón tay"
+ ],
+ "SMS022": [
+  "Yếu cơ bàn tay",
+  "Bàn tay không có sức",
+  "bàn tay yếu đi",
+  "lực nắm bàn tay yếu đi",
+  "lực ở các ngón tay yếu đi"
+ ],
+ "SMS023": [
+  "Tê bàn chân",
+  "Tê bì bàn chân",
+  "cảm giác kim chân ở bàn chân",
+  "ngứa ran các ngón chân",
+  "tê bì lòng bàn chân"
+ ],
+ "SOR009": [
+  "Đau vùng dưới cằm"
+ ],
+ "SOR010": [
+  "Sưng vùng dưới cằm"
+ ],
+ "SAT001": [
+  "Chứng xanh tím đầu chi",
+  "Chân xanh tím",
+  "chân tay nhợt nhạt",
+  "ngón tay ngón chân tái nhợt",
+  "tay xanh tím",
+  "tím tái ở tứ chi"
+ ],
+ "SPY008": [
+  "Cảm giác sợ hãi",
+  "Sợ hãi",
+  "hoảng loạn",
+  "hoảng sợ",
+  "kinh hoàng",
+  "nỗi ám ảnh",
+  "sợ sệt"
+ ],
+ "SDM007": [
+  "Tổn thương da toàn thân",
+  "Phát ban",
+  "bọng nước",
+  "chàm",
+  "da mẩn đỏ",
+  "loét",
+  "mảng đỏ",
+  "mụn mủ",
+  "mụn nước",
+  "ngứa da",
+  "nổi mề đay",
+  "nứt nẻ",
+  "phát ban toàn thân",
+  "sẩn phù",
+  "sẩn đỏ",
+  "sẹo",
+  "u nang",
+  "vảy",
+  "áp xe"
+ ],
+ "SDM008": [
+  "Tổn thương da vùng đầu",
+  "Ngứa da đầu",
+  "chốc lở",
+  "da đỏ",
+  "dị ứng da đầu",
+  "gàu",
+  "loét",
+  "mụn mủ",
+  "mụn nước",
+  "ngứa",
+  "nấm da đầu",
+  "tróc vảy",
+  "viêm chân tóc",
+  "viêm da dầu",
+  "viêm nang tóc",
+  "vảy nến da đầu",
+  "á sừng"
+ ],
+ "SDM009": [
+  "Tổn thương da vùng niêm mạc miệng",
+  "Loét miệng",
+  "ban đỏ",
+  "bọng nước",
+  "chốc mép",
+  "các mảng trắng trong miệng",
+  "loét",
+  "mụn mủ",
+  "mụn nước",
+  "nốt sẩn đỏ trong miệng",
+  "nổi phồng"
+ ],
+ "SDM011": [
+  "Tổn thương da vùng mũi",
+  "Viêm da tiết bã",
+  "bọng nước",
+  "da quanh mũi bong tróc",
+  "hồng ban",
+  "mụn mủ",
+  "mụn nhọt",
+  "mụn nước",
+  "mụn trứng cá",
+  "ngứa da",
+  "ngứa đỏ cánh mũi",
+  "nổi mề đay",
+  "viêm da dị ứng",
+  "vảy nến",
+  "vết loét",
+  "vết phồng rộp"
+ ],
+ "SDM012": [
+  "Tổn thương da vùng tai",
+  "Chàm tai",
+  "bọng nước",
+  "mụn mủ",
+  "mụn nhọt",
+  "mụn nước",
+  "ngứa da vùng tai",
+  "nổi mề đay",
+  "nổi sẩn",
+  "phát ban",
+  "tổn thương da quanh tai",
+  "tổn thương da sau vành tai",
+  "vảy nến ở tai",
+  "vết phồng rộp",
+  "đỏ da vùng tai"
+ ],
+ "SDM013": [
+  "Tổn thương da vùng môi",
+  "Viêm môi",
+  "bọng nước",
+  "chàm môi",
+  "chốc mép",
+  "khô môi nứt nẻ",
+  "môi bong tróc",
+  "mẩn đỏ",
+  "mụn nước",
+  "mụn rộp ở môi",
+  "ngứa môi",
+  "phồng rộp trên môi",
+  "viêm da cơ địa ở môi",
+  "zona ở môi"
+ ],
+ "SDM014": [
+  "Tổn thương da vùng mặt",
+  "Phát ban",
+  "ban đỏ",
+  "bọng nước",
+  "chàm",
+  "dị ứng mỹ phẩm",
+  "mẩn ngứa",
+  "mẩn đỏ",
+  "mụn",
+  "mụn mủ",
+  "mụn nước",
+  "mụn trứng cá",
+  "mụn đầu đen",
+  "ngứa da mặt",
+  "sẩn phù",
+  "tổn thương da mặt",
+  "viêm da cơ địa"
+ ],
+ "SDM015": [
+  "Tổn thương da vùng cổ",
+  "Mẩn ngứa ở cổ",
+  "bọng nước",
+  "da bong tróc",
+  "mẩn đỏ",
+  "mụn mủ",
+  "mụn nước",
+  "ngứa",
+  "ngứa da",
+  "nấm da ở cổ",
+  "phát ban vùng cổ",
+  "tổn thương da xung quanh vùng cổ",
+  "viêm da dị ứng ở cổ",
+  "vẩy nến",
+  "zona ở cổ"
+ ],
+ "SDM016": [
+  "Tổn thương da vùng cánh tay",
+  "Vẩy nến cánh tay",
+  "ban đỏ",
+  "bọng nước",
+  "chàm",
+  "mẩn đỏ ở cánh tay",
+  "mụn nước",
+  "ngứa",
+  "phát ban",
+  "sưng đỏ",
+  "sẩn phù ở cánh tay"
+ ],
+ "SDM017": [
+  "Tổn thương da vùng bàn tay",
+  "Viêm da bàn tay",
+  "bọng nước",
+  "loét",
+  "mụn nước",
+  "mụn sần",
+  "ngứa",
+  "nổi mẩn đỏ",
+  "nổi mề đay",
+  "nứt nẻ",
+  "sưng tấy",
+  "tróc vảy",
+  "viêm da cơ địa",
+  "vảy nến"
+ ],
+ "SDM018": [
+  "Tổn thương da vùng ngực",
+  "Viêm nang lông",
+  "bọng nước",
+  "mụn mủ",
+  "mụn nhọt",
+  "mụn nước",
+  "mụn rộp",
+  "ngứa da",
+  "nổi mẩn đỏ ở ngực",
+  "nứt da",
+  "phát ban",
+  "tổn thương da hình đồng xu",
+  "viêm da dị ứng",
+  "vết loét",
+  "đốm đỏ"
+ ],
+ "SDM019": [
+  "Tổn thương da vùng bụng",
+  "Nổi mẩn đỏ ở bụng",
+  "chàm",
+  "dị ứng da",
+  "loét",
+  "mụn mủ",
+  "mụn nước",
+  "mụn rộp",
+  "nổi mề đay",
+  "phát ban",
+  "tổn thương da hình đồng xu",
+  "viêm da cơ địa",
+  "vùng da bụng ngứa",
+  "vảy nến"
+ ],
+ "SDM020": [
+  "Tổn thương da vùng lưng",
+  "Mụn lưng",
+  "bọng nước",
+  "loét da",
+  "mẩn đỏ",
+  "mụn mủ",
+  "mụn nước",
+  "mụn rộp",
+  "ngứa da",
+  "nấm da ở lưng",
+  "phát ban",
+  "sẩn phù",
+  "viêm da vùng lưng",
+  "viêm nang lông lưng",
+  "zona thần kinh ở lưng"
+ ],
+ "SDM021": [
+  "Tổn thương da vùng hông",
+  "Mụn nước",
+  "bong tróc",
+  "bọng nước",
+  "hăm tã",
+  "loét",
+  "mẩn đỏ",
+  "mụn nước",
+  "mụn rộp",
+  "ngứa",
+  "phát ban",
+  "sẩn phù",
+  "tổn thương da vùng bẹn",
+  "vùng háng",
+  "vẩy nến",
+  "zona thần kinh",
+  "đốm đỏ"
+ ],
+ "SSX011": [
+  "Tổn thương da cơ quan sinh dục",
+  "Phát ban ở bộ phận sinh dục",
+  "ban đỏ",
+  "bệnh zona",
+  "bọng nước",
+  "dương vật",
+  "háng",
+  "loét",
+  "mụn nước",
+  "mụn nước ở vùng sinh dục",
+  "ngứa da",
+  "ngứa da ở bộ phận sinh dục",
+  "nổi mề đay",
+  "phát ban",
+  "thay đổi da ở bộ phận sinh dục",
+  "tổn thương da",
+  "u nang",
+  "áp xe",
+  "đáy chậu",
+  "đỏ da",
+  "đốm đỏ ở vùng sinh dục"
+ ],
+ "SDM023": [
+  "Tổn thương da vùng mông",
+  "Viêm da cơ địa ở mông",
+  "bọng nước",
+  "hắc lào",
+  "loét da",
+  "mẩn đỏ",
+  "mụn nước",
+  "mụn rộp",
+  "nấm vùng bẹn",
+  "nổi mề đay ở mông",
+  "nổi mụn",
+  "tổn thương da vùng mông",
+  "tổn thương da vùng xương cụt",
+  "viêm nang lông ở mông",
+  "đốm đen"
+ ],
+ "SDM024": [
+  "Tổn thương da vùng chân",
+  "Mẩn đỏ",
+  "bệnh zona",
+  "bọng nước",
+  "chàm",
+  "khô da",
+  "lở loét",
+  "mụn nước",
+  "ngứa da",
+  "nứt nẻ",
+  "phát ban",
+  "sẩn phù",
+  "tổn thương da vùng khoeo chân",
+  "viêm da cơ địa vùng chân",
+  "đốm đỏ"
+ ],
+ "SDM025": [
+  "Tổn thương da vùng bàn chân",
+  "Tổ đỉa ngón chân",
+  "bong tróc",
+  "bọng nước",
+  "chàm",
+  "loét",
+  "mẩn đỏ",
+  "mề đay",
+  "mụn cóc",
+  "mụn nước",
+  "mụn rộp",
+  "nấm bàn chân",
+  "phồng rộp",
+  "sẩn ngứa",
+  "vết chai ở bàn chân",
+  "á sừng"
+ ],
+ "SGY011": [
+  "Tổn thương da cơ quan sinh dục",
+  "Ngứa",
+  "ban đỏ",
+  "bọng nước",
+  "loét",
+  "mẩn đỏ",
+  "mụn cóc",
+  "mụn nước",
+  "mụn rộp",
+  "ngứa da",
+  "phát ban",
+  "tổn thương da ở môi bé",
+  "tổn thương da ở môi lớn",
+  "tổn thương da ở âm hộ",
+  "tổn thương da ở âm đạo",
+  "u nang",
+  "áp xe"
+ ],
+ "SDM028": [
+  "Đau xung quanh xương sườn",
+  "Đau ngực",
+  "đau lưng",
+  "đau mạn sườn",
+  "đau thành ngực",
+  "đau tức ngực",
+  "đau vùng xương sườn",
+  "đau xương sườn"
+ ],
+ "SDM029": [
+  "Tổn thương da vùng nách",
+  "Ngứa",
+  "ban đỏ",
+  "da khô",
+  "loét",
+  "mụn",
+  "mụn nước",
+  "mụn rộp",
+  "mủ",
+  "nổi mụn",
+  "phát ban",
+  "thâm đen",
+  "viêm da",
+  "viêm nang lông",
+  "vết nứt",
+  "áp xe",
+  "đóng vảy"
+ ],
+ "SMS024": [
+  "Tổn thương da vùng sườn",
+  "bong vảy",
+  "bệnh zona",
+  "bọng nước",
+  "mảng dát màu hồng đỏ",
+  "mẩn ngứa",
+  "mẩn đỏ",
+  "mề đay",
+  "mụn nước",
+  "ngứa da",
+  "phát ban",
+  "sẩn phù",
+  "sẹo",
+  "viêm da dị ứng",
+  "Đau rát da",
+  "đỏ da"
+ ],
+ "SDT006": [
+  "Sưng lợi",
+  "Lợi sưng tấy",
+  "lợi sưng",
+  "sưng lợi",
+  "viêm nướu"
+ ],
+ "SDT007": [
+  "Chảy máu lợi",
+  "Chảy máu chân răng",
+  "chảy máu khi đánh răng",
+  "chảy máu nướu răng"
+ ],
+ "SDT008": [
+  "Lợi sưng đỏ",
+  "Sưng đỏ lợi",
+  "nướu đỏ"
+ ],
+ "SPN010": [
+  "Cảm giác bất thường khó chịu ở chân",
+  "Cảm giác kiến bò trong chân",
+  "chân bồn chồn không yên",
+  "cảm giác ngứa râm ran trong chân"
+ ],
+ "SBR004": [
+  "Núm vú ẩn",
+  "Hình dạng núm vú bất thường",
+  "núm vú bị lún vào bên trong",
+  "núm vú bị thụt vào trong"
+ ],
+ "SLU012": [
+  "Nước tiểu đục",
+  "Nước tiểu có màu nâu",
+  "nước tiểu đục"
+ ],
+ "SPY016": [
+  "Những suy nghĩ lặp lại dù không muốn",
+  "Suy nghĩ ám ảnh",
+  "bất an",
+  "hành vi cưỡng chế"
+ ],
+ "SPY017": [
+  "Những hành động lặp đi lặp lại phải được thực hiện",
+  "Rối loạn ám ảnh cưỡng chế",
+  "hành vi cưỡng chế",
+  "lo lắng",
+  "suy nghĩ ám ảnh"
+ ],
+ "SPY018": [
+  "Triệu chứng lo lắng quá mức về sức khỏe",
+  "Lo lắng quá mức về sức khỏe",
+  "cảm giác lo lắng",
+  "cảm giác lo lắng vì luôn cảm thấy mình sẽ mắc một căn bệnh nguy hiểm",
+  "cảm giác như mình mắc một căn bệnh nguy hiểm",
+  "cảm giác như mình sẽ luôn ốm yếu",
+  "lo lắng quá mức về việc mình sẽ mắc bệnh"
+ ],
+ "SOP025": [
+  "Khó phân biệt màu sắc",
+  "không phân biệt được màu xanh lá cây và màu đỏ",
+  "không thể phân biệt được màu xanh lam và màu vàng"
+ ],
+ "SPY019": [
+  "Giảm khả năng tập trung",
+  "hay quên",
+  "khó tập trung vào một việc",
+  "mất tập trung",
+  "thiếu tập trung"
+ ],
+ "SGI017": [
+  "Phân màu đen",
+  "phân có màu đen",
+  "Đại tiện phân đen",
+  "đi ngoài phân đen"
+ ],
+ "SDM030": [
+  "Móng tay bất thường",
+  "Móng tay mọc ngược",
+  "hình dạng móng tay thay đổi",
+  "móng tay quặp vào trong"
+ ],
+ "SDM031": [
+  "Móng chân bất thường",
+  "Móng chân mọc ngược",
+  "hình dạng móng chân bất thường",
+  "móng chân quặp vào trong"
+ ],
+ "SCN012": [
+  "Động kinh toàn thể",
+  "Co giật toàn thân",
+  "co cứng toàn thân",
+  "co giật",
+  "dễ bị ngã đột ngột",
+  "giật cơ đột ngột",
+  "động kinh"
+ ],
+ "SCN013": [
+  "Tình trạng không phản ứng tạm thời (nhìn chằm chằm một cách thẫn thờ)",
+  "Cơn động kinh vắng ý thức",
+  "không phản ứng",
+  "không phản ứng khi được gọi",
+  "mất nhận thức tạm thời",
+  "nhìn chằm chằm vào một khoảng không",
+  "nhìn vô định"
+ ],
+ "SCN014": [
+  "Không phản hồi tạm thời (cúi đầu xuống)",
+  "Cơn động kinh vắng ý thức",
+  "không phản ứng",
+  "không phản ứng khi được gọi",
+  "phục hồi sau khi đột ngột cúi đầu"
+ ],
+ "SDM032": [
+  "Bỏng da",
+  "bỏng"
+ ],
+ "SSX010": [
+  "Giảm ham muốn tình dục",
+  "Suy giảm ham muốn tình dục",
+  "không bao giờ hoặc hiếm khi suy nghĩ đến quan hệ tình dục",
+  "không nghĩ đến hay ham muốn về chuyện chăn gối",
+  "nhu cầu tình dục giảm",
+  "rối loạn cương dương"
+ ],
+ "SGY012": [
+  "Giảm ham muốn tình dục",
+  "Suy giảm ham muốn tình dục",
+  "giảm nhu cầu tình dục sau khi sinh",
+  "không bao giờ hoặc hiếm khi suy nghĩ đến quan hệ tình dục",
+  "không nghĩ đến hay ham muốn về chuyện chăn gối"
+ ],
+ "SDM033": [
+  "Đau môi",
+  "Môi ngứa rát",
+  "cảm giác đau châm chích ở môi",
+  "môi bỏng rát",
+  "sưng tấy môi",
+  "đau mép",
+  "đau môi",
+  "đau môi dưới",
+  "đau môi khi há miệng",
+  "đau môi trên"
+ ],
+ "SDM035": [
+  "Ngứa môi",
+  "Ngứa ran môi"
+ ],
+ "SDM037": [
+  "Khô môi",
+  "Môi khô nứt nẻ",
+  "khô môi",
+  "nứt môi",
+  "nứt nẻ môi"
+ ],
+ "SDM038": [
+  "Mụn rộp ở môi",
+  "Mụn nước ở môi",
+  "mụn nước có chứa dịch ở môi"
+ ],
+ "SOP026": [
+  "Đốm vàng trên lòng trắng mắt",
+  "khối gồ nhỏ màu vàng nhạt nhô lên trong mắt",
+  "Đốm vàng trên mắt"
+ ],
+ "SGI027": [
+  "Cả hai mắt chuyển sang màu vàng",
+  "Vàng mắt",
+  "bệnh vàng da",
+  "lòng trắng mắt chuyển sang màu vàng",
+  "mắt bị vàng",
+  "toàn bộ lòng trắng mắt chuyển vàng",
+  "vàng mắt cả hai bên"
+ ],
+ "SCN015": [
+  "Thường xuyên bị bóng đè",
+  "Bị bóng đè",
+  "cơ thể tê cứng khi ngủ",
+  "cảm giác bị cái gì đó đè lên người khi ngủ mơ",
+  "không thể cử động cơ thể khi ngủ",
+  "liệt thân khi ngủ"
+ ],
+ "SCN016": [
+  "Ảo giác khi sắp tỉnh dậy",
+  "Ảo giác",
+  "ảo giác khi ngủ",
+  "ảo giác khi sắp tỉnh giấc"
+ ],
+ "SCN017": [
+  "Ảo giác khi đi vào giấc ngủ",
+  "ảo giác",
+  "ảo giác khi ngủ"
+ ],
+ "SGY014": [
+  "Cảm giác như phần xung quanh âm đạo sắp bị sa xuống",
+  "Cảm giác như âm đạo đang bị sa xuống",
+  "âm đạo bị sa xuống",
+  "âm đạo sa xuống lộ ra ngoài"
+ ],
+ "SGY015": [
+  "Có thứ gì đó lồi ra ngoài âm đạo",
+  "Cảm giác như âm đạo sắp rơi ra ngoài",
+  "có vật gì đó lòi ra ngoài cửa âm đạo",
+  "sa âm đạo"
+ ],
+ "SOP027": [
+  "Mí mắt bị đỏ",
+  "Vùng da quanh mắt bị đỏ rát",
+  "lẹo mắt",
+  "mí mắt bị đỏ",
+  "vùng da quanh mí mắt bị đỏ",
+  "đỏ quanh mắt"
+ ],
+ "SMS025": [
+  "Chuột rút ở bắp chân",
+  "Chuột rút bắp chân",
+  "bắp chân bị co rút",
+  "chuột rút bắp chân khi vừa tỉnh dậy",
+  "chuột rút bắp chân khi đang ngủ",
+  "co cứng bắp chân",
+  "cơ bắp chân bị co rút thành một khối cơ cứng kèm theo đau nhức",
+  "những cơn đau và co thắt mạnh đột ngột ở cơ bắp chân",
+  "đau bắp chân"
+ ],
+ "SMS026": [
+  "Chuột rút ở bàn tay",
+  "Chuột rút ở tay",
+  "bàn tay bị co rút",
+  "chuột rút ở các ngón tay",
+  "co cứng ngón tay",
+  "co thắt bàn tay đột ngột không thể duỗi ra",
+  "đau bàn tay",
+  "đau cứng bàn tay",
+  "đau ngón tay"
+ ],
+ "SMS027": [
+  "Chuột rút ở bàn chân",
+  "chuột rút bàn chân khi đang ngủ",
+  "chuột rút các ngón chân",
+  "co cứng các ngón chân",
+  "co thắt bàn chân đột ngột không thể duỗi ra",
+  "đau bàn chân",
+  "đau cứng bàn chân"
+ ],
+ "SMS028": [
+  "Chuột rút ở đùi",
+  "Chuột rút ở cơ",
+  "chuột rút ở cơ sau đùi",
+  "chuột rút ở gân kheo",
+  "chuột rút ở đùi",
+  "chuột rút ở đùi trước(cơ tứ đầu)",
+  "co thắt đùi đột ngột không thể duỗi ra",
+  "đau cứng đùi",
+  "đau đùi"
+ ],
+ "SDM039": [
+  "Đỏ bừng mặt",
+  "Tiền mãn kinh",
+  "da mặt bị đỏ",
+  "hai gò má đỏ",
+  "mặt đỏ",
+  "đỏ bừng mặt",
+  "ửng đỏ da mặt"
+ ],
+ "SOP028": [
+  "Nháy mắt không tự chủ (co thắt không tự nguyện)",
+  "Nháy mắt",
+  "chớp mắt liên tục",
+  "giật mí mắt",
+  "nháy mắt cả hai bên",
+  "nháy mắt không tự chủ",
+  "nháy mắt liên tục"
+ ],
+ "SGY016": [
+  "Đơn thuốc tránh thai khẩn cấp",
+  "Thuốc tránh thai khẩn cấp"
+ ],
+ "SMS029ZZ": [
+  "Đau nhiều khớp",
+  "Đau ở nhiều xương khớp",
+  "đau nhức xương khớp toàn thân"
+ ],
+ "SMS030": [
+  "Đau khớp háng"
+ ],
+ "SCV008": [
+  "Huyết áp thấp"
+ ],
+ "SOR011ZZ": [
+  "Máu trong nước bọt"
+ ],
+ "SUU005": [
+  "Nước tiểu có bọt",
+  "Protein niệu",
+  "nước tiểu có nhiều bọt"
+ ],
+ "SSX012": [
+  "Đau vùng tầng sinh môn (khu vực giữa tinh hoàn và hậu môn)",
+  "Đau ở phần dưới tinh hoàn",
+  "đau tinh hoàn",
+  "đau vùng hậu môn",
+  "đau xung quanh hậu môn",
+  "đau ở giữa tinh hoàn và hậu môn"
+ ],
+ "SOR012": [
+  "Tê lưỡi"
+ ],
+ "SED010": [
+  "Bệnh tiểu đường"
+ ],
+ "SCV009": [
+  "Huyết áp cao",
+  "cao huyết áp"
+ ],
+ "SCV010": [
+  "Máu nhiễm mỡ",
+  "rối loạn mỡ máu",
+  "tăng lipid máu"
+ ]
+}

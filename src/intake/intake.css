@@ -1,0 +1,144 @@
+/* Conversational intake (src/pages/Intake.tsx). Builds on style.css tokens: marker yellow = chosen,
+   red only for emergencies, 48px touch targets, 16px minimum text. */
+
+.ix { display: grid; gap: 12px; }
+.ix h1 { font-size: 24px; line-height: 32px; margin: 0; }
+.ix h1:focus { outline: none; }
+.ix h1:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
+.ix-hint { margin: 0; color: var(--ink-2); }
+.ix-sub { font-size: 16px; font-weight: 600; margin: 4px 0 0; }
+
+/* ---------- picker ---------- */
+.ix-pick { gap: 14px; }
+.ix-sex { border: 0; padding: 0; margin: 0; }
+.ix-sex legend { padding: 0; margin-bottom: 6px; font-weight: 500; }
+.ix-seg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.ix-seg button { min-height: 48px; padding: 8px; }
+.ix-seg button[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); background: var(--mark); }
+.ix-count { margin: 0; min-height: 24px; color: var(--ink-3); }
+
+/* ---------- options ---------- */
+.ix-options { display: grid; grid-template-columns: 1fr; gap: 8px; }
+.ix-options.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ix-opt {
+  display: flex; align-items: center; justify-content: flex-start; gap: 12px; width: 100%; min-height: 56px; padding: 12px 14px;
+  text-align: start; background: var(--surface); border: 1px solid var(--hair-2); border-radius: 12px;
+  transition: transform 0.12s var(--ease), border-color 0.15s var(--ease), background-color 0.15s var(--ease), box-shadow 0.15s var(--ease);
+}
+.ix-opt:active { transform: scale(0.97); }
+.ix-opt[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.ix-opt img { width: 56px; height: 56px; object-fit: contain; flex: none; border-radius: 8px; background: var(--paper); }
+.ix-opt-label { min-width: 0; overflow-wrap: anywhere; font-size: 17px; line-height: 24px; }
+.ix-add-mark { vertical-align: -2px; margin-inline-end: 4px; color: var(--brand); }
+.ix-yes-label { margin: 0; padding: 10px 12px; border-inline-start: 3px solid var(--mark); background: var(--paper); border-radius: 0 8px 8px 0; }
+.ix-q-img { max-width: 100%; max-height: 220px; object-fit: contain; border-radius: 12px; background: var(--paper); justify-self: start; }
+.ix-escape { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 4px; }
+.ix-escape button { min-height: 48px; background: transparent; border-style: dashed; color: var(--ink-2); }
+.ix-escape button[aria-pressed="true"] { border-style: solid; border-color: var(--ink); color: var(--ink); background: var(--mark); }
+.ix-next { min-height: 52px; margin-top: 4px; }
+.ix-sub-block { display: grid; gap: 10px; padding: 12px; border: 1px solid var(--hair); border-radius: 12px; background: var(--paper); }
+.ix-sub-block h2 { margin: 0; font-size: 16px; }
+
+/* ---------- top: chips, progress, trail ---------- */
+.ix-chips {
+  position: sticky; top: 0; z-index: 3; display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+  padding: 10px 0; background: var(--bg); border-bottom: 1px solid var(--hair);
+}
+.ix-chips.plain { position: static; border: 0; padding: 0; }
+.ix-chip {
+  display: inline-flex; align-items: center; gap: 4px; min-height: 40px; padding: 4px 4px 4px 12px;
+  border: 1px solid var(--hair-2); border-radius: 999px; background: var(--surface); font-size: 16px;
+}
+.ix-chip.is-main { padding-inline-end: 12px; background: var(--brand-soft); border-color: transparent; color: var(--brand-ink); font-weight: 600; }
+.ix-chip-tag { font-size: 13px; font-weight: 500; opacity: 0.8; margin-inline-end: 2px; }
+.ix-chip button { min-width: 40px; min-height: 40px; padding: 0; border: 0; border-radius: 999px; background: transparent; color: var(--ink-2); }
+.ix-add { min-height: 44px; padding: 6px 14px; border-radius: 999px; border-style: dashed; }
+
+.ix-bar { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.ix-back { min-height: 44px; padding: 6px 12px; background: transparent; border: 0; color: var(--ink-2); }
+.ix-back:disabled { visibility: hidden; }
+.ix-progress { color: var(--ink-3); font-size: 15px; }
+
+.ix-trail { display: grid; gap: 6px; }
+.ix-trail button {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 8px; width: 100%; min-height: 48px;
+  padding: 8px 12px; text-align: start; background: var(--paper); border: 1px solid var(--paper-rule); border-radius: 10px;
+}
+.ix-trail-q { grid-column: 1; color: var(--ink-3); font-size: 14px; line-height: 20px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ix-trail-a { grid-column: 1; font-size: 16px; line-height: 22px; overflow-wrap: anywhere; }
+.ix-trail-a::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-inline-end: 6px; border-radius: 2px; background: var(--mark); vertical-align: 1px; }
+.ix-trail svg { grid-column: 2; grid-row: 1 / span 2; align-self: center; color: var(--ink-3); }
+
+/* ---------- the question ---------- */
+.ix-q { display: grid; gap: 12px; padding: 18px 16px; background: var(--surface); border: 1px solid var(--hair); border-radius: 16px; animation: ix-rise 0.2s var(--ease) both; }
+.ix-about { margin: 0; font-size: 14px; color: var(--brand-ink); font-weight: 600; }
+.ix-editing { margin: 0; padding: 8px 10px; border-radius: 8px; background: var(--warn-soft); color: var(--warn-ink); font-size: 15px; }
+@keyframes ix-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- alerts ---------- */
+.ix-alert {
+  display: flex; gap: 12px; padding: 14px; border-radius: 14px; border: 1px solid var(--sos-line);
+  background: var(--sos-soft); color: var(--sos-ink); animation: ix-rise 0.2s var(--ease) both;
+}
+.ix-alert:focus { outline: 3px solid var(--sos); outline-offset: 2px; }
+.ix-alert > svg { flex: none; color: var(--sos); margin-top: 2px; }
+.ix-alert-body { display: grid; gap: 6px; min-width: 0; }
+.ix-alert-body strong { font-size: 18px; line-height: 24px; }
+.ix-alert-body p { margin: 0; }
+.ix-alert-reason { font-size: 15px; opacity: 0.9; }
+.ix-alert-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.ix-alert a.ix-call { min-height: 48px; background: var(--sos); border-color: var(--sos); color: #fff; font-weight: 600; }
+.ix-alert.is-urgent { background: var(--warn-soft); border-color: var(--warn-line); color: var(--warn-ink); }
+.ix-alert.is-urgent > svg { color: var(--warn-ink); }
+.ix-alert.is-small { padding: 10px 12px; }
+.ix-alert.is-small .ix-alert-body strong { font-size: 16px; }
+
+/* ---------- add sheet ---------- */
+.ix-sheet-back { position: fixed; inset: 0; z-index: 50; display: flex; align-items: flex-end; justify-content: center; background: rgba(22, 27, 26, 0.4); }
+.ix-sheet {
+  display: grid; gap: 12px; width: min(100%, var(--page)); max-height: 88vh; overflow-y: auto; padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
+  background: var(--bg); border-radius: 18px 18px 0 0; animation: ix-rise 0.2s var(--ease) both;
+}
+.ix-sheet-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.ix-sheet-head h2 { margin: 0; }
+.ix-icon { min-width: 48px; min-height: 48px; padding: 0; border: 0; background: transparent; }
+
+/* ---------- summary ---------- */
+.ix-summary { display: grid; gap: 10px; }
+.ix-summary h1 { font-size: 24px; line-height: 32px; margin: 4px 0 0; }
+.ix-summary h1:focus { outline: none; }
+.ix-summary h2 { margin: 14px 0 0; font-size: 18px; }
+.ix-notice { margin: 0; padding: 10px 12px; border-radius: 10px; background: var(--raised); color: var(--ink-2); }
+.ix-main { margin: 0; font-size: 20px; font-weight: 600; }
+.ix-rows { display: grid; gap: 6px; }
+.ix-row {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; width: 100%; min-height: 56px;
+  padding: 10px 12px; text-align: start; background: var(--paper); border: 1px solid var(--paper-rule); border-radius: 10px;
+}
+.ix-row-q { grid-column: 1; color: var(--ink-2); font-size: 15px; line-height: 21px; overflow-wrap: anywhere; }
+.ix-row-a { grid-column: 1; font-size: 17px; line-height: 24px; overflow-wrap: anywhere; }
+.ix-row-edit, .ix-row-flag { grid-column: 2; grid-row: 1 / span 2; align-self: center; color: var(--ink-3); }
+.ix-row.is-danger { border-color: var(--sos-line); background: var(--sos-soft); }
+.ix-row.is-danger .ix-row-flag { color: var(--sos); grid-row: 1; }
+.ix-row.is-danger .ix-row-edit { grid-row: 2; }
+.ix-row.is-note { border-inline-start: 4px solid var(--mark); }
+.ix-actions { display: grid; gap: 10px; margin-top: 16px; }
+
+/* Staff card: answers NARU marks for attention. */
+.line.is-note dt .note-tag {
+  display: inline-block; margin-inline-start: 6px; padding: 0 6px; border-radius: 4px; background: var(--mark); color: var(--ink);
+  font-size: 13px; font-weight: 600; vertical-align: 1px;
+}
+
+@media (min-width: 560px) {
+  .ix-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ix-q, .ix-alert, .ix-sheet { animation: none; }
+  .ix-opt { transition: none; }
+  .ix-opt:active { transform: none; }
+}
