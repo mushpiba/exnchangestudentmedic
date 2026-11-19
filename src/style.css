@@ -181,27 +181,37 @@ legend { font-weight: 500; margin-bottom: 6px; }
 }
 .sos:hover { background: #fbdedb; }
 
+/* Six tabs, sixteen languages, one 375px bar. The labels run from "Эм" to "Газрын зураг", so the bar is not
+   six equal columns: each tab asks for the width its own longest word needs and the short ones hand back
+   what is left. Two label lines are always reserved, so the bar keeps its height when the language changes.
+   A word is never broken, hyphenated or clipped: when a language still will not fit, App steps --tab-fs
+   down 14 → 13 → 12px and stops there. */
 .tabbar {
   position: fixed; inset: auto 0 0; z-index: 4;
-  display: grid; grid-template-columns: repeat(6, 1fr);
+  display: flex;
   padding: 6px max(6px, calc((100% - var(--page)) / 2)) max(6px, env(safe-area-inset-bottom));
   background: var(--surface); border-top: 1px solid var(--hair);
 }
-/* 1fr keeps an automatic minimum: a tab never gets narrower than the longest word of its label. */
+/* 48px of basis each so a two-letter label ("Эм") still has a thumb-sized tab; min-content on top of it
+   so a long one takes the width its word needs and the others give it up. */
 .tabbar a {
-  display: grid; justify-items: center; align-content: start; gap: 2px; min-height: 64px; padding: 0 3px;
+  flex: 1 1 48px; min-width: min-content;
+  display: grid; justify-items: center; align-content: start; gap: 2px; min-height: 68px; padding: 0 3px;
   color: var(--ink-2); text-decoration: none; text-align: center;
-  font-size: 14px; line-height: 17px; font-weight: 500;
+  font-size: var(--tab-fs, 14px); line-height: 17px; font-weight: 500;
 }
-/* Safety net set from App when a language's labels still don't fit: break inside words rather than overflow. */
-.tabbar.tight { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-.tabbar.tight .tab-label { overflow-wrap: anywhere; hyphens: auto; -webkit-hyphens: auto; }
+/* The pill is a background, not a floor: a fixed width here would set the tab's minimum and push the bar
+   past 375px before a single label had its say. */
 .tab-ic {
-  display: grid; place-items: center; width: 56px; height: 32px; border-radius: 16px;
+  display: grid; place-items: center; width: 100%; max-width: 56px; height: 32px; border-radius: 16px;
   color: var(--ink-3); transition: background-color 0.15s var(--ease), color 0.15s var(--ease);
 }
-/* 16px stays 16px: long Latin/Cyrillic labels use Plex's narrower width; a word only breaks if it cannot fit at all. */
-.tab-label { font-stretch: 86%; overflow-wrap: normal; word-break: normal; }
+/* Latin and Cyrillic narrow on Plex's width axis (index.html asks for wdth 85..100); Korean, Arabic and
+   Devanagari have no width axis, so for those the size step is the only lever left. */
+.tab-label {
+  min-height: 34px; font-stretch: 85%;
+  overflow-wrap: normal; word-break: keep-all; hyphens: none; -webkit-hyphens: none;
+}
 .tabbar a:hover .tab-ic { background: var(--hover); }
 .tabbar a[aria-current] { color: var(--brand-ink); font-weight: 600; }
 .tabbar a[aria-current] .tab-ic { background: var(--brand-soft); color: var(--brand-ink); }
@@ -388,6 +398,23 @@ dialog::backdrop { background: rgb(22 27 26 / 0.55); }
 .buddy-card { margin-top: 20px; padding: 20px; border-radius: 20px; background: var(--brand-soft); color: var(--brand-ink); }
 .buddy-card h2 { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; font-size: 20px; line-height: 28px; font-weight: 600; }
 .buddy-card p { margin: 0 0 16px; }
+.buddy-walk { margin: 4px 0 12px; }
+/* Beats `.buddy-card p`, which would otherwise take the centring margins away. */
+.buddy-card .bw-say {
+  width: max-content; max-width: 100%; margin: 0 auto 2px; padding: 8px 12px;
+  border-radius: 14px 14px 14px 4px; background: var(--surface); color: var(--ink);
+  font-weight: 600; text-align: center;
+}
+[dir="rtl"] .buddy-card .bw-say { border-radius: 14px 14px 4px 14px; }
+/* The walk runs from campus to clinic, so it turns around with the language. */
+[dir="rtl"] .bw-art { transform: scaleX(-1); }
+.bw-art { display: block; width: 100%; height: 84px; }
+.bw-path { stroke: currentColor; }
+.bw-place { fill: none; stroke: currentColor; }
+.bw-me { fill: currentColor; stroke: none; }
+.bw-buddy { fill: var(--surface); stroke: currentColor; }
+.bw-flag { fill: currentColor; stroke: none; }
+.bw-door { fill: currentColor; stroke: none; opacity: 0.28; }
 .link-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .source { display: flex; align-items: flex-start; gap: 6px; margin: 12px 0 0; color: var(--ink-3); }
 .source svg { flex: none; margin-top: 3px; }
@@ -634,13 +661,15 @@ dialog.phrase[open] { animation: fade 0.2s var(--ease); }
   background: var(--surface); color: var(--ink); text-decoration: none; transition: background-color 0.15s var(--ease);
 }
 .meds-big:hover { background: var(--hover); }
-.meds-big.primary { background: var(--brand); border-color: var(--brand); color: #fff; }
-.meds-big.primary:hover { background: var(--brand-press); }
-.mb-flow { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; color: var(--brand); }
-.meds-big.primary .mb-flow { color: #fff; }
 .mb-title { font-size: 22px; line-height: 30px; font-weight: 600; text-wrap: balance; }
 .mb-sub { color: var(--ink-2); text-wrap: pretty; }
-.meds-big.primary .mb-sub { color: #fff; opacity: 0.92; }
+/* What the button does, drawn: a box from home becoming a Korean pack, a Korean pack becoming your words. */
+.meds-art { display: block; margin: 0 0 10px; padding: 6px 0; border-radius: 14px; background: var(--raised); }
+.meds-art svg { display: block; width: 100%; height: 84px; }
+.ma-line { stroke: var(--brand-ink); }
+.ma-soft { stroke: var(--control); }
+.ma-arrow { stroke: var(--ink-3); }
+.ma-dot { fill: var(--brand); stroke: none; }
 .page-back { display: inline-flex; align-items: center; gap: 6px; min-height: 48px; margin-top: 8px; color: var(--ink-2); font-weight: 500; text-decoration: none; }
 .upload-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .upload { position: relative; min-height: 76px; flex-direction: column; gap: 4px; border-radius: 16px; }

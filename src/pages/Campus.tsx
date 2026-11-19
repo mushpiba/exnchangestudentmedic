@@ -10,6 +10,7 @@ import { buddy as loadBuddy, HELP, type BuddyAction, type BuddyApi, type BuddyRe
 import { Gate } from "../campus/Gate";
 import { CallButton, Chip, Out, Section } from "../components/ui";
 import { PhraseOverlay } from "../components/PhraseOverlay";
+import { BuddyWalk } from "../components/art";
 
 const STEPS = ["book", "bring", "reception", "consult", "pay", "pharmacy"];
 
@@ -204,6 +205,7 @@ export function Campus({ focus }: { focus?: string }) {
         <h2>
           <UsersRound size={22} aria-hidden /> {t("buddy.title")}
         </h2>
+        <BuddyWalk say={t("buddy.bubble")} />
         <p>{t("buddy.intro")}</p>
         <a className="button primary wide" href="#buddy-form" onClick={(e) => { e.preventDefault(); document.getElementById("buddy-form")?.scrollIntoView({ behavior: "smooth", block: "start" }); }}>
           {t("school.buddyStart")}

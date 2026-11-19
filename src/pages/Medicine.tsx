@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { AlertTriangle, ArrowLeft, ArrowRight, Camera, Check, ClipboardPlus, Globe, ImageUp, Info as InfoIcon, Languages, Pill, Search, ShieldCheck } from "lucide-react";
+import { AlertTriangle, ArrowLeft, Camera, Check, ClipboardPlus, ImageUp, Info as InfoIcon, Languages, Pill, Search, ShieldCheck } from "lucide-react";
 import { useI18n } from "../i18n";
 import { href } from "../app/router";
 import { useCard } from "../state/card";
@@ -8,6 +8,7 @@ import { analyze, overlap, type Found } from "../lib/medMatch";
 import { readText } from "../lib/ocr";
 import { Notice, Out, PageHead } from "../components/ui";
 import { PhraseOverlay } from "../components/PhraseOverlay";
+import { MedsHomeArt, MedsKoreaArt } from "../components/art";
 
 export function IngredientCard({ id, amount }: { id: string; amount?: string }) {
   const { t, tk, locale } = useI18n();
@@ -58,21 +59,13 @@ export function MedsMenu() {
     <section className="medicine">
       <PageHead title={t("med.title")} intro={t("meds.menuIntro")} icon={<Pill />} />
       <div className="meds-menu">
-        <a className="meds-big primary" href={href("meds", "home")}>
-          <span className="mb-flow" aria-hidden>
-            <Globe size={26} />
-            <ArrowRight className="flip" size={20} />
-            <Pill size={26} />
-          </span>
+        <a className="meds-big" href={href("meds", "home")}>
+          <MedsHomeArt />
           <span className="mb-title">{t("meds.fromHome")}</span>
           <span className="mb-sub">{t("meds.fromHomeSub")}</span>
         </a>
         <a className="meds-big" href={href("meds", "korea")}>
-          <span className="mb-flow" aria-hidden>
-            <Camera size={26} />
-            <ArrowRight className="flip" size={20} />
-            <Languages size={26} />
-          </span>
+          <MedsKoreaArt />
           <span className="mb-title">{t("meds.fromKorea")}</span>
           <span className="mb-sub">{t("home.medsSub")}</span>
         </a>

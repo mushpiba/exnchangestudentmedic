@@ -115,9 +115,18 @@ export function App() {
   useEffect(() => {
     const bar = tabbar.current;
     if (!bar) return;
+    // The bar lets each tab take the width its longest word needs. Two things can still go wrong in a long
+    // language: the six labels overrun the bar, or one long label squeezes its neighbours under a thumb's
+    // width. Either one steps the label size down once -- never a break inside a word, never below 12px.
+    const fits = () => {
+      if (bar.scrollWidth > bar.clientWidth + 1) return false;
+      return [...bar.children].every((tab) => tab.getBoundingClientRect().width >= 47.5);
+    };
     const sync = () => {
-      bar.classList.remove("tight");
-      if (bar.scrollWidth > bar.clientWidth + 1) bar.classList.add("tight");
+      for (const size of [14, 13, 12]) {
+        bar.style.setProperty("--tab-fs", size + "px");
+        if (fits()) break;
+      }
       document.documentElement.style.setProperty("--tab-h", bar.offsetHeight + "px");
     };
     sync();
