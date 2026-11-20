@@ -1,0 +1,10 @@
+# 공개 출시 전 개발 빌드. 출시할 때 이 파일을 되돌린다.
+#
+# 지금 배포(github.io의 하위 경로)에서는 이 파일을 크롤러가 읽지 않는다. robots.txt는
+# origin 단위라서 크롤러가 보는 건 mushpiba.github.io/robots.txt 하나뿐이고, 여기는
+# 그 아래 /exnchangestudentmedic/robots.txt로 놓인다. 지금 실제로 막고 있는 것은
+# index.html의 robots 메타 쪽이다. 루트에 배포하는 곳(Cloudflare Pages 등)으로 옮기면
+# 그때부터 이 파일도 효력이 생긴다.
+
+User-agent: *
+Disallow: /

@@ -125,6 +125,12 @@ supabase/pilot.sql         학교 연동 스키마
 - 학교 연락처(`src/content/school.ts`)는 학기마다 학교 공식 페이지와 다시 대조. 인하대와 협의 전이므로 로고·'공식' 표현은 쓰지 않는다
 - 게시판 언어 필터는 받아 온 글 안에서 거른다. 글이 많아지면 `list_posts`에 언어 조건을 추가
 
-- 실기관 10~15곳 응대 언어 현장 확인 후 `src/content/facilities.ts`의 `VERIFIED`에 등록
+- 실기관 10~15곳 응대 언어 현장 확인 후 `src/content/place-languages.ts`의 표를 조사 결과로 바꾸고 `SURVEYED`를 `true`, `SURVEYED_AT`에 조사 날짜. 그 전까지는 모든 화면이 예시 데이터라고 알린다
 - 식약처 e약은요 API 연동(서버 프록시 필요)으로 성분 사전 밖의 약 조회
 - 커뮤니티 글 번역(요청 시, 서버 경유)
+
+배포와 접근 제한:
+
+- 검색 차단은 **개발 빌드 전용**이다. 공개 출시 때 `index.html`의 `robots` 메타와 `public/robots.txt`를 되돌린다. 지금 실제로 막고 있는 건 메타 쪽뿐이다 — robots.txt는 origin 루트(`mushpiba.github.io/robots.txt`)만 크롤러가 읽으므로 하위 경로 배포인 지금은 효력이 없고, 루트 배포로 옮기면 그때 살아난다
+- 내용에 락을 걸려면 도메인을 사서 **Cloudflare Pages + Access**로 옮긴다. 무료로 서버단에서 막을 수 있는 사실상 유일한 길이다(GitHub Pages의 비공개 게시는 Enterprise Cloud 전용). 로그인은 One-time PIN(이메일 코드)이라 테스터가 계정을 만들 필요 없고, `@inha.edu로 끝나는 주소`처럼 규칙으로 열어 줄 수 있으며 세션은 최대 1개월. 주의: Pages 설정의 'Enable access policy' 토글은 **프리뷰 배포만** 잠그고 프로덕션 `*.pages.dev`는 잠그지 않는다(공식 문서 명시). 본 주소까지 잠그는 절차는 Cloudflare 문서 Known issues에 수동으로만 있고, 정석인 self-hosted Access 앱은 '내 계정의 활성 도메인'이 전제다
+- Access를 켜기 **전에** 서비스워커를 먼저 고친다. 지금은 진입 문서가 precache라 서비스워커가 먼저 답하는데, 그러면 `CF_Authorization` 쿠키가 만료돼도 Cloudflare가 요청을 보지 못해 로그인 리다이렉트를 걸 수 없고 전원 잠긴다(같은 구조로 PWA 전체가 잠긴 사례가 있다). 진입 문서를 network-first(오프라인일 때만 캐시 폴백)로 바꾸고, 서비스워커의 fetch는 `redirect: "manual"`로 받아 리다이렉트 응답을 브라우저에 그대로 넘긴다. `vite.config.js`의 `navigateFallback`·`globPatterns`가 그 자리다. 단위 테스트로는 잡히지 않으니 DevTools로 쿠키를 만료시켜 로그인 화면까지 가는지 직접 확인한다. 락과 오프라인은 서로 당기는 요구라는 걸 전제에 둔다
