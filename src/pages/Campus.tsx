@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { CalendarClock, ExternalLink, GraduationCap, HeartHandshake, Building2, MessageCircleMore, Phone, ShieldPlus, Stethoscope, UsersRound } from "lucide-react";
 import { useI18n, type MessageKey } from "../i18n";
 import { LINKS } from "../content/facilities";
-import { SCHOOL, type SchoolContact } from "../content/school";
+import { type SchoolContact } from "../content/school";
 import { SchoolHead } from "../components/SchoolHead";
-import { useSchool } from "../state/prefs";
+import { useSchoolInfo } from "../state/prefs";
 import { href } from "../app/router";
 import { buddy as loadBuddy, HELP, type BuddyAction, type BuddyApi, type BuddyRequest, type Help, type Member } from "../campus/api";
 import { Gate } from "../campus/Gate";
@@ -176,7 +176,7 @@ export const CONTACT_ICON: Record<SchoolContact["id"], typeof Phone> = { health:
 /** The school tab: buddy first, then who to call at school, insurance and the first-visit steps. */
 export function Campus({ focus }: { focus?: string }) {
   const { t } = useI18n();
-  const school = useSchool();
+  const school = useSchoolInfo();
 
   // #/school/<section> opens the tab at that section (home icons link here).
   useEffect(() => {
@@ -189,13 +189,13 @@ export function Campus({ focus }: { focus?: string }) {
     <section className="campus">
       <SchoolHead current="support" />
 
-      {school !== "inha" ? (
+      {!school ? (
         <div className="buddy-card">
           <h2>
             <GraduationCap size={22} aria-hidden /> {t("school.none")}
           </h2>
           <p>{t("school.noneBody")}</p>
-          <a className="button primary wide" href={href("welcome")}>
+          <a className="button primary wide" href={href("welcome", "school")}>
             {t("school.choose")}
           </a>
         </div>
@@ -214,7 +214,7 @@ export function Campus({ focus }: { focus?: string }) {
 
       <Section title={t("school.contacts")} id="contacts">
         <ul className="rows">
-          {SCHOOL.contacts.map((c) => {
+          {school.contacts.map((c) => {
             const Icon = CONTACT_ICON[c.id];
             return (
               <li key={c.id}>
@@ -234,15 +234,15 @@ export function Campus({ focus }: { focus?: string }) {
           })}
         </ul>
         <div className="link-chips">
-          <Out className="button" href={SCHOOL.homepage}>
+          <Out className="button" href={school.homepage}>
             {t("school.homepage")}
           </Out>
-          <Out className="button" href={SCHOOL.international}>
+          <Out className="button" href={school.international}>
             {t("school.international")}
           </Out>
         </div>
         <p className="source">
-          <ExternalLink size={16} aria-hidden /> {t("school.source", { date: SCHOOL.checked })}
+          <ExternalLink size={16} aria-hidden /> {t("school.source", { date: school.checked })}
         </p>
       </Section>
       </>
@@ -268,7 +268,7 @@ export function Campus({ focus }: { focus?: string }) {
 
       <FirstVisit />
 
-      {school === "inha" && (
+      {school && (
         <Section title={t("buddy.title")} id="buddy-form">
           <Gate>{(member) => <BuddyRequests member={member} />}</Gate>
         </Section>

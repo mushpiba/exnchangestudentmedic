@@ -6,6 +6,7 @@ import { go, href } from "../app/router";
 import { useCard } from "../state/card";
 import { CardLines } from "../components/CardLines";
 import { Bilingual, Notice } from "../components/ui";
+import { CostEstimate } from "../components/CostEstimate";
 import { departmentsFor, deptKey } from "../content/symptoms";
 import { CONDITIONS, conditionsFor } from "../content/conditions";
 
@@ -110,6 +111,8 @@ export function CardView() {
           <MapPin size={18} aria-hidden /> {t("card.findPlace")}
         </a>
       </section>
+
+      <CostEstimate emergency={lines.some((l) => l.danger)} />
 
       {related.length > 0 && (
         <section className="section">

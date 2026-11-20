@@ -2,7 +2,8 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState, t
 import koOwn from "./messages/ko-KR.json";
 import koSimtomi from "./simtomi/ko-KR.json";
 import { isRtl, koreanName, nativeName, rememberLocale, type Locale } from "./locales";
-import { SCHOOL } from "../content/school";
+import { SCHOOL, schoolById } from "../content/school";
+import { useSchool } from "../state/prefs";
 
 export type MessageKey = keyof typeof koOwn | keyof typeof koSimtomi;
 export type Dict = Record<string, string>;
@@ -64,6 +65,8 @@ export function I18nProvider({
 }) {
   const [state, setState] = useState({ locale: initial, dict: messages });
   const rtl = isRtl(state.locale);
+  // A student with no school still reads about the campus the clinic list was collected around.
+  const school = (schoolById(useSchool()) ?? SCHOOL).name;
 
   useEffect(() => {
     document.documentElement.lang = state.locale;
@@ -82,8 +85,8 @@ export function I18nProvider({
     // placeholders and never spell them out: {lang} is the language the student chose ("English", not
     // "my language"), {school} the school they chose. On the staff card {lang} is that same language
     // named in Korean, because there it is the Korean reader who needs to know which one it is.
-    const mine = { lang: nativeName(state.locale), school: state.dict[SCHOOL.name] ?? KO[SCHOOL.name] };
-    const korean = { lang: koreanName(state.locale), school: KO[SCHOOL.name] };
+    const mine = { lang: nativeName(state.locale), school: state.dict[school] ?? KO[school] };
+    const korean = { lang: koreanName(state.locale), school: KO[school] };
     return {
       locale: state.locale,
       rtl,
@@ -92,7 +95,7 @@ export function I18nProvider({
       variants: (key) => [state.dict[key], KO[key], en[key]].filter(Boolean),
       setLocale,
     };
-  }, [state, rtl, setLocale]);
+  }, [state, rtl, school, setLocale]);
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }

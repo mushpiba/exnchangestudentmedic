@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { AlertTriangle, ArrowLeft, Check, ClipboardPlus, Info as InfoIcon, Languages, Pill, Search, ShieldCheck } from "lucide-react";
+import { AlertTriangle, Check, ClipboardPlus, Info as InfoIcon, Languages, Pill, Search, ShieldCheck } from "lucide-react";
 import { useI18n } from "../i18n";
 import { href } from "../app/router";
 import { useCard } from "../state/card";
@@ -134,9 +134,6 @@ export function Medicine() {
 
   return (
     <section className="medicine">
-      <a className="page-back" href={href("meds")}>
-        <ArrowLeft className="flip" size={18} aria-hidden /> {t("meds.back")}
-      </a>
       <PageHead title={t("meds.fromKorea")} intro={t("med.intro")} icon={<Languages />} />
       <PhotoRow onPick={read} busy={progress !== null} />
       <p className="muted small">

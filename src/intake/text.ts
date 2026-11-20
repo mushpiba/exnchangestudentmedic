@@ -37,6 +37,8 @@ export type IntakeText = {
   sk: (sid: string) => string;
   /** Symptom search in the student's language, English and Korean (names and the data's search words). */
   search: (query: string) => string[];
+  /** Every spelling we know for a symptom. Search reads these forwards; speech reads them backwards. */
+  names: (sid: string) => string[];
 };
 
 const fill = (s: string, params?: Record<string, string | number>) =>
@@ -73,7 +75,9 @@ export function makeText(d: Loaded, locale: string): IntakeText {
       .sort((a, b) => Number(b.starts) - Number(a.starts) || a.at - b.at)
       .map((w) => w.sid);
   };
-  return { bank: d.bank, it, ik, sn, sk, search };
+  const byId = new Map(words.map((w) => [w.sid, w.all]));
+  const names = (sid: string) => byId.get(sid) ?? [];
+  return { bank: d.bank, it, ik, sn, sk, search, names };
 }
 
 /** The intake text for the current language. `text` is null while loading; `failed` when the files could not load. */

@@ -2,7 +2,9 @@
 // Text lives in one file per language (src/content/guide/text/<locale>.json), loaded with the language;
 // numbers live in figures.ts so every language shows the same values.
 import { useEffect, useState } from "react";
+import type { MessageKey } from "../../i18n";
 import type { Locale } from "../../i18n/locales";
+import { AMBULANCE, ER_MINOR_SHARE, OTC_ITEMS, SHARE, STUDENT_CUT, STUDENT_PREMIUM, clinicFirstMine } from "../costs";
 import { OECD, OECD_SOURCE, WORLD_BANK_CODE, figure, type Country, type Figure, type Indicator } from "./figures";
 
 export type Block =
@@ -58,6 +60,40 @@ export const CHARTS: Partial<Record<ChartId, ChartDef>> = {
   oop: { indicator: "oop", countries: WB_SET, figure: wb("oop"), source: wbSource("oop") },
   spendGdp: { indicator: "spendGdp", countries: WB_SET, figure: wb("spendGdp"), source: wbSource("spendGdp") },
   life: { indicator: "life", countries: WB_SET, figure: wb("life"), source: wbSource("life") },
+};
+
+/** The numbers a column is really about, drawn as tiles right under its lead -- so the figure a student
+ *  came for is readable before the prose is, and readable at all by someone who will not read the prose.
+ *  Values are formatted here and never translated; only the label is. Each comes from that column's own
+ *  sources (COLUMN_SOURCES below), either a published rate or a figure from figures.ts. */
+export type ColumnFigure = { value: string; label: MessageKey };
+
+const num = (f?: Figure) => (f ? f[0].toLocaleString("en-US") : "—");
+const won = (n: number) => "₩" + n.toLocaleString("en-US");
+const pct = (n: number) => Math.round(n * 100) + "%";
+
+export const COLUMN_FIGURES: Record<ColumnId, ColumnFigure[]> = {
+  visits: [
+    { value: num(OECD.visits.KR), label: "guide.fig.visits" },
+    { value: num(OECD.perDoctor.KR), label: "guide.fig.perDoctor" },
+  ],
+  access: [
+    { value: num(figure("KR", "physicians")), label: "guide.ind.physicians" },
+    { value: num(figure("KR", "beds")), label: "guide.ind.beds" },
+  ],
+  cost: [
+    { value: won(clinicFirstMine), label: "guide.fig.clinicFee" },
+    { value: pct(SHARE.clinic), label: "guide.fig.clinicShare" },
+  ],
+  insurance: [
+    { value: won(STUDENT_PREMIUM), label: "guide.fig.premium" },
+    { value: pct(STUDENT_CUT), label: "guide.fig.studentCut" },
+  ],
+  pharmacy: [{ value: String(OTC_ITEMS), label: "guide.fig.otcItems" }],
+  emergency: [
+    { value: won(AMBULANCE), label: "guide.fig.ambulance" },
+    { value: pct(ER_MINOR_SHARE), label: "guide.fig.erMinor" },
+  ],
 };
 
 const files = import.meta.glob<GuideText>("./text/*.json", { import: "default" });

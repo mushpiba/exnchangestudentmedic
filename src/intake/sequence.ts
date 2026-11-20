@@ -6,6 +6,7 @@ import { CATEGORY_DEPTS, type Category } from "../content/symptoms";
 import { detailLabelKey, optionKey } from "../content/details";
 import type { Card, Line, Value } from "../state/card";
 import { historyOptions, isYesItem, plan, type Bank, type Flow, type Level, type Step } from "./engine";
+import { isClinicOnly } from "./clinical";
 
 export const LIFE = ["travel", "sickContact", "smoking", "alcohol", "interpreter"] as const;
 export const HISTORY_KINDS = ["past", "drug", "family"] as const;
@@ -30,7 +31,19 @@ export function generalSteps(bank: Bank, flow: Flow): string[] {
 }
 
 export function sequence(bank: Bank, flow: Flow): Step[] {
-  return [...plan(bank, flow).steps, ...generalSteps(bank, flow).map((key) => ({ key, qid: key, owner: "" }))];
+  // The clinic-side questions drop out here and nowhere else: the bank keeps them, and because they are
+  // never answered, the branches that only they could open stay closed too. Two symptoms asking the same
+  // thing is not a repeat -- the answers differ -- but one symptom asking it twice, which happens where
+  // two question ids carry the same wording, reads as a bug and is dropped.
+  const said = new Set<string>();
+  const asked = plan(bank, flow).steps.filter((s) => {
+    if (isClinicOnly(s.qid)) return false;
+    const words = s.owner + "|" + bank.questions[s.qid].q;
+    if (said.has(words)) return false;
+    said.add(words);
+    return true;
+  });
+  return [...asked, ...generalSteps(bank, flow).map((key) => ({ key, qid: key, owner: "" }))];
 }
 
 /** The step on screen: the one being revisited, else the first unanswered. null = everything answered. */
@@ -40,6 +53,7 @@ export function currentStep(bank: Bank, flow: Flow): Step | null {
     const s = seq.find((x) => x.key === flow.cursor);
     if (s) return s;
   }
+  if (flow.done) return null;
   return seq.find((s) => !flow.answers[s.key]) ?? null;
 }
 
@@ -52,6 +66,13 @@ export function previousStep(bank: Bank, flow: Flow, key: string | null): Step |
 }
 
 export const answeredSteps = (bank: Bank, flow: Flow) => sequence(bank, flow).filter((s) => flow.answers[s.key]).length;
+
+/** Questions still unanswered. What the "finish now" button leaves behind, and what it offers back. */
+export const remainingSteps = (bank: Bank, flow: Flow) => sequence(bank, flow).filter((s) => !flow.answers[s.key]).length;
+
+/** Every unanswered step still to come about one symptom, for skipping that symptom in one go. */
+export const stepsAbout = (bank: Bank, flow: Flow, owner: string) =>
+  sequence(bank, flow).filter((s) => s.owner === owner && !flow.answers[s.key]);
 
 const SHOWN: Level[] = ["emergency", "crisis", "assault", "urgent"];
 const k = (key: string, params?: Record<string, string | number>): Value => ({ key: key as MessageKey, params });

@@ -8,10 +8,10 @@ import { nativeName } from "../i18n/locales";
 import { href } from "../app/router";
 import { useCard } from "../state/card";
 import { LINKS } from "../content/facilities";
-import { SCHOOL } from "../content/school";
+
 import { CONTACT_ICON } from "./Campus";
 import { campusAuth, community, type Board, type PostSummary } from "../campus/api";
-import { useSchool } from "../state/prefs";
+import { useSchoolInfo } from "../state/prefs";
 
 // The map library loads with the home screen's map, in its own chunk (shared with the map tab).
 const PlaceMap = lazy(() => import("../components/PlaceMap"));
@@ -24,7 +24,6 @@ const SHORTCUTS: Shortcut[] = [
   { label: "home.gridNight", Icon: Moon, to: LINKS.nightPharmacy, external: true },
   { label: "home.gridEr", Icon: Ambulance, to: LINKS.emergency, external: true },
   { label: "home.grid1345", Icon: Phone, to: "tel:1345" },
-  { label: "school.homepage", Icon: Globe, to: SCHOOL.homepage, external: true },
 ];
 
 // Boards in the order a newcomer most likely wants them.
@@ -33,8 +32,11 @@ const HOME_BOARDS: Board[] = ["buddy", "review", "info", "qna", "free"];
 export function Home() {
   const { t } = useI18n();
   const { lines } = useCard();
-  const school = useSchool();
-  const shortcuts = school === "inha" ? SHORTCUTS : SHORTCUTS.filter((s) => s.label !== "school.homepage");
+  const school = useSchoolInfo();
+  // The student's own school page is only a shortcut when they have one.
+  const shortcuts: Shortcut[] = school
+    ? [...SHORTCUTS, { label: "school.homepage", Icon: Globe, to: school.homepage, external: true }]
+    : SHORTCUTS;
   const [hot, setHot] = useState<PostSummary[] | null>(null);
 
   useEffect(() => {
@@ -111,7 +113,7 @@ export function Home() {
         <ChevronRight className="flip" size={20} aria-hidden />
       </a>
 
-      {school === "inha" && (
+      {school && (
       <section className="school-card" aria-labelledby="school-card-title">
         <a className="school-card-head" href={href("school")}>
           <GraduationCap size={20} aria-hidden />
@@ -127,7 +129,7 @@ export function Home() {
           <ArrowRight className="flip" size={20} aria-hidden />
         </a>
         <div className="grid4">
-          {SCHOOL.contacts.map((c) => {
+          {school.contacts.map((c) => {
             const Icon = CONTACT_ICON[c.id];
             return (
               <a key={c.id} href={href("school", "contacts")}>

@@ -10,7 +10,7 @@ import { nativeName, type Locale } from "../i18n/locales";
 import data from "../content/osm-places.json";
 import { PLACE_LANGUAGE_CODES, SURVEYED, languagesAt } from "../content/place-languages";
 import { SCHOOL } from "../content/school";
-import { useSchool } from "../state/prefs";
+import { useSchoolInfo } from "../state/prefs";
 import { openInNaverMap } from "../lib/naver";
 
 type Kind = "hospital" | "clinic" | "pharmacy" | "dentist" | "kmed" | "public" | "school";
@@ -58,7 +58,8 @@ function km(a: { lat: number; lng: number }, b: { lat: number; lng: number }) {
 /** `preview`: the home screen's map. It stays still so a swipe scrolls the page, and shows dots only (no filters or list). */
 export default function PlaceMap({ preview = false }: { preview?: boolean }) {
   const { t } = useI18n();
-  const school = useSchool();
+  const school = useSchoolInfo();
+  const here = school?.location ?? SCHOOL.location;
   const box = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
   const layer = useRef<L.LayerGroup | null>(null);
@@ -69,10 +70,9 @@ export default function PlaceMap({ preview = false }: { preview?: boolean }) {
 
   const places = useMemo<Place[]>(() => {
     const own = data.places as Place[];
-    const campus: Place[] =
-      school === "inha"
-        ? [{ id: "school", name: t(SCHOOL.name), nameEn: t("school.health"), kind: "school", ...SCHOOL.location, phone: SCHOOL.contacts[0].phone }]
-        : [];
+    const campus: Place[] = school
+      ? [{ id: "school", name: t(school.name), nameEn: t("school.health"), kind: "school", ...school.location, phone: school.contacts[0].phone }]
+      : [];
     return [...campus, ...own];
   }, [school, t]);
 
@@ -80,15 +80,15 @@ export default function PlaceMap({ preview = false }: { preview?: boolean }) {
     const list = places
       .filter((p) => (filter === "all" ? true : filter === "er" ? p.emergency : p.kind === filter))
       .filter((p) => !lang || languagesAt(p.id).includes(lang));
-    return list.map((p) => ({ ...p, distance: km(SCHOOL.location, p) })).sort((a, b) => a.distance - b.distance);
-  }, [places, filter, lang]);
+    return list.map((p) => ({ ...p, distance: km(here, p) })).sort((a, b) => a.distance - b.distance);
+  }, [places, filter, lang, here]);
 
   // Create the map once.
   useEffect(() => {
     if (!box.current || map.current) return;
     const still = { dragging: false, touchZoom: false, scrollWheelZoom: false, doubleClickZoom: false, boxZoom: false, keyboard: false };
     const m = L.map(box.current, { zoomControl: !preview, attributionControl: true, ...(preview ? still : {}) }).setView(
-      [SCHOOL.location.lat, SCHOOL.location.lng],
+      [here.lat, here.lng],
       15,
     );
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -124,7 +124,9 @@ export default function PlaceMap({ preview = false }: { preview?: boolean }) {
     // First draw: frame the nearest places instead of the campus alone, so the dots are on screen.
     if (!framed.current && shown.length > 1) {
       framed.current = true;
-      map.current?.fitBounds(L.latLngBounds(shown.slice(0, 12).map((p) => [p.lat, p.lng])), { padding: [24, 24], maxZoom: 16 });
+      // Not animated: leaving the tab mid-zoom tears the map down and the transition's callback then
+      // runs against a map that is gone.
+      map.current?.fitBounds(L.latLngBounds(shown.slice(0, 12).map((p) => [p.lat, p.lng])), { padding: [24, 24], maxZoom: 16, animate: false });
     }
   }, [shown]);
 
@@ -139,7 +141,7 @@ export default function PlaceMap({ preview = false }: { preview?: boolean }) {
       {!preview && (
         <>
           <div className="map-cats" role="group" aria-label={t("places.mapTitle")}>
-            {FILTERS.filter((f) => f !== "school" || school === "inha").map((f) => (
+            {FILTERS.filter((f) => f !== "school" || !!school).map((f) => (
               <button key={f} type="button" aria-pressed={filter === f} onClick={() => setFilter(f)}>
                 <span className="dot" style={{ background: f === "all" ? "transparent" : f === "er" ? COLOR.er : COLOR[f] }} aria-hidden />
                 {t(filterKey(f))}
@@ -171,7 +173,7 @@ export default function PlaceMap({ preview = false }: { preview?: boolean }) {
             {selected.nameEn && <span>{selected.nameEn}</span>}
             <span className="place-kind">
               {selected.emergency ? t("places.kind.er") + " · " : ""}
-              {t(filterKey(selected.kind))} · {t("places.fromSchool", { km: km(SCHOOL.location, selected).toFixed(1) })}
+              {t(filterKey(selected.kind))} · {t("places.fromSchool", { km: km(here, selected).toFixed(1) })}
             </span>
             <Langs id={selected.id} all />
           </div>

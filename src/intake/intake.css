@@ -21,10 +21,21 @@
 }
 .ix-age span { color: var(--ink-2); }
 .ix-plain { min-height: 48px; border: 0; background: transparent; color: var(--ink-2); }
+/* The two ways in, side by side as equals: tapping through is accurate, speaking first is short. */
+.ix-ways { display: grid; gap: 10px; }
+.ix-way {
+  display: flex; align-items: flex-start; gap: 12px; min-height: 72px; padding: 16px;
+  border: 1px solid var(--hair-2); border-radius: 16px; background: var(--surface); text-align: start;
+}
+.ix-way svg { flex: none; margin-top: 2px; color: var(--brand-ink); }
+.ix-way span { display: grid; gap: 4px; }
+.ix-way strong { font-size: 17px; font-weight: 600; }
+.ix-way small { color: var(--ink-2); font-size: 15px; line-height: 21px; }
 
 /* ---------- picker ---------- */
 .ix-pick { gap: 14px; }
 .ix-seg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.ix-seg.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .ix-seg button { min-height: 48px; padding: 8px; }
 .ix-seg button[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); background: var(--mark); }
 .ix-count { margin: 0; min-height: 24px; color: var(--ink-3); }
@@ -83,7 +94,13 @@
 
 /* ---------- the question ---------- */
 .ix-q { display: grid; gap: 12px; padding: 18px 16px; background: var(--surface); border: 1px solid var(--hair); border-radius: 16px; animation: ix-rise 0.2s var(--ease) both; }
-.ix-about { margin: 0; font-size: 14px; color: var(--brand-ink); font-weight: 600; }
+/* Which symptom this question is about. Two symptoms often ask something very similar, and without this
+   the second one reads as the app repeating itself, so it is a chip rather than a caption. */
+.ix-about {
+  justify-self: start; margin: 0; padding: 5px 12px; border-radius: 999px;
+  background: var(--brand-soft); color: var(--brand-ink); font-size: 15px; line-height: 20px; font-weight: 600;
+}
+.ix-outs { display: grid; gap: 2px; margin-top: 4px; }
 .ix-editing { margin: 0; padding: 8px 10px; border-radius: 8px; background: var(--warn-soft); color: var(--warn-ink); font-size: 15px; }
 @keyframes ix-rise {
   from { opacity: 0; transform: translateY(14px); }

@@ -48,9 +48,11 @@ export type Flow = {
   answers: Record<string, Answer>;
   /** Step being revisited; null means "the first unanswered step". */
   cursor: string | null;
+  /** The student said the card is finished. Questions still unanswered simply stay unanswered. */
+  done: boolean;
 };
 
-export const emptyFlow = (): Flow => ({ main: "", mainText: "", sex: "", age: "", manual: [], order: [], answers: {}, cursor: null });
+export const emptyFlow = (): Flow => ({ main: "", mainText: "", sex: "", age: "", manual: [], order: [], answers: {}, cursor: null, done: false });
 
 /** A question in the sequence. `owner` is the symptom it was asked for. */
 export type Step = { key: string; qid: string; owner: string };

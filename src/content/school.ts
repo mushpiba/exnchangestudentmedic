@@ -1,5 +1,7 @@
-// The student's school. One school for now (Inha). Facts come from the school's own pages, checked on the
-// date below; NARU is not run by the school and says so on screen. Re-check before each semester.
+// The schools NARU knows. One today (Inha); the list is what the picker shows and what a saved choice is
+// checked against, so adding a second school is a new entry here with its own contacts — no screen changes.
+// Facts come from each school's own pages, checked on the date below; NARU is not run by the school and
+// says so on screen. Re-check before each semester.
 import type { MessageKey } from "../i18n";
 
 export type SchoolContact = {
@@ -11,8 +13,10 @@ export type SchoolContact = {
   source: string;
 };
 
-export const SCHOOL = {
+const INHA = {
+  id: "inha",
   name: "school.inha" as MessageKey,
+  city: "welcome.cityIncheon" as MessageKey,
   checked: "2026-11-18",
   /** Campus position (OpenStreetMap). The health center is in the Student Union building on campus. */
   location: { lat: 37.449443, lng: 126.653445 },
@@ -45,3 +49,14 @@ export const SCHOOL = {
     },
   ] satisfies SchoolContact[],
 };
+
+export type SchoolInfo = typeof INHA;
+
+/** Every school the picker offers, in the order it offers them. */
+export const SCHOOLS: SchoolInfo[] = [INHA];
+
+export const schoolById = (id: string | null) => SCHOOLS.find((s) => s.id === id) ?? null;
+
+/** The campus the clinic and pharmacy list was collected around (src/content/osm-places.json). A student
+ *  with no school still sees that area, so this is the fallback wherever a screen needs a place to stand. */
+export const SCHOOL = INHA;

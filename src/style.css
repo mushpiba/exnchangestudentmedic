@@ -168,8 +168,9 @@ legend { font-weight: 500; margin-bottom: 6px; }
 .brand { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; color: var(--ink); text-decoration: none; direction: ltr; }
 .logo {
   display: grid; place-items: center; width: 32px; height: 32px; border-radius: 8px;
-  background: var(--brand); color: #fff; font: 600 16px/1 var(--f-latin);
+  background: var(--brand); color: #fff;
 }
+.logo svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
 .brand-word { font: 600 18px/1 var(--f-latin); letter-spacing: 0.04em; }
 .top-actions { display: flex; align-items: center; gap: 8px; }
 .lang-button { padding: 0 12px; }
@@ -392,6 +393,12 @@ dialog::backdrop { background: rgb(22 27 26 / 0.55); }
 /* School tab */
 .school-head { padding-top: 24px; }
 .school-head h1 { margin: 0 0 12px; }
+/* The school's name is a setting, so the way to change it sits on the same line as the name. */
+.school-name { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.school-change {
+  display: inline-flex; align-items: center; gap: 4px; min-height: 44px;
+  color: var(--ink-2); font-size: 15px; font-weight: 500; text-decoration: none; white-space: nowrap;
+}
 .seg { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; border-radius: 14px; background: var(--raised); }
 .seg a { display: grid; place-items: center; min-height: 48px; border-radius: 10px; color: var(--ink-2); text-decoration: none; font-weight: 500; }
 .seg a[aria-current] { background: var(--surface); color: var(--ink); font-weight: 600; box-shadow: 0 1px 2px rgba(22, 27, 26, 0.12); }
@@ -724,6 +731,22 @@ dialog.phrase[open] { animation: fade 0.2s var(--ease); }
 .place-list .item { width: 100%; justify-content: flex-start; border: 0; border-radius: 0; background: transparent; text-align: start; font-weight: 400; min-height: 64px; }
 .place-list .item[aria-pressed="true"] { background: var(--hover); }
 .map-note { margin: 12px 0 0; color: var(--ink-3); }
+
+/* What a visit may cost. The number the student came for is the big one; the two figures behind it sit
+   under it in small type, because "insurance pays the rest" is the part nobody believes until they see it. */
+.cost-estimate h2 { display: flex; align-items: center; gap: 8px; }
+.cost-switches { display: grid; gap: 8px; margin: 12px 0; }
+.cost-mine { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 0; }
+.cost-mine strong { font-size: 28px; line-height: 36px; font-weight: 600; }
+.cost-split { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; margin: 10px 0 0; color: var(--ink-2); }
+.cost-split dd { margin: 0; text-align: end; }
+
+/* A column's own numbers, before its words: the part that gets read when the prose does not. */
+.guide-figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin: 16px 0 4px; padding: 0; list-style: none; }
+.guide-figures li { display: grid; gap: 2px; padding: 14px 16px; border-radius: 14px; background: var(--raised); }
+.guide-figures strong { font-size: 26px; line-height: 32px; font-weight: 600; color: var(--brand-ink); }
+.guide-figures span { color: var(--ink-2); font-size: 15px; line-height: 21px; }
+.guide-figure-tag { display: inline-block; margin-top: 4px; padding: 2px 10px; border-radius: 999px; background: var(--brand-soft); color: var(--brand-ink); font-size: 15px; font-weight: 600; }
 
 /* Which languages a place can serve you in. A quiet badge, not a claim: it has to sit next to the name
    without outshouting it, and the list below says in words that these are still only examples. */

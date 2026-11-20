@@ -2,6 +2,20 @@
 // campus to the clinic, and the two directions the medicine tab translates in. All three are decorative
 // — every fact they carry is also written next to them — so they are hidden from screen readers.
 
+/** The mark: a landing stage on two piles over the water, which is what a 나루 is. Taken from the unslop
+ *  redesign, the same pass the app's colours and ticket-slip shape came from. */
+export function NaruMark() {
+  return (
+    <span className="logo" aria-hidden>
+      <svg viewBox="0 0 22 22" focusable="false">
+        <path d="M2.5 8.5h17" />
+        <path d="M7 8.5v4.5M15 8.5v4.5" />
+        <path d="M2.5 17.5c2.5-2 4.2-2 6.7 0s4.2 2 6.7 0" />
+      </svg>
+    </span>
+  );
+}
+
 /** Campus → clinic, with the two of you on the path. The line the pair says is real text, so it translates. */
 export function BuddyWalk({ say }: { say: string }) {
   return (

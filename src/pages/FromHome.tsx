@@ -2,7 +2,7 @@
 // ingredients in their language, Korean OTC products with the same ingredients, and a Korean sentence to
 // show the pharmacist. The pack from home is rarely in Korean, so its photo is read with Latin and Cyrillic.
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowLeft, Check, ClipboardPlus, Globe, Info as InfoIcon, Search, ShieldCheck } from "lucide-react";
+import { Check, ClipboardPlus, Globe, Info as InfoIcon, Search, ShieldCheck } from "lucide-react";
 import { useI18n } from "../i18n";
 import { href } from "../app/router";
 import { useCard } from "../state/card";
@@ -101,9 +101,6 @@ export function FromHome() {
 
   return (
     <section className="medicine from-home">
-      <a className="page-back" href={href("meds")}>
-        <ArrowLeft className="flip" size={18} aria-hidden /> {t("meds.back")}
-      </a>
       <PageHead title={t("meds.fromHome")} intro={t("hm.intro")} icon={<Globe />} />
 
       <PhotoRow onPick={readPhoto} busy={progress !== null} />

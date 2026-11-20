@@ -1,11 +1,11 @@
 // Korean-healthcare guide: column list (on the guide tab), one column, and "my country vs Korea".
 import { useMemo, useState } from "react";
-import { ArrowLeft, ChevronRight, Globe2, Newspaper } from "lucide-react";
+import { ChevronRight, Globe2, Newspaper } from "lucide-react";
 import { useI18n } from "../i18n";
 import { href } from "../app/router";
 import { BarChart, type Bar } from "../components/BarChart";
 import { Notice, Out, PageHead, Section } from "../components/ui";
-import { CHARTS, COLUMNS, COLUMN_SOURCES, useGuideText, type Block, type ChartId, type ColumnId, type GuideText } from "../content/guide";
+import { CHARTS, COLUMNS, COLUMN_FIGURES, COLUMN_SOURCES, useGuideText, type Block, type ChartId, type ColumnId, type GuideText } from "../content/guide";
 import homeSources from "../content/guide/home-sources.json";
 import { FLAGS } from "../content/conditions";
 import { FlagList } from "./Info";
@@ -22,15 +22,6 @@ function useRegionName() {
     }
     return (c: Country) => names?.of(c) ?? c;
   }, [locale]);
-}
-
-function BackToGuide() {
-  const { t } = useI18n();
-  return (
-    <a className="page-back" href={href("info")}>
-      <ArrowLeft className="flip" size={18} aria-hidden /> {t("guide.back")}
-    </a>
-  );
 }
 
 /** A chart from CHARTS, with the student's country added and emphasised. */
@@ -133,6 +124,11 @@ export function GuideHome() {
                   <span>
                     <strong>{text.columns[id]!.title}</strong>
                     <small>{text.columns[id]!.lead}</small>
+                    {COLUMN_FIGURES[id]?.[0] && (
+                      <span className="guide-figure-tag" dir="ltr">
+                        {COLUMN_FIGURES[id][0].value}
+                      </span>
+                    )}
                   </span>
                   <ChevronRight className="flip" size={20} aria-hidden />
                 </a>
@@ -145,13 +141,29 @@ export function GuideHome() {
   );
 }
 
+/** The column's own numbers, before its words. Large on purpose: this is the part that gets read. */
+function Figures({ id }: { id: ColumnId }) {
+  const { t } = useI18n();
+  const figures = COLUMN_FIGURES[id];
+  if (!figures?.length) return null;
+  return (
+    <ul className="guide-figures">
+      {figures.map((f) => (
+        <li key={f.label}>
+          <strong dir="ltr">{f.value}</strong>
+          <span>{t(f.label)}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export function GuideColumn({ id }: { id: string }) {
   const { t, locale } = useI18n();
   const text = useGuideText(locale);
   const column = text?.columns[id as ColumnId];
   return (
     <article className="guide-column">
-      <BackToGuide />
       {text === null ? (
         <p className="muted">{t("common.loading")}</p>
       ) : !column ? (
@@ -159,6 +171,7 @@ export function GuideColumn({ id }: { id: string }) {
       ) : (
         <>
           <PageHead title={column.title} intro={column.lead} icon={<Newspaper />} />
+          <Figures id={id as ColumnId} />
           <Blocks blocks={column.blocks} text={text} />
           <Section title={t("guide.sources")}>
             <ul className="source-list">
@@ -188,7 +201,6 @@ export function GuideCompare() {
   const sources = (homeSources as Record<string, { summary?: string; points: string[] }>)[country];
   return (
     <article className="guide-compare">
-      <BackToGuide />
       <PageHead title={t("guide.compare")} intro={t("guide.compareIntro")} icon={<Globe2 />} />
       <label className="field">
         <span>{t("guide.pickCountry")}</span>

@@ -6,6 +6,7 @@ import { href } from "../app/router";
 import { deptKey } from "../content/symptoms";
 import { LINKS, OFFICIAL, QUICK_DEPTS, mapSearch, type Facility } from "../content/facilities";
 import { SCHOOL } from "../content/school";
+import { useSchoolInfo } from "../state/prefs";
 import { openNaverSearch } from "../lib/naver";
 import { Chip, Out, PageHead, Section } from "../components/ui";
 
@@ -45,6 +46,7 @@ function FacilityRow({ f }: { f: Facility }) {
 
 export function Places() {
   const { t, tk } = useI18n();
+  const campus = useSchoolInfo() ?? SCHOOL;
   const [dept, setDept] = useState("JIM");
   return (
     <section className="places">
@@ -69,7 +71,7 @@ export function Places() {
         <button
           type="button"
           className="button primary wide"
-          onClick={() => openNaverSearch(tk(SCHOOL.name) + " " + tk(deptKey(dept)), SCHOOL.location)}
+          onClick={() => openNaverSearch(tk(campus.name) + " " + tk(deptKey(dept)), campus.location)}
         >
           <MapPin size={18} aria-hidden /> {t("places.mapSearch", { dept: t(deptKey(dept)) })}
         </button>

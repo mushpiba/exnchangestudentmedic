@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { BookOpen, Check, ClipboardList, Globe, GraduationCap, House, MapPin, Phone, Pill, RefreshCw, X } from "lucide-react";
+import { ArrowLeft, BookOpen, Check, ClipboardList, Globe, GraduationCap, House, MapPin, Phone, Pill, RefreshCw, X } from "lucide-react";
 import { useI18n, type MessageKey } from "../i18n";
 import { LOCALES } from "../i18n/locales";
 import { go, href, useRoute } from "./router";
@@ -15,6 +15,7 @@ import { GuideColumn, GuideCompare } from "../pages/Guide";
 import { Community } from "../pages/Community";
 import { Campus } from "../pages/Campus";
 import { Welcome } from "../pages/Welcome";
+import { NaruMark } from "../components/art";
 import { useSchool } from "../state/prefs";
 import { useCard } from "../state/card";
 import { applyUpdate, useUpdateReady } from "../lib/update";
@@ -61,6 +62,18 @@ function LanguageDialog({ onClose }: { onClose: () => void }) {
       <p className="muted">{t("lang.note")}</p>
     </dialog>
   );
+}
+
+/** The screen one step up, and the name to put on the link back to it. A tab's own screen returns null:
+ *  the tab bar is already its way out. So does the board, which carries its own back inside a post. */
+function upFrom(route: string[]): { to: string[]; key: MessageKey } | null {
+  const [head, ...rest] = route;
+  if (!rest.length) return null;
+  if (head === "meds") return { to: ["meds"], key: "med.title" };
+  if (head === "card" && rest[0] === "view") return { to: ["card"], key: "tab.card" };
+  // #/info/flags and #/school/<section> are places on a tab's own screen, not screens of their own.
+  if (head === "info") return rest[0] === "flags" ? null : { to: ["info"], key: "nav.guide" };
+  return null;
 }
 
 function Page({ route }: { route: string[] }) {
@@ -139,7 +152,7 @@ export function App() {
   if (school === null || route[0] === "welcome")
     return (
       <main ref={main} tabIndex={-1} className="welcome-main">
-        <Welcome onDone={() => go("home")} />
+        <Welcome start={route[1] === "school" ? 2 : 1} onDone={() => go(route[1] === "school" ? "school" : "home")} />
       </main>
     );
 
@@ -152,13 +165,12 @@ export function App() {
 
   // The board lives in the school tab; #/campus is the old address of the school page.
   const section = ["community", "campus"].includes(route[0]) ? "school" : route[0];
+  const up = upFrom(route);
   return (
     <>
       <header className="topbar">
         <a className="brand" href={href("home")} aria-label="NARU">
-          <span className="logo" aria-hidden>
-            N
-          </span>
+          <NaruMark />
           <span className="brand-word" aria-hidden>
             NARU
           </span>
@@ -184,6 +196,11 @@ export function App() {
         </div>
       )}
       <main ref={main} tabIndex={-1}>
+        {up && (
+          <a className="page-back" href={href(...up.to)}>
+            <ArrowLeft className="flip" size={18} aria-hidden /> {t(up.key)}
+          </a>
+        )}
         <Page route={route} />
         <footer className="foot">{t("app.notice")}</footer>
       </main>

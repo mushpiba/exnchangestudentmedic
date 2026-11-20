@@ -2,20 +2,21 @@
 // question through the Simtomi branch data (src/intake/engine.ts). Associated symptoms can be added or removed
 // at any time and appear as chips at the top. Answers are only collected here; nothing is diagnosed.
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { ArrowLeft, Camera, Languages, Pencil, Phone, Plus, RotateCcw, Search, Siren, X } from "lucide-react";
+import { ArrowLeft, Camera, Check, Languages, ListChecks, Mic, Pencil, Phone, Plus, RotateCcw, Search, Siren, X } from "lucide-react";
 import { useI18n, type MessageKey } from "../i18n";
 import { go, href } from "../app/router";
 import { useCard, type Card, type Value } from "../state/card";
 import { Tick } from "../components/ui";
 import { Dictate } from "../components/Dictate";
 import { ALLERGY_KINDS, CATEGORIES, ONSETS, PREGNANCY, categoryKey, symptom, symptomKey } from "../content/symptoms";
+import { hear, type Speech } from "../intake/speech";
 import { DETAILS, detailKey, optionKey } from "../content/details";
 import { TRANSLATION_SERVER, translateOnServer } from "../lib/translate";
 import { useIntakeText, type IntakeText } from "../intake/text";
 import * as E from "../intake/engine";
 import {
   HISTORY_KINDS, LIFE, answerRows, answeredSteps, currentStep, departments, flowLines, historyFor, historyRows, historyStep,
-  naruId, previousStep, sequence, type HistoryKind, type Row,
+  naruId, previousStep, remainingSteps, sequence, stepsAbout, type HistoryKind, type Row,
 } from "../intake/sequence";
 import "../intake/intake.css";
 
@@ -103,6 +104,10 @@ function Flow({ x, start }: { x: IntakeText; start?: string }) {
           if (text !== flow.mainText) set({ ...resetIntake(), flow: E.setOwnWords(text, flow.sex, flow.age) });
         }}
         onCancel={chosen ? () => setPicking(false) : undefined}
+        onSpoken={(heard, text) => {
+          setPicking(false);
+          set({ ...resetIntake(), notes: text, onset: heard.onset, flow: heard.flow });
+        }}
       />
     );
 
@@ -123,12 +128,12 @@ function Flow({ x, start }: { x: IntakeText; start?: string }) {
 
 // ---------------------------------------------------------------- the opening screens
 
-type Stage = "intro" | "sex" | "age" | "pick";
+type Stage = "intro" | "sex" | "age" | "way" | "speak" | "heard" | "pick";
 
 /** Before any question: what the card is, then the two facts every intake starts from, then the symptom.
  *  One thing per screen with a way back, so the start of the intake has the same shape as the rest of it. */
 function Start({
-  ctx, prefill, resume, onPick, onOwn, onCancel,
+  ctx, prefill, resume, onPick, onOwn, onCancel, onSpoken,
 }: {
   ctx: Ctx;
   prefill: string;
@@ -137,9 +142,12 @@ function Start({
   onPick: (sid: string) => void;
   onOwn: (text: string) => void;
   onCancel?: () => void;
+  onSpoken: (heard: Speech, text: string) => void;
 }) {
   const { t } = useI18n();
   const { x, flow, update } = ctx;
+  const [spoken, setSpoken] = useState("");
+  const [heard, setHeard] = useState<Speech | null>(null);
   const [stage, setStage] = useState<Stage>(resume || prefill ? "pick" : "intro");
   // "" is both "prefer not to say" and "not asked yet", so nothing is drawn as chosen until it is chosen.
   const [sexAsked, setSexAsked] = useState(!!flow.sex);
@@ -166,6 +174,7 @@ function Start({
           <li>{t("intake.introStep2")}</li>
           <li>{t("intake.introStep3")}</li>
         </ol>
+        <p className="ix-notice">{t("intake.introCost")}</p>
         <button type="button" className="primary wide" onClick={() => setStage("sex")}>
           {t("intake.start")}
         </button>
@@ -215,7 +224,7 @@ function Start({
           />
           <span aria-hidden>{t("intake.ageUnit")}</span>
         </label>
-        <button type="button" className="primary wide" onClick={() => setStage("pick")}>
+        <button type="button" className="primary wide" onClick={() => setStage("way")}>
           {x.it("ui.next")}
         </button>
         <button
@@ -223,7 +232,7 @@ function Start({
           className="ix-plain"
           onClick={() => {
             update({ ...flow, age: "" });
-            setStage("pick");
+            setStage("way");
           }}
         >
           {x.it("ui.skip")}
@@ -231,8 +240,108 @@ function Start({
       </section>
     );
 
-  return <Picker ctx={ctx} prefill={prefill} onPick={onPick} onOwn={onOwn} bar={bar(resume ? null : "age")} />;
+  // Two ways in. Tapping through the list is the sure one; speaking first is the short one, and the
+  // screen says plainly that it takes a moment and that it only fills in what it recognises.
+  if (stage === "way")
+    return (
+      <section className="ix ix-ask">
+        {bar("age")}
+        <h1>{t("intake.wayTitle")}</h1>
+        <div className="ix-ways">
+          <button type="button" className="ix-way" onClick={() => setStage("pick")}>
+            <ListChecks size={24} aria-hidden />
+            <span>
+              <strong>{t("intake.wayPick")}</strong>
+              <small>{t("intake.wayPickSub")}</small>
+            </span>
+          </button>
+          <button type="button" className="ix-way" onClick={() => setStage("speak")}>
+            <Mic size={24} aria-hidden />
+            <span>
+              <strong>{t("intake.waySpeak")}</strong>
+              <small>{t("intake.waySpeakSub")}</small>
+            </span>
+          </button>
+        </div>
+      </section>
+    );
+
+  if (stage === "speak")
+    return (
+      <section className="ix ix-ask">
+        {bar("way")}
+        <h1>{t("intake.speakTitle")}</h1>
+        <p className="ix-hint">{t("intake.speakHint")}</p>
+        <textarea
+          dir="auto"
+          value={spoken}
+          maxLength={500}
+          aria-label={t("intake.speakTitle")}
+          placeholder={t("intake.speakExample")}
+          onChange={(e) => setSpoken(e.target.value)}
+        />
+        <Dictate append={(text) => setSpoken((now) => [now, text].filter(Boolean).join(" "))} />
+        <p className="ix-notice">{t("intake.speakSlow")}</p>
+        <button
+          type="button"
+          className="primary wide"
+          disabled={!spoken.trim()}
+          onClick={() => {
+            setHeard(hear(x, spoken.trim(), flow.sex, flow.age, onsetLabels(t)));
+            setStage("heard");
+          }}
+        >
+          {t("intake.speakGo")}
+        </button>
+      </section>
+    );
+
+  // Nothing starts from speech alone: this screen is where the student corrects what was heard.
+  if (stage === "heard" && heard)
+    return (
+      <section className="ix ix-ask">
+        {bar("speak")}
+        <h1>{t("intake.heardTitle")}</h1>
+        {heard.found.length === 0 ? (
+          <p className="ix-notice">{t("intake.heardNone")}</p>
+        ) : (
+          <>
+            <p className="ix-hint">{t("intake.heardFilled", { n: heard.filled })}</p>
+            <div className="ix-chips plain">
+              <span className="ix-chip is-main">
+                <span className="ix-chip-tag">{x.it("ui.main")}</span>
+                <bdi>{x.sn(heard.found[0])}</bdi>
+              </span>
+              {heard.flow.manual.map((sid) => (
+                <span className="ix-chip" key={sid}>
+                  <bdi>{x.sn(sid)}</bdi>
+                  <button
+                    type="button"
+                    aria-label={x.it("ui.removeSymptom", { name: x.sn(sid) })}
+                    onClick={() => setHeard({ ...heard, flow: E.toggleSymptom(x.bank, heard.flow, sid) })}
+                  >
+                    <X size={16} aria-hidden />
+                  </button>
+                </span>
+              ))}
+            </div>
+          </>
+        )}
+        <button type="button" className="primary wide" onClick={() => onSpoken(heard, spoken.trim())}>
+          <Check size={18} aria-hidden /> {t("intake.heardGo")}
+        </button>
+        <button type="button" className="ix-plain" onClick={() => setStage("pick")}>
+          {t("intake.heardOther")}
+        </button>
+      </section>
+    );
+
+  return <Picker ctx={ctx} prefill={prefill || spoken} onPick={onPick} onOwn={onOwn} bar={bar(resume ? null : "way")} />;
 }
+
+/** The onset question's own words, which a spoken sentence is matched against. */
+const onsetLabels = (t: T): Record<string, string> =>
+  Object.fromEntries(ONSETS.map((o) => [o, t(("onset." + o) as MessageKey)]));
 
 /** Card fields the intake owns; cleared when a new main symptom starts a new intake. */
 const resetIntake = (): Partial<Card> => ({ onset: "", preg: "", notes: "", details: {}, flowLines: [], depts: [] });
@@ -443,6 +552,9 @@ function StepScreen({ ctx, step, onBack }: { ctx: Ctx; step: E.Step; onBack: () 
   const head = useRef<HTMLHeadingElement>(null);
   const prev = previousStep(bank, flow, step.key);
   const count = answeredSteps(bank, flow);
+  const total = sequence(bank, flow).length;
+  // Skipping a symptom means answering its remaining questions with "skipped", so the card says so.
+  const rest = step.owner ? stepsAbout(bank, flow, step.owner) : [];
   const editing = !!flow.cursor && !!flow.answers[step.key];
 
   useEffect(() => {
@@ -461,7 +573,7 @@ function StepScreen({ ctx, step, onBack }: { ctx: Ctx; step: E.Step; onBack: () 
           <ArrowLeft className="flip" size={18} aria-hidden /> {prev ? x.it("ui.back") : t("intake.back")}
         </button>
         <span className="ix-progress" aria-live="polite">
-          {x.it("ui.answered", { n: count })}
+          {t("intake.progress", { n: count + 1, total })}
         </span>
       </div>
       <Trail ctx={ctx} step={step} />
@@ -472,6 +584,28 @@ function StepScreen({ ctx, step, onBack }: { ctx: Ctx; step: E.Step; onBack: () 
         </h1>
         {editing && <p className="ix-editing">{x.it("ui.editing")}</p>}
         {step.qid.startsWith("G_") ? <GeneralStep ctx={ctx} step={step} onDone={done} /> : <SymptomStep ctx={ctx} step={step} onDone={done} />}
+        <div className="ix-outs">
+          {rest.length > 1 && (
+            <button
+              type="button"
+              className="ix-plain"
+              onClick={() =>
+                update({
+                  ...flow,
+                  cursor: null,
+                  answers: { ...flow.answers, ...Object.fromEntries(rest.map((s) => [s.key, { kind: "skip" } as const])) },
+                })
+              }
+            >
+              {t("intake.skipSymptom", { name: x.sn(step.owner), n: rest.length })}
+            </button>
+          )}
+          {count > 0 && (
+            <button type="button" className="ix-plain" onClick={() => update({ ...flow, cursor: null, done: true })}>
+              {t("intake.finishNow")}
+            </button>
+          )}
+        </div>
       </article>
     </>
   );
@@ -879,6 +1013,7 @@ function Summary({ ctx, onAdd }: { ctx: Ctx; onAdd: () => void }) {
   const answers = flow.main ? answerRows(x.bank, flow) : [];
   const history = historyRows(x.bank, flow);
   const assoc = flow.main ? E.plan(x.bank, flow).associated : [];
+  const left = remainingSteps(x.bank, flow);
   const general = sequence(x.bank, flow).filter((s) => s.qid.startsWith("G_") && !s.qid.startsWith("G_PAST") && !s.qid.startsWith("G_DRUG") && !s.qid.startsWith("G_FAMILY"));
 
   const answered = (s: E.Step) => !!flow.answers[s.key] && flow.answers[s.key].kind !== "skip";
@@ -914,6 +1049,11 @@ function Summary({ ctx, onAdd }: { ctx: Ctx; onAdd: () => void }) {
       </h1>
       <p className="ix-hint">{x.it("ui.summaryHint")}</p>
       <p className="ix-notice">{x.it("ui.noDiagnosis")}</p>
+      {left > 0 && (
+        <button type="button" className="ix-plain ix-finish" onClick={() => update({ ...flow, done: false })}>
+          {t("intake.resume", { n: left })}
+        </button>
+      )}
 
       <h2>{x.it("ui.secMain")}</h2>
       <p className="ix-main">
