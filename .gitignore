@@ -2,3 +2,6 @@ node_modules/
 dist/
 .env*
 
+
+# Claude Code personal settings for this project (not shared)
+.claude/settings.local.json
