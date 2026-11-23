@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AlertTriangle, BookOpen, ChevronRight, ClipboardList, MessageCircleMore, Siren } from "lucide-react";
+import { AlertTriangle, BookOpen, ChevronDown, ChevronRight, ClipboardList, MessageCircleMore, Siren } from "lucide-react";
 import { useI18n, type MessageKey } from "../i18n";
 import { href } from "../app/router";
 import { CONDITIONS, FLAGS, careKey, flagKey, otcKey, summaryKey } from "../content/conditions";
@@ -142,12 +142,16 @@ export function Condition({ id }: { id: string }) {
 }
 
 /** The seventeen conditions. This list belongs to the symptom-card tab: looking up what you have and
- *  writing the card for it are one errand, and splitting them across two tabs made it two. */
+ *  writing the card for it are one errand, and splitting them across two tabs made it two. It opens
+ *  folded, because seventeen conditions unfolded push the card itself off the top of the screen. */
 export function ConditionList() {
   const { t } = useI18n();
   return (
-    <>
-      <h2 className="list-head">{t("guide.conditions")}</h2>
+    <details className="conditions-fold">
+      <summary>
+        <span>{t("guide.conditions")}</span>
+        <ChevronDown className="fold-ic" size={20} aria-hidden />
+      </summary>
       <p className="muted">{t("info.intro")}</p>
       <ul className="condition-list">
         {Object.entries(CONDITIONS).map(([cid, c]) => (
@@ -162,7 +166,7 @@ export function ConditionList() {
           </li>
         ))}
       </ul>
-    </>
+    </details>
   );
 }
 

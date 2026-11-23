@@ -5,7 +5,7 @@ import { useI18n } from "../i18n";
 import { href } from "../app/router";
 import { BarChart, type Bar } from "../components/BarChart";
 import { Notice, Out, PageHead, Section } from "../components/ui";
-import { CHARTS, COLUMNS, COLUMN_FIGURES, COLUMN_SOURCES, useGuideText, type Block, type ChartId, type ColumnId, type GuideText } from "../content/guide";
+import { CHARTS, COLUMNS, COLUMN_FIGURES, COLUMN_SOURCES, useGuideText, type Block, type ChartId, type ColumnFigure, type ColumnId, type GuideText } from "../content/guide";
 import homeSources from "../content/guide/home-sources.json";
 import { FLAGS } from "../content/conditions";
 import { FlagList } from "./Info";
@@ -96,6 +96,21 @@ function Blocks({ blocks, text }: { blocks: Block[]; text: GuideText }) {
   );
 }
 
+/** A column's headline number on the list. A digit on its own says nothing: "18" has to carry both
+ *  what it counts and in what, or the reader is left guessing at the one part meant to be read first. */
+function FigureTag({ f }: { f: ColumnFigure }) {
+  const { t } = useI18n();
+  return (
+    <span className="guide-figure-tag">
+      <b dir="ltr">
+        {f.value}
+        {f.unit && <em>{t(f.unit)}</em>}
+      </b>
+      {t(f.label)}
+    </span>
+  );
+}
+
 /** Top of the guide tab: the comparison card and the column list. */
 export function GuideHome() {
   const { t, locale } = useI18n();
@@ -124,11 +139,7 @@ export function GuideHome() {
                   <span>
                     <strong>{text.columns[id]!.title}</strong>
                     <small>{text.columns[id]!.lead}</small>
-                    {COLUMN_FIGURES[id]?.[0] && (
-                      <span className="guide-figure-tag" dir="ltr">
-                        {COLUMN_FIGURES[id][0].value}
-                      </span>
-                    )}
+                    {COLUMN_FIGURES[id]?.[0] && <FigureTag f={COLUMN_FIGURES[id][0]} />}
                   </span>
                   <ChevronRight className="flip" size={20} aria-hidden />
                 </a>

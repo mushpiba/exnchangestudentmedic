@@ -194,7 +194,7 @@ function Start({
 
   if (stage === "intro")
     return (
-      <section className="ix ix-ask">
+      <section className="ix ix-ask ix-intro">
         <h1>{t("intake.introTitle")}</h1>
         <p className="ix-hint">{t("intake.introBody")}</p>
         <ol className="ix-steps">
