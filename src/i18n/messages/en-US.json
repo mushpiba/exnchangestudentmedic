@@ -410,6 +410,7 @@
   "info.otc": "Types of medicine you can buy at a pharmacy",
   "info.noOtc": "This often needs a prescription. Please see a doctor.",
   "info.makeCard": "Make a card with these symptoms",
+  "info.pickSymptom": "Tap a symptom to start the card with it.",
   "info.emergencyList": "Signs to call 119 right away",
   "info.urgentList": "Signs to see a doctor today",
   "info.reviewed": "Draft — not yet reviewed by medical professionals.",

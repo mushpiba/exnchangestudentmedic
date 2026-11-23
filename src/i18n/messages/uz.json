@@ -410,6 +410,7 @@
   "info.otc": "Dorixonadan sotib olish mumkin bo‘lgan dori turlari",
   "info.noOtc": "Ko‘pincha retsept kerak bo‘ladi. Shifokor ko‘rigidan o‘ting.",
   "info.makeCard": "Shu alomat bilan karta tuzish",
+  "info.pickSymptom": "Biror alomatni bosing — karta o‘sha alomatdan boshlanadi.",
   "info.emergencyList": "Darhol 119 ga qo‘ng‘iroq qilish kerak bo‘lgan belgilar",
   "info.urgentList": "Bugunoq shifokorga borish kerak bo‘lgan belgilar",
   "info.reviewed": "Tibbiyot xodimlari hali tekshirmagan qoralama.",

@@ -1,11 +1,42 @@
-import { useEffect } from "react";
-import { AlertTriangle, BookOpen, ChevronRight, ClipboardList, Siren } from "lucide-react";
-import { useI18n } from "../i18n";
+import { useEffect, useState } from "react";
+import { AlertTriangle, BookOpen, ChevronRight, ClipboardList, MessageCircleMore, Siren } from "lucide-react";
+import { useI18n, type MessageKey } from "../i18n";
 import { href } from "../app/router";
 import { CONDITIONS, FLAGS, careKey, flagKey, otcKey, summaryKey } from "../content/conditions";
 import { deptKey, symptomKey } from "../content/symptoms";
 import { Bilingual, CallButton, Notice, PageHead, Section } from "../components/ui";
+import { PhraseOverlay } from "../components/PhraseOverlay";
 import { GuideHome } from "./Guide";
+
+const STEPS = ["book", "bring", "reception", "consult", "pay", "pharmacy"];
+
+/** How a visit to a Korean clinic goes, start to finish. Nothing about it is school business -- it is
+ *  the same six steps for every student -- so it sits with the rest of the guide. */
+function FirstVisit() {
+  const { t } = useI18n();
+  const [say, setSay] = useState<MessageKey | null>(null);
+  return (
+    <Section title={t("campus.firstVisit")} id="first-visit">
+      <ol className="visit-steps">
+        {STEPS.map((s, i) => (
+          <li key={s}>
+            <span className="num" aria-hidden>
+              {i + 1}
+            </span>
+            <div>
+              <strong>{t(("campus.step." + s) as MessageKey)}</strong>
+              <p>{t(("campus.step." + s + ".body") as MessageKey)}</p>
+              <button type="button" className="say" onClick={() => setSay(("campus.step." + s + ".say") as MessageKey)}>
+                <MessageCircleMore size={16} aria-hidden /> {t("campus.sayThis")}
+              </button>
+            </div>
+          </li>
+        ))}
+      </ol>
+      {say && <PhraseOverlay phrase={say} kind="say" onClose={() => setSay(null)} />}
+    </Section>
+  );
+}
 
 export function FlagList({ flags }: { flags: string[] }) {
   const { t } = useI18n();
@@ -46,18 +77,23 @@ export function FlagList({ flags }: { flags: string[] }) {
   );
 }
 
-function Condition({ id }: { id: string }) {
+/** One condition. It lives in the symptom-card tab (#/card/info/<id>): a student who reads about a
+ *  cough is a tap away from filling in the card for it, and the card sends them back here. */
+export function Condition({ id }: { id: string }) {
   const { t } = useI18n();
   const c = CONDITIONS[id];
   return (
     <article className="condition">
       <PageHead title={t(c.name)} intro={t(summaryKey(id))} icon={<BookOpen />} />
       <Section title={t("info.symptoms")}>
-        <ul className="tags">
+        <ul className="sym-links">
           {c.symptoms.map((s) => (
-            <li key={s}>{t(symptomKey(s))}</li>
+            <li key={s}>
+              <a href={href("card", s)}>{t(symptomKey(s))}</a>
+            </li>
           ))}
         </ul>
+        <p className="muted small">{t("info.pickSymptom")}</p>
         <a className="button primary" href={href("card", c.symptoms[0])}>
           <ClipboardList size={18} aria-hidden /> {t("info.makeCard")}
         </a>
@@ -105,23 +141,18 @@ function Condition({ id }: { id: string }) {
   );
 }
 
-export function Info({ id }: { id?: string }) {
+/** The seventeen conditions. This list belongs to the symptom-card tab: looking up what you have and
+ *  writing the card for it are one errand, and splitting them across two tabs made it two. */
+export function ConditionList() {
   const { t } = useI18n();
-  useEffect(() => {
-    // After the app's scroll-to-top on navigation.
-    if (id === "flags") setTimeout(() => document.getElementById("flags")?.scrollIntoView(), 0);
-  }, [id]);
-  if (id && CONDITIONS[id]) return <Condition id={id} />;
   return (
-    <section className="info">
-      <PageHead title={t("guide.title")} intro={t("guide.intro")} icon={<BookOpen />} />
-      <GuideHome />
+    <>
       <h2 className="list-head">{t("guide.conditions")}</h2>
       <p className="muted">{t("info.intro")}</p>
       <ul className="condition-list">
         {Object.entries(CONDITIONS).map(([cid, c]) => (
           <li key={cid}>
-            <a href={href("info", cid)}>
+            <a href={href("card", "info", cid)}>
               <span>
                 <strong>{t(c.name)}</strong>
                 <small>{t(summaryKey(cid))}</small>
@@ -131,6 +162,21 @@ export function Info({ id }: { id?: string }) {
           </li>
         ))}
       </ul>
+    </>
+  );
+}
+
+export function Info({ id }: { id?: string }) {
+  const { t } = useI18n();
+  useEffect(() => {
+    // After the app's scroll-to-top on navigation. Both are places on this screen, not screens of their own.
+    if (id === "flags" || id === "first-visit") setTimeout(() => document.getElementById(id)?.scrollIntoView(), 0);
+  }, [id]);
+  return (
+    <section className="info">
+      <PageHead title={t("guide.title")} intro={t("guide.intro")} icon={<BookOpen />} />
+      <GuideHome />
+      <FirstVisit />
       <Section title={t("info.redFlags")} id="flags">
         <FlagList flags={Object.keys(FLAGS)} />
         <CallButton number="1345" label={t("emergency.call1345")} />

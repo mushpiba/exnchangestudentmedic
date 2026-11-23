@@ -430,6 +430,7 @@
   "info.otc": "药店可以买到的药物种类",
   "info.noOtc": "很多情况下需要处方。请去医院就诊。",
   "info.makeCard": "用这个症状制作卡片",
+  "info.pickSymptom": "点一个症状，就从它开始填卡片。",
   "info.emergencyList": "需要马上拨打119的信号",
   "info.urgentList": "需要今天之内去医院的信号",
   "info.reviewed": "这是尚未经过医护人员审核的草稿。",

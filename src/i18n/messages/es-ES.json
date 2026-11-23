@@ -410,6 +410,7 @@
   "info.otc": "Tipos de medicamentos que puedes comprar en la farmacia",
   "info.noOtc": "Muchas veces hace falta receta. Ve al médico.",
   "info.makeCard": "Crear una tarjeta con estos síntomas",
+  "info.pickSymptom": "Toca un síntoma para empezar la tarjeta con él.",
   "info.emergencyList": "Señales para llamar al 119 enseguida",
   "info.urgentList": "Señales para ir al médico hoy mismo",
   "info.reviewed": "Borrador aún no revisado por profesionales sanitarios.",

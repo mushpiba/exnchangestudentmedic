@@ -410,6 +410,7 @@
   "info.otc": "Types de médicaments en vente libre en pharmacie",
   "info.noOtc": "Une ordonnance est souvent nécessaire. Consultez un médecin.",
   "info.makeCard": "Créer une fiche avec ces symptômes",
+  "info.pickSymptom": "Touchez un symptôme pour commencer la carte avec lui.",
   "info.emergencyList": "Signes pour appeler le 119 tout de suite",
   "info.urgentList": "Signes pour consulter aujourd’hui même",
   "info.reviewed": "Brouillon non encore vérifié par des professionnels de santé.",

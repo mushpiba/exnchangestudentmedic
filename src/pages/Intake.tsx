@@ -8,6 +8,7 @@ import { go, href } from "../app/router";
 import { useCard, type Card, type Value } from "../state/card";
 import { Tick } from "../components/ui";
 import { Dictate } from "../components/Dictate";
+import { ConditionList } from "./Info";
 import { ALLERGY_KINDS, CATEGORIES, ONSETS, PREGNANCY, categoryKey, symptom, symptomKey } from "../content/symptoms";
 import { hear, type Speech } from "../intake/speech";
 import { DETAILS, detailKey, optionKey } from "../content/details";
@@ -205,6 +206,9 @@ function Start({
         <button type="button" className="primary wide" onClick={() => setStage("sex")}>
           {t("intake.start")}
         </button>
+        {/* Not everyone arrives knowing what to call it. Reading about the thing and making the card
+            for it are the same errand, so the list is here rather than one tab away. */}
+        <ConditionList />
       </section>
     );
 

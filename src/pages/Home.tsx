@@ -19,7 +19,7 @@ const PlaceMap = lazy(() => import("../components/PlaceMap"));
 type Shortcut = { label: MessageKey; Icon: typeof MapPin; to: string; external?: boolean };
 
 const SHORTCUTS: Shortcut[] = [
-  { label: "home.gridFirst", Icon: Route, to: href("school", "first-visit") },
+  { label: "home.gridFirst", Icon: Route, to: href("info", "first-visit") },
   { label: "nav.guide", Icon: BookOpen, to: href("info") },
   { label: "home.gridNight", Icon: Moon, to: LINKS.nightPharmacy, external: true },
   { label: "home.gridEr", Icon: Ambulance, to: LINKS.emergency, external: true },

@@ -10,7 +10,7 @@ import { ShowMode } from "../pages/ShowMode";
 import { Medicine, MedsMenu } from "../pages/Medicine";
 import { FromHome } from "../pages/FromHome";
 import { Places } from "../pages/Places";
-import { Info } from "../pages/Info";
+import { Condition, Info } from "../pages/Info";
 import { GuideColumn, GuideCompare } from "../pages/Guide";
 import { Community } from "../pages/Community";
 import { Campus } from "../pages/Campus";
@@ -70,9 +70,9 @@ function upFrom(route: string[]): { to: string[]; key: MessageKey } | null {
   const [head, ...rest] = route;
   if (!rest.length) return null;
   if (head === "meds") return { to: ["meds"], key: "med.title" };
-  if (head === "card" && rest[0] === "view") return { to: ["card"], key: "tab.card" };
-  // #/info/flags and #/school/<section> are places on a tab's own screen, not screens of their own.
-  if (head === "info") return rest[0] === "flags" ? null : { to: ["info"], key: "nav.guide" };
+  if (head === "card" && ["view", "info"].includes(rest[0])) return { to: ["card"], key: "tab.card" };
+  // #/info/flags, #/info/first-visit and #/school/<section> are places on a tab's own screen.
+  if (head === "info") return ["flags", "first-visit"].includes(rest[0]) ? null : { to: ["info"], key: "nav.guide" };
   return null;
 }
 
@@ -82,6 +82,7 @@ function Page({ route }: { route: string[] }) {
     case "card":
       if (rest[0] === "view") return <CardView />;
       if (rest[0] === "show") return <ShowMode />;
+      if (rest[0] === "info" && rest[1]) return <Condition id={rest[1]} />;
       return <Intake start={rest[0]} />;
     case "meds":
       if (rest[0] === "home") return <FromHome />;

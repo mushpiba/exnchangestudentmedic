@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { CalendarClock, ExternalLink, GraduationCap, HandHeart, HeartHandshake, Building2, MessageCircleMore, MessagesSquare, Phone, ShieldPlus, Stethoscope, UsersRound } from "lucide-react";
+import { CalendarClock, ExternalLink, GraduationCap, HandHeart, HeartHandshake, Building2, MessagesSquare, Phone, ShieldPlus, Stethoscope, UsersRound } from "lucide-react";
 import { useI18n, type MessageKey } from "../i18n";
 import { LINKS } from "../content/facilities";
 import { type SchoolContact } from "../content/school";
@@ -11,36 +11,7 @@ import { LOCALES, nativeName, type Locale } from "../i18n/locales";
 import { HOME_COUNTRIES } from "../content/guide/figures";
 import { Gate } from "../campus/Gate";
 import { CallButton, Chip, Out, Section } from "../components/ui";
-import { PhraseOverlay } from "../components/PhraseOverlay";
 import { BuddyWalk } from "../components/art";
-
-const STEPS = ["book", "bring", "reception", "consult", "pay", "pharmacy"];
-
-function FirstVisit() {
-  const { t } = useI18n();
-  const [say, setSay] = useState<MessageKey | null>(null);
-  return (
-    <Section title={t("campus.firstVisit")} id="first-visit">
-      <ol className="visit-steps">
-        {STEPS.map((s, i) => (
-          <li key={s}>
-            <span className="num" aria-hidden>
-              {i + 1}
-            </span>
-            <div>
-              <strong>{t(("campus.step." + s) as MessageKey)}</strong>
-              <p>{t(("campus.step." + s + ".body") as MessageKey)}</p>
-              <button type="button" className="say" onClick={() => setSay(("campus.step." + s + ".say") as MessageKey)}>
-                <MessageCircleMore size={16} aria-hidden /> {t("campus.sayThis")}
-              </button>
-            </div>
-          </li>
-        ))}
-      </ol>
-      {say && <PhraseOverlay phrase={say} kind="say" onClose={() => setSay(null)} />}
-    </Section>
-  );
-}
 
 function BuddyRequests({ member }: { member: Member | null }) {
   const { t, locale } = useI18n();
@@ -300,7 +271,8 @@ function BuddyRequests({ member }: { member: Member | null }) {
 
 export const CONTACT_ICON: Record<SchoolContact["id"], typeof Phone> = { health: Stethoscope, oia: Building2, counsel: HeartHandshake };
 
-/** The school tab: buddy first, then who to call at school, insurance and the first-visit steps. */
+/** The school tab: buddy first, then who to call at school and insurance. The first-visit steps are
+ *  in the guide tab -- they are about Korean clinics, not about the school. */
 export function Campus({ focus }: { focus?: string }) {
   const { t } = useI18n();
   const school = useSchoolInfo();
@@ -395,8 +367,6 @@ export function Campus({ focus }: { focus?: string }) {
         </article>
         <CallButton number="1345" label={t("emergency.call1345")} />
       </Section>
-
-      <FirstVisit />
 
       {school && (
         <Section title={t("buddy.title")} id="buddy-form">

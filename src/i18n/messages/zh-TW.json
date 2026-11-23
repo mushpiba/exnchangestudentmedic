@@ -430,6 +430,7 @@
   "info.otc": "藥局可以買到的藥物種類",
   "info.noOtc": "很多情況需要處方。請到醫院就診。",
   "info.makeCard": "用這個症狀製作卡片",
+  "info.pickSymptom": "點一個症狀，就從它開始填卡片。",
   "info.emergencyList": "需要立刻撥打119的徵兆",
   "info.urgentList": "需要在今天內就醫的徵兆",
   "info.reviewed": "這是尚未經醫療人員審核的草稿。",

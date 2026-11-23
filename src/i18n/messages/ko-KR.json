@@ -430,6 +430,7 @@
   "info.otc": "약국에서 살 수 있는 약 종류",
   "info.noOtc": "처방이 필요한 경우가 많아요. 병원 진료를 받으세요.",
   "info.makeCard": "이 증상으로 카드 만들기",
+  "info.pickSymptom": "증상을 누르면 그 증상으로 카드를 시작해요.",
   "info.emergencyList": "바로 119에 전화해야 하는 신호",
   "info.urgentList": "오늘 안에 병원에 가야 하는 신호",
   "info.reviewed": "의료진 검수 전 초안입니다.",

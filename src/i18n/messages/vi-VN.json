@@ -410,6 +410,7 @@
   "info.otc": "Các loại thuốc mua được ở nhà thuốc",
   "info.noOtc": "Thường cần đơn thuốc. Hãy đi khám bác sĩ.",
   "info.makeCard": "Tạo thẻ với triệu chứng này",
+  "info.pickSymptom": "Chạm vào một triệu chứng để bắt đầu thẻ từ triệu chứng đó.",
   "info.emergencyList": "Dấu hiệu cần gọi 119 ngay",
   "info.urgentList": "Dấu hiệu cần đi khám ngay trong hôm nay",
   "info.reviewed": "Bản nháp, chưa được nhân viên y tế kiểm duyệt.",

@@ -120,7 +120,7 @@ export function CardView() {
           <ul className="link-list">
             {related.map((id) => (
               <li key={id}>
-                <a href={href("info", id)}>
+                <a href={href("card", "info", id)}>
                   <BookOpen size={18} aria-hidden /> {t(CONDITIONS[id].name)}
                 </a>
               </li>

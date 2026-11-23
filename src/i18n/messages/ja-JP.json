@@ -430,6 +430,7 @@
   "info.otc": "薬局で買える薬の種類",
   "info.noOtc": "処方が必要なことが多いです。病院で診察を受けてください。",
   "info.makeCard": "この症状でカードを作る",
+  "info.pickSymptom": "症状を押すと、その症状からカードを作り始めます。",
   "info.emergencyList": "すぐ119に電話すべきサイン",
   "info.urgentList": "今日中に病院へ行くべきサイン",
   "info.reviewed": "医療者による確認前の下書きです。",

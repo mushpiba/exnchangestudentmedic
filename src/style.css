@@ -260,6 +260,9 @@ dialog::backdrop { background: rgb(22 27 26 / 0.55); }
   background: var(--surface); border: 1px solid var(--hair-2); border-radius: 16px; padding: 16px; margin: 12px 0;
 }
 .info-card h3 { display: flex; align-items: center; gap: 6px; }
+/* On a condition page each symptom starts a card for that symptom, so it is a button, not a label. */
+.sym-links { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 8px; padding: 0; list-style: none; }
+.sym-links a { display: flex; align-items: center; min-height: 48px; padding: 8px 14px; border-radius: 12px; background: var(--brand-soft); color: var(--brand-ink); font-weight: 500; text-decoration: none; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 12px; }
 .tags li { background: var(--brand-soft); color: var(--brand-ink); border-radius: 8px; padding: 4px 10px; font-weight: 500; }
 .checks li, .dept-list li { padding: 12px 0; border-bottom: 1px solid var(--hair); }
