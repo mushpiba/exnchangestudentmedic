@@ -66,7 +66,7 @@ export const CHARTS: Partial<Record<ChartId, ChartDef>> = {
  *  came for is readable before the prose is, and readable at all by someone who will not read the prose.
  *  Values are formatted here and never translated; only the label is. Each comes from that column's own
  *  sources (COLUMN_SOURCES below), either a published rate or a figure from figures.ts. */
-export type ColumnFigure = { value: string; label: MessageKey };
+export type ColumnFigure = { value: string; label: MessageKey; unit?: MessageKey };
 
 const num = (f?: Figure) => (f ? f[0].toLocaleString("en-US") : "—");
 const won = (n: number) => "₩" + n.toLocaleString("en-US");
@@ -74,12 +74,12 @@ const pct = (n: number) => Math.round(n * 100) + "%";
 
 export const COLUMN_FIGURES: Record<ColumnId, ColumnFigure[]> = {
   visits: [
-    { value: num(OECD.visits.KR), label: "guide.fig.visits" },
-    { value: num(OECD.perDoctor.KR), label: "guide.fig.perDoctor" },
+    { value: num(OECD.visits.KR), label: "guide.fig.visits", unit: "guide.unit.visits" },
+    { value: num(OECD.perDoctor.KR), label: "guide.fig.perDoctor", unit: "guide.unit.cases" },
   ],
   access: [
-    { value: num(figure("KR", "physicians")), label: "guide.ind.physicians" },
-    { value: num(figure("KR", "beds")), label: "guide.ind.beds" },
+    { value: num(figure("KR", "physicians")), label: "guide.ind.physicians", unit: "guide.unit.people" },
+    { value: num(figure("KR", "beds")), label: "guide.ind.beds", unit: "guide.unit.beds" },
   ],
   cost: [
     { value: won(clinicFirstMine), label: "guide.fig.clinicFee" },
@@ -89,7 +89,7 @@ export const COLUMN_FIGURES: Record<ColumnId, ColumnFigure[]> = {
     { value: won(STUDENT_PREMIUM), label: "guide.fig.premium" },
     { value: pct(STUDENT_CUT), label: "guide.fig.studentCut" },
   ],
-  pharmacy: [{ value: String(OTC_ITEMS), label: "guide.fig.otcItems" }],
+  pharmacy: [{ value: String(OTC_ITEMS), label: "guide.fig.otcItems", unit: "guide.unit.items" }],
   emergency: [
     { value: won(AMBULANCE), label: "guide.fig.ambulance" },
     { value: pct(ER_MINOR_SHARE), label: "guide.fig.erMinor" },

@@ -67,24 +67,50 @@ export type Help = (typeof HELP)[number];
 export type BuddyStatus = "requested" | "assigned" | "accepted" | "done" | "cancelled";
 export type BuddyAction = "assign" | "accept" | "decline" | "cancel" | "finish";
 
+/** A hand raised on someone's request. The name is shown to that student only: it is what they pick on. */
+export type BuddyOffer = { member: string; name: string; note: string; createdAt: string };
+
+/** A request as the rest of the school sees it on the board: the day, not the hour, and no clinic. */
+export type OpenRequest = {
+  id: string;
+  /** Calendar day in Korea, "2026-11-25". */
+  day: string;
+  help: Help[];
+  locale: string;
+  country: string;
+  offers: number;
+  mine: boolean;
+  offered: boolean;
+};
+
 export type BuddyRequest = {
   id: string;
   startsAt: string;
   place: string;
   help: Help[];
   locale: string;
+  /** ISO country code the student picked, or "" when they did not say. */
+  country: string;
   status: BuddyStatus;
   mine: boolean;
   assignedToMe: boolean;
   buddyName?: string;
+  /** Empty for anyone but the student who asked. */
+  offers: BuddyOffer[];
 };
 
 export interface BuddyApi {
   mode: "preview" | "live";
   list(): Promise<BuddyRequest[]>;
-  request(input: { startsAt: string; place: string; help: Help[]; locale: string }): Promise<void>;
+  request(input: { startsAt: string; place: string; help: Help[]; locale: string; country: string }): Promise<void>;
   act(id: string, action: BuddyAction, assignee?: string): Promise<void>;
   buddies(): Promise<{ id: string; name: string }[]>;
+  /** The board: open requests from everyone at this school. */
+  open(): Promise<OpenRequest[]>;
+  offer(id: string, note: string): Promise<void>;
+  withdrawOffer(id: string): Promise<void>;
+  /** The student accepts one of the hands raised on their own request. */
+  pick(id: string, member: string): Promise<void>;
 }
 
 export type Role = "student" | "buddy" | "operator";

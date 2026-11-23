@@ -100,6 +100,19 @@ export function I18nProvider({
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }
 
+/**
+ * The English wording of a key. Screens where the student has to be understood by a stranger show three
+ * lines at once -- Korean to point at, Korean in Latin letters to try saying, and English, because a
+ * doctor or pharmacist is far more likely to have it than the student's own language.
+ */
+export function useEnglish() {
+  const [dict, setDict] = useState<Dict>(() => cache.get("en-US") ?? {});
+  useEffect(() => {
+    if (!cache.has("en-US")) loadMessages("en-US").then(setDict);
+  }, []);
+  return useCallback((key: MessageKey, params?: Params) => format(dict[key] ?? "", params), [dict]);
+}
+
 export function useI18n() {
   const value = useContext(Ctx);
   if (!value) throw new Error("useI18n outside I18nProvider");

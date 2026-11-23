@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, CircleHelp, Info, Siren, Smartphone, X } from "lucide-react";
-import { useI18n, type MessageKey } from "../i18n";
+import { useEnglish, useI18n, type MessageKey } from "../i18n";
+import { romanize, scriptFor, scriptLang } from "../lib/romanize";
 import { Tick } from "./ui";
 
 const QUESTION_ANSWERS: MessageKey[] = ["ans.yes", "ans.no", "ans.unsure"];
@@ -26,6 +27,7 @@ export function PhraseOverlay({
   params?: { mine: Record<string, string | number>; ko: Record<string, string | number> };
 }) {
   const { t, tk, locale, rtl } = useI18n();
+  const english = useEnglish();
   const [answer, setAnswer] = useState<MessageKey | null>(null);
   const ref = useRef<HTMLDialogElement>(null);
   const mine = { lang: locale, dir: rtl ? "rtl" : "ltr" } as const;
@@ -57,6 +59,16 @@ export function PhraseOverlay({
             </div>
             <div className="slip-body">
               <p className="say-ko">{tk(phrase, params?.ko)}</p>
+              {/* Showing the slip works; trying to say it works better, and a pharmacist usually reads English.
+                  The sounds are spelled in the script the student reads, not always in Latin letters. */}
+              <p className="say-roman" lang={scriptLang(locale)} dir="ltr">
+                {romanize(tk(phrase, params?.ko), scriptFor(locale))}
+              </p>
+              {locale !== "en-US" && english(phrase, params?.mine) && (
+                <p className="say-en" lang="en" dir="ltr">
+                  {english(phrase, params?.mine)}
+                </p>
+              )}
             </div>
           </div>
         </div>

@@ -150,7 +150,10 @@ function Figures({ id }: { id: ColumnId }) {
     <ul className="guide-figures">
       {figures.map((f) => (
         <li key={f.label}>
-          <strong dir="ltr">{f.value}</strong>
+          <strong dir="ltr">
+            {f.value}
+            {f.unit && <em>{t(f.unit)}</em>}
+          </strong>
           <span>{t(f.label)}</span>
         </li>
       ))}

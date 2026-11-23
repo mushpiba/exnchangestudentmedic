@@ -1,5 +1,5 @@
 // Preview backend: sample posts plus whatever the reviewer writes, kept in this tab only.
-import { HOT_LIKES, type AuthState, type BuddyApi, type BuddyRequest, type CampusAuth, type CommunityApi, type Post } from "./api";
+import { HOT_LIKES, type AuthState, type BuddyApi, type BuddyRequest, type CampusAuth, type CommunityApi, type OpenRequest, type Post } from "./api";
 
 const hoursAgo = (h: number) => new Date(Date.now() - h * 3600_000).toISOString();
 
@@ -104,8 +104,20 @@ function seed(): Post[] {
   return posts.map((p) => ({ ...p, excerpt: p.body.slice(0, 90), comments: p.thread.length }));
 }
 
+/** The calendar day, as the student's own clock reads it -- the board shows a date, never an hour. */
+const localDay = (iso: string) => {
+  const d = new Date(iso);
+  return [d.getFullYear(), d.getMonth() + 1, d.getDate()].map((n) => String(n).padStart(2, "0")).join("-");
+};
+const inDays = (d: number) => localDay(new Date(Date.now() + d * 86400_000).toISOString());
+
 let posts = seed();
 let requests: BuddyRequest[] = [];
+/** Two requests from other students, so the board and raising a hand can be tried out in preview. */
+let board: OpenRequest[] = [
+  { id: "ob1", day: inDays(2), help: ["move", "reception"], locale: "vi-VN", country: "VN", offers: 1, mine: false, offered: false },
+  { id: "ob2", day: inDays(4), help: ["payment", "pharmacy"], locale: "ru-RU", country: "UZ", offers: 0, mine: false, offered: false },
+];
 let counter = 0;
 const id = (prefix: string) => prefix + ++counter;
 const summary = ({ thread: _t, body: _b, ...rest }: Post) => ({ ...rest, comments: _t.length });
@@ -177,7 +189,19 @@ export function createPreview() {
       return [...requests].sort((a, b) => b.startsAt.localeCompare(a.startsAt));
     },
     async request(input) {
-      requests = [...requests, { id: id("b"), ...input, status: "requested", mine: true, assignedToMe: false }];
+      requests = [
+        ...requests,
+        {
+          id: id("b"),
+          ...input,
+          status: "requested",
+          mine: true,
+          assignedToMe: false,
+          // Preview has nobody else in it, so one sample hand is raised at once: without it the step
+          // where the student picks a buddy cannot be seen at all.
+          offers: [{ member: "sample", name: "Sample", note: "", createdAt: new Date().toISOString() }],
+        },
+      ];
     },
     async act(requestId, action) {
       if (action !== "cancel") return;
@@ -185,6 +209,34 @@ export function createPreview() {
     },
     async buddies() {
       return [];
+    },
+    async open() {
+      const mine: OpenRequest[] = requests
+        .filter((r) => r.status === "requested")
+        .map((r) => ({
+          id: r.id,
+          day: localDay(r.startsAt),
+          help: r.help,
+          locale: r.locale,
+          country: r.country,
+          offers: r.offers.length,
+          mine: true,
+          offered: false,
+        }));
+      return [...board, ...mine].sort((a, b) => a.day.localeCompare(b.day));
+    },
+    async offer(requestId) {
+      board = board.map((r) => (r.id === requestId && !r.offered ? { ...r, offered: true, offers: r.offers + 1 } : r));
+    },
+    async withdrawOffer(requestId) {
+      board = board.map((r) => (r.id === requestId && r.offered ? { ...r, offered: false, offers: r.offers - 1 } : r));
+    },
+    async pick(requestId, member) {
+      requests = requests.map((r) =>
+        r.id === requestId && r.mine
+          ? { ...r, status: "accepted", buddyName: r.offers.find((o) => o.member === member)?.name }
+          : r,
+      );
     },
   };
 

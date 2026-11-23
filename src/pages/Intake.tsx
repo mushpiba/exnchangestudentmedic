@@ -126,6 +126,33 @@ function Flow({ x, start }: { x: IntakeText; start?: string }) {
   );
 }
 
+/** Throw the card away and start over. The intake is kept between visits to the tab, which is what makes
+ *  this necessary: without it a half-answered card from yesterday is the only card there is. */
+function Restart() {
+  const { t } = useI18n();
+  const { reset } = useCard();
+  const [asking, setAsking] = useState(false);
+  if (!asking)
+    return (
+      <button type="button" className="ix-plain" onClick={() => setAsking(true)}>
+        {t("intake.restart")}
+      </button>
+    );
+  return (
+    <div className="confirm" role="alertdialog" aria-label={t("card.clearConfirm")}>
+      <p>{t("card.clearConfirm")}</p>
+      <div className="row">
+        <button type="button" onClick={() => setAsking(false)}>
+          {t("common.cancel")}
+        </button>
+        <button type="button" className="danger" onClick={reset}>
+          {t("intake.restart")}
+        </button>
+      </div>
+    </div>
+  );
+}
+
 // ---------------------------------------------------------------- the opening screens
 
 type Stage = "intro" | "sex" | "age" | "way" | "speak" | "heard" | "pick";
@@ -605,6 +632,7 @@ function StepScreen({ ctx, step, onBack }: { ctx: Ctx; step: E.Step; onBack: () 
               {t("intake.finishNow")}
             </button>
           )}
+          <Restart />
         </div>
       </article>
     </>
@@ -1049,11 +1077,14 @@ function Summary({ ctx, onAdd }: { ctx: Ctx; onAdd: () => void }) {
       </h1>
       <p className="ix-hint">{x.it("ui.summaryHint")}</p>
       <p className="ix-notice">{x.it("ui.noDiagnosis")}</p>
-      {left > 0 && (
-        <button type="button" className="ix-plain ix-finish" onClick={() => update({ ...flow, done: false })}>
-          {t("intake.resume", { n: left })}
-        </button>
-      )}
+      <div className="ix-outs">
+        {left > 0 && (
+          <button type="button" className="ix-plain" onClick={() => update({ ...flow, done: false })}>
+            {t("intake.resume", { n: left })}
+          </button>
+        )}
+        <Restart />
+      </div>
 
       <h2>{x.it("ui.secMain")}</h2>
       <p className="ix-main">

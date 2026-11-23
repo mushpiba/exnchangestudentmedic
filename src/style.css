@@ -530,7 +530,15 @@ dialog::backdrop { background: rgb(22 27 26 / 0.55); }
 .vas-label { min-height: 1.6em; font-weight: 600; margin: 8px 0; }
 .temp { display: inline-flex; flex-direction: row; align-items: center; gap: 6px; margin: 0; }
 .temp input { width: 112px; }
+.buddy-board-h { margin: 28px 0 4px; font-size: 18px; }
+.buddy-waiting { display: flex; align-items: center; gap: 8px; margin: 16px 0 0; font-weight: 600; color: var(--brand-ink); }
+.offers { margin: 8px 0 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.offers li { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 10px; border-radius: 10px; background: var(--raised); }
+.offer-note { flex-wrap: wrap; }
+.offer-note input { flex: 1 1 160px; }
 .dictate { margin-top: 12px; }
+/* What the microphone is hearing right now, before the engine commits to it. */
+.dictate-partial { margin: 8px 0 0; color: var(--ink-2); font-style: italic; }
 .consent { background: var(--surface); border: 1px solid var(--hair-2); border-radius: 12px; padding: 12px; }
 .step-actions {
   position: sticky; bottom: var(--tab-h); z-index: 3;
@@ -741,10 +749,17 @@ dialog.phrase[open] { animation: fade 0.2s var(--ease); }
 .cost-split { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; margin: 10px 0 0; color: var(--ink-2); }
 .cost-split dd { margin: 0; text-align: end; }
 
+/* Under the Korean sentence on the show-it screen: the same words in Latin letters to try saying, and in
+   English, because a pharmacist is far likelier to have English than the student's own language. */
+.say-roman { margin: 6px 0 0; color: var(--ink-2); font-size: 18px; line-height: 26px; }
+.say-en { margin: 4px 0 0; color: var(--ink-2); font-size: 17px; line-height: 24px; }
+
 /* A column's own numbers, before its words: the part that gets read when the prose does not. */
 .guide-figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin: 16px 0 4px; padding: 0; list-style: none; }
 .guide-figures li { display: grid; gap: 2px; padding: 14px 16px; border-radius: 14px; background: var(--raised); }
 .guide-figures strong { font-size: 26px; line-height: 32px; font-weight: 600; color: var(--brand-ink); }
+/* The unit, so the number is a quantity rather than a bare digit. */
+.guide-figures em { margin-inline-start: 3px; font-size: 16px; font-style: normal; font-weight: 500; }
 .guide-figures span { color: var(--ink-2); font-size: 15px; line-height: 21px; }
 .guide-figure-tag { display: inline-block; margin-top: 4px; padding: 2px 10px; border-radius: 999px; background: var(--brand-soft); color: var(--brand-ink); font-size: 15px; font-weight: 600; }
 

@@ -37,8 +37,10 @@ export type IntakeText = {
   sk: (sid: string) => string;
   /** Symptom search in the student's language, English and Korean (names and the data's search words). */
   search: (query: string) => string[];
-  /** Every spelling we know for a symptom. Search reads these forwards; speech reads them backwards. */
+  /** Every spelling we know for a symptom, normalised. */
   names: (sid: string) => string[];
+  /** The same, as written: speech matching needs the word boundaries normalising throws away. */
+  rawNames: (sid: string) => string[];
 };
 
 const fill = (s: string, params?: Record<string, string | number>) =>
@@ -58,12 +60,9 @@ export function makeText(d: Loaded, locale: string): IntakeText {
   const ik = (id: string, params?: Record<string, string | number>) => fill(d.ko[id] ?? id, params);
   const sn = (sid: string) => d.myNames[sid]?.[0] ?? d.mine["s." + sid] ?? (locale === "ko-KR" ? d.ko["s." + sid] : d.enNames[sid]?.[0]) ?? d.ko["s." + sid] ?? sid;
   const sk = (sid: string) => d.ko["s." + sid] ?? sid;
-  const words = Object.keys(d.bank.symptoms).map((sid) => ({
-    sid,
-    all: [...(d.myNames[sid] ?? []), d.mine["s." + sid] ?? "", ...(d.enNames[sid] ?? []), ...(d.koNames[sid] ?? []), d.ko["s." + sid] ?? ""]
-      .filter(Boolean)
-      .map(normalize),
-  }));
+  const spellings = (sid: string) =>
+    [...(d.myNames[sid] ?? []), d.mine["s." + sid] ?? "", ...(d.enNames[sid] ?? []), ...(d.koNames[sid] ?? []), d.ko["s." + sid] ?? ""].filter(Boolean);
+  const words = Object.keys(d.bank.symptoms).map((sid) => ({ sid, all: spellings(sid).map(normalize) }));
   const search = (query: string) => {
     const q = normalize(query);
     if (!q) return [];
@@ -77,7 +76,8 @@ export function makeText(d: Loaded, locale: string): IntakeText {
   };
   const byId = new Map(words.map((w) => [w.sid, w.all]));
   const names = (sid: string) => byId.get(sid) ?? [];
-  return { bank: d.bank, it, ik, sn, sk, search, names };
+  const rawNames = (sid: string) => spellings(sid);
+  return { bank: d.bank, it, ik, sn, sk, search, names, rawNames };
 }
 
 /** The intake text for the current language. `text` is null while loading; `failed` when the files could not load. */

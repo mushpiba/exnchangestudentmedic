@@ -21,6 +21,8 @@ create table public.posts (
   title text not null check (length(trim(title)) between 1 and 120),
   body text not null check (length(trim(body)) between 1 and 3000),
   locale text not null check (length(locale) <= 10),
+  -- The two things a buddy is matched on: the language to speak and where the student is from.
+  country text not null default '' check (length(country) <= 2),
   anonymous boolean not null default true,
   facility text check (length(facility) <= 80),
   langs text[] not null default '{}' check (cardinality(langs) <= 16),
@@ -71,6 +73,18 @@ create table public.buddy_requests (
   foreign key (student, campus) references public.campus_members (id, campus) on delete cascade
 );
 create unique index one_active_request on public.buddy_requests (student, starts_at) where status in ('requested', 'assigned', 'accepted');
+
+-- A request is a notice on the buddy board, and anyone at the same school can raise a hand on it.
+-- The student picks from the hands raised; the operator stays as an escalation, not as the one person
+-- every request has to wait for.
+create table public.buddy_offers (
+  id uuid primary key default gen_random_uuid(),
+  request uuid not null references public.buddy_requests on delete cascade,
+  member uuid not null references public.campus_members on delete cascade,
+  note text not null default '' check (length(note) <= 300),
+  created_at timestamptz not null default now(),
+  unique (request, member)
+);
 create unique index one_active_assignment on public.buddy_requests (buddy, starts_at) where status in ('assigned', 'accepted');
 
 alter table public.campus_members enable row level security;
@@ -79,7 +93,8 @@ alter table public.comments enable row level security;
 alter table public.post_likes enable row level security;
 alter table public.reports enable row level security;
 alter table public.buddy_requests enable row level security;
-revoke all on public.campus_members, public.posts, public.comments, public.post_likes, public.reports, public.buddy_requests
+alter table public.buddy_offers enable row level security;
+revoke all on public.campus_members, public.posts, public.comments, public.post_likes, public.reports, public.buddy_requests, public.buddy_offers
   from public, anon, authenticated;
 
 -- The caller's membership row, or an error. Used by every function below.
@@ -242,13 +257,16 @@ language sql stable security definer set search_path = '' as $$
   order by count(*) desc
 $$;
 
-create function public.request_buddy(p_starts_at timestamptz, p_place text, p_help text[], p_locale text) returns uuid
+-- On a database created before the country column: drop the four-argument overload first, or both will
+-- exist and PostgREST will not know which one the app means.
+--   drop function if exists public.request_buddy(timestamptz, text, text[], text);
+create function public.request_buddy(p_starts_at timestamptz, p_place text, p_help text[], p_locale text, p_country text default '') returns uuid
 language plpgsql security definer set search_path = '' as $$
 declare actor public.campus_members := public.require_member(); new_id uuid;
 begin
   if p_starts_at <= now() then raise exception 'time must be in the future' using errcode = '22023'; end if;
-  insert into public.buddy_requests (campus, student, locale, starts_at, place, help)
-  values (actor.campus, actor.id, p_locale, p_starts_at, trim(coalesce(p_place, '')), coalesce(p_help, '{}'))
+  insert into public.buddy_requests (campus, student, locale, country, starts_at, place, help)
+  values (actor.campus, actor.id, p_locale, upper(coalesce(p_country, '')), p_starts_at, trim(coalesce(p_place, '')), coalesce(p_help, '{}'))
   returning id into new_id;
   return new_id;
 end $$;
@@ -258,9 +276,16 @@ create function public.list_buddy_requests() returns json
 language sql stable security definer set search_path = '' as $$
   with me as (select m.id, m.campus, m.role from public.campus_members m where m.id = auth.uid())
   select coalesce(json_agg(json_build_object(
-    'id', r.id, 'startsAt', r.starts_at, 'place', r.place, 'help', r.help, 'locale', r.locale,
+    'id', r.id, 'startsAt', r.starts_at, 'place', r.place, 'help', r.help, 'locale', r.locale, 'country', r.country,
     'status', r.status, 'mine', r.student = me.id, 'assignedToMe', r.buddy = me.id,
-    'buddyName', (select b.display_name from public.campus_members b where b.id = r.buddy)
+    'buddyName', (select b.display_name from public.campus_members b where b.id = r.buddy),
+    'offers', coalesce((
+      select json_agg(json_build_object(
+        'member', o.member, 'note', o.note, 'createdAt', o.created_at,
+        'name', (select n.display_name from public.campus_members n where n.id = o.member)
+      ) order by o.created_at)
+      from public.buddy_offers o where o.request = r.id and r.student = me.id
+    ), '[]'::json)
   ) order by r.starts_at desc), '[]'::json)
   from public.buddy_requests r join me on r.campus = me.campus
   where r.student = me.id or r.buddy = me.id or me.role = 'operator'
@@ -289,6 +314,57 @@ begin
   end if;
 end $$;
 
+-- The board as everyone else sees it: the day, not the hour, and no clinic name. A date and a district
+-- do not say where one student will be at one hour; the exact time and place belong in the conversation
+-- that starts once a buddy is picked.
+create function public.open_buddy_requests() returns json
+language sql stable security definer set search_path = '' as $$
+  with me as (select m.id, m.campus from public.campus_members m where m.id = auth.uid())
+  select coalesce(json_agg(json_build_object(
+    'id', r.id, 'day', (r.starts_at at time zone 'Asia/Seoul')::date, 'help', r.help,
+    'locale', r.locale, 'country', r.country, 'mine', r.student = me.id,
+    'offers', (select count(*) from public.buddy_offers o where o.request = r.id),
+    'offered', exists (select 1 from public.buddy_offers o where o.request = r.id and o.member = me.id)
+  ) order by r.starts_at), '[]'::json)
+  from public.buddy_requests r join me on r.campus = me.campus
+  where r.status = 'requested' and r.starts_at > now()
+$$;
+
+create function public.offer_buddy(p_request uuid, p_note text default '') returns void
+language plpgsql security definer set search_path = '' as $$
+declare actor public.campus_members := public.require_member(); req public.buddy_requests;
+begin
+  select * into req from public.buddy_requests r
+  where r.id = p_request and r.campus = actor.campus and r.status = 'requested' and r.starts_at > now();
+  if req.id is null or req.student = actor.id then raise exception 'unavailable' using errcode = '42501'; end if;
+  insert into public.buddy_offers (request, member, note)
+  values (p_request, actor.id, left(trim(coalesce(p_note, '')), 300))
+  on conflict (request, member) do update set note = excluded.note;
+end $$;
+
+create function public.withdraw_offer(p_request uuid) returns void
+language plpgsql security definer set search_path = '' as $$
+declare actor public.campus_members := public.require_member();
+begin
+  delete from public.buddy_offers o where o.request = p_request and o.member = actor.id;
+end $$;
+
+-- The student picks, so the match does not wait for staff. One active assignment per buddy and per
+-- student is still enforced by the indexes above.
+create function public.pick_buddy(p_request uuid, p_member uuid) returns void
+language plpgsql security definer set search_path = '' as $$
+declare actor public.campus_members := public.require_member(); req public.buddy_requests;
+begin
+  select * into req from public.buddy_requests r where r.id = p_request and r.campus = actor.campus for update;
+  if req.id is null or req.student <> actor.id or req.status <> 'requested' or req.starts_at <= now() then
+    raise exception 'not allowed' using errcode = '42501';
+  end if;
+  if not exists (select 1 from public.buddy_offers o where o.request = p_request and o.member = p_member) then
+    raise exception 'no such offer' using errcode = '42501';
+  end if;
+  update public.buddy_requests set status = 'accepted', buddy = p_member, updated_at = now() where id = req.id;
+end $$;
+
 create function public.available_buddies() returns table (id uuid, name text)
 language sql stable security definer set search_path = '' as $$
   select b.id, b.display_name from public.campus_members b
@@ -303,8 +379,9 @@ begin
     'require_member()', 'my_membership()', 'list_posts(text,int,text)', 'get_post(uuid)',
     'create_post(text,text,text,text,boolean,text,text[],int)', 'add_comment(uuid,text,boolean)',
     'toggle_like(uuid)', 'report_content(uuid,uuid)', 'delete_post(uuid)', 'delete_comment(uuid)',
-    'moderation_queue()', 'request_buddy(timestamptz,text,text[],text)', 'list_buddy_requests()',
-    'change_buddy(uuid,text,uuid)', 'available_buddies()'
+    'moderation_queue()', 'request_buddy(timestamptz,text,text[],text,text)', 'list_buddy_requests()',
+    'change_buddy(uuid,text,uuid)', 'available_buddies()',
+    'open_buddy_requests()', 'offer_buddy(uuid,text)', 'withdraw_offer(uuid)', 'pick_buddy(uuid,uuid)'
   ] loop
     execute format('revoke all on function public.%s from public, anon', f);
     execute format('grant execute on function public.%s to authenticated', f);

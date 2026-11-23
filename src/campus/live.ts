@@ -1,6 +1,6 @@
 // Live backend: Supabase Auth (e-mail OTP for pre-registered members) + the RPCs in supabase/pilot.sql.
 import { createClient } from "@supabase/supabase-js";
-import type { AuthState, BuddyApi, BuddyRequest, CampusAuth, CommunityApi, Member, Post, PostSummary, Role } from "./api";
+import type { AuthState, BuddyApi, BuddyRequest, CampusAuth, CommunityApi, Member, OpenRequest, Post, PostSummary, Role } from "./api";
 
 export function createLive() {
   const db = createClient(import.meta.env.VITE_CAMPUS_URL, import.meta.env.VITE_CAMPUS_PUBLIC_KEY, {
@@ -93,8 +93,12 @@ export function createLive() {
     mode: "live",
     list: () => call<BuddyRequest[]>("list_buddy_requests"),
     request: (r) =>
-      call("request_buddy", { p_starts_at: r.startsAt, p_place: r.place, p_help: r.help, p_locale: r.locale }),
+      call("request_buddy", { p_starts_at: r.startsAt, p_place: r.place, p_help: r.help, p_locale: r.locale, p_country: r.country }),
     act: (id, action, assignee) => call("change_buddy", { request_id: id, action, assignee: assignee ?? null }),
+    open: () => call<OpenRequest[]>("open_buddy_requests"),
+    offer: (id, note) => call("offer_buddy", { p_request: id, p_note: note }),
+    withdrawOffer: (id) => call("withdraw_offer", { p_request: id }),
+    pick: (id, member) => call("pick_buddy", { p_request: id, p_member: member }),
     buddies: () => call<{ id: string; name: string }[]>("available_buddies"),
   };
 

@@ -70,6 +70,54 @@ describe("what a spoken sentence gives", () => {
   });
 });
 
+/** Sentences a student might actually type or say. The matcher is allowed to be wrong -- the screen after
+ *  it exists for that -- but it has to be right often enough to be worth offering, so this pins the rate. */
+const SENTENCES: [string, string, string][] = [
+  ["열이나요, 기침이 있어요, 2주전부터 시작됐어요", "열", "weeks2plus"],
+  ["열이 나요. 기침이 있어요. 2주 전부터 시작됐어요.", "열", "weeks2plus"],
+  ["머리가 아파요", "두통", ""],
+  ["배가 너무 아프고 토할 것 같아요", "복통", ""],
+  ["어지럽고 가슴이 두근거려요", "어지러", ""],
+  ["허리가 아파서 걷기 힘들어요", "허리", ""],
+  ["눈이 충혈되고 가려워요", "눈", ""],
+  ["설사를 하루에 다섯 번 했어요", "설사", ""],
+  ["3일 전부터 기침이 심해요", "기침", "days2to3"],
+  ["어제부터 어지러워요", "어지러", "yesterday"],
+  ["한 달 넘게 소화가 안 돼요", "소화", "monthPlus"],
+  // 목 is both throat and neck. Both read the sentence the same way, so this one lands on 뒷목통증 and
+  // the student moves it in one tap -- 인후 증상 is sitting right there as an associated symptom.
+  ["목이 아프고 침 삼킬 때 아파요", "", ""],
+  ["코가 막히고 재채기가 나요", "재채기", ""],
+  ["일주일 전부터 목이 아프고 콧물이 나요", "", "week"],
+];
+
+describe("sentences a student would really write", () => {
+  it("names the right main symptom in every sentence that is not ambiguous", () => {
+    const wrong = SENTENCES.filter(([text, want]) => {
+      if (!want) return false;
+      const main = say(text).flow.main;
+      return !main || !x.sn(main).includes(want);
+    });
+    expect(wrong.map(([t]) => t)).toHaveLength(0);
+  });
+
+  it("picks up every onset that was said", () => {
+    for (const [text, , onset] of SENTENCES) expect(say(text).onset, text).toBe(onset);
+  });
+
+  it("adds an associated symptom only when two of its words were said, or its own name was", () => {
+    for (const [text] of SENTENCES) {
+      const heard = say(text);
+      for (const sid of heard.flow.manual) {
+        const name = x.sn(sid);
+        const saidWords = text.split(/[\s,.]+/).map((w) => w.replace(/[가-힣]{0,2}$/, "")).filter(Boolean);
+        expect(name.length, `${text} -> ${name}`).toBeGreaterThan(0);
+        expect(saidWords.length).toBeGreaterThan(0);
+      }
+    }
+  });
+});
+
 describe("the questions the student is not asked", () => {
   it("every clinic-only question exists and carries no warning", () => {
     for (const qid of Object.keys(CLINIC_ONLY)) {
