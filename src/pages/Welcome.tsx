@@ -1,27 +1,43 @@
 import { useState } from "react";
-import { ArrowLeft, ArrowRight, GraduationCap, MinusCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, GraduationCap, MinusCircle, Stethoscope, Users } from "lucide-react";
 import { useI18n } from "../i18n";
 import { LOCALES, koreanName } from "../i18n/locales";
 import { SCHOOLS, schoolById } from "../content/school";
-import { setSchool, useSchool, type SchoolChoice } from "../state/prefs";
+import { setAudience, setSchool, useAudience, useSchool, type Audience, type SchoolChoice } from "../state/prefs";
 import { Tick } from "../components/ui";
 import { NaruMark } from "../components/art";
 
 /**
- * First run: pick a language, then a school (or none). The paper slip at the top fills in as the student
- * chooses — the same slip that staff later read — so the first thing the app shows is what it is for.
+ * First run: who is holding the phone, then a language, then a school. The paper slip at the top fills in
+ * as the student chooses — the same slip that staff later read — so the first thing the app shows is what
+ * it is for. The desk answers the first question and leaves: its screens are Korean and have no school.
+ *
+ * The three names on the first screen are written in Korean and English rather than the catalogue, so a
+ * new audience costs no translation. The rest of the screen is already in the student's language.
  */
-export function Welcome({ onDone, start = 1 }: { onDone: () => void; start?: 1 | 2 }) {
+export function Welcome({ onDone, start = 1 }: { onDone: (audience: Audience) => void; start?: 1 | 3 }) {
   const { t, tk, locale, rtl, setLocale } = useI18n();
   const saved = useSchool();
-  const [step, setStep] = useState<1 | 2>(start);
+  const savedAudience = useAudience();
+  const [step, setStep] = useState<1 | 2 | 3>(start);
+  const [who, setWho] = useState<Audience | null>(savedAudience);
   const [school, setChoice] = useState<SchoolChoice | null>(saved);
   const mine = { lang: locale, dir: rtl ? "rtl" : "ltr" } as const;
+  const total = who === "student" ? 3 : 2;
+
+  const pickWho = (choice: Audience) => {
+    setWho(choice);
+    if (choice !== "clinic") return setStep(2);
+    setAudience("clinic");
+    onDone("clinic");
+  };
 
   const finish = () => {
-    if (!school) return;
-    setSchool(school);
-    onDone();
+    const choice = who === "student" ? school : "none";
+    if (!choice || !who) return;
+    setSchool(choice);
+    setAudience(who);
+    onDone(who);
   };
 
   return (
@@ -34,7 +50,7 @@ export function Welcome({ onDone, start = 1 }: { onDone: () => void; start?: 1 |
           </span>
         </span>
         <span className="step-count" dir="ltr">
-          {t("intake.step", { n: step, total: 2 })}
+          {t("intake.step", { n: step, total })}
         </span>
       </header>
 
@@ -45,16 +61,57 @@ export function Welcome({ onDone, start = 1 }: { onDone: () => void; start?: 1 |
         <div className="slip-body">
           <span className="ws-row">
             <span>{tk("card.language")}</span>
-            <strong>{koreanName(locale)}</strong>
+            <strong>{step === 1 ? "" : koreanName(locale)}</strong>
           </span>
-          <span className="ws-row">
-            <span>{tk("welcome.slipSchool")}</span>
-            <strong>{schoolById(school) ? tk(schoolById(school)!.name) : school === "none" ? "—" : ""}</strong>
-          </span>
+          {who === "student" && (
+            <span className="ws-row">
+              <span>{tk("welcome.slipSchool")}</span>
+              <strong>{schoolById(school) ? tk(schoolById(school)!.name) : school === "none" ? "—" : ""}</strong>
+            </span>
+          )}
         </div>
       </div>
 
       {step === 1 ? (
+        <section aria-labelledby="welcome-title">
+          <h1 id="welcome-title" lang="ko" dir="ltr">
+            누구신가요?
+          </h1>
+          <p className="muted" lang="en" dir="ltr">
+            Who is using NARU?
+          </p>
+          <div className="welcome-schools" role="group" aria-labelledby="welcome-title">
+            {(
+              [
+                { id: "student", Icon: GraduationCap, ko: "외국인 유학생", en: "International student" },
+                { id: "resident", Icon: Users, ko: "한국에 사는 외국인", en: "Foreign resident in Korea" },
+                { id: "clinic", Icon: Stethoscope, ko: "병원·의원·약국", en: "Clinic, hospital or pharmacy" },
+              ] as const
+            ).map(({ id, Icon, ko, en }) => (
+              <button
+                key={id}
+                type="button"
+                className="chip school-option"
+                aria-pressed={who === id}
+                onClick={() => pickWho(id)}
+              >
+                <Tick />
+                <span className="icon-box">
+                  <Icon size={22} aria-hidden />
+                </span>
+                <span className="option-text" dir="ltr">
+                  <span className="chip-label">
+                    <span className="hl" lang="ko">
+                      {ko}
+                    </span>
+                  </span>
+                  <small lang="en">{en}</small>
+                </span>
+              </button>
+            ))}
+          </div>
+        </section>
+      ) : step === 2 ? (
         <section aria-labelledby="welcome-title">
           <h1 id="welcome-title">{t("welcome.langTitle")}</h1>
           <p className="muted">{t("welcome.langSub")}</p>
@@ -77,8 +134,16 @@ export function Welcome({ onDone, start = 1 }: { onDone: () => void; start?: 1 |
             ))}
           </div>
           <div className="welcome-actions">
-            <button type="button" className="primary" onClick={() => setStep(2)}>
-              {t("common.next")}
+            <button type="button" onClick={() => setStep(1)}>
+              <ArrowLeft className="flip" size={20} aria-hidden />
+              {t("common.back")}
+            </button>
+            <button
+              type="button"
+              className="primary"
+              onClick={() => (who === "student" ? setStep(3) : finish())}
+            >
+              {who === "student" ? t("common.next") : t("welcome.start")}
               <ArrowRight className="flip" size={20} aria-hidden />
             </button>
           </div>
@@ -117,7 +182,7 @@ export function Welcome({ onDone, start = 1 }: { onDone: () => void; start?: 1 |
           </div>
           <p className="muted small">{t("welcome.moreSchools")}</p>
           <div className="welcome-actions">
-            <button type="button" onClick={() => setStep(1)}>
+            <button type="button" onClick={() => setStep(2)}>
               <ArrowLeft className="flip" size={20} aria-hidden />
               {t("common.back")}
             </button>

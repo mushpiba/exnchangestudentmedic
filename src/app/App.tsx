@@ -15,8 +15,10 @@ import { GuideColumn, GuideCompare } from "../pages/Guide";
 import { Community } from "../pages/Community";
 import { Campus } from "../pages/Campus";
 import { Welcome } from "../pages/Welcome";
+import { ClinicHome, ClinicReady, ClinicSheet } from "../pages/Clinic";
+import { Sheet } from "../pages/Sheet";
 import { NaruMark } from "../components/art";
-import { useSchool } from "../state/prefs";
+import { useAudience, useSchool } from "../state/prefs";
 import { useCard } from "../state/card";
 import { applyUpdate, useUpdateReady } from "../lib/update";
 
@@ -104,6 +106,43 @@ function Page({ route }: { route: string[] }) {
   }
 }
 
+/** The desk's own shell: Korean, no tab bar, and a way back to the patient app on the same phone. */
+function ClinicShell({ route }: { route: string[] }) {
+  const main = useRef<HTMLElement>(null);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    main.current?.focus({ preventScroll: true });
+  }, [route.join("/")]);
+  const page = route[1];
+  return (
+    <>
+      <header className="topbar" lang="ko" dir="ltr">
+        <a className="brand" href={href("clinic")} aria-label="NARU">
+          <NaruMark />
+          <span className="brand-word" aria-hidden>
+            NARU
+          </span>
+          <span className="badge">병·의원</span>
+        </a>
+        <div className="top-actions">
+          <a className="lang-button" href={href("welcome")}>
+            환자용으로 바꾸기
+          </a>
+        </div>
+      </header>
+      <main ref={main} tabIndex={-1} lang="ko" dir="ltr">
+        {page && (
+          <a className="page-back" href={href("clinic")}>
+            <ArrowLeft className="flip" size={18} aria-hidden /> 병·의원용 NARU
+          </a>
+        )}
+        {page === "ready" ? <ClinicReady /> : page === "sheet" ? <ClinicSheet /> : <ClinicHome />}
+        <footer className="foot">NARU는 진단하지 않으며 진료 건수에 연동된 대가를 받지 않습니다.</footer>
+      </main>
+    </>
+  );
+}
+
 export function App() {
   const { t, locale } = useI18n();
   const route = useRoute();
@@ -112,6 +151,7 @@ export function App() {
   const tabbar = useRef<HTMLElement>(null);
   const showMode = route[0] === "card" && route[1] === "show";
   const school = useSchool();
+  const audience = useAudience();
   const { lines } = useCard();
   const updateReady = useUpdateReady();
   // A new version applies by itself when nothing would be lost; mid-card it waits for the student's tap.
@@ -149,13 +189,28 @@ export function App() {
     return () => observer.disconnect();
   }, [showMode, locale, school, route[0] === "welcome"]);
 
-  // First run (no school choice saved yet) or #/welcome: the welcome screen, without the app shell.
-  if (school === null || route[0] === "welcome")
+  // A desk's QR opens straight into the question sheet. Whoever scanned it may never have opened NARU
+  // before, so it must not wait behind the welcome screen.
+  if (route[0] === "q")
     return (
       <main ref={main} tabIndex={-1} className="welcome-main">
-        <Welcome start={route[1] === "school" ? 2 : 1} onDone={() => go(route[1] === "school" ? "school" : "home")} />
+        <Sheet code={route[1]} />
       </main>
     );
+
+  // First run (nothing chosen yet) or #/welcome: the welcome screen, without the app shell.
+  // The desk never picks a school, so only a patient is held back by that choice.
+  if (audience === null || (audience !== "clinic" && school === null) || route[0] === "welcome")
+    return (
+      <main ref={main} tabIndex={-1} className="welcome-main">
+        <Welcome
+          start={route[1] === "school" ? 3 : 1}
+          onDone={(who) => go(who === "clinic" ? "clinic" : route[1] === "school" ? "school" : "home")}
+        />
+      </main>
+    );
+
+  if (audience === "clinic") return <ClinicShell route={route} />;
 
   if (showMode)
     return (
@@ -206,7 +261,8 @@ export function App() {
         <footer className="foot">{t("app.notice")}</footer>
       </main>
       <nav className="tabbar" aria-label="NARU" ref={tabbar}>
-        {NAV.map(({ to, key, Icon }) => (
+        {/* A resident has no campus, so the school tab and everything under it stays out of their way. */}
+        {NAV.filter(({ to }) => to !== "school" || audience === "student").map(({ to, key, Icon }) => (
           <a key={to} href={href(to)} aria-current={section === to ? "page" : undefined}>
             <span className="tab-ic">
               <Icon size={22} strokeWidth={section === to ? 2.25 : 1.75} aria-hidden />
