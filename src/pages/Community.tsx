@@ -7,6 +7,7 @@ import { BOARDS, age, community, looksPersonal, type Board, type CommunityApi, t
 import { Gate } from "../campus/Gate";
 import { Chip, Notice } from "../components/ui";
 import { SchoolHead } from "../components/SchoolHead";
+import { useSchoolInfo } from "../state/prefs";
 
 const FEEDS: Feed[] = ["hot", "all", ...BOARDS];
 const boardKey = (b: Feed) => ("community.board." + b) as MessageKey;
@@ -379,6 +380,7 @@ function Write() {
 
 export function Community({ route }: { route: string[] }) {
   const { t } = useI18n();
+  const school = useSchoolInfo();
   const [head, id] = route;
   const feed = (FEEDS.includes(head as Feed) ? head : "all") as Feed;
   return (
@@ -386,7 +388,8 @@ export function Community({ route }: { route: string[] }) {
       {head !== "post" && head !== "write" && (
         <>
           <SchoolHead current="board" />
-          <p className="muted">{t("community.intro")}</p>
+          {/* The line names the school, so it is only there for someone who chose one. */}
+          {school && <p className="muted">{t("community.intro")}</p>}
         </>
       )}
       <Gate>

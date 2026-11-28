@@ -4,12 +4,13 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { Languages, Navigation, Phone } from "lucide-react";
+import { Languages, LocateFixed, Navigation, Phone } from "lucide-react";
 import { useI18n, type MessageKey } from "../i18n";
 import { nativeName, type Locale } from "../i18n/locales";
 import data from "../content/osm-places.json";
 import { PLACE_LANGUAGE_CODES, SURVEYED, languagesAt } from "../content/place-languages";
 import { SCHOOL } from "../content/school";
+import { askHere, askHereIfAllowed, useHere } from "../state/here";
 import { useSchoolInfo } from "../state/prefs";
 import { openInNaverMap } from "../lib/naver";
 
@@ -59,7 +60,16 @@ function km(a: { lat: number; lng: number }, b: { lat: number; lng: number }) {
 export default function PlaceMap({ preview = false }: { preview?: boolean }) {
   const { t } = useI18n();
   const school = useSchoolInfo();
-  const here = school?.location ?? SCHOOL.location;
+  // A student who picked a school is placed at its campus. Everyone else stands where they stand, and
+  // until they let the phone say where that is, at the area this list was collected around.
+  const { spot, state } = useHere();
+  const here = school?.location ?? spot ?? SCHOOL.location;
+  /** How far a place is, said from whatever we are standing at. */
+  const far = (d: number) => {
+    const km = d.toFixed(1);
+    if (school) return t("places.fromSchool", { km });
+    return spot ? t("places.fromHere", { km }) : t("places.km", { km });
+  };
   const box = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
   const layer = useRef<L.LayerGroup | null>(null);
@@ -83,6 +93,12 @@ export default function PlaceMap({ preview = false }: { preview?: boolean }) {
     return list.map((p) => ({ ...p, distance: km(here, p) })).sort((a, b) => a.distance - b.distance);
   }, [places, filter, lang, here]);
 
+  // No school means no campus to stand at, so ask the phone. Only those who already said yes are asked
+  // without being asked: for everyone else nothing happens until they press the button.
+  useEffect(() => {
+    if (!school) askHereIfAllowed();
+  }, [school]);
+
   // Create the map once.
   useEffect(() => {
     if (!box.current || map.current) return;
@@ -104,11 +120,29 @@ export default function PlaceMap({ preview = false }: { preview?: boolean }) {
     };
   }, []);
 
+  // The position arrives a moment after the map is drawn. When it does, the map moves there and frames
+  // the places around it again.
+  useEffect(() => {
+    if (!map.current) return;
+    framed.current = false;
+    map.current.setView([here.lat, here.lng], 15, { animate: false });
+  }, [here.lat, here.lng]);
+
   // Draw the markers for the current filter.
   useEffect(() => {
     const group = layer.current;
     if (!group) return;
     group.clearLayers();
+    // Where the distances are measured from, when that is the phone rather than a campus.
+    if (!school && spot)
+      L.circleMarker([spot.lat, spot.lng], {
+        radius: 7,
+        color: "#ffffff",
+        weight: 3,
+        fillColor: COLOR.public,
+        fillOpacity: 1,
+        interactive: false,
+      }).addTo(group);
     for (const p of shown) {
       const er = !!p.emergency;
       L.circleMarker([p.lat, p.lng], {
@@ -128,7 +162,7 @@ export default function PlaceMap({ preview = false }: { preview?: boolean }) {
       // runs against a map that is gone.
       map.current?.fitBounds(L.latLngBounds(shown.slice(0, 12).map((p) => [p.lat, p.lng])), { padding: [24, 24], maxZoom: 16, animate: false });
     }
-  }, [shown]);
+  }, [shown, school, spot]);
 
   const select = (p: Place) => {
     setSelected(p);
@@ -138,6 +172,14 @@ export default function PlaceMap({ preview = false }: { preview?: boolean }) {
 
   return (
     <div className="place-map-wrap">
+      {!preview && !school && !spot && (
+        <div className="map-here">
+          <button type="button" className="button" onClick={askHere} disabled={state === "asking"}>
+            <LocateFixed size={18} aria-hidden /> {state === "asking" ? t("common.loading") : t("places.useLocation")}
+          </button>
+          {state === "off" && <p className="muted small">{t("places.locationOff")}</p>}
+        </div>
+      )}
       {!preview && (
         <>
           <div className="map-cats" role="group" aria-label={t("places.mapTitle")}>
@@ -173,7 +215,7 @@ export default function PlaceMap({ preview = false }: { preview?: boolean }) {
             {selected.nameEn && <span>{selected.nameEn}</span>}
             <span className="place-kind">
               {selected.emergency ? t("places.kind.er") + " · " : ""}
-              {t(filterKey(selected.kind))} · {t("places.fromSchool", { km: km(here, selected).toFixed(1) })}
+              {t(filterKey(selected.kind))} · {far(km(here, selected))}
             </span>
             <Langs id={selected.id} all />
           </div>
@@ -202,7 +244,7 @@ export default function PlaceMap({ preview = false }: { preview?: boolean }) {
                 </span>
                 <span className="item-sub">
                   {p.emergency ? t("places.kind.er") + " · " : ""}
-                  {t(filterKey(p.kind))} · {t("places.fromSchool", { km: p.distance.toFixed(1) })}
+                  {t(filterKey(p.kind))} · {far(p.distance)}
                 </span>
               </span>
               <Langs id={p.id} />

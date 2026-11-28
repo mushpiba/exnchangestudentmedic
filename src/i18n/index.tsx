@@ -2,7 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState, t
 import koOwn from "./messages/ko-KR.json";
 import koSimtomi from "./simtomi/ko-KR.json";
 import { isRtl, koreanName, nativeName, rememberLocale, type Locale } from "./locales";
-import { SCHOOL, schoolById } from "../content/school";
+import { schoolById } from "../content/school";
 import { useSchool } from "../state/prefs";
 
 export type MessageKey = keyof typeof koOwn | keyof typeof koSimtomi;
@@ -65,8 +65,10 @@ export function I18nProvider({
 }) {
   const [state, setState] = useState({ locale: initial, dict: messages });
   const rtl = isRtl(state.locale);
-  // A student with no school still reads about the campus the clinic list was collected around.
-  const school = (schoolById(useSchool()) ?? SCHOOL).name;
+  // Whoever picked no school -- a resident, or a student whose school is not in the list -- is not at a
+  // campus, so every sentence that would name one says where they are standing instead.
+  const chosen = schoolById(useSchool());
+  const school: MessageKey = chosen ? chosen.name : "places.here";
 
   useEffect(() => {
     document.documentElement.lang = state.locale;

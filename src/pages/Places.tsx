@@ -6,6 +6,7 @@ import { href } from "../app/router";
 import { deptKey } from "../content/symptoms";
 import { LINKS, OFFICIAL, QUICK_DEPTS, mapSearch, type Facility } from "../content/facilities";
 import { SCHOOL } from "../content/school";
+import { useHere } from "../state/here";
 import { useSchoolInfo } from "../state/prefs";
 import { openNaverSearch } from "../lib/naver";
 import { Chip, Out, PageHead, Section } from "../components/ui";
@@ -46,7 +47,9 @@ function FacilityRow({ f }: { f: Facility }) {
 
 export function Places() {
   const { t, tk } = useI18n();
-  const campus = useSchoolInfo() ?? SCHOOL;
+  const school = useSchoolInfo();
+  const { spot } = useHere();
+  const at = school?.location ?? spot ?? SCHOOL.location;
   const [dept, setDept] = useState("JIM");
   return (
     <section className="places">
@@ -67,11 +70,13 @@ export function Places() {
           ))}
         </div>
         {/* Naver's own search is what finds the rest; all this screen can do is aim it. The app scheme
-            takes no coordinates, so the school's name goes in the words; the web map is framed on campus. */}
+            takes no coordinates, so the school's name goes in the words; the web map is framed on campus.
+            With no school there is no name to put in the words, and Naver's own app searches around the
+            phone by itself -- which is where we wanted to look anyway. */}
         <button
           type="button"
           className="button primary wide"
-          onClick={() => openNaverSearch(tk(campus.name) + " " + tk(deptKey(dept)), campus.location)}
+          onClick={() => openNaverSearch(school ? tk(school.name) + " " + tk(deptKey(dept)) : tk(deptKey(dept)), at)}
         >
           <MapPin size={18} aria-hidden /> {t("places.mapSearch", { dept: t(deptKey(dept)) })}
         </button>

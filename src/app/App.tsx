@@ -194,7 +194,7 @@ export function App() {
   if (route[0] === "q")
     return (
       <main ref={main} tabIndex={-1} className="welcome-main">
-        <Sheet code={route[1]} />
+        <Sheet code={route[1]} own={route[2]} />
       </main>
     );
 

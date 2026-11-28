@@ -729,6 +729,9 @@ dialog.phrase[open] { animation: fade 0.2s var(--ease); }
 .map-cats::-webkit-scrollbar { display: none; }
 .map-cats button { flex: none; white-space: nowrap; gap: 8px; padding: 8px 14px; border-radius: 999px; }
 .map-cats button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+/* 학교를 고르지 않은 사람에게 기준점을 묻는 자리. 허락하면 사라진다. */
+.map-here { display: grid; justify-items: start; gap: 6px; margin-bottom: 12px; }
+.map-here .button { display: inline-flex; align-items: center; gap: 8px; }
 .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; border: 1px solid var(--hair-2); flex: none; }
 .dot.big { width: 14px; height: 14px; }
 .place-map { height: 320px; border-radius: 16px; overflow: hidden; border: 1px solid var(--hair-2); background: var(--raised); z-index: 0; }
@@ -949,15 +952,43 @@ dialog.phrase[open] { animation: fade 0.2s var(--ease); }
 .clinic-list li, .clinic-steps li { line-height: 24px; color: var(--ink-2); }
 .clinic-list li strong, .clinic-steps li strong { color: var(--ink); }
 
+/* 묶음은 접힌 채로 시작한다. 의원에 없는 묶음은 열지 않아도 되게. */
+.clinic-fold { margin: 0 0 10px; border: 1px solid var(--hair); border-radius: 14px; background: var(--surface); }
+.clinic-fold > summary {
+  display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 14px;
+  cursor: pointer; font-weight: 600; list-style: none;
+}
+.clinic-fold > summary::-webkit-details-marker { display: none; }
+.fold-title { flex: 1; }
+.fold-count { flex: none; font-size: 13px; font-weight: 500; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.fold-count.full { color: var(--brand-ink); }
+.fold-chev { flex: none; color: var(--ink-3); transition: transform 0.15s ease; }
+.clinic-fold[open] > summary .fold-chev { transform: rotate(180deg); }
+.clinic-fold > :not(summary) { margin-inline: 14px; }
+.clinic-fold > :last-child { margin-bottom: 14px; }
+.fold-note { margin-top: 0; }
+.clinic-progress { margin: 0 0 16px; color: var(--ink-2); }
+.clinic-progress strong { color: var(--ink); font-variant-numeric: tabular-nums; }
+
 .clinic-picks { display: grid; gap: 6px; }
 .clinic-pick {
-  display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border-radius: 12px;
+  display: flex; align-items: flex-start; gap: 10px; margin: 0; padding: 10px 12px; border-radius: 12px;
   border: 1px solid var(--hair); background: var(--surface); cursor: pointer; line-height: 24px;
 }
 .clinic-pick.on { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
 .clinic-pick input { margin-top: 4px; width: 18px; height: 18px; accent-color: var(--brand); flex: none; }
-.clinic-pick-text { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
-.clinic-pick-text .badge { font-size: 12px; font-style: normal; }
+.clinic-pick-text { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; font-weight: 400; }
+.clinic-pick-text .pick-label { flex: 0 1 auto; }
+.clinic-pick-text small { flex: 1 0 100%; color: var(--ink-3); line-height: 20px; }
+.clinic-pick-text .badge { margin-inline-start: 6px; font-size: 12px; font-style: normal; vertical-align: 2px; }
+
+/* 의원이 직접 적는 줄: 글 한 칸과, 질문인지 안내인지 고르는 단추. */
+.clinic-owns { display: grid; gap: 10px; }
+.clinic-own { display: flex; flex-wrap: wrap; gap: 8px; }
+.clinic-own input { flex: 1 1 220px; width: auto; }
+.seg2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; flex: 0 0 140px; padding: 4px; border-radius: 12px; background: var(--raised); }
+.seg2 button { min-height: 40px; padding: 0; border: 0; border-radius: 9px; background: transparent; color: var(--ink-2); font-weight: 500; }
+.seg2 button[aria-pressed="true"] { background: var(--surface); color: var(--ink); font-weight: 600; box-shadow: 0 1px 2px rgba(22, 27, 26, 0.12); }
 
 .clinic-out { border-top: 1px solid var(--hair); padding-top: 20px; }
 .clinic-qr {
@@ -973,12 +1004,19 @@ dialog.phrase[open] { animation: fade 0.2s var(--ease); }
 
 .sheetpage { max-width: 520px; margin: 0 auto; padding: 12px var(--gutter) 32px; }
 .sheet-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 16px; }
+.sheet-tools { display: flex; align-items: center; gap: 8px; }
+.en-toggle { padding: 0 12px; font-family: var(--f-latin); }
+.en-toggle[aria-pressed="true"] { background: var(--mark); border-color: var(--ink); }
 .sheet-langs { margin-bottom: 16px; }
 .sheet-lines { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
 .sheet-lines > li { padding: 14px 16px; border-radius: 16px; background: var(--surface); border: 1px solid var(--hair-2); }
 .sheet-lines > li.tell { background: var(--raised); border-color: transparent; }
 .sheet-mine { margin: 0 0 4px; font-size: 18px; line-height: 28px; font-weight: 500; }
+/* 자기 언어 아래로 영어, 그 아래로 한국어 원문. 번역을 못 믿겠을 때 대 볼 글이 둘이다. */
+.sheet-en { margin: 0 0 4px; font-family: var(--f-latin); font-size: 15px; line-height: 23px; color: var(--ink-2); }
 .sheet-ko { margin: 0; font-family: var(--f-ko); font-size: 14px; line-height: 22px; color: var(--ink-3); }
+.sheet-translate { margin: 10px 0 0; }
+.sheet-translate button, .sheet-translate .button { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; }
 .sheet-buttons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
 .sheet-buttons button { min-height: 48px; font-weight: 500; }
 .sheet-buttons button[aria-pressed="true"] { background: var(--mark); border-color: var(--ink); }
@@ -996,7 +1034,7 @@ dialog.phrase[open] { animation: fade 0.2s var(--ease); }
 .sheet-a.none, .sheet-a.unknown { color: var(--ink-3); font-weight: 400; }
 
 @media print {
-  .topbar, .page-back, .foot, .clinic-picks, .clinic h1 + .muted, .row { display: none !important; }
+  .topbar, .page-back, .foot, .clinic-fold, .clinic-progress, .clinic h1 + .muted, .row { display: none !important; }
   .clinic-out { border: 0; padding: 0; }
   .clinic-qr { width: 320px; height: 320px; }
 }

@@ -356,7 +356,8 @@ export function Campus({ focus }: { focus?: string }) {
             <GraduationCap size={18} aria-hidden /> {t("insurance.school")}
           </h3>
           <p>{t("insurance.schoolBody")}</p>
-          <Out href={LINKS.inha}>{t("insurance.inha")}</Out>
+          {/* One school's own office. Someone who picked no school has no such page to be sent to. */}
+          {school && <Out href={LINKS.inha}>{t("insurance.inha")}</Out>}
         </article>
         <article className="info-card">
           <h3>

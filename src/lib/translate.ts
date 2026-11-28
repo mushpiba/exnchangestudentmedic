@@ -1,6 +1,9 @@
-// Translate the student's own words into Korean for staff, on the device only.
-// Uses the browser's built-in Translator (Chrome/Edge desktop today); where it is missing, callers show the original.
-// Nothing is sent to a server: these are health notes.
+// Two directions, two rules.
+// The student's own words are health information, so they stay on the device unless the student taps
+// "Translate into Korean" after reading the notice. The desk's own questions are not -- they are printed
+// on a sheet in a waiting room -- so those are translated as the patient's screen opens.
+// "On the device" means the browser's built-in Translator (Chrome/Edge desktop today); where it is
+// missing, callers show the original.
 import { useEffect, useState } from "react";
 
 type Translator = { translate(text: string): Promise<string> };
@@ -18,20 +21,22 @@ export function sourceLanguage(locale: string) {
 const translators = new Map<string, Promise<Translator | null>>();
 const results = new Map<string, Promise<string | null>>();
 
-function translator(from: string): Promise<Translator | null> {
+/** `ready` asks for a model the device already holds: nobody waits for a download in a waiting room. */
+function translator(from: string, to: string, ready = false): Promise<Translator | null> {
+  const pair = from + "\u0000" + to + (ready ? "\u0000ready" : "");
   const api = (globalThis as { Translator?: TranslatorApi }).Translator;
   if (!api) return Promise.resolve(null);
-  if (!translators.has(from)) {
-    const options = { sourceLanguage: from, targetLanguage: "ko" };
+  if (!translators.has(pair)) {
+    const options = { sourceLanguage: from, targetLanguage: to };
     translators.set(
-      from,
+      pair,
       api
         .availability(options)
-        .then((state) => (state === "unavailable" ? null : api.create(options)))
+        .then((state) => ((ready ? state === "available" : state !== "unavailable") ? api.create(options) : null))
         .catch(() => null),
     );
   }
-  return translators.get(from)!;
+  return translators.get(pair)!;
 }
 
 export function translateToKorean(text: string, locale: string): Promise<string | null> {
@@ -41,18 +46,56 @@ export function translateToKorean(text: string, locale: string): Promise<string 
   if (!results.has(key)) {
     results.set(
       key,
-      translator(from).then((t) => (t ? t.translate(text) : null)).catch(() => null),
+      translator(from, "ko").then((t) => (t ? t.translate(text) : null)).catch(() => null),
     );
   }
   return results.get(key)!;
 }
 
-// ─── TEMPORARY translation server ─────────────────────────────────────────────────────────────
-// Used only when the student taps "Translate into Korean" after reading the notice.
-// Default: MyMemory's free API (no key, CORS open, about 5,000 characters a day per IP). It keeps what it
-// translates in its translation memory, so the notice says the text may be stored.
-// To replace it, set VITE_TRANSLATE_URL to our own proxy (POST {text, from, to} → {text}), e.g. a Supabase
-// Edge Function calling Papago or DeepL. The app shows the server name next to the button. See README.
+// ─── The other direction ──────────────────────────────────────────────────────────────────────
+// A desk's own questions are typed in Korean and cannot be translated ahead of time: they live in the
+// printed QR, not in the catalogue. The patient should not have to ask for them in their own language,
+// so the phone fetches them as the screen opens -- from our translation server where one is set up, and
+// otherwise from a model the device already holds. Where neither can, the screen offers a link out.
+// Unlike the student's own words, a desk's question is not anybody's health information: it is printed
+// on a sheet in a waiting room. That is why this direction may leave the phone without being asked.
+
+/** Korean the desk typed, in another language. null when nothing here can translate it. */
+export function translateFromKorean(text: string, locale: string): Promise<string | null> {
+  const to = sourceLanguage(locale);
+  if (to === "ko" || !text.trim()) return Promise.resolve(null);
+  const key = "ko\u0000" + to + "\u0000" + text;
+  if (!results.has(key)) results.set(key, fromKorean(text, to));
+  return results.get(key)!;
+}
+
+async function fromKorean(text: string, to: string): Promise<string | null> {
+  if (import.meta.env.VITE_TRANSLATE_URL) {
+    try {
+      return await askServer(text, "ko", to);
+    } catch {
+      // The server is the better translator, not the only one. Fall through to the device.
+    }
+  }
+  // A browser can take its time to say whether it holds a model -- one never answered in 45 seconds. The
+  // patient is standing at a desk, so a device that does not answer quickly is a device that cannot.
+  const giveUp = new Promise<null>((done) => setTimeout(() => done(null), 2000));
+  const onDevice = translator("ko", to, true).then((t) => (t ? t.translate(text) : null)).catch(() => null);
+  return Promise.race([onDevice, giveUp]);
+}
+
+/** Where the patient goes when their phone cannot translate: Google's own page, opened by their own tap.
+ *  Only the question travels — answers never leave the phone. Google's codes are the server's codes. */
+export const translateUrl = (text: string, locale: string) =>
+  `https://translate.google.com/?sl=ko&tl=${serverLanguage(locale)}&op=translate&text=${encodeURIComponent(text)}`;
+
+// ─── Translation server ───────────────────────────────────────────────────────────────────────
+// Our own proxy, set by VITE_TRANSLATE_URL: POST {text, from, to} → {text}. Nothing but the text goes in
+// it, and the key stays on the server. See README for what to put behind it.
+// Without it the student's words fall back to MyMemory's free API (no key, CORS open). Checked on
+// 2026-11-28: that endpoint now answers only out of its translation memory -- a stored phrase comes back,
+// anything else returns translatedText: null with status 200 -- so a real sentence does not translate.
+// It is kept only as the no-key default; the app shows which server it is using next to the button.
 export const TRANSLATION_SERVER = {
   name: (import.meta.env.VITE_TRANSLATE_URL ? "NARU" : "MyMemory") as string,
   temporary: !import.meta.env.VITE_TRANSLATE_URL,
@@ -64,15 +107,26 @@ function serverLanguage(locale: string) {
   return locale.split("-")[0];
 }
 
+/** Our own proxy. Throws when it is not set up, or does not answer with text. */
+async function askServer(text: string, from: string, to: string): Promise<string> {
+  const url = import.meta.env.VITE_TRANSLATE_URL as string | undefined;
+  if (!url) throw new Error("translate: no server");
+  const res = await fetch(url, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ text, from, to }),
+    signal: AbortSignal.timeout(8000),
+  });
+  if (!res.ok) throw new Error("translate " + res.status);
+  const body = (await res.json()) as { text?: string };
+  if (!body.text?.trim()) throw new Error("translate: empty");
+  return body.text;
+}
+
 /** Translate the student's words to Korean through the translation server. Throws when it can't. */
 export async function translateOnServer(text: string, locale: string): Promise<string> {
   const from = serverLanguage(locale);
-  const own = import.meta.env.VITE_TRANSLATE_URL as string | undefined;
-  if (own) {
-    const res = await fetch(own, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ text, from, to: "ko" }) });
-    if (!res.ok) throw new Error("translate " + res.status);
-    return ((await res.json()) as { text: string }).text;
-  }
+  if (import.meta.env.VITE_TRANSLATE_URL) return askServer(text, from, "ko");
   // MyMemory takes up to 500 characters per request: send sentence-sized pieces in order.
   const parts: string[] = [];
   for (const sentence of text.match(/[^.!?。！？\n]+[.!?。！？\n]*/g) ?? [text]) {
